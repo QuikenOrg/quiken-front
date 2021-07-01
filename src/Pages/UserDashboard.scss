@@ -1,0 +1,46 @@
+@import '../styles/GeneralStyles.scss';
+
+.main-wrapper-userdashboard {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+
+.account-name {
+    font-family: quikenFont;
+    font-weight: 900;
+    align-self: flex-end;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#blue {
+    background-color: $quikenDarkBlue;
+}
+
+.div-row-wrapper { 
+    margin-top: 10px;
+    width: 320px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn-cancel-guide {
+    background-color: $quikenDarkBlue;
+    color: $quikenWhite;
+    font-weight: 900;
+    border-radius: 10px;
+    height: 25px;
+    width: 90px;
+}
+
+.heading-userdashboards {
+    color: $quikenRed;
+    margin-top: 50px;
+    font-family: $quikenFont;
+    font-size: 25px;
+    font-weight: 900;
+}

@@ -1,0 +1,72 @@
+@import '../../styles/GeneralStyles.scss';
+
+.main-wrapper-map {
+    display: flex;
+    flex-direction: row;
+    padding: 50px 50px 50px 50px;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    @include media('<tablet') {
+        
+    }
+
+    @include media('<large-phone') {
+        width: 100%;
+        padding: 0px;
+    }
+
+    @include media('<phone') {
+        width: 150px;
+        padding: 0px;
+    }
+}
+
+.states-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.img-wrapper {
+    width: 70%;
+}
+
+.heading-map-section {
+    color: $quikenRed;
+    font-size: 40px;
+    font-family: $quikenFont;
+    font-weight: 900;
+    // width: 300%;
+}
+
+.state-name {
+    color: $quikenDarkBlue;
+    font-size: 15px;
+    font-family: $quikenFont;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.map-image {
+    width: 800px;
+    @include media('<tablet') {
+        width: 500px;
+        position: absolute;
+        top: 120px;
+        left: 150px;     
+    }
+    @include media('<large-phone') {
+        width: 200px;
+        position: absolute;
+        top: 120px;
+        left: 150px;     
+    }
+    @include media('<phone') {
+        width: 100px;
+        position: absolute;
+        top: 120px;
+        left: 150px;     
+    }
+}

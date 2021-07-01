@@ -1,0 +1,93 @@
+@import '../styles/GeneralStyles.scss';
+
+.page-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.signup-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  align-items: center;
+}
+
+.btn-register {
+  width: 200px;
+  align-self: flex-end;
+  font-weight: 400;
+  margin-top: 10px;
+  color: $quikenWhite;
+  background-color: $quikenRed;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.the-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.main-heading-signup {
+  margin: auto;
+  color: $quikenRed;
+  font-size: 30px;
+  font-family: $quikenFont;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-weight: 900;
+  margin-top: 40px;
+}
+
+.forgot-passwordlink {
+  font-family: &quikenFont;
+  font-size: 12px;
+  color: &quikenDarkBlue;
+  text-decoration: none;
+  align-self: center;
+  &:hover{
+    color: $quikenRed;
+    text-decoration: underline;
+  }
+}
+
+.main-subheading-signup {
+  color: $quikenDarkBlue;
+  font-family: $quikenFont;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.form-input {
+  display: block;
+  font-size: 18px;
+  font-family: $quikenFont;
+  color: $quikenDarkBlue;
+  height: 20px;
+  width: 450px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-family: $quikenFont;
+  color: $quikenDarkBlue;
+  display: block;
+  margin-top: 20px;
+  font-weight: 800;
+}
+
+.form-label span {
+  color: $quikenRed;
+} 
+
+.wrapper-sign-in-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

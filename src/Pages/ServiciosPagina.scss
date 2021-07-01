@@ -1,0 +1,536 @@
+@import '../styles/GeneralStyles.scss';
+
+.main-blue-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    background-color: $quikenDarkBlue;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-que-necesitas {
+    border-radius: 5px;
+    height: 50px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: $quikenLightBlue;
+    margin-top: 20px;
+    margin-bottom: -3px;
+
+}
+
+.main-que.necesitas-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+}
+
+.white-subheading {
+    font-family: $quikenFont;
+    color: $quikenWhite;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.servicios-wrapper-main {
+    width: 85%;
+    height: 220px;
+    background-color: $quikenKLightGrey;
+    align-self: center;
+    margin-bottom: -140;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-radius: 20px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+}
+
+.heading-servicios-row-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.heading-icon-placeholder {
+    flex: 1;
+    border: solid 1px lightgray;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.heading-icon-placeholder-esq-izq {
+    border-radius: 20px 0px 0px 0px;
+    flex: 1;
+    border: solid 1px lightgray;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.heading-icon-placeholder-esq-der {
+    border-radius: 0px 20px 0px 0px;
+    flex: 1;
+    border: solid 1px lightgray;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.rastrea-tu-pedido-placeholder {
+    // background-color: green;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.row-div-btn {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+.blue-rastrea-heading {
+    color: $quikenDarkBlue;
+    font-family: $quikenFont;
+    font-weight: 600;
+    font-size: 20px;
+    
+}
+
+.icon-servicios {
+    width: 40px;
+}
+
+.white-background-container {
+    background: $quikenWhite;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row-div {
+    display: flex;
+    height: 100%;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.row-div2 {
+    display: flex;
+    height: 100%;
+    background-color: lightgrey;
+    border-radius: 0px 0px 20px 20px;
+}
+.btn-contactanos {
+    font-family: $quikenFont;
+    color: $quikenLightBlue;
+    background-color: $quikenKLightGrey;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 1px solid $quikenRed;
+    border-radius: 20px;
+}
+
+.servicio-paqueteria-local {
+    width: 80%;
+    max-width: 1020px;
+    height: 500px;
+    background: $quikenLightBlue;
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+}
+
+.paqueteria-local-section1 {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    background: none;
+}
+
+.paqueteria-local-section2 {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    background-image: url('../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Paqueteria_Local_Quiken.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 25px;
+}
+
+.btn-register-white {
+    font-family: $quikenFont;
+    color: $quikenRed;
+    background-color: $quikenWhite;
+    border: none;
+    padding: 7px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 20px;
+    justify-self: flex-end;
+}
+
+.link-registrate-btn {
+    padding: 0px 20px 20px 40px;
+}
+
+.heading-paqueteria-local {
+    color: $quikenWhite;
+    font-family: $quikenFont;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 50px 20px 30px 40px;
+}
+
+.paragraph-paqueteria-local {
+    color: white;
+    font-family: $quikenFont;
+    font-weight: 500;
+    padding: 20px 20px 20px 40px;
+}
+
+.link-registrate-btn {
+    justify-self:self-end;
+}
+
+.imagen-paqueteria-local {
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+.servicio-envios-nacionales {
+    width: 80%;
+    max-width: 1020px;
+    height: 500px;
+    background: $quikenKLightGrey;
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+}
+
+.envios-nacionales-section1 {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    background: none;
+}
+
+.envios-nacionales-section2 {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    background-image: url('../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Quiken_Envios_Nacionales.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 25px;
+}
+
+.heading-envios-nacionales {
+    color: $quikenRed;
+    font-family: $quikenFont;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 50px 20px 30px 40px;
+}
+
+.paragraph-envios-nacionales {
+    color: $quikenDarkBlue;
+    font-family: $quikenFont;
+    font-weight: 500;
+    padding: 20px 20px 20px 40px;
+}
+
+.btn-register-red {
+    font-family: $quikenFont;
+    color: $quikenWhite;
+    background-color: $quikenRed;
+    border: none;
+    padding: 7px 40px;
+    font-size: 16px;
+    font-weight: 800;
+    border-radius: 20px;
+    align-self: center;
+    justify-self: flex-end;
+}
+
+.servicio-envios-internacionales {
+    width: 80%;
+    max-width: 1020px;
+    height: 250px;
+    background: $quikenDarkBlue;
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;    
+}
+
+.envios-internacioanles-section1 {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    background: none;
+}
+
+.envios-internacioanles-section2 {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    background-image: url('../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Quiken_Envios_Internacionales.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border-radius: 25px;
+}
+
+.heading-envios-internacionales {
+    color: $quikenWhite;
+    font-family: $quikenFont;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 40px 20px 10px 40px;
+}
+
+.paragraph-envios-internacionales {
+    color: $quikenWhite;
+    font-family: $quikenFont;
+    font-weight: 500;
+    padding: 10px 20px 20px 40px;    
+}
+
+.servicio-fulfillment {
+    width: 80%;
+    max-width: 1020px;
+    height: 450px;
+    background: $quikenLightBlue;
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+}
+
+.fulfillment-section2 {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    background-image: url('../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Quiken_Servicios.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 25px;
+}
+
+.fulfillment-section1 {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    background: none;
+}
+
+.heading-fulfillment {
+    color: $quikenWhite;
+    font-family: $quikenFont;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 50px 20px 10px 40px;
+}
+
+.subheading-fulfillment {
+    color: $quikenWhite;
+    font-family: $quikenFont;
+    font-weight: 600;
+    padding: 0px 20px 20px 40px;
+}
+
+.paragraph-fulfillment {
+    color: white;
+    font-family: $quikenFont;
+    font-weight: 500;
+    padding: 20px 20px 20px 40px;
+}
+
+.suministros-embalaja-main-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: $quikenKLightGrey;
+    margin-top: 70px;
+    height: 350px;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+}
+
+.suminstros-section1 {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 10px 40px 120px;
+    width: 40%;
+}
+
+.suminstros-section2 {
+    background: url('../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Quiken_Suministros.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: none;
+    width: 50%;
+    ;
+}
+
+.div-wrapper-80 {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+}
+
+.suministros-heading {
+    font-family: $quikenFont;
+    font-weight: 900;
+    font-size: 30px;
+    color: $quikenRed;
+    display: block;   
+}
+
+.subheading-embalaja {
+    font-family: $quikenFont;
+    color: $quikenRed;
+    font-weight: 800;
+    font-size: 18px;
+    padding-top: 40px; 
+}
+
+.paragraph-embalaje {
+    font-family: $quikenFont;
+    color: $quikenDarkBlue;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.todo-para-empaquar-main-div {
+    font-family: $quikenFont;
+    background-color: $quikenDarkBlue;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.todo-para-empacar-section1 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.todo-para-empacar-section2 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.div-wrapper-80 {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.heading-empacar-productos {
+    font-family: $quikenFont;
+    color: $quikenWhite;
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.text-mas-info-suministros {
+    color: $quikenWhite;
+    padding-bottom: 5px;
+    font-family: $quikenWhite;
+    font-family: $quikenFont;
+    font-weight: 500;
+}
+
+.que-ofrecemos-main-div {
+    margin-top: 75px;
+    display: flex;
+    flex-direction: row;
+    background-color: $quikenLightBlue;
+    justify-content: center;
+    width: 80%;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+}
+
+.heading-que-ofrecemos {
+    font-family: $quikenFont;
+    font-weight: 600;
+    color: $quikenWhite;
+    font-size: 28px;
+    padding-bottom: 25px;
+    padding-top: 40px;
+}
+
+.que-ofrecemos-section1 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.paragraph-que-ofrecemos {
+    font-family: $quikenFont;
+    font-weight: 500;
+    color: $quikenWhite;
+    font-size: 15px;
+    padding-bottom: 14px;
+    
+}
+
+.que-ofrecemos-section2 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+
+.imagen-repartidor {
+    
+}
+
+.que-necesitas-servicio-heading {
+    font-family: $quikenFont;
+    color: $quikenRed;
+     font-weight: 500;
+     font-size: 14px;
+}

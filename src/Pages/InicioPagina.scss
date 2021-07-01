@@ -1,0 +1,220 @@
+@import '../styles/GeneralStyles.scss';
+
+.hero-image-wrapper {
+    background-color: $quikenLightBlue;
+    background-image: url('../assets/Inicio/Quiken_Inicio.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    height: 550px;
+    @include media('<tablet') {
+        background-position: center;
+      }
+  
+      @include media('<large-phone') {
+        height: 400px;
+        background-position: -280px 0px
+        
+        
+      }
+  
+      @include media('<phone') {
+        width: 200px;
+        font-size: 30px;
+        
+      }
+}
+
+.main-title-heading {
+    color: $quikenRed;
+    font-size: 60px;
+    font-family: $quikenFont;
+    font-weight: 900;
+    @include media('<tablet') {
+        width: 500px;
+        max-width: 80%;
+        font-size: 50px;
+      }
+  
+      @include media('<large-phone') {
+        width: 300px;
+        font-size: 35px;
+        
+      }
+  
+      @include media('<phone') {
+        width: 200px;
+        font-size: 30px;
+        
+      }
+}
+
+.background-rastrea {
+    background-color: $quikenLightBlue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 25px;
+    width: 100%;
+}
+
+.main-title-subheading {
+    color: $quikenDarkBlue;
+    font-size: 20px;
+    font-family: $quikenFont;
+    font-weight: 600;
+    @include media('<tablet') {
+        width: 500px;
+        max-width: 80%;
+       
+      }
+  
+      @include media('<large-phone') {
+        width: 300px;
+       
+      }
+  
+      @include media('<phone') {
+        width: 200px;
+        
+      }
+    
+}
+
+.hero-text-wrapper {
+    max-width: 580px;
+    padding: 40px 0px 0px 40px;
+}
+
+.row-wrapper-inicio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    @include media('<tablet') {
+        flex-direction: column;
+        margin: auto;
+        align-items: center;
+    }
+}
+
+.section-heading {
+    color: $quikenRed;
+    font-size: 35px;
+    font-family: $quikenFont;
+    font-weight: 900;
+    display: block;
+    padding: 40px;
+    text-align: center;
+}
+
+.servicio-wrapper {
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    position: relative;
+    margin: 20px 20px 20px 20px;
+    @include media('<tablet') {
+        
+    }
+
+    @include media('<large-phone') {
+        width: 250px;
+    }
+
+    @include media('<phone') {
+        width: 250px;
+    }
+
+}
+
+.heading-servicio {
+    color: $quikenDarkBlue;
+    font-size: 22px;
+    font-family: $quikenFont;
+    font-weight: 900;
+    
+}
+
+.paragraph-servicio {
+    color: $quikenDarkBlue;
+    font-family: $quikenFont;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 15px 0px 15px 0px;
+}
+
+.link-servicio {
+    color: $quikenRed;
+    font-family: $quikenFont;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    justify-self: flex-end;
+}
+
+.wrapper-50{
+    padding: 25px 0px 0px 25px;
+    width: 60%;
+    height: 100%;
+}
+
+.imagen-servicio {
+    height: 117%;
+    justify-self: end;
+    position: absolute;
+    top: -27px;
+    left: 60%;
+}
+
+.imagen-servicio1 {
+    height: 117%;
+    justify-self: end;
+    position: absolute;
+    top: -27px;
+    left: 55%;
+}
+
+.heading-contact {
+    color: $quikenRed;
+    font-family: $quikenFont;
+    font-size: 40px;
+    font-weight: 900;    
+}
+
+.subheading-contact-form {
+    color: $quikenDarkBlue;
+    font-family: $quikenFont;
+    font-size: 25px;
+    font-weight: 600;
+    margin: auto
+}
+
+.subheading-contact-form span {
+    color: $quikenRed;
+}
+
+.alignment-div {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    flex-direction: columns;
+    align-items: center;
+}
+
+.wrapper-contact-form-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    @include media('<tablet') {
+        flex-direction: column-reverse;
+    }
+}
+
+.image-contacto {
+    width: 350px;   
+}

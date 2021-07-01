@@ -1,0 +1,48 @@
+@import '../../styles/GeneralStyles.scss';
+
+.main-wrapper-guias {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    width: 100%;
+    position: relative;
+}
+
+.delivery-guy-img {
+    position: absolute;
+    height:  350px;
+    top: -16.5%;
+    left: 5%;
+}
+
+.red-container {
+    background-color: $quikenRed;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.blue-container {
+    background-color: $quikenLightBlue;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.numero-guias {
+    color: white;
+    font-family: $quikenFont;
+    font-size: 45px;
+    font-weight: 900;
+}
+
+.heading-guias {
+    color: white;
+    font-family: $quikenFont;
+    font-size: 30px;
+    padding: 20px 40px;
+    font-weight: 500;
+    text-align: center;
+}

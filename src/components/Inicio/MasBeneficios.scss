@@ -1,0 +1,59 @@
+@import '../../styles/GeneralStyles.scss';
+
+.mas-beneficios-main-wrapper {
+    width: 100%;
+    // max-height: 700px;
+    background: #DDE5ED;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    @include media('<tablet') {
+        flex-direction: column;
+    }
+}
+
+.row-wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 70px 20px 70px;
+    @include media('<tablet') {
+        flex-direction: column;
+    }
+}
+
+.beneficio-column-wrapper {
+    width: 250px;
+    height: 200px;
+}
+
+.heading-main-section {
+    color: $quikenRed;
+    margin: auto;
+    font-size: 40px;
+    font-weight: 900;
+    font-family: $quikenFont;
+}
+
+.heading-beneficio {
+    color: $quikenRed;
+    margin: auto;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: $quikenFont;
+}
+
+.paragraph-beneficio {
+    color: $quikenDarkBlue;
+    font-family: $quikenFont;
+    margin: auto;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.beneficio-img {
+    width: 70px;
+    margin-bottom: 10px;
+}

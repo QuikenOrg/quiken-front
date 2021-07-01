@@ -1,0 +1,57 @@
+@import './_variables';
+@import './breakpoints';
+
+.form-input {
+  border: none;
+  border-bottom: solid 1px;
+  font-family: $quikenFont;
+  font-weight: $quikenFontWeightMedium;
+}
+
+.contact-form-input {
+  width: 500px;
+  padding: 15px;
+  border-radius: 9px;
+  border: 1px solid grey;
+  background-color: $quikenKLightGrey;
+  @include media('<tablet') {
+      width: 600px;
+      max-width: 80%;
+    }
+
+    @include media('<large-phone') {
+      width: 350px;
+      
+    }
+
+    @include media('<phone') {
+      width: 280px;
+      
+    }
+}
+
+.contact-form-input-small {
+  width: 227px;
+  padding: 15px;
+  border-radius: 9px;
+  border: 1px solid grey;
+  background-color: $quikenKLightGrey;
+  @include media('<tablet') {
+    max-width: 100%;
+  }
+
+  @include media('<large-phone') {
+    max-width: 45%;
+    max-width: 80%;
+  }
+
+  @include media('<phone') {
+    max-width: 45%;
+  }
+}
+
+.contact-form-input::placeholder {
+  font-family: $quikenFont;
+  font-size: 14px;
+  font-weight: 500;
+} 

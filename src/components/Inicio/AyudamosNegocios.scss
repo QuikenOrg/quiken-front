@@ -1,0 +1,50 @@
+@import '../../styles/GeneralStyles.scss';
+
+.heading-blue {
+    font-size: 23px;
+    font-weight: 800;
+    color: $quikenDarkBlue;
+    font-family: $quikenFont;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.main-wrapper-negocios {
+    width: 100%;
+    background-color: $quikenKLightGrey;
+    background-image: url("../../assets//Inicio/Quiken_Ecommerce.png");
+    background-repeat: no-repeat;
+    height: 450px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.paragraph-section {
+    color: $quikenWhite;
+    font-family: $quikenFont;
+    font-size: 22px;
+    font-weight: 400;
+    width: 400px;
+    padding-left: 80px;
+}
+
+.paragraph-section span {
+    font-weight: 900;
+}
+
+.row-wrapper-icons {
+    margin-top: 50px;
+    padding: 50px 100px 50px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    @include media('<tablet') {
+        flex-direction: column;
+    }
+}
+
+.image-integraciones{
+    height: 50px;
+}

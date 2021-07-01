@@ -1,0 +1,113 @@
+@import '../../styles/GeneralStyles.scss';
+
+.contact-form-label {
+    display: block;
+}
+
+.main-wrapper-contact-form {
+    padding: 0px 100px 0px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 530px;
+    margin-top: 50px;
+    @include media('<tablet') {
+        padding: 0px;
+        max-width: 1;
+    }
+
+    @include media('<large-phone') {
+        width: 100%;
+        padding: 0px;
+    }
+
+    @include media('<phone') {
+        width: 100%;
+        padding: 0px;
+    }
+}
+
+.row-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.row-div-small-input-placeholder {
+    width: 50%;
+}
+
+.sub-paragraph-form {
+    font-family: $quikenFont;
+    color: $quikenDarkBlue;
+    padding-top: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+.sub-paragraph-form span {
+    color: $quikenRed;
+    align-self: flex-start;
+}
+
+.contact-form-input-message {
+  width: 500px;
+  padding: 15px;
+  border-radius: 9px;
+  border: 1px solid grey;
+  background-color: $quikenKLightGrey;
+  height: 70px;
+  @include media('<tablet') {
+    width: 400px;
+    
+    }
+
+    @include media('<large-phone') {
+        padding: 0px;
+        width: 300px;
+    }
+
+    @include media('<phone') {
+        padding: 0px;
+        width: 250px;
+    }
+}
+
+.btn-contact-form {
+  color: $quikenWhite;
+  background-color: $quikenRed;
+  height: 45px;
+  width: 150px;
+  font: $quikenFont;
+  font-size: 18px;
+  font-weight: 800;
+  border: none;
+  border-radius: 20px;
+  align-self: flex-end;
+  margin-bottom: 70px;
+}
+
+.forgotpassword-screen__subtext {
+    color: $quikenDarkBlue;
+    font-size: 15px;
+    font-family: $quikenFont;
+    font-weight: 900;
+    display: block;
+    text-align: center;
+}
+
+.forgotpassword-screen__title {
+    color: $quikenRed;
+    font-size: 35px;
+    font-family: $quikenFont;
+    font-weight: 900;
+    display: block;
+    padding: 40px;
+    text-align: center;
+}
+
+#btn {
+    margin-top: 20px;
+}

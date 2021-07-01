@@ -1,0 +1,26 @@
+@import './_variables';
+
+.btn-red {
+  font-family: $quikenFont;
+  background-color: $quikenRed;
+  color: $quikenWhite;
+  font-size: $quikenMediumFontSize;
+  font-family: $quikenFont;
+  font-weight: $quikenFontWeightMedium;
+  border-radius: 15px;
+  border: none;
+  padding: 8px 20px 8px 20px;
+}
+
+.btn-white {
+  font-family: $quikenFont;
+  background-color: $quikenWhite;
+  color: $quikenRed;
+  font-size: $quikenMediumFontSize;
+  font-family: $quikenFont;
+  font-weight: $quikenFontWeightMedium;
+  border-radius: 15px;
+  border: none;
+  padding: 5px 15px 5px 15px;
+  font-size: 20px;
+}
