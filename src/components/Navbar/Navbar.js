@@ -14,7 +14,9 @@ const Navbar = () => {
     <>
       <div className="navbar-main">
         <div className="navbar-logo-placeholder">
-          <img src={QuikenLogo} className="quiken-logo" />
+          <Link className="logo-link" to="/">
+            <img src={QuikenLogo} className="quiken-logo" />
+          </Link>
         </div>
         
         {/* //Desktop Menu */}

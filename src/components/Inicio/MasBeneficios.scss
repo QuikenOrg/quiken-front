@@ -21,6 +21,10 @@
     @include media('<tablet') {
         flex-direction: column;
     }
+    @include media('<large-phone') {
+        flex-direction: column;
+        padding: 0px 70px 0px 70px;
+    }
 }
 
 .beneficio-column-wrapper {

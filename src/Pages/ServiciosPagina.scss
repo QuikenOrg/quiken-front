@@ -7,6 +7,9 @@
     background-color: $quikenDarkBlue;
     align-items: center;
     justify-content: center;
+    @include media('<large-phone') {
+        height: 500px;
+    }
 }
 
 .placeholder-que-necesitas {
@@ -50,12 +53,21 @@
     border-radius: 20px;
     border: none;
     box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+    @include media('<large-phone') {
+        height: 100%;
+        border-radius: 20px 20px 20px 20px;
+        
+    }
 }
 
 .heading-servicios-row-container {
     display: flex;
     flex-direction: row;
     width: 100%;
+    @include media('<large-phone') {
+        flex-direction: column;
+
+    }
 }
 
 .heading-icon-placeholder {
@@ -65,6 +77,10 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    @include media('<large-phone') {
+        height: 80px;
+        
+    }
 }
 
 .heading-icon-placeholder-esq-izq {
@@ -75,6 +91,15 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    &:hover {
+        background-color: $quikenRed;
+        
+    }
+    @include media('<large-phone') {
+        height: 70px;
+        border-radius: 20px 20px 0px 0px;
+        
+    }
 }
 
 .heading-icon-placeholder-esq-der {
@@ -85,6 +110,11 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    @include media('<large-phone') {
+        height: 100px;
+        border-radius: 0px 0px 0px 0px;
+        
+    }
 }
 
 .rastrea-tu-pedido-placeholder {
@@ -96,12 +126,17 @@
     align-items: center;
     justify-content: center;
     border-radius: 20px;
+    @include media('<large-phone') {
+        width: 100%;
+        
+    }
 }
 
 .row-div-btn {
     display: flex;
     width: 100%;
     flex-direction: row;
+    align-items: center;
     justify-content: space-evenly;
 
 }
@@ -111,11 +146,19 @@
     font-family: $quikenFont;
     font-weight: 600;
     font-size: 20px;
+    @include media('<large-phone') {
+        margin-bottom: 5px;
+        
+    }
     
 }
 
 .icon-servicios {
     width: 40px;
+}
+
+.youtube-player {
+    width: 100%;
 }
 
 .white-background-container {
@@ -137,6 +180,12 @@
     height: 100%;
     background-color: lightgrey;
     border-radius: 0px 0px 20px 20px;
+    @include media('<large-phone') {
+        width: 100%;
+        flex-direction: column;
+        height: 150px;
+        background: $quikenKLightGrey;
+    }
 }
 .btn-contactanos {
     font-family: $quikenFont;
@@ -147,6 +196,10 @@
     font-weight: 800;
     border: 1px solid $quikenRed;
     border-radius: 20px;
+    @include media('<large-phone') {
+        font-size: 14px;
+        padding: 7px 16px;
+    }
 }
 
 .servicio-paqueteria-local {
@@ -158,6 +211,11 @@
     flex-direction: row;
     border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+    @include media('<large-phone') {
+        flex-direction: column;
+        height: 700px;
+        width: 80%;
+    }
 }
 
 .paqueteria-local-section1 {
@@ -166,6 +224,9 @@
     width: 40%;
     height: 100%;
     background: none;
+    @include media('<large-phone') {
+        width: 100%;
+    }
 }
 
 .paqueteria-local-section2 {
@@ -177,6 +238,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 25px;
+    @include media('<large-phone') {
+        width: 100%;
+    }
 }
 
 .btn-register-white {
@@ -189,6 +253,10 @@
     font-weight: 600;
     border-radius: 20px;
     justify-self: flex-end;
+    @include media('<large-phone') {
+        align-self: center;
+        margin-bottom: 10px;
+    }
 }
 
 .link-registrate-btn {
@@ -223,13 +291,17 @@
 .servicio-envios-nacionales {
     width: 80%;
     max-width: 1020px;
-    height: 500px;
+    height: 720px;
     background: $quikenKLightGrey;
     display: flex;
     flex-direction: row;
     border-radius: 25px;
     margin-top: 40px;
     box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+    @include media('<large-phone') {
+        flex-direction: column;
+        width: 80%;
+    }
 }
 
 .envios-nacionales-section1 {
@@ -238,6 +310,9 @@
     width: 40%;
     height: 100%;
     background: none;
+    @include media('<large-phone') {
+        width: 100%;
+    }
 }
 
 .envios-nacionales-section2 {
@@ -249,6 +324,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 25px;
+    @include media('<large-phone') {
+        width: 100%;
+        background-position: right;
+    }
 }
 
 .heading-envios-nacionales {
@@ -257,6 +336,9 @@
     font-size: 32px;
     font-weight: 800;
     padding: 50px 20px 30px 40px;
+    @include media('<large-phone') {
+        width: 100%;
+    }
 }
 
 .paragraph-envios-nacionales {
@@ -288,7 +370,11 @@
     flex-direction: row;
     border-radius: 25px;
     margin-top: 40px;
-    box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;    
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+    @include media('<large-phone') {
+        flex-direction: column;
+        height: 450px;
+    }    
 }
 
 .envios-internacioanles-section1 {
@@ -297,6 +383,9 @@
     width: 40%;
     height: 100%;
     background: none;
+    @include media('<large-phone') {
+        width: 100%;
+    }
 }
 
 .envios-internacioanles-section2 {
@@ -309,6 +398,11 @@
     background-size: contain;
     background-position: center;
     border-radius: 25px;
+    @include media('<large-phone') {
+        width: 100%;
+        justify-content: center;
+        align-content: center;
+    }  
 }
 
 .heading-envios-internacionales {
@@ -317,6 +411,9 @@
     font-size: 32px;
     font-weight: 800;
     padding: 40px 20px 10px 40px;
+    @include media('<large-phone') {
+        font-size: 28px;
+    }  
 }
 
 .paragraph-envios-internacionales {
@@ -336,6 +433,10 @@
     border-radius: 25px;
     margin-top: 40px;
     box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+    @include media('<large-phone') {
+        flex-direction: column;
+        height: 650px;
+    } 
 }
 
 .fulfillment-section2 {
@@ -347,6 +448,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 25px;
+    width: 100%;
 }
 
 .fulfillment-section1 {
@@ -355,6 +457,9 @@
     width: 40%;
     height: 100%;
     background: none;
+    @include media('<large-phone') {
+        width: 100%;
+    }
 }
 
 .heading-fulfillment {
@@ -387,6 +492,11 @@
     margin-top: 70px;
     height: 350px;
     box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+    @include media('<large-phone') {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }  
 }
 
 .suminstros-section1 {
@@ -394,6 +504,10 @@
     flex-direction: column;
     padding: 40px 10px 40px 120px;
     width: 40%;
+    @include media('<large-phone') {
+        width: 90%;
+        padding: 10px;
+    }   
 }
 
 .suminstros-section2 {
@@ -405,18 +519,24 @@
     ;
 }
 
-.div-wrapper-80 {
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-}
+// .div-wrapper-80 {
+//     width: 80%;
+//     display: flex;
+//     flex-direction: row;
+//     @include media('<large-phone') {
+//      width: 100%;   
+//     }
+// }
 
 .suministros-heading {
     font-family: $quikenFont;
     font-weight: 900;
     font-size: 30px;
     color: $quikenRed;
-    display: block;   
+    display: block;
+    @include media('<large-phone') {
+        width: 100%;
+    }   
 }
 
 .subheading-embalaja {
@@ -443,6 +563,10 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    @include media('<large-phone') {
+        height: 200px;
+        flex-direction: column;
+    }
 }
 
 .todo-para-empacar-section1 {
@@ -450,6 +574,9 @@
     flex-direction: column;
     width: 50%;
     align-items: center;
+    @include media('<large-phone') {
+        width: 100%;
+    }
 }
 
 .todo-para-empacar-section2 {
@@ -457,6 +584,9 @@
     flex-direction: column;
     width: 50%;
     align-items: center;
+    @include media('<large-phone') {
+        width: 100%;
+    }
 }
 
 .div-wrapper-80 {
@@ -465,6 +595,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    @include media('<large-phone') {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
 }
 
 .heading-empacar-productos {
@@ -472,6 +606,11 @@
     color: $quikenWhite;
     font-weight: 800;
     font-size: 28px;
+    @include media('<large-phone') {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
 }
 
 .text-mas-info-suministros {
@@ -491,6 +630,9 @@
     width: 80%;
     border-radius: 20px 20px 20px 20px;
     box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+    @include media('<large-phone') {
+        
+    }
 }
 
 .heading-que-ofrecemos {
@@ -506,6 +648,9 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    @include media('<large-phone') {
+     width: 100%;   
+    }
 }
 
 .paragraph-que-ofrecemos {
@@ -521,6 +666,9 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    @include media('<large-phone') {
+        width: 90%;   
+       }
 }
 
 

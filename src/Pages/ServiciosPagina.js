@@ -26,7 +26,7 @@ const ServiciosPagina = () => {
       <Navbar/>
         <MainWrapper>
         <div className="main-blue-wrapper">
-            <ReactPlayer style={{width: "600px"}} url="https://www.youtube.com/watch?v=r-tEQzU3fwY" controls/>
+            <ReactPlayer width="90%" url="https://www.youtube.com/watch?v=r-tEQzU3fwY" controls/>
         </div>
         
         <div className="main-que.necesitas-wrapper">
