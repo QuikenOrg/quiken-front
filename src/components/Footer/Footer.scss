@@ -5,15 +5,17 @@
     color: $quikenWhite;
     background-color: $quikenDarkGrey;
     display: flex;
+    max-width: 100%;
     @include media('<tablet') {
-        // flex-direction: column;
-        // height: auto;
+        flex-direction: column-reverse;
+        height: auto;
+        
     }
 }
 
 .logo-links-wrapper {
     height: 100%;
-    width: 65%;
+    // width: 65%;
     background: $quikenDarkGrey;
     display: flex;
     flex-direction: column;
@@ -23,11 +25,16 @@
 
 .info-wrapper {
     height: 100%;
-    width: 50%;
+    // width: 50%;
     background: $quikenDarkGrey;
     display: flex;
     flex-direction: column;
     padding: 50px 50px 50px 50px;
+    @include media('<large-phone') {
+        margin: auto;
+        // width: 100%;
+        padding: 50px 50px 10px 50px;
+    }
 }
 
 .logo-quienes-somos-wrapper {
@@ -41,7 +48,10 @@
 
 .img-logo-footer {
     height: 150px;
-    
+    @include media('<large-phone') {
+        height: 100px;
+        padding-bottom: 50px ;
+    }
 }
 
 .quienes-somos {
@@ -51,6 +61,9 @@
     color: $quikenWhite;
     font-weight: 900;
     justify-self: flex-end;
+    @include media('<tablet') {
+        display: none;
+    }
     
 }
 
@@ -59,11 +72,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    @include media('<tablet') {
+        
+    }
 
 }
 
 .icon {
     height: 23px;
+    @include media('<tablet') {
+        padding: 0px 5px 0px 5px;   
+       }
 }
 
 .copy-quiken {
@@ -71,6 +90,9 @@
     font-family: $quikenFont;
     font-size: 13px;
     font-weight: 500;
+    @include media('<tablet') {
+     display: block;   
+    }
 }
 
 .icon-text-row-wrapper {

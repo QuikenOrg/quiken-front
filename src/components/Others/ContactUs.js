@@ -10,7 +10,7 @@ const ContactUs = () => {
     return (
         <>
             <div className="wrapper">
-            <form onSubmit={contactUsHandler}>                
+            <form className='contact-us-form' onSubmit={contactUsHandler}>                
                     <input className="contact-us-input-form" placeholder="Correo electrónico"></input>
                     <button className="btn-red-contact-us" type="submit">Contáctanos</button>
                 </form>

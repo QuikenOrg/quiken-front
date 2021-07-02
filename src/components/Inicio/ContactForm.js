@@ -113,7 +113,7 @@ const ContactForm = () => {
      <>
      <div className="main-wrapper-contact-form">
         {/* //Nombre Completo Field */}
-        <div>
+        <div className="contact-form-field-wrapper">
             <label className="label-form">Nombre Completo<span> *</span></label>
             <input
             className="contact-form-input" 
@@ -123,11 +123,11 @@ const ContactForm = () => {
             placeholder="Juan Gonzalez"
             />
             {Object.keys(fullNameError).map((key) => {
-                return <div>{fullNameError[key]}</div>}
+                return <div className="error-message">{fullNameError[key]}</div>}
             )}
         </div>
         
-        <div className="row-div">
+        <div className="row-div-contact-form">
             {/* //Telefono Field */}
             <div className="row-div-small-input-placeholder">
                 <label className="label-form">Teléfono<span> *</span></label>
@@ -139,41 +139,41 @@ const ContactForm = () => {
                 placeholder="81568180"
                 />
                 {Object.keys(phoneNumberError).map((key) => {
-                    return <div>{phoneNumberError[key]}</div>}
+                    return <div className="error-message">{phoneNumberError[key]}</div>}
                 )}
             </div>
             {/* //Email Field */}
             <div className="row-div-small-input-placeholder">
-            <label className="label-form">Correo<span> *</span></label>
-            <input 
-            className="contact-form-input-small" 
-            value={email}
-            onChange={(event) => setEmail(event.target.value)} 
-            type="text"
-            placeholder="juangonzalez@gmail.com"
-            />
-            {Object.keys(emailError).map((key) => {
-                return <div>{emailError[key]}</div>}
-            )}
-        </div>
+              <label className="label-form">Correo<span> *</span></label>
+              <input 
+              className="contact-form-input-small" 
+              value={email}
+              onChange={(event) => setEmail(event.target.value)} 
+              type="text"
+              placeholder="juangonzalez@gmail.com"
+              />
+              {Object.keys(emailError).map((key) => {
+                  return <div className="error-message">{emailError[key]}</div>}
+              )}
+          </div>
         </div>
         
         {/* //Subject Fields */}
-        <div>
+        <div className="contact-form-field-wrapper">
             <label className="label-form">Tema<span> *</span></label>
             <input 
             className="contact-form-input" 
             value={subject}
             onChange={(event) => setSubject(event.target.value)} 
             type="text"
-            placeholder="información sobre envios locales"
+            placeholder="Información sobre envios locales"
             />
             {Object.keys(subjectError).map((key) => {
-                return <div>{subjectError[key]}</div>}
+                return <div className="error-message">{subjectError[key]}</div>}
             )}
         </div>
         {/* //Subject Mensaje Field        */}
-        <div>
+        <div className="contact-form-field-wrapper">
             <label className="label-form">Mensaje<span> *</span></label>
             <input 
             className="contact-form-input-message" 
@@ -183,7 +183,7 @@ const ContactForm = () => {
             placeholder="Información sobre envios locales"
             />
             {Object.keys(messageError).map((key) => {
-                return <div>{messageError[key]}</div>}
+                return <div className="error-message">{messageError[key]}</div>}
             )}
         </div>
         <p className="sub-paragraph-form">Campos marcados con <span> *</span> son requeridos</p>

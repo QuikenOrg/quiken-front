@@ -110,7 +110,7 @@ const InicioPagina = () => {
           <img className="image-contacto" src={QuikenContacto} ></img>
         </div>
         <Footer/>
-        <FloatingWhatsApp/>
+        {/* <FloatingWhatsApp/> */}
     </>
 
   )

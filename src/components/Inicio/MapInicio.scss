@@ -15,11 +15,14 @@
     @include media('<large-phone') {
         width: 100%;
         padding: 0px;
+        flex-direction: column;
+        position: static;
     }
 
     @include media('<phone') {
         width: 150px;
         padding: 0px;
+        position: static;
     }
 }
 
@@ -27,10 +30,31 @@
     display: flex;
     flex-direction: column;
     width: 30%;
+    @include media('<tablet') {
+             
+    }
+    @include media('<large-phone') {
+        flex-direction: row;
+        justify-content: space-between;
+        width: auto;
+
+    }
+    @include media('<phone') {
+             
+    }
 }
 
 .img-wrapper {
     width: 70%;
+    @include media('<large-phone') {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @include media('<phone') {
+     
+    }
 }
 
 .heading-map-section {
@@ -39,6 +63,19 @@
     font-family: $quikenFont;
     font-weight: 900;
     // width: 300%;
+    @include media('<tablet') {
+        
+    }
+
+    @include media('<large-phone') {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    @include media('<phone') {
+     
+    }
 }
 
 .state-name {
@@ -47,6 +84,35 @@
     font-family: $quikenFont;
     font-weight: 600;
     padding: 5px;
+    @include media('<large-phone') {
+        font-size: 12px;
+    }
+    @include media('<phone') {
+        font-size: 10px;
+    }
+}
+
+.state-name-dallas {
+    color: $quikenRed;
+    font-size: 15px;
+    font-family: $quikenFont;
+    font-weight: 600;
+    padding: 5px;
+    @include media('<large-phone') {
+        font-size: 12px;
+    }
+    @include media('<phone') {
+        font-size: 10px;
+    }
+}
+
+.state-column {
+    @include media('<large-phone') {
+        
+    }
+    @include media('<phone') {
+            
+    } 
 }
 
 .map-image {
@@ -58,15 +124,37 @@
         left: 150px;     
     }
     @include media('<large-phone') {
-        width: 200px;
-        position: absolute;
-        top: 120px;
-        left: 150px;     
+        width: 95%;
+        position: static;
+        top: 0px;
+        left: 0px;
+        align-self: center;     
     }
     @include media('<phone') {
-        width: 100px;
-        position: absolute;
-        top: 120px;
-        left: 150px;     
+        position: static;
     }
+}
+
+.state-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.paloma-quiken {
+    height: 18px;
+}
+
+.text-wrapper {
+    @include media('<large-phone') {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;     
+    }
+
+    @include media('<phone') {
+             
+    }
+
 }

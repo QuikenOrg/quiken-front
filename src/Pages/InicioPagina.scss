@@ -107,6 +107,18 @@
     display: block;
     padding: 40px;
     text-align: center;
+    @include media('<tablet') {
+        
+    }
+
+    @include media('<large-phone') {
+        font-size: 25px;
+        padding: 30px 40px 20px 40px;
+    }
+
+    @include media('<phone') {
+     
+    }
 }
 
 .servicio-wrapper {
@@ -122,7 +134,7 @@
     }
 
     @include media('<large-phone') {
-        width: 250px;
+        width: 320px;
     }
 
     @include media('<phone') {
@@ -136,7 +148,10 @@
     font-size: 22px;
     font-family: $quikenFont;
     font-weight: 900;
-    
+    @include media('<large-phone') {
+    font-size: 16px;
+        
+    }
 }
 
 .paragraph-servicio {
@@ -160,6 +175,10 @@
     padding: 25px 0px 0px 25px;
     width: 60%;
     height: 100%;
+    @include media('<large-phone') {
+        width: 50%;
+        
+    }
 }
 
 .imagen-servicio {
@@ -168,6 +187,10 @@
     position: absolute;
     top: -27px;
     left: 60%;
+    @include media('<large-phone') {
+        left: 50%;
+        
+    }
 }
 
 .imagen-servicio1 {
@@ -176,6 +199,10 @@
     position: absolute;
     top: -27px;
     left: 55%;
+    @include media('<large-phone') {
+        left: 44%;
+        top: -18px;
+    }
 }
 
 .heading-contact {
@@ -190,7 +217,12 @@
     font-family: $quikenFont;
     font-size: 25px;
     font-weight: 600;
-    margin: auto
+    margin: auto;
+    @include media('<large-phone') {
+        text-align: center;
+        
+    }
+    
 }
 
 .subheading-contact-form span {

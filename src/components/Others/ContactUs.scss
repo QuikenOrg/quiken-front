@@ -5,6 +5,14 @@
     justify-content: center;
     display: flex;
     padding: 40px 0px 40px 0px;
+    @include media('<tablet') {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @include media('<large-phone') {
+      max-width: 250px;
+    }
 }
 
 .margin-left {
@@ -14,6 +22,9 @@
 .contact-us-input-form { 
   width: 400px;
   padding: 11px;
+  font-family: $quikenFont;
+  font-weight: 500;
+  font-size: 16px;
   border-radius: 6px;
   border: 1px solid grey;
   background-color: $quikenKLightGrey;
@@ -29,7 +40,14 @@
     font-family: $quikenFont;
     font-size: 16px;
     font-weight: 500;
-    padding-left: 12px;
+    // padding-left: 12px;
+}
+
+.contact-us-form {
+  @include media('<tablet') {
+    flex-direction: column;
+    display: flex;
+  }
 }
 
 .btn-red-contact-us {
@@ -46,4 +64,9 @@
   padding: 8px 20px 8px 20px;
   margin-left: 10px;
   font-weight: 600;
+  @include media('<large-phone') {
+    max-width: 150px;
+    margin-top: 10px;
+    align-self: center;
+  }
 }

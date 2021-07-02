@@ -20,12 +20,14 @@
     }
 
     @include media('<large-phone') {
-      width: 350px;
+      width: 100%;
+      max-width: none;
       
     }
 
     @include media('<phone') {
       width: 280px;
+      max-width: none;
       
     }
 }
@@ -41,12 +43,12 @@
   }
 
   @include media('<large-phone') {
-    max-width: 45%;
-    max-width: 80%;
+    width: 90%;
+    
   }
 
   @include media('<phone') {
-    max-width: 45%;
+    width: 90%;
   }
 }
 
