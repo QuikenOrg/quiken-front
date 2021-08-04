@@ -33,7 +33,7 @@ const FulfillmentPagina = () => {
       <div className="info-placeholder">
         <div className="text-placeholder">
           <h3 className="sub-heading">Almacenamiento con más de 10,000 mts de</h3>
-          <h3 className="sub-heading">Almacenamiento en Mexico y Estados Unidos</h3>
+          <h3 className="sub-heading">Almacenamiento en México y Estados Unidos</h3>
         </div>
         <div className="btn-mail-wrapper">
           <p className="sub-heading2">Para más información contactanos:</p>
@@ -46,7 +46,7 @@ const FulfillmentPagina = () => {
           <h3 className="fulfilment-heading">¿Qué es fulfillment?</h3>
           <p className="paragraph-1-fulfillment">Envíanos tu mercancía y nosotros
           nos encargamos de la operación</p>
-          <p className="paragraph-2-fulfillment" >Procesamos tus ordenes de tus ventas en linea</p>
+          <p className="paragraph-2-fulfillment" >Procesamos tus órdenes de tus ventas en linea</p>
           <p className="paragraph-3-fulfillment" >Nuestros almacenes en México y Estados Unidos se encargan de procesar las ordenes de ventas que reciba la empresa</p>
         </div>
         <div className="image-palceholder-fulfillment" >
@@ -74,7 +74,7 @@ const FulfillmentPagina = () => {
               <p className="paragraph-service">- Almacenamos por metro
               cúbico o pallet y manejamos
               tu inventario.</p>
-              <p className="paragraph-service" >- Recespcion e inspeccion de
+              <p className="paragraph-service" >- Recepción e inspeccion de
               mercancia.</p>
               <p className="paragraph-service" >- Actualizamos inventario.</p>
             </div>

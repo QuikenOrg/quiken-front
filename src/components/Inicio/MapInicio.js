@@ -70,6 +70,11 @@ const MapInicio = () => {
 
                         <div className="state-row">
                         <img className="paloma-quiken" src={PalomaQuiken}/>
+                            <p className="state-name">Guadalajara</p>
+                        </div>
+
+                        <div className="state-row">
+                        <img className="paloma-quiken" src={PalomaQuiken}/>
                             <p className="state-name-dallas">Dallas, Texas</p>
                         </div>
                     </div>

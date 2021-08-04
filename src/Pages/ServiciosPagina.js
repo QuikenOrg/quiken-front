@@ -75,7 +75,7 @@ const ServiciosPagina = () => {
                       <button className="btn-register-red">REGISTRO</button>
                     </Link>
                     <Link className="navbar-link" to="/contacto">
-                      <button className="btn-contactanos">CONTACTANOS</button>
+                      <button className="btn-contactanos">CONTÁCTANOS</button>
                     </Link>
                   </div>
                   
@@ -116,7 +116,7 @@ const ServiciosPagina = () => {
                     servicio.</p>
                     
                     <p className="paragraph-envios-nacionales">Nuestra cobretura: Nuevo León, Coahuila,
-                    Durango, Tamaulipas, San Luis Potosi,
+                    Durango, Tamaulipas, San Luis Potosí,
                     Veracruz, Ciudad de México, Queretaro,
                     Guanajuato y Chihuahua.</p>
                     <Link to="/signup" className="link-registrate-btn">
@@ -196,7 +196,7 @@ const ServiciosPagina = () => {
                     empacar tus productos!</h2>
                   </div>
                   <div className="todo-para-empacar-section2">
-                    <h2 className="text-mas-info-suministros">Para más información contactanos:</h2>
+                    <h2 className="text-mas-info-suministros">Para más información, contáctanos:</h2>
                     <a href="mailto:suministros@quiken.ms">
                       <button className="btn-register-white">suministros@quiken</button>
                     </a>

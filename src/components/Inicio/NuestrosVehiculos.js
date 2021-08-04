@@ -11,7 +11,7 @@ const NuestrosVehiculos = () => {
     return (
         <div className="main-wrapper-section">
             <div className="main-wrapper-row"> 
-                <h3 className="heading-red">Nuestros<br/>Vehiculos</h3>
+                <h3 className="heading-red">Nuestros<br/>Vehículos</h3>
                 
                 <Link>
                     <button className="btn-enviar-ahora">¡Enviar ahora!</button>
