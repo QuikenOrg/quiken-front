@@ -5,27 +5,27 @@
     color: $quikenWhite;
     background-color: $quikenDarkGrey;
     display: flex;
-    max-width: 100%;
+    width: 100%;
     @include media('<tablet') {
         flex-direction: column-reverse;
         height: auto;
-        
     }
 }
 
 .logo-links-wrapper {
     height: 100%;
-    // width: 65%;
+    width: 65%;
     background: $quikenDarkGrey;
     display: flex;
     flex-direction: column;
     padding: 50px 50px 50px 50px;
     justify-content: space-between;
+    // width: 100%;
 }
 
 .info-wrapper {
     height: 100%;
-    // width: 50%;
+    width: 50%;
     background: $quikenDarkGrey;
     display: flex;
     flex-direction: column;
@@ -34,6 +34,7 @@
         margin: auto;
         // width: 100%;
         padding: 50px 50px 10px 50px;
+        // width: 100%;
     }
 }
 
@@ -43,6 +44,7 @@
     justify-content: space-evenly;
     @include media('<tablet') {
         // display: none;
+        
     }
 }
 

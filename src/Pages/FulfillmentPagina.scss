@@ -73,12 +73,12 @@
 .section-fulfillment {
   display: flex;
   flex-direction: row;
-  justify-self: center;
+  justify-content: center;
   height: 380px;
   background: $quikenKLightGrey;
   padding: 25px 20px 10px 50px;
   margin-bottom: 50px;
-  background-color: hotpink;
+  // background-color: hotpink;
 }
 
 .text-wrapper-integra {
@@ -357,8 +357,4 @@
 .imagen-abriendo-paquete {
   width: 600px;
   padding-bottom: 50px;
-}
-
-.image-palceholder-fulfillment {
-  background-color: green;
 }

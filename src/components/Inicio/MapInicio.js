@@ -38,7 +38,7 @@ const MapInicio = () => {
                     <div className="state-column">
                         <div className="state-row">
                         <img className="paloma-quiken" src={PalomaQuiken}/>
-                            <p className="state-name">San Luis Potosi</p>
+                            <p className="state-name">San Luis Potosí</p>
                         </div>
                         <div className="state-row">
                         <img className="paloma-quiken" src={PalomaQuiken}/>

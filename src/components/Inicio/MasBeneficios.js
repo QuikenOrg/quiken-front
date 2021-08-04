@@ -23,13 +23,13 @@ const MasBeneficios = () => {
                 <div className="beneficio-column-wrapper">
                     <img className="beneficio-img" src={Empaquetado}></img>
                     <h3 className="heading-beneficio">Preparación y empaquetado</h3>
-                    <p className="paragraph-beneficio">Procesamos las órdenes que sean necesarias y empacamos cualquier producto, no importa el tamaño y lo delicado</p>
+                    <p className="paragraph-beneficio">Procesamos las órdenes que sean necesarias y empacamos cualquier producto, no importa el tamaño y lo delicado.</p>
                 </div>
 
                 <div className="beneficio-column-wrapper">
                     <img className="beneficio-img" src={Devoluciones}></img>
                     <h3 className="heading-beneficio">Procesos de pedidos y devoluciones</h3>
-                    <p className="paragraph-beneficio">Procesamos miles de pedidos diarios sin importar la cantidad y nos hacemos cargo de las devoluciones</p>
+                    <p className="paragraph-beneficio">Procesamos miles de pedidos diarios sin importar la cantidad y nos hacemos cargo de las devoluciones.</p>
                 </div>
             </div>
 
@@ -37,7 +37,7 @@ const MasBeneficios = () => {
                 <div className="beneficio-column-wrapper">
                     <img className="beneficio-img" src={Precision} ></img>
                     <h3 className="heading-beneficio">99.95% de precisión</h3>
-                    <p className="paragraph-beneficio">Con nuestros sistemas y procesos disminuimos le margen de error al maximo</p>
+                    <p className="paragraph-beneficio">Con nuestros sistemas y procesos disminuimos le margen de error al maximo.</p>
                 </div>
 
                 <div className="beneficio-column-wrapper">
@@ -49,7 +49,7 @@ const MasBeneficios = () => {
                 <div className="beneficio-column-wrapper">
                     <img className="beneficio-img" src={Tarifas} ></img>
                     <h3 className="heading-beneficio">Mejores tarifas de envío</h3>
-                    <p className="paragraph-beneficio">Contamos con las mejores tarifas de envios en el mercado.</p>
+                    <p className="paragraph-beneficio">Contamos con las mejores tarifas de envíos en el mercado.</p>
                 </div>
             </div>
         

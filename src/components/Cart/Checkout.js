@@ -12,7 +12,8 @@ const stripePromise = loadStripe("pk_test_51J5EPQFOiWwOoK1YSaHbByG1mDZJJtKtGiutq
 
 console.log(stripePromise)
 
-const CheckoutForm = () => {
+const CheckoutForm = ( {guideCost, createGuide} ) => {
+  console.log(guideCost)
   const stripe = useStripe();
   const elements = useElements();
 
@@ -38,13 +39,14 @@ const CheckoutForm = () => {
           "/api/checkout/payment",
           {
             id,
-            amount: 10000, //cents
+            amount: guideCost * 100, //cents
           }
 
         );
+        
         console.log(data);
-
         elements.getElement(CardElement).clear();
+        createGuide()
       } catch (error) {
         console.log(error);
       }
@@ -55,41 +57,42 @@ const CheckoutForm = () => {
   console.log(!stripe || loading);
 
   return (
-    <form className="card card-body" onSubmit={handleSubmit}>
+    <form className="card card-body form-stripe" onSubmit={handleSubmit}>
       {/* Product Information */}
-      <img
+      {/* <img
         src="https://www.corsair.com/medias/sys_master/images/images/h80/hdd/9029904465950/-CH-9109011-ES-Gallery-K70-RGB-MK2-01.png"
         alt="Corsair Gaming Keyboard RGB"
         className="img-fluid"
-      />
+      /> */}
 
-      <h3 className="text-center my-2">Price: 100$</h3>
+      {/* <h3 className="text-center my-2">Price: 100$</h3> */}
 
       {/* User Card Input */}
       <div className="form-group">
-        <CardElement />
+        <CardElement className="cardelement" options={CARD_OPTIONS}/>
       </div>
-
-      <button disabled={!stripe} className="btn btn-success">
+      
+      <button disabled={!stripe} id="blue" className="btn btn-success btn-stripe-buy btn-create-guide-form">
         {loading ? (
           <div className="spinner-border text-light" role="status">
             <span className="sr-only">Loading...</span>
           </div>
         ) : (
-          "Buy"
+          "Pagar"
         )}
       </button>
     </form>
   );
 };
 
-const Checkout =() => {
+const CheckoutStripe =({ guideCost, createGuide }) => {
+  
   return (
     <Elements stripe={stripePromise}>
       <div className="container p-4">
         <div className="row h-100">
           <div className="col-md-4 offset-md-4 h-100">
-            <CheckoutForm />
+            <CheckoutForm guideCost={guideCost} createGuide={createGuide}/>
           </div>
         </div>
       </div>
@@ -97,4 +100,30 @@ const Checkout =() => {
   );
 }
 
-export default Checkout;
+export default CheckoutStripe;
+
+
+const CARD_OPTIONS = {
+  iconStyle: "solid",
+  
+  style: {
+    base: {
+      iconColor: "#2B91AE",
+      color: "#245188",
+      fontWeight: 600,
+      fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+      fontSize: "24px",
+      fontSmoothing: "antialiased",
+      ":-webkit-autofill": {
+        color: "#fce883"
+      },
+      "::placeholder": {
+        color: "#EE1F42"
+      }
+    },
+    invalid: {
+      iconColor: "#ffc7ee",
+      color: "#ffc7ee"
+    }
+  }
+};

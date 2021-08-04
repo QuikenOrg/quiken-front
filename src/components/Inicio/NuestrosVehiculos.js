@@ -28,12 +28,12 @@ const NuestrosVehiculos = () => {
                         <h3 className="heading-vehicle">Automóvil</h3>
                     </div>
                     <div className="icon-column">
-                        <img className="svg-image" src={Camion} />
-                        <h3 className="heading-vehicle-camioneta" >Comioneta <br/> (500kg)</h3>
+                        <img className="svg-image" src={Camioneta} />
+                        <h3 className="heading-vehicle-camioneta" >Camioneta <br/> (500kg)</h3>
                     </div>
 
                     <div className="icon-column">
-                        <img className="svg-image" src={Camioneta} />
+                        <img className="svg-image" src={Camion} />
                         <h3 className="heading-vehicle-camion">Camión <br/> (3.5 Toneladas)</h3>
                     </div>
                 

@@ -21,17 +21,17 @@ const Navbar = () => {
         
         {/* //Desktop Menu */}
         <div className="navbar-links-wrapper">
-          <Link className="navbar-link"to="/">INICIO</Link>
+          <Link className="navbar-link" to="/">INICIO</Link>
           <Link className="navbar-link" to="/servicios">SERVICIOS</Link>
           <Link className="navbar-link" to="/fulfillment">FULFILLMENT</Link>
           <Link className="navbar-link" to="/rastreo">RASTREO</Link>
-          <Link className="navbar-link" to="/contacto">CONTACTO</Link>
+          {/* <Link className="navbar-link" to="/contacto">CONTACTO</Link>
           <Link className="navbar-link" to="/signin">
             SIGN IN
-          </Link>
-          <Link to="/signup">
+          </Link> */}
+          {/* <Link to="/signup">
             <BtnRegistro/>
-          </Link>
+          </Link> */}
         </div>
         {/* Mobile Menu */}
         <Burger open={open} setOpen={setOpen}/>

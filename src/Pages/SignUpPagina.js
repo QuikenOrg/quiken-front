@@ -59,7 +59,7 @@ const SignUpPagina = (props) => {
             <h2 className="main-subheading-signup">Crea tu cuenta, y empieza a crecer tu negocio</h2>
           <form className="the-form"onSubmit={registerHandler}>
             {error && <span className="register-screen-title" >{error}</span>}
-            <label className="form-label">Usuario <span>*</span></label>
+            <label className="form-label">Nombre / Compañia <span>*</span></label>
             <input className="form-input" 
                   required 
                   id="name" 
@@ -97,8 +97,8 @@ const SignUpPagina = (props) => {
             
             <button type="submit" className="btn-register">Registrarme</button>
             <div className="wrapper-sign-in-link">
-              <p>Ya tienes una cuenta?</p>
-              <Link to="/signin">¡Da click aqui!</Link>
+              <p className="ya-tienes-cuenta">Ya tienes una cuenta?</p>
+              <Link className="da-click-aqui" to="/signin">¡Da click aqui!</Link>
             </div>
           </form>
                   

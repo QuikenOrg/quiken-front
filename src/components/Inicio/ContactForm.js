@@ -1,8 +1,33 @@
-import React, { useState } from 'react'
-import './ContactForm.scss'
+import React, { useState } from 'react';
+import './ContactForm.scss';
+import 'emailjs-com';
+import emailjs from 'emailjs-com';
 
 const ContactForm = () => {
     
+
+  // process.env.SENDGRID_API_KEY
+    //Mail SendGrid Integration
+    function sendContactForm(e) {
+      e.preventDefault();
+  
+      emailjs.sendForm('service_e3d4d9r', 'template_d0ah23h', e.target, 'user_gecQCH4IIGePzUzhzJ47E')
+        .then((result) => {
+            console.log(result.text);
+            console.log('all good sr.');
+        }, (error) => {
+            console.log(error.text);
+        });
+        alert('Gracias por contactarnos uno nuestros asesores se pondre en contaco contigo.')
+        e.target.reset()
+        setEmail("")
+        setPhoneNumber("")
+        setSubject("")
+        setMessage("")
+        setFullName("")
+        
+    }
+
     //General Variables
     let isValid = true
 
@@ -106,12 +131,14 @@ const ContactForm = () => {
                 "subject: ", subject, <br/>,
                 "message: ", message, <br/>, 
             )
+            console.log('Trying email');
+            sendContactForm(e)  
         }
     }
 
     return (
      <>
-     <div className="main-wrapper-contact-form">
+     <form className="main-wrapper-contact-form" onSubmit={(event) => handleContactForm(event)}>
         {/* //Nombre Completo Field */}
         <div className="contact-form-field-wrapper">
             <label className="label-form">Nombre Completo<span> *</span></label>
@@ -120,6 +147,7 @@ const ContactForm = () => {
             value={fullName}
             onChange={(event) => setFullName(event.target.value)} 
             type="text"
+            name="name"
             placeholder="Juan Gonzalez"
             />
             {Object.keys(fullNameError).map((key) => {
@@ -136,6 +164,7 @@ const ContactForm = () => {
                 value={phoneNumber}
                 onChange={(event) => setPhoneNumber(event.target.value)} 
                 type="text"
+                name="phone"
                 placeholder="81568180"
                 />
                 {Object.keys(phoneNumberError).map((key) => {
@@ -150,6 +179,7 @@ const ContactForm = () => {
               value={email}
               onChange={(event) => setEmail(event.target.value)} 
               type="text"
+              name="email"
               placeholder="juangonzalez@gmail.com"
               />
               {Object.keys(emailError).map((key) => {
@@ -166,6 +196,7 @@ const ContactForm = () => {
             value={subject}
             onChange={(event) => setSubject(event.target.value)} 
             type="text"
+            name="subject"
             placeholder="Información sobre envios locales"
             />
             {Object.keys(subjectError).map((key) => {
@@ -180,6 +211,7 @@ const ContactForm = () => {
             value={message}
             onChange={(event) => setMessage(event.target.value)} 
             type="text"
+            name="message"
             placeholder="Información sobre envios locales"
             />
             {Object.keys(messageError).map((key) => {
@@ -187,8 +219,8 @@ const ContactForm = () => {
             )}
         </div>
         <p className="sub-paragraph-form">Campos marcados con <span> *</span> son requeridos</p>
-        <button className="btn-contact-form" onClick={(event) => handleContactForm(event)} >Enviar</button>
-    </div>
+        <button className="btn-contact-form" type="submit" >Enviar</button>
+    </form>
      </>
     )
 }

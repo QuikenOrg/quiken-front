@@ -62,13 +62,13 @@ const FulfillmentPagina = () => {
           <button className="registrate-wms-btn" >REGÍSTRATE</button>
         </div>
         <div className="image-palceholder-icons-wms" >
-          <img className="integraciones-img" src={Integraciones}></img>
+          <img className="integraciones-img"alt='integraciones' src={Integraciones}></img>
         </div>
       </div>
       
       <div className="div-main-wrapper-almacena" >
             <div className="div-wrapper-section">
-              <img className="servicio-img" src={DevolucionesImg}></img>
+              <img className="servicio-img" alt='devoluciones' src={DevolucionesImg}></img>
               <div className="img-placeholder-section"></div>
               <h2 className="heading-service" >Almacena</h2>
               <p className="paragraph-service">- Almacenamos por metro
@@ -81,7 +81,7 @@ const FulfillmentPagina = () => {
 
             <div className="div-wrapper-section">
               <div className="img-placeholder-section"></div>
-              <img className="servicio-img" src={PickPackImg}></img>
+              <img className="servicio-img" alt='servicio' src={PickPackImg}></img>
               <h2 className="heading-service" >Pick & Pack</h2>
               <p className="paragraph-service" >- Selección de articulos en
               almacen</p>
@@ -96,7 +96,8 @@ const FulfillmentPagina = () => {
 
             <div className="div-wrapper-section">
               <div className="img-placeholder-section"></div>
-              <img className="servicio-img" src={DevolucionesImg}></img>
+              <img className="servicio-img" alt='devoluciones' 
+              src={DevolucionesImg}></img>
               <h2 className="heading-service" >Procesamiento
               de Devoluciones</h2>
               <p className="paragraph-service" >- Manejamos devoluciones de
@@ -113,25 +114,25 @@ const FulfillmentPagina = () => {
         <div className="wrapper-grafica-proceso">
           <ul className="progressbar">
               <div className="div-proceso-placeholder">
-                <img className="img-grafica-pasos" src={Almacenamos}></img>
+                <img className="img-grafica-pasos" alt='almacenamiento' src={Almacenamos}></img>
                 <h3 className="heading-graph-pasos">Almacenamos</h3>
                 <p className="paragraph-garafica-pasos">tu inventario.</p>
               </div>
               
               <div className="div-proceso-placeholder">
-                <img className="img-grafica-pasos" src={Recibimos}></img>
+                <img className="img-grafica-pasos" alt='recepción' src={Recibimos}></img>
                 <h3 className="heading-graph-pasos">Recibimos las ordenes</h3>
                 <p className="paragraph-garafica-pasos">de compras de tus clientes</p>
               </div>
               
               <div className="div-proceso-placeholder">
-                <img className="img-grafica-pasos" src={Empacamos}></img>
+                <img className="img-grafica-pasos" alt='packing' src={Empacamos}></img>
                 <h3 className="heading-graph-pasos">Empacamos</h3>
                 <p className="paragraph-garafica-pasos">tus productos.</p>
               </div>
               
               <div className="div-proceso-placeholder">
-                <img className="img-grafica-pasos" src={Entregamos}></img>
+                <img className="img-grafica-pasos" alt='delivery' src={Entregamos}></img>
                 <h3 className="heading-graph-pasos">Entregamos</h3>
                 <p className="paragraph-garafica-pasos">los paquetes en el destino final.</p>  
               </div>

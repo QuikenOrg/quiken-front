@@ -10,6 +10,7 @@ import SignUpPagina from './Pages/SignUpPagina'
 import SignInPagina from './Pages/SignInPagina'
 import ForgotPasswordPagina from './Pages/ForgotPasswordPagina'
 import CreateGuidePagina from './Pages/CreateGuidePagina'
+import RecargarSaldoPagina from './Pages/RecargarSaldoPagina'
 
 //Private Route Component
 import PrivateRoute from './components/routing/PrivateRoute'
@@ -33,6 +34,9 @@ function App() {
               <Route exact path="/rastreo">
                 <RastreoPagina />
               </Route>
+              <Route exact path="/rastreo/:guide">
+                <RastreoPagina />
+              </Route>
               <Route exact path="/contacto">
                 <ContactoPagina />
               </Route>
@@ -51,10 +55,16 @@ function App() {
               <Route exact path="/createguide">
                 <CreateGuidePagina/>
               </Route>
+              
               <PrivateRoute exact path="/userdashboard" component={UserDashboard} >
               </PrivateRoute>
+
               <PrivateRoute exact path="/createguide" component={CreateGuidePagina} >
               </PrivateRoute>
+
+              <PrivateRoute exact path="/recargarsaldo" component={RecargarSaldoPagina} >
+              </PrivateRoute>
+
             </Switch>
           </div>
       </Router>

@@ -83,8 +83,8 @@ const LoginPagina= (props) => {
             <button type="submit" className="btn-register">Enviar</button>
           
           <div className="wrapper-sign-in-link">
-            <p>Ya tienes una cuenta?</p>
-            <Link to="/signin">¡Da click aqui!</Link>
+            <p className="ya-tienes-cuenta">Ya tienes una cuenta?</p>
+            <Link className="da-click-aqui" to="/signin">¡Da click aqui!</Link>
           </div>
           </form>
                   

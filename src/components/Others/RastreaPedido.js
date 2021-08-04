@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from "react-router-dom"
 import styled from 'styled-components'
 import './RastreaPedido.scss'
 import IconoRastreo from '../../assets/Inicio/Icono_rastreo-43.svg'
 
 const RastreaPedido = (props) => {
+    
+    const [guideTracked, setGuideTracked] = useState("")
+    
+    const handleInput = (event) => { 
+        setGuideTracked(event.target.value)
+    }
+
     return (
         <div className="main-wrapper-div-tracking">
             <RowDiv>
-                <TrackingNumberInput className="contact-us-input-form" placeholder="Código de rastreo"></TrackingNumberInput>
-                <PlaceHolderLookUp>
-                    <img className="icono-rastreo" src={IconoRastreo}></img>
-                </PlaceHolderLookUp>
+                <TrackingNumberInput className="contact-us-input-form" placeholder="Código de rastreo" onChange={handleInput}></TrackingNumberInput>
+                <Link to={`/rastreo/${guideTracked}`}>
+                    <PlaceHolderLookUp>
+                        <img className="icono-rastreo" src={IconoRastreo}></img>
+                    </PlaceHolderLookUp>
+                </Link>
             </RowDiv>
         </div>
     )

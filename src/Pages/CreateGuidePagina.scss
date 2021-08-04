@@ -12,7 +12,6 @@
   border-radius: 9px;
   border: 1px solid grey;
   background-color: $quikenKLightGrey;
-  margin-top: 15px;
 }
 
 .subheading-form-create-guide {
@@ -20,7 +19,8 @@
     font-family: $quikenFont;
     margin-top: 20px;
     font-weight: 900;
-    font-size: 24px;
+    font-size: 28px;
+    font-family: $quikenFont;
 }
 
 .wrapper-guide-cost {
@@ -55,4 +55,107 @@
     display: flex;
     flex-direction: row;
     width: 300px;
+}
+
+.row-first-two-sections {
+    display: flex;
+    flex-direction: row;
+}
+
+.payment-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-method-subheading {
+   color: $quikenDarkBlue; 
+   text-align: center;
+   display: block;
+   margin-top: 15px;
+   margin-bottom: 10px;
+   font-weight: 600;
+   font-family: $quikenFont;
+}
+
+.payment-method-section-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-method-selector {
+    background-color: $quikenKLightGrey;
+    height: 30px;
+    width: 150px;
+}
+
+.btn-create-guide-form {
+  color: $quikenWhite;
+  background-color: $quikenRed;
+  height: 45px;
+  width: 150px;
+  font: $quikenFont;
+  font-size: 18px;
+  font-weight: 800;
+  border: none;
+  border-radius: 20px;
+  align-self: flex-end;
+  @include media('<large-phone') {
+    // padding: 0px;
+    margin-top: 8px;
+        
+    }
+
+    @include media('<phone') {
+    
+    }
+}
+
+.form-stripe {
+    background-color: $quikenKLightGrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;
+    padding: 20px;
+    border: solid 1px $quikenDarkBlue;
+}
+
+.cardelement {
+    background-color: $quikenWhite;
+    margin-bottom: 10px;
+    &:hover {
+        border: 1px solid $quikenBlack;
+    }
+}
+
+.ingresa-tarjeta-datos-subheading {
+    font-family: $quikenFont;
+    color: $quikenDarkBlue;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.ingresa-tarjeta-descripcion {
+    font-family: $quikenFont;
+    color: $quikenBlack;
+    font-weight: 600;
+    font-size: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.label-create-guide-form {
+    font-family: $quikenFont;
+    color: $quikenDarkBlue;
+    font-weight: 800;
+    margin-top: 5px;
+    font-size: 13px;
+    margin-left: 5px;
+    display: block;
 }

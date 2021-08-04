@@ -19,11 +19,13 @@ import imgServicioThree from '../assets/Inicio/Servicios/Quiken_Fulfillment.png'
 import imgServicioFour from '../assets/Inicio/Servicios/Quiken_Suministros.png'
 import QuikenContacto from '../assets/Inicio/Quiken_Contacto.png'
 import RastreaPedido from '../components/Others/RastreaPedido'
+import WhatsappBtn from '../components/Others/WhatsappBtn';
 
 const InicioPagina = () => {
   return (
     <>
       <Navbar/>
+      
       <div className="hero-image-wrapper">
         <div className="hero-text-wrapper">
           <h1 className='main-title-heading'>ENVIOS</h1>
@@ -46,7 +48,7 @@ const InicioPagina = () => {
                 <div className="link-holder-wrapper">
                   <Link className="link-servicio" to="/paqueterialocal">Conoce más</Link>
                 </div>
-                <img className="imagen-servicio1" src={imgServicioOne} />
+                <img className="imagen-servicio1" alt="imagen-servicio" src={imgServicioOne} />
               </div>
           </div>
 
@@ -57,7 +59,7 @@ const InicioPagina = () => {
                 <div className="link-holder-wrapper">
                   <Link className="link-servicio" to="/paqueterialocal">Conoce más</Link>
                 </div>
-                <img className="imagen-servicio" src={imgServicioTwo} />
+                <img className="imagen-servicio" alt="imagen-servicio"src={imgServicioTwo} />
               </div>  
           </div>
         </div>
@@ -67,11 +69,11 @@ const InicioPagina = () => {
               <div className="wrapper-50">
                 <h2 className="heading-servicio">Fulfillment</h2>
                 <p className="subheading-servicio">(Almacenaje y Pick&Pack)</p>
-                <p className="paragraph-servicio">Almacenamiento con más de 10,000 mts2 de almacenamiento en México y Estados Unidos</p>
+                <p className="paragraph-servicio">Almacenamiento con más de 10,000 mts2 de almacenamiento en México y Estados Unidos.</p>
                 <div className="link-holder-wrapper">
                   <Link className="link-servicio" to="/paqueterialocal">Conoce más</Link>
                 </div>
-                <img className="imagen-servicio" src={imgServicioThree} />
+                <img className="imagen-servicio" alt="imagen-servicio" src={imgServicioThree} />
               </div>
           </div>
 
@@ -82,7 +84,7 @@ const InicioPagina = () => {
                 <div className="link-holder-wrapper">
                   <Link className="link-servicio" to="/paqueterialocal">Conoce más</Link>
                 </div>
-                <img className="imagen-servicio" src={imgServicioFour} />
+                <img className="imagen-servicio" alt="imagen-servicio" src={imgServicioFour} />
               </div>  
           </div>
         </div>
@@ -107,10 +109,11 @@ const InicioPagina = () => {
         
         <div className="wrapper-contact-form-image" >
           <ContactForm/>
-          <img className="image-contacto" src={QuikenContacto} ></img>
+          <img className="image-contacto" alt="imagen-contacto" src={QuikenContacto} ></img>
         </div>
         <Footer/>
         {/* <FloatingWhatsApp/> */}
+        <WhatsappBtn/>
     </>
 
   )

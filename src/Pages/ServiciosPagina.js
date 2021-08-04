@@ -14,6 +14,7 @@ import RastreaPedido from '../components/Others/RastreaPedido'
 import BtnRegistro from '../components/Navbar/BtnRegistro'
 import NuestrosVehiculos from '../components/Inicio/NuestrosVehiculos'
 import ContactUs from '../components/Others/ContactUs'
+import FloatingWhatsApp from '../components/Others/WhatsappBtn'
 
 //Imagenes
 import imgPaqueteriaLocal from '../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Paqueteria_Local_Quiken.png'
@@ -24,9 +25,10 @@ const ServiciosPagina = () => {
   return (
     <>
       <Navbar/>
+        <FloatingWhatsApp/>
         <MainWrapper>
         <div className="main-blue-wrapper">
-            <ReactPlayer width="90%" url="https://www.youtube.com/watch?v=r-tEQzU3fwY" controls/>
+            <ReactPlayer width="90%" url="https://www.youtube.com/watch?v=xjFcR4f3Wd0" controls/>
         </div>
         
         <div className="main-que.necesitas-wrapper">
@@ -148,7 +150,7 @@ const ServiciosPagina = () => {
                     <p className="paragraph-fulfillment">Servicio líder en Fulfillment en México,
                     somos tu aliado ideal en logística.
                     Ahorra espacio y mantén mercancía en
-                    nuestros almacenes</p>
+                    nuestros almacenes.</p>
                     <p className="paragraph-fulfillment">Almacenamiento con más de 10,000
                     mts2 de Almacenamiento en Mexico y
                     Estados Unidos.</p>
@@ -167,7 +169,7 @@ const ServiciosPagina = () => {
                       <br/>
                       <br/>
                       <p className="paragraph-embalaje">Encuentra la solución ideal para los empaques de
-                      tus productos</p>
+                      tus productos.</p>
                       <br/>
                       <p className="paragraph-embalaje">Manejamos una variedad de productos para
                       empacar desde:</p>
