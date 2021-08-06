@@ -198,7 +198,7 @@ const ServiciosPagina = () => {
                   <div className="todo-para-empacar-section2">
                     <h2 className="text-mas-info-suministros">Para más información, contáctanos:</h2>
                     <a href="mailto:suministros@quiken.ms">
-                      <button className="btn-register-white">suministros@quiken</button>
+                      <button className="btn-register-white">suministros@quiken.mx</button>
                     </a>
                   </div>
                   </div>

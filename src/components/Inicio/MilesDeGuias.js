@@ -12,7 +12,7 @@ const MilesDeGuias = () => {
             </div>
             <div className="blue-container">
                 <h1 className="numero-guias">1,552,99</h1>
-                <h1 className="heading-guias">Miles de guias generadas <br/>diariamente</h1>
+                <h1 className="heading-guias">Miles de guías generadas <br/>diariamente</h1>
             </div>
         </div>
     )

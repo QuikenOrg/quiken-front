@@ -56,7 +56,7 @@ const FulfillmentPagina = () => {
 
       <div className="section-wms">
         <div className="text-wrapper-integra">
-          <h3 className="wms-heading">Integra tu tienda en línea con nuestros WMS</h3>
+          <h3 className="wms-heading">Integra tu tienda en línea con nuestro WMS</h3>
           <p className="paragraph-1-warehouse" >(Warehouse Management
           System)</p>
           <button className="registrate-wms-btn" >REGÍSTRATE</button>
@@ -84,14 +84,14 @@ const FulfillmentPagina = () => {
               <img className="servicio-img" alt='servicio' src={PickPackImg}></img>
               <h2 className="heading-service" >Pick & Pack</h2>
               <p className="paragraph-service" >- Selección de articulos en
-              almacen</p>
+              almacen.</p>
               <p className="paragraph-service" >- Armado, surtido y kiteo de
-              productos</p>
+              productos.</p>
               <p className="paragraph-service" >- Empaquetemos tus
               productos de manera segura y
               nos aseguramos que llegue en
               excelentes condiciones a su
-              destino</p>
+              destino.</p>
             </div>
 
             <div className="div-wrapper-section">
@@ -102,7 +102,7 @@ const FulfillmentPagina = () => {
               de Devoluciones</h2>
               <p className="paragraph-service" >- Manejamos devoluciones de
               pedidos para mantener a tu
-              cliente satisfecho</p>
+              cliente satisfecho.</p>
               <p className="paragraph-service" >- Recolecciones inventario.</p>
             </div>
       </div>
@@ -122,7 +122,7 @@ const FulfillmentPagina = () => {
               <div className="div-proceso-placeholder">
                 <img className="img-grafica-pasos" alt='recepción' src={Recibimos}></img>
                 <h3 className="heading-graph-pasos">Recibimos las ordenes</h3>
-                <p className="paragraph-garafica-pasos">de compras de tus clientes</p>
+                <p className="paragraph-garafica-pasos">de compras de tus clientes.</p>
               </div>
               
               <div className="div-proceso-placeholder">
@@ -148,7 +148,7 @@ const FulfillmentPagina = () => {
               <h2 className="heading-ubicaciones">Con ubicaciones de bodega en :</h2>
               <p className="lista-ubicaciones">- Nuevo Leon</p>
               <p className="lista-ubicaciones">- CDMX</p>
-              <p className="lista-ubicaciones">- Chihuahua</p>
+              <p className="lista-ubicaciones">- Guadalajara</p>
               <p className="lista-ubicaciones">- Dallas, Texas</p>
               <p className="paragraph-mas-info-ubicaciones">¿Quieres más información?</p>
               <a href="mailto:hola@quiken.mx" className="mail-to-hola-quiken" >hola@quiken.mx</a>

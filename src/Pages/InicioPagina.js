@@ -28,7 +28,7 @@ const InicioPagina = () => {
       
       <div className="hero-image-wrapper">
         <div className="hero-text-wrapper">
-          <h1 className='main-title-heading'>ENVIOS</h1>
+          <h1 className='main-title-heading'>ENVÍOS</h1>
           <h1 className='main-title-heading'>EFICIENTES</h1>
           <p className='main-title-subheading'>La mejor calidad y profesionalismo en servicios de entrega local y nacional para negocios</p>
         </div>
@@ -44,7 +44,7 @@ const InicioPagina = () => {
           <div className="servicio-wrapper">
               <div className="wrapper-50">
                 <h2 className="heading-servicio">Paqueteria Local</h2>
-                <p className="paragraph-servicio">con entregas del mismo día y día siguiente (24-36 hrs) en Nuevo León, Ciudad de México, Léon y Querétaro.</p>
+                <p className="paragraph-servicio">Con entregas del mismo día y día siguiente (24-36 hrs) en Nuevo León, Ciudad de México, Léon y Querétaro.</p>
                 <div className="link-holder-wrapper">
                   <Link className="link-servicio" to="/paqueterialocal">Conoce más</Link>
                 </div>
@@ -55,7 +55,7 @@ const InicioPagina = () => {
           <div className="servicio-wrapper">
               <div className="wrapper-50">
                 <h2 className="heading-servicio">Envíos Nacionales e Internacionales</h2>
-                <p className="paragraph-servicio">con entregas del mismo día y día siguiente (24-35hrs) en nuevo León, Ciudad de México, Léon y Querétaro.</p>
+                <p className="paragraph-servicio">Usa nuestra amplia cobertura para entregar velozmente todos tus paquetes en México o cualquier parte del mundo a través de nuestros aliados.</p>
                 <div className="link-holder-wrapper">
                   <Link className="link-servicio" to="/paqueterialocal">Conoce más</Link>
                 </div>
@@ -104,7 +104,7 @@ const InicioPagina = () => {
         
         <div className="alignment-div" >
           <h2 className="heading-contact" >¡Empieza ahora!</h2>
-          <h3 className="subheading-contact-form" >Ponte en contacto con un representate de <span>Quiken</span></h3>
+          <h3 className="subheading-contact-form" >Ponte en contacto con un representate de <span>Qüiken</span></h3>
         </div>
         
         <div className="wrapper-contact-form-image" >

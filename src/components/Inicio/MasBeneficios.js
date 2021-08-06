@@ -1,7 +1,6 @@
 import React from 'react';
 import './MasBeneficios.scss';
 import ContactUs from '../Others/ContactUs'
-
 import Almacenamiento from '../../assets/Inicio/Beneficios/Quiken_Solucion_Almacenamiento-10.svg';
 import Empaquetado from '../../assets/Inicio/Beneficios/Quiken_Preparacion_Empaquetado-11.svg';
 import Devoluciones from '../../assets/Inicio/Beneficios/Quiken_Pedidos_devoluciones-15.svg';
@@ -37,12 +36,12 @@ const MasBeneficios = () => {
                 <div className="beneficio-column-wrapper">
                     <img className="beneficio-img" src={Precision} ></img>
                     <h3 className="heading-beneficio">99.95% de precisión</h3>
-                    <p className="paragraph-beneficio">Con nuestros sistemas y procesos disminuimos le margen de error al maximo.</p>
+                    <p className="paragraph-beneficio">Con nuestros sistemas y procesos disminuimos le  margen de error al máximo.</p>
                 </div>
 
                 <div className="beneficio-column-wrapper">
                     <img className="beneficio-img" src={Cumplimiento} ></img>
-                    <h3 className="heading-beneficio">Expertos dedicados el cumplimiento</h3>
+                    <h3 className="heading-beneficio">Expertos dedicados al cumplimiento</h3>
                     <p className="paragraph-beneficio">Nuestros ejecutivos lo ayudarán a resolver cualquier problema.</p>
                 </div>
 
