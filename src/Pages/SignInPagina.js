@@ -57,7 +57,7 @@ const LoginPagina= (props) => {
       <div className="page-content-wrapper">
         <div className="signup-main-wrapper">
           <form className="the-form" onSubmit={loginHandler}>
-            <h3 className="main-heading-signup">Acesa a tu cuenta</h3>
+            <h3 className="main-heading-signup">Accesa a tu cuenta</h3>
             <h2 className="main-subheading-signup">Y disfruta de los mejores precios envíos</h2>
             <Link className="forgot-passwordlink" to="/forgotpassword">¿Olvidaste tu contraseña?</Link>
             {error && <span className="login-screen-title" >{error}</span>}

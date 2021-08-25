@@ -10,6 +10,11 @@
         flex-direction: column-reverse;
         height: auto;
     }
+    @include media('<phone') {
+        flex-direction: column-reverse;
+        height: auto;
+        overflow: hidden
+    }
 }
 
 .logo-links-wrapper {

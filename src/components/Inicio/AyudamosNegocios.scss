@@ -61,4 +61,9 @@
         height: 60px;
         padding: 10px;
     }
+    @include media('<phone') {
+        max-width: 240px;
+        height: 60px;
+        padding: 10px;
+    }
 }

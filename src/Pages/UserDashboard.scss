@@ -7,6 +7,30 @@
     align-items: center;
 }
 
+.sub-navbar {
+    width: 100%;
+    height: 80px;
+    background-color: $quikenDarkBlue;
+    display: flex;
+    align-items: center;
+    box-sizing: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content: space-evenly;
+}
+
+.link-subnavbar {
+    font-size: 25px;
+    flex: 1;
+    font-family: $quikenFont;
+    text-decoration: none;
+    font-weight: 800;
+    color: $quikenWhite;
+    &:hover {
+        color: $quikenRed
+    }
+}
+
 .account-name {
     font-family: $quikenFont;
     font-weight: 900;

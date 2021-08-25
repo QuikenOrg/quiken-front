@@ -9,7 +9,10 @@
     justify-content: center;
     position: relative;
     @include media('<tablet') {
-        
+        width: 100%;
+        padding: 0px;
+        flex-direction: column;
+        position: static;
     }
 
     @include media('<large-phone') {
@@ -20,8 +23,10 @@
     }
 
     @include media('<phone') {
-        width: 150px;
+        // width: 150px;
         padding: 0px;
+        max-width: 100%;
+        overflow:hidden;
         position: static;
     }
 }
@@ -31,21 +36,30 @@
     flex-direction: column;
     width: 30%;
     @include media('<tablet') {
-             
+        flex-direction: row;
+        justify-content: space-between;
+        width: auto;     
     }
     @include media('<large-phone') {
         flex-direction: row;
         justify-content: space-between;
         width: auto;
-
     }
     @include media('<phone') {
-             
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: left;
+        // padding-left: 30px;
+        overflow: hidden;
+
     }
 }
 
 .img-wrapper {
     width: 70%;
+    
+    
     @include media('<large-phone') {
         width: 100%;
         display: flex;
@@ -75,7 +89,7 @@
     }
 
     @include media('<phone') {
-     
+     max-width: 280px;
     }
 }
 
@@ -86,10 +100,10 @@
     font-weight: 600;
     padding: 5px;
     @include media('<large-phone') {
-        font-size: 12px;
+        font-size: 10px;
     }
     @include media('<phone') {
-        font-size: 10px;
+        font-size: 20px;
     }
 }
 
@@ -103,7 +117,7 @@
         font-size: 12px;
     }
     @include media('<phone') {
-        font-size: 10px;
+        font-size: 20px;
     }
 }
 
@@ -117,12 +131,13 @@
 }
 
 .map-image {
-    width: 800px;
+    width: 600px;
     @include media('<tablet') {
-        width: 500px;
-        position: absolute;
-        top: 120px;
-        left: 150px;     
+        width: 95%;
+        position: static;
+        top: 0px;
+        left: 0px;
+        align-self: center;     
     }
     @include media('<large-phone') {
         width: 95%;
@@ -140,6 +155,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    @include media('<phone') {
+        padding-left: 40px;
+    }
 }
 
 .paloma-quiken {
@@ -147,6 +165,7 @@
 }
 
 .text-wrapper {
+    
     @include media('<large-phone') {
         display: flex;
         flex-direction: column;

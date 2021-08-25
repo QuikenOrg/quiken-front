@@ -21,7 +21,7 @@
       }
   
       @include media('<phone') {
-        width: 200px;
+        width: 100%;
         font-size: 30px;
         
       }
@@ -98,6 +98,11 @@
         margin: auto;
         align-items: center;
     }
+    @include media('<large-phone') {
+        flex-direction: column;
+        margin: auto;
+        align-items: center;
+    }
 }
 
 .section-heading {
@@ -135,11 +140,14 @@
     }
 
     @include media('<large-phone') {
-        width: 320px;
+        overflow: hidden;
+        width: 90%;
+        height: 230px;
     }
 
     @include media('<phone') {
         width: 250px;
+        overflow: hidden;
     }
 
 }
@@ -210,7 +218,8 @@
     color: $quikenRed;
     font-family: $quikenFont;
     font-size: 40px;
-    font-weight: 900;    
+    font-weight: 900;
+    text-align: center;    
 }
 
 .subheading-contact-form {
@@ -249,7 +258,10 @@
 }
 
 .image-contacto {
-    width: 350px;   
+    width: 350px;
+    @include media('<large-phone') {
+        width: 90%;
+    }   
 }
 
 .subheading-servicio {

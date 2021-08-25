@@ -1,5 +1,5 @@
-import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
+import React from 'react';
 import './FulfillmentPagina.scss';
 import BtnMail from '../components/Others/BtnMail'
 import Footer from '../components/Footer/Footer'

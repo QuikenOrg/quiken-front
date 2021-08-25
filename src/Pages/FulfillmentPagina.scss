@@ -8,6 +8,17 @@
   background-size: cover;
   position: relative;
   height: 600px;
+  @include media('<tablet') {
+
+  }
+
+  @include media('<large-phone') {
+
+  }
+
+  @include media('<phone') {
+    
+  }
 }
 
 .hero-text {
@@ -19,10 +30,27 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  @include media('<desktop') {
+    top: 20%;
+  }
+  @include media('<tablet') {
+    top: 20%;
+  }
+
+  @include media('<large-phone') {
+
+  }
+
+  @include media('<phone') {
+    
+  }
 }
 
 .main-heading {
   font-size: 55px;
+  @include media('<phone') {
+    font-size: 40px; 
+  }
 }
 
 .sub-heading {
@@ -50,6 +78,13 @@
   align-items: center;
   padding: 0px 50px 0px 50px;
   justify-content: space-between;
+  @include media('<700px') {
+    flex-direction: column;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px ;
+    align-items: center;
+  }
 }
 
 .text-placeholder {
@@ -59,6 +94,10 @@
   width: 60%;
   align-items: center;
   justify-content: center;
+  @include media('<700px') {
+    width: 80%;
+    text-align: center;
+  }
 }
 
 .btn-mail-wrapper {
@@ -79,6 +118,10 @@
   padding: 25px 20px 10px 50px;
   margin-bottom: 50px;
   // background-color: hotpink;
+  @include media('<1080px') {
+    flex-direction: column;
+    height: 100%;
+  }
 }
 
 .text-wrapper-integra {
@@ -88,6 +131,8 @@
   font-family: $quikenFont;
   width: 500px;
   padding: 50px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .text-wrapper-fulfillment {
@@ -104,6 +149,9 @@
   font-size: 32px;
   font-family: $quikenFont;
   font-weight: 900;
+  @include media('<1080px') {
+    font-size: 25px;
+  }
 
 }
 
@@ -114,6 +162,7 @@
   color: $quikenDarkBlue;
   margin-top: 25px;
   width: 350px;
+  max-width: 100%;
 }
 
 .paragraph-2-fulfillment {
@@ -123,6 +172,7 @@
   color: $quikenDarkBlue;
   margin-top: 25px;
   width: 310px;
+  max-width: 100%;
 }
 
 .paragraph-3-fulfillment {
@@ -132,12 +182,17 @@
   color: $quikenDarkBlue;
   margin-top: 25px;
   width: 350px;
+  max-width: 100%;
 }
 
 .section-wms {
   padding: 25px 20px 10px 50px;
   display: flex;
   justify-content: space-evenly;
+  @include media('<1080px') {
+    flex-direction: column;
+    height: 100%;
+  }
 }
 
 .wms-heading {
@@ -146,6 +201,15 @@
   font-family: $quikenFont;
   font-weight: 900;
   width: 350px;
+  max-width: 100%;
+  @include media('<large-phone') {
+    font-size: 25px;
+    
+  }
+  @include media('<phone') {
+    font-size: 18px;
+    
+  }
 }
 
 .paragraph-1-warehouse {
@@ -154,6 +218,7 @@
   font-weight: 600;
   color: $quikenDarkBlue;
   width: 350px;
+  max-width: 100%;
 }
 
 .registrate-wms-btn {
@@ -168,7 +233,18 @@
 }
 
 .integraciones-img {
-  width: 500px;
+  max-width: 500px;
+  width: 80%;
+}
+
+image-palceholder-icons-wms {
+  display: flex;
+  align-items: center;
+  @include media('<1080px') {
+    width: 100%;
+    justify-content: center;
+  }
+  
 }
 
 .div-main-wrapper-almacena {
@@ -177,6 +253,15 @@
   justify-content: space-evenly;
   padding-top: 60px;
   padding-bottom: 50px;
+  @include media('<1200px') {
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  @include media('<phone') {
+    padding-bottom: 0px;
+  }
 }
 
 .div-wrapper-section {
@@ -189,11 +274,25 @@
   align-items: center;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+  @include media('<1080px') {
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+  }
+  @include media('<1080px') {
+    width: 80%;
+  }
 }
 
 .servicio-img {
   width: 280px;
   border-radius: 10px;
+  @include media('<1080px') {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .heading-service {
@@ -234,6 +333,15 @@
   width: 900px;
   margin: auto;
   margin-bottom: 50px;
+  @include media('<950px') {
+    width: 700px;
+  }
+  @include media('<tablet') {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
 }
 
 .dotted-line {
@@ -243,6 +351,15 @@
   top: 50px;
   left: 20px;
   z-index: -1;
+  @include media('<950px') {
+    width: 600px;
+  }
+  @include media('<tablet') {
+    display: none;
+  }
+  @include media('<large-phone') {
+    display: none;
+  }
 }
 
 .nuestro-proceso-section {
@@ -258,14 +375,21 @@
 .div-proceso-placeholder {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   width: 130px;
+  @include media ('<large-phone') {
+
+  }
 }
 
 .heading-graph-pasos {
   font-size: 14px;
   color: $quikenDarkBlue;
   display: inline-block;
+  @include media ('<large-phone') {
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .paragraph-garafica-pasos {
@@ -273,6 +397,9 @@
   color: $quikenDarkBlue;
   display: inline;
   font-weight: 400;
+  @include media('<phone') {
+    padding-bottom: 0px;
+  }
 }
 
 .nuestro-proceso-heading {
@@ -281,6 +408,11 @@
   font-size: 32px;
   padding: 50px 0px 60px 0px;
   font-weight: 800;
+  @include media('<phone') {
+   padding: 20px;
+   text-align: center;
+   font-size: 28px;
+  }
 }
 
 .ubicaciones-wrapper-main-div {
@@ -291,6 +423,15 @@
   z-index: 0;
   margin-bottom: 50px;
   margin-top: 20px;
+  @include media('<950px') {
+    
+  }
+  @include media('<tablet') {
+    
+  }
+  @include media('<large-phone') {
+   
+  }
 }
 
 .ubicaciones-section-1 {
@@ -298,6 +439,13 @@
   flex-direction: column;
   width: 30%;
   padding-top: 60px;
+  @include media('<large-phone') {
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    align-items: center;
+  }
 }
 
 .ubicaciones-section-2 {
@@ -308,12 +456,20 @@
   height: 100%;
   width: 70%;
   // background-color: green;
+  @include media('<large-phone') {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .wrapper-80-row-div {
   display: flex;
   width: 80%;
   justify-self: center;
+  @include media('<large-phone') {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .heading-ubicaciones {
@@ -358,4 +514,16 @@
 .imagen-abriendo-paquete {
   width: 600px;
   padding-bottom: 50px;
+  @include media('<680px') {
+    width: 500px;
+  }
+  @include media('<560px') {
+    width: 350px;
+  }
+  @include media('<large-phone') {
+    width: 300px;
+  }
+  @include media('<phone') {
+    width: 200px;
+  }
 }

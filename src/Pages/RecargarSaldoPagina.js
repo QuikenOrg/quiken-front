@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./RecargarSaldoPagina.scss"
 import Navbar from '../components/Navbar/Navbar'
+import SubNavbar from '../components/Navbar/SubNavbar'
 import Footer from '../components/Footer/Footer'
 import CheckoutStripe2 from '../components/Cart/Checkout2'
 import { AfterpayClearpayMessageElement } from '@stripe/react-stripe-js'
@@ -111,7 +112,8 @@ const RecargarSaldoPagina = () => {
     
     return (
         <div>
-            <Navbar/>
+            {/* <Navbar/> */}
+            <SubNavbar/>
             <div className="main-wrapper-recargar-saldo">
                 <div className="main-wrapper-comprar-saldo">
 

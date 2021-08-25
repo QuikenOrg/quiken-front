@@ -6,6 +6,7 @@
   border-bottom: solid 1px;
   font-family: $quikenFont;
   font-weight: $quikenFontWeightMedium;
+  max-width: 100%;
 }
 
 .contact-form-input {
@@ -15,18 +16,19 @@
   border: 1px solid grey;
   background-color: $quikenKLightGrey;
   @include media('<tablet') {
-      width: 600px;
-      max-width: 80%;
+      max-width: 600px;
+      width: 100%;
     }
 
     @include media('<large-phone') {
       width: 100%;
       max-width: none;
+      padding: 15px 0px 15px 0px;
       
     }
 
     @include media('<phone') {
-      width: 280px;
+      width: 100%;
       max-width: none;
       
     }
@@ -39,16 +41,19 @@
   border: 1px solid grey;
   background-color: $quikenKLightGrey;
   @include media('<tablet') {
-    max-width: 100%;
+    max-width: 90%;
+    // padding: 15px 0px 15px 0px;
   }
 
   @include media('<large-phone') {
     width: 90%;
+    // padding: 15px 0px 15px 0px;
     
   }
 
   @include media('<phone') {
-    width: 90%;
+    width: 100%;
+    max-width: 100%;
   }
 }
 

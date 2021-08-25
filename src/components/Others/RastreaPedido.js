@@ -34,11 +34,19 @@ display: flex;
     align-self: center;
     justify-self: center;
   }
+  @media (max-width: 350px) {
+    height: 30px;
+    width: 90%;
+    align-self: center;
+    justify-self: center;
+  }
 `
 
 const TrackingNumberInput = styled.input`
 border-radius: 5px;
 border: solid 1px;
+width: 100%;
+align-items: center;
 
 `
 

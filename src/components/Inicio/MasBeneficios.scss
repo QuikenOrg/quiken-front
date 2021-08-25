@@ -23,7 +23,7 @@
     }
     @include media('<large-phone') {
         flex-direction: column;
-        padding: 0px 70px 0px 70px;
+        padding: 0px 0px 0px 0px;
     }
 }
 
@@ -45,6 +45,10 @@
     font-size: 40px;
     font-weight: 900;
     font-family: $quikenFont;
+    @include media('<large-phone') {
+     padding: 0px 20px 0px 0px;
+     text-align: center
+    }
 }
 
 .heading-beneficio {

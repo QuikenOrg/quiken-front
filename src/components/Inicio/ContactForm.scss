@@ -14,6 +14,7 @@
     margin-top: 50px;
     @include media('<tablet') {
         padding: 0px;
+        max-width: 100%;
         
     }
 
@@ -25,12 +26,21 @@
     }
 
     @include media('<phone') {
-        width: 240px;
+        width: 100vw;
         padding: 0px;
+        // padding-left: 30px;
     }
 }
 
 .contact-form-field-wrapper {
+    @include media('<tablet') {
+        width: 90%;
+        padding: 0px;
+        margin-top: 0px;
+        padding: 0px 10px 0px 10px;
+        // margin-left: 10px;
+    }
+
     @include media('<large-phone') {
         width: 90%;
         padding: 0px;
@@ -50,20 +60,21 @@
 .row-div-contact-form {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    // width: 100%;
+    max-width: 100%;
     justify-content: space-between;
     @include media('<large-phone') {
         width: 100%;
         flex-direction: column;
         // padding: 0px 10px 0px 10px;
         justify-content: space-between;
+        max-width: 90%;
         // margin-left: 10px;
     }
 
     @include media('<phone') {
-        width: 350px;
+        width: 100%;
         padding: 0px;
-        width: 80%;
     }
 }
 
@@ -110,12 +121,12 @@
   background-color: $quikenKLightGrey;
   height: 70px;
   @include media('<tablet') {
-    width: 400px;
+    width: 100%;
     
     }
 
     @include media('<large-phone') {
-        // padding: 0px;
+        padding: 15px 0px 15px 0px;
         width: 100%;
         
     }

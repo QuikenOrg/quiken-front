@@ -5,8 +5,14 @@ import "./UserDashboard.scss"
 import Navbar from '../components/Navbar/Navbar'
 import GuideTable from '../components/UserDashboard/GuideTable'
 import Footer from '../components/Footer/Footer'
+import SubNavbar from '../components/Navbar/SubNavbar'
+import AccountInfo from '../components/Others/AccountInfo'
 
 const UserDashboard = () => {   
+
+
+  //Dashboard Moving
+  const [selectedScreen, setSelectedScreen] = useState("dashboard")
 
   const [loggedInUser, setLoggedInUser] = useState('')
   const [loggedInUserEmail, setLoggedInUserEmail] = useState('')
@@ -91,6 +97,10 @@ const UserDashboard = () => {
       setLoadingServicios(false)
     }
     
+  }
+
+  const handleSelectedComponent = (event) => {
+    console.log(event.target)
   }
 
 
@@ -219,16 +229,31 @@ const UserDashboard = () => {
     </>
   ) : (
     <>  
-        <Navbar/>
+        {/* <Navbar/> */}
+            {/* <div className="sub-navbar">
+              <Link className="link-subnavbar">Inicio</Link>
+              <Link className="link-subnavbar">Cotizar</Link>
+              <Link className="link-subnavbar">Guias</Link>
+              <Link className="link-subnavbar" to="/recargarsaldo">Recarga Saldo</Link>
+              <Link onClick={logoutHandler} className="link-subnavbar">Logout</Link>
+            </div> */}
+
+            <SubNavbar handleSelectedComponent={handleSelectedComponent} logoutHandler={logoutHandler}/>
+
             <div className="main-wrapper-userdashboard">
-                <h2 className="heading-userdashboards">Dashboard de Enviós</h2>
-                <div className="account-name">Cuenta: {loggedInUser}</div>
-                <div className="account-name">Email: {loggedInUserEmail}</div>
-                <h1 className="cotizador-rapido-main-header">Cotizador Rapido</h1>
+                <AccountInfo handleSelectedComponent={handleSelectedComponent} loggedInUser={loggedInUser} loggedInUserEmail={loggedInUserEmail} />
+                
+                {/* <div className="account-info-wrapper">
+                  <h2 className="heading-userdashboards">Dashboard de Enviós</h2>
+                  <div className="account-name">Cuenta: {loggedInUser}</div>
+                  <div className="account-name">Email: {loggedInUserEmail}</div>
+                </div> */}
+
               
               <div className="main-cotizador-servicios div">
                 {/* Cotizador */}
                 <div className="column-cotizador">
+                <h1 className="cotizador-rapido-main-header">Cotizador</h1>
                       <h1 className="información-paquete-subheading">Información Paquete</h1>
                       
                       <div className="div-main-cotizador-rapido">  
@@ -360,8 +385,8 @@ const UserDashboard = () => {
                 </Link>
                 <button className="btn-contact-form " onClick={logoutHandler}>Logout</button>
               </div>
-             <Footer/>
             </div>
+          <Footer/>
         
     </>
   );
