@@ -229,16 +229,16 @@ const UserDashboard = () => {
     </>
   ) : (
     <>  
-        {/* <Navbar/> */}
+        <Navbar/>
             {/* <div className="sub-navbar">
               <Link className="link-subnavbar">Inicio</Link>
               <Link className="link-subnavbar">Cotizar</Link>
               <Link className="link-subnavbar">Guias</Link>
               <Link className="link-subnavbar" to="/recargarsaldo">Recarga Saldo</Link>
               <Link onClick={logoutHandler} className="link-subnavbar">Logout</Link>
-            </div> */}
+            </div>
 
-            <SubNavbar handleSelectedComponent={handleSelectedComponent} logoutHandler={logoutHandler}/>
+            <SubNavbar handleSelectedComponent={handleSelectedComponent} logoutHandler={logoutHandler}/> */}
 
             <div className="main-wrapper-userdashboard">
                 <AccountInfo handleSelectedComponent={handleSelectedComponent} loggedInUser={loggedInUser} loggedInUserEmail={loggedInUserEmail} />

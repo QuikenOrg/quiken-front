@@ -112,8 +112,9 @@ const RecargarSaldoPagina = () => {
     
     return (
         <div>
-            {/* <Navbar/> */}
-            <SubNavbar/>
+            <Navbar/>
+            {/* <SubNavbar/> */}
+            
             <div className="main-wrapper-recargar-saldo">
                 <div className="main-wrapper-comprar-saldo">
 
