@@ -19,13 +19,13 @@ import imgServicioThree from '../assets/Inicio/Servicios/Quiken_Fulfillment.png'
 import imgServicioFour from '../assets/Inicio/Servicios/Quiken_Suministros.png'
 import QuikenContacto from '../assets/Inicio/Quiken_Contacto.png'
 import RastreaPedido from '../components/Others/RastreaPedido'
-import WhatsappBtn from '../components/Others/WhatsappBtn';
+import WhatsAppBtn from '../components/Others/WhatsappBtn'
 
 const InicioPagina = () => {
   return (
     <>
+      <WhatsAppBtn/>
       <Navbar/>
-      
       <div className="hero-image-wrapper">
         <div className="hero-text-wrapper">
           <h1 className='main-title-heading'>ENVÍOS</h1>
@@ -112,8 +112,6 @@ const InicioPagina = () => {
           <img className="image-contacto" alt="imagen-contacto" src={QuikenContacto} ></img>
         </div>
         <Footer/>
-        {/* <FloatingWhatsApp/> */}
-        <WhatsappBtn/>
     </>
 
   )

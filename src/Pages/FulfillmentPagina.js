@@ -8,19 +8,17 @@ import ContactUs from '../components/Others/ContactUs'
 
 import DevolucionesImg from '../assets/fulfilment/Imagenes/Fulfillment_Devoluciones.png'
 import PickPackImg from '../assets/fulfilment/Imagenes/Fulfillment_Pick_Pack.png'
-
 import Almacenamos from '../assets/fulfilment/Imagenes/Almacenamos-09.svg'
 import Recibimos from '../assets/fulfilment/Imagenes/Fulfillment_Recibimos_compras_clientes-10.svg'
 import Empacamos from '../assets/fulfilment/Imagenes/Fulfillment_Empacamos-11.svg'
 import Entregamos from '../assets/fulfilment/Imagenes/Fulfillment_Quiken_Entregamos-12.svg'
 import AbriendoPaquete from '../assets/fulfilment/Imagenes/Solo-sin-fondo.png'
-
-import FloatingWhatsApp from '../components/Others/WhatsappBtn'
+import WhatsAppBtn from '../components/Others/WhatsappBtn'
 
 const FulfillmentPagina = () => {
   return (
     <>
-      <FloatingWhatsApp/>
+      <WhatsAppBtn/>
       <Navbar/>
       <div className="hero-image">
         <div className="hero-text">

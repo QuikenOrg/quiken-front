@@ -1,18 +1,22 @@
 import React from 'react'
-import { FloatingWhatsApp } from 'react-floating-whatsapp'
+import  FloatingWhatsApp from 'react-floating-whatsapp'
 import 'react-floating-whatsapp/dist/index.css' 
+import './WhatsappBtn.scss'
 
-function WhatsappBtn() {
+const WhatsAppBtn = () => {
     return (
-        <a href="https://wa.me/+528116618597">
-            {/* <FloatingWhatsApp 
-            phoneNumber="+5218124486070"
-            accountName="Quiken Envios"
-            statusMessage="Contestamos enseguida"
-            chatMessage="Muy buenos dias! Quiken estamos para ayudarte y brindarte cualquier información necesaria."
-            /> */}
-        </a>
+        <div>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
+            <a
+                href="https://wa.me/528116618597"
+                className="whatsapp_float"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i className="fa fa-whatsapp whatsapp-icon"></i>
+            </a>
+        </div>
     )
 }
 
-export default WhatsappBtn
+export default WhatsAppBtn;

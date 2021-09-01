@@ -14,7 +14,7 @@ import RastreaPedido from '../components/Others/RastreaPedido'
 import BtnRegistro from '../components/Navbar/BtnRegistro'
 import NuestrosVehiculos from '../components/Inicio/NuestrosVehiculos'
 import ContactUs from '../components/Others/ContactUs'
-import FloatingWhatsApp from '../components/Others/WhatsappBtn'
+import WhatsAppBtn from '../components/Others/WhatsappBtn'
 
 //Imagenes
 import imgPaqueteriaLocal from '../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Paqueteria_Local_Quiken.png'
@@ -25,7 +25,7 @@ const ServiciosPagina = () => {
   return (
     <>
       <Navbar/>
-        <FloatingWhatsApp/>
+        <WhatsAppBtn/>
         <MainWrapper>
         <div className="main-blue-wrapper">
             <ReactPlayer width="90%" url="https://www.youtube.com/watch?v=xjFcR4f3Wd0" controls/>
@@ -71,7 +71,7 @@ const ServiciosPagina = () => {
                 <div className="rastrea-tu-pedido-placeholder">
                   
                   <div className="row-div-btn">
-                    <Link to="/signup">
+                    <Link to="/">
                       <button className="btn-register-red">REGISTRO</button>
                     </Link>
                     <Link className="navbar-link" to="/contacto">
@@ -99,7 +99,7 @@ const ServiciosPagina = () => {
                     (24-36 hrs.) en el área metropolitana de
                     Nuevo León, Ciudad de México, León y
                     Querétaro.</p>
-                    <Link to="/signup" className="link-registrate-btn">
+                    <Link to="/servicios" className="link-registrate-btn">
                       <button className="btn-register-white">REGISTRATE</button>
                     </Link>
                   </div>
@@ -119,7 +119,7 @@ const ServiciosPagina = () => {
                     Durango, Tamaulipas, San Luis Potosí,
                     Veracruz, Ciudad de México, Queretaro,
                     Guanajuato y Chihuahua.</p>
-                    <Link to="/signup" className="link-registrate-btn">
+                    <Link to="/servicios" className="link-registrate-btn">
                       <button className="btn-register-red">REGISTRATE</button>
                     </Link>
                   </div>
@@ -133,7 +133,7 @@ const ServiciosPagina = () => {
                     <p className="paragraph-envios-internacionales">Tus envíos internacionales con nuestros
                     aliados para llegar a cualquier parte del
                     mundo.</p>
-                    <Link to="/signup" className="link-registrate-btn">
+                    <Link to="/servicios" className="link-registrate-btn">
                       <button className="btn-register-red">REGISTRATE</button>
                     </Link>
                   </div>
@@ -154,7 +154,7 @@ const ServiciosPagina = () => {
                     <p className="paragraph-fulfillment">Almacenamiento con más de 10,000
                     mts2 de Almacenamiento en Mexico y
                     Estados Unidos.</p>
-                    <Link to="/signup" className="link-registrate-btn">
+                    <Link to="/servicios" className="link-registrate-btn">
                       <button className="btn-register-white">Conoce más</button>
                     </Link>
                   </div>
