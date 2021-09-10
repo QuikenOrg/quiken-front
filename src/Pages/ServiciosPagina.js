@@ -15,7 +15,8 @@ import BtnRegistro from '../components/Navbar/BtnRegistro'
 import NuestrosVehiculos from '../components/Inicio/NuestrosVehiculos'
 import ContactUs from '../components/Others/ContactUs'
 import WhatsAppBtn from '../components/Others/WhatsappBtn'
-
+import { Helemt, Helmet } from 'react-helmet'
+ 
 //Imagenes
 import imgPaqueteriaLocal from '../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Paqueteria_Local_Quiken.png'
 import ContactForm from '../components/Inicio/ContactForm'
@@ -24,6 +25,16 @@ import RepartidorQuiken from '../assets/Servicios Quiken /SERVICIOS/Servicios Qu
 const ServiciosPagina = () => {
   return (
     <>
+      <Helmet>
+      <title>Quiken Servicios</title>
+        <meta 
+          name="description"
+          content="Servicios de paqueteria y fulfilment en México"
+        />
+        <meta
+          name="keywords" content="Envios, Paqueteria, ecommerce, delivery"
+        />
+      </Helmet>
       <Navbar/>
         <WhatsAppBtn/>
         <MainWrapper>

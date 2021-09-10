@@ -1,5 +1,5 @@
 import { useState} from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "./ResetPasswordPagina.scss";
 import Navbar from '../components/Navbar/Navbar'

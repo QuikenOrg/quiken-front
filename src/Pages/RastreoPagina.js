@@ -6,8 +6,8 @@ import styled from 'styled-components'
 import IconoRastreo from '../assets/Inicio/Icono_rastreo-43.svg'
 import Footer from '../components/Footer/Footer'
 import ShippingInformation from '../components/Tracking/ShippingInformation';
-import PalomaQuiken from '../assets/Inicio/paloma-quiken.svg'
-import FloatingWhatsApp from '../components/Others/WhatsappBtn'
+import FloatingWhatsApp from '../components/Others/WhatsappBtn';
+import { Helmet } from 'react-helmet'
 
 const RasteroPagina = () => {
   
@@ -18,22 +18,27 @@ const RasteroPagina = () => {
   const [guideInformation, setGuideInformation] = useState()
   const [hasError, setHasError] = useState(false)
   const [shipmentHistory, setShipmentHistory] = useState()
-  const [newTrackedGuide, setNewTrackedGuide] = useState('')
+  const [newTrackedGuide, setNewTrackedGuide] = useState({inputValue: ""})
   const [error, setError] = useState()
   const params = useParams()
   const guideNumber = params.guide
+  console.log(guideNumber, 'guacamole')
   
   const handleChange = (event) => {
-    setNewTrackedGuide(event.target.value)
+    let value = event.target.value.replace(/\D/g, '');
+    setNewTrackedGuide({inputValue: value})
   }
 
   const handleClick = () => {
-    history.push(`/rastreo/${newTrackedGuide}`)
-    setNeedsRerender(!needsRerender)
+    if (newTrackedGuide.inputValue.length > 0) {
+      history.push(`/rastreo/${newTrackedGuide.inputValue}`)
+      setNeedsRerender(!needsRerender)
+    } else {
+      setError("Favor de ingresar un numéro de guia")
+    }
   }
  
   const getGuideInfo = async () => {
-    console.log('Getting Guide');
     const body = {
       "clientDetail": {
         "accountName": "rastreo@quiken.mx",
@@ -44,7 +49,7 @@ const RasteroPagina = () => {
       ]
     }
 
-    const url = 'https://api.quiken.mx/track'
+    const url = 'http://api.quiken.mx/track'
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -90,12 +95,22 @@ const RasteroPagina = () => {
     setLoading(true)
     setHasError(false)
     setError('')
-      getGuideInfo()  
+    getGuideInfo()  
   }, [needsRerender])
 
   
   return (
     <>
+      <Helmet>
+        <title>Quiken Rastreo</title>
+        <meta 
+          name="description"
+          content="Servicios de paqueteria y fulfilment en México, rastreo de guias"
+        />
+        <meta
+          name="keywords" content="Envios, Paqueteria, ecommerce, delivery"
+        />
+      </Helmet>
       <Navbar/>
       <FloatingWhatsApp/>
       <div className="request-body-wrapper">
@@ -109,7 +124,11 @@ const RasteroPagina = () => {
               <div className="div-tracking">
                 <p className="rastreo-blue-letters">Ingresa tu número de rastreo:</p>
                 <div className="rastreo-input-div">
-                  <input id='input-rastreo' className="tracking-number-input" onChange={handleChange} placeholder="Código de rastreo"></input>
+                  <input id='input-rastreo' 
+                  className="tracking-number-input"
+                  value={newTrackedGuide.inputValue} 
+                  onChange={handleChange} 
+                  placeholder="Código de rastreo"></input>
                   {/* <Link to={`/rastreo/${newTrackedGuide}`}> */}
                     <PlaceHolderLookUp onClick={handleClick}>
                       <img className="icono-rastreo" src={IconoRastreo}></img>

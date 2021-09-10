@@ -9,14 +9,25 @@ const RastreaPedido = (props) => {
     const [guideTracked, setGuideTracked] = useState("")
     
     const handleInput = (event) => { 
-        setGuideTracked(event.target.value)
+        let value = event.target.value.replace(/\D/g, '');
+        setGuideTracked({inputValue: value})
     }
 
     return (
         <div className="main-wrapper-div-tracking">
             <RowDiv>
-                <TrackingNumberInput className="contact-us-input-form" placeholder="Código de rastreo" onChange={handleInput}></TrackingNumberInput>
-                <Link to={`/rastreo/${guideTracked}`}>
+                
+                <TrackingNumberInput 
+                    className="contact-us-input-form" 
+                    placeholder="Código de rastreo" 
+                    value={guideTracked.inputValue}
+                    onChange={handleInput}>
+                </TrackingNumberInput>
+
+                <Link to={ guideTracked.inputValue != undefined ?
+                    `/rastreo/${guideTracked.inputValue}`: 
+                    `/rastreo` }
+                >
                     <PlaceHolderLookUp>
                         <img className="icono-rastreo" src={IconoRastreo}></img>
                     </PlaceHolderLookUp>

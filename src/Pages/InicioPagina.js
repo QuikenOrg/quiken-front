@@ -10,7 +10,7 @@ import NuestrosVehiculos from '../components/Inicio/NuestrosVehiculos'
 import MasBeneficios from '../components/Inicio/MasBeneficios'
 import AyudamosNegocios from '../components/Inicio/AyudamosNegocios'
 import Footer from '../components/Footer/Footer'
-import FloatingWhatsApp from '../components/Others/WhatsappBtn'
+import { Helmet } from 'react-helmet'
 
 //Images
 import imgServicioOne from '../assets/Inicio/Servicios/Quiken_Paqueteria_Local.png'
@@ -24,6 +24,16 @@ import WhatsAppBtn from '../components/Others/WhatsappBtn'
 const InicioPagina = () => {
   return (
     <>
+      <Helmet>
+        <title>Quiken Paqueteria y Envíos</title>
+        <meta 
+          name="description"
+          content="Servicios de paqueteria y fulfilment en México"
+        />
+        <meta
+          name="keywords" content="Envios, Paqueteria, ecommerce, delivery"
+        />
+      </Helmet>
       <WhatsAppBtn/>
       <Navbar/>
       <div className="hero-image-wrapper">

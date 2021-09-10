@@ -1,10 +1,12 @@
 import Navbar from '../components/Navbar/Navbar';
 import React from 'react';
+import MetaTags from 'react-meta-tags';
 import './FulfillmentPagina.scss';
 import BtnMail from '../components/Others/BtnMail'
 import Footer from '../components/Footer/Footer'
 import Integraciones from '../assets/fulfilment/Imagenes/Integraciones.png'
 import ContactUs from '../components/Others/ContactUs'
+import { Helmet } from 'react-helmet'
 
 import DevolucionesImg from '../assets/fulfilment/Imagenes/Fulfillment_Devoluciones.png'
 import PickPackImg from '../assets/fulfilment/Imagenes/Fulfillment_Pick_Pack.png'
@@ -16,8 +18,20 @@ import AbriendoPaquete from '../assets/fulfilment/Imagenes/Solo-sin-fondo.png'
 import WhatsAppBtn from '../components/Others/WhatsappBtn'
 
 const FulfillmentPagina = () => {
+
   return (
+    
     <>
+      <Helmet>
+      <title>Quiken Fulfilment</title>
+        <meta 
+          name="description"
+          content="Servicios de paqueteria y fulfilment en México"
+        />
+        <meta
+          name="keywords" content="Envios, Paqueteria, ecommerce, delivery"
+        />
+      </Helmet>
       <WhatsAppBtn/>
       <Navbar/>
       <div className="hero-image">
