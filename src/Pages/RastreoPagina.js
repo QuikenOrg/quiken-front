@@ -44,7 +44,7 @@ const RasteroPagina = () => {
       ]
     }
 
-    const url = 'http://api.quiken.mx/track'
+    const url = 'https://api.quiken.mx/track'
     const response = await fetch(url, {
       method: 'POST',
       headers: {
