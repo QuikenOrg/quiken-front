@@ -20,10 +20,10 @@ const AyudamosNegocios = () => {
                 <h2 className="heading-blue">Nuestro sistema de gestión de almacén se integran
                 <br/>con los siguientes ecommerces:</h2>
                 <div className="row-wrapper-icons">
-                    <img src={Shopify} className="image-integraciones" ></img>
-                    <img src={WooComerce} className="image-integraciones" ></img>
-                    <img src={MercadoLibre} className="image-integraciones" ></img>
-                    <img src={Amazon} className="image-integraciones" ></img>
+                    <img src={Shopify} className="image-integraciones" alt="integraciones"></img>
+                    <img src={WooComerce} className="image-integraciones" alt="integraciones" ></img>
+                    <img src={MercadoLibre} className="image-integraciones" alt="integraciones"></img>
+                    <img src={Amazon} className="image-integraciones" alt="integraciones"></img>
                     <img></img>
                 </div>
             </div>

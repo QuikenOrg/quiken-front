@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import styled from 'styled-components'
 import './RastreaPedido.scss'
 import IconoRastreo from '../../assets/Inicio/Icono_rastreo-43.svg'
 
 const RastreaPedido = (props) => {
     
+    const history = useHistory()
+
     const [guideTracked, setGuideTracked] = useState("")
     
     const handleInput = (event) => { 
@@ -13,20 +15,31 @@ const RastreaPedido = (props) => {
         setGuideTracked({inputValue: value})
     }
 
+    const handleClick = () => {
+        if (guideTracked.inputValue !== undefined) {
+            history.push(`/rastreo/${guideTracked.inputValue}`)
+        }
+    }
+
+
+
     return (
         <div className="main-wrapper-div-tracking">
             <RowDiv>
                 
                 <TrackingNumberInput 
+                    required
                     className="contact-us-input-form" 
                     placeholder="Código de rastreo" 
                     value={guideTracked.inputValue}
                     onChange={handleInput}>
                 </TrackingNumberInput>
 
-                <Link to={ guideTracked.inputValue != undefined ?
-                    `/rastreo/${guideTracked.inputValue}`: 
-                    `/rastreo` }
+                <Link 
+                    onClick={handleClick}
+                    // to={ guideTracked.inputValue != undefined ?
+                    // `/rastreo/${guideTracked.inputValue}`: 
+                    // `/rastreo` }
                 >
                     <PlaceHolderLookUp>
                         <img className="icono-rastreo" src={IconoRastreo}></img>

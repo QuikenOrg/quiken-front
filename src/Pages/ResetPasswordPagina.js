@@ -53,7 +53,6 @@ const ResetPasswordPagina = (props) => {
       <div className="form-wrapper-div">
         <form className="forgot-password-form"
         onSubmit={resetPasswordHandler}
-        className="resetpassword-screen__form"
       >
         <h3 className="resetpassword-screen__title">Forgot Password</h3>
         {error && <span className="error-message">{error} </span>}

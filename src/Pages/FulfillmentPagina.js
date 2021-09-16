@@ -1,6 +1,5 @@
 import Navbar from '../components/Navbar/Navbar';
 import React from 'react';
-import MetaTags from 'react-meta-tags';
 import './FulfillmentPagina.scss';
 import BtnMail from '../components/Others/BtnMail'
 import Footer from '../components/Footer/Footer'
@@ -62,7 +61,7 @@ const FulfillmentPagina = () => {
           <p className="paragraph-3-fulfillment" >Nuestros almacenes en México y Estados Unidos se encargan de procesar las ordenes de ventas que reciba la empresa</p>
         </div>
         <div className="image-palceholder-fulfillment" >
-          <img className="imagen-abriendo-paquete" src={AbriendoPaquete}></img>
+          <img className="imagen-abriendo-paquete" src={AbriendoPaquete} alt="abriendo-paquete" ></img>
         </div>
       </div>
 

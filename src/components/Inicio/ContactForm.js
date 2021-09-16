@@ -76,7 +76,7 @@ const ContactForm = () => {
       setFullNameError(fullNameError)
 
       //Email Validation
-      if (emailIsValid(email) == false) {
+      if (emailIsValid(email) === false) {
         emailError.EmailError = "El email no es valido"
         isValid = false;
         console.log("The email is not valid")
@@ -85,7 +85,7 @@ const ContactForm = () => {
       setEmailError(emailError)
       
       //Phone Validation
-      if (hasLetters(phoneNumber) == false) {
+      if (hasLetters(phoneNumber) === false) {
         phoneNumberError.PhoneTooShort = "Favor de introducir solo numeros"
         isValid = false;
       }

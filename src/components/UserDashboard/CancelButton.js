@@ -3,8 +3,6 @@ import { useHistory } from 'react-router-dom'
 
 const CancelButton = (props) => {
 
-    const history = useHistory()
-
     const { _id } = props.userGuide
 
     console.log(_id)

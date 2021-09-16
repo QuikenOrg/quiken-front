@@ -924,7 +924,7 @@ useEffect(() => {
                   <div>
                     <h1>Tu guía fue creada exitosamente.</h1>
                     
-                    <a href={hrefFile} target="_blank">
+                    <a href={hrefFile} target="_blank" rel="noreferrer" >
                       <button className="btn-create-guide-form">Imprimir</button>
                     </a>
 

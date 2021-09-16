@@ -13,22 +13,22 @@ const Footer = () => {
         <div className="footer-main-wrapper">
             <div className="logo-links-wrapper">
                 <div className="logo-quienes-somos-wrapper">
-                    <img className="img-logo-footer" src={QuikenLogoFooter}></img>
+                    <img className="img-logo-footer" alt="quiken-logo" src={QuikenLogoFooter}></img>
                     <h3 className="quienes-somos">¿QUIENES SOMOS?</h3>
                 </div>
                 <div className="copy-icons-wrapper">
                     <p className="copy-quiken">© 2021 Quiken Mx, Todos los derechos reservados.</p>
-                    <a target="_blank" href="https://www.facebook.com/quikenmx">
-                        <img src={Facebook} className="icon"/>
+                    <a target="_blank" href="https://www.facebook.com/quikenmx" rel="noreferrer">
+                        <img src={Facebook} className="icon" alt="facebook-icon"/>
                     </a>
                     
-                    <a target="_blank" href="https://www.facebook.com/quikenmx">
-                    <img src={Twitter} className="icon"/>
+                    <a target="_blank" href="https://www.facebook.com/quikenmx" rel="noreferrer">
+                    <img src={Twitter} className="icon" alt="twitter-icon"/>
                     </a>
                     
                     
-                    <a target="_blank" href="https://www.instagram.com/quikenmx/?hl=en">
-                        <img src={Instagram} className="icon" />                    
+                    <a target="_blank" href="https://www.instagram.com/quikenmx/?hl=en" rel="noreferrer">
+                        <img src={Instagram} className="icon" alt="instagram-icon" />                    
                     </a>
                     
                     
@@ -43,11 +43,11 @@ const Footer = () => {
                     Nuevo León, México.</p>
                 </div>
                 <div className="icon-text-row-wrapper">
-                    <img src={phoneIcon} className="contact-icon" />
+                    <img src={phoneIcon} className="contact-icon" alt="phone-icon" />
                     <p className="paragraph-contact">(81) 1661 8597</p>
                 </div>
                 <div className="icon-text-row-wrapper">
-                    <img src={mailIcon} className="contact-icon" />
+                    <img src={mailIcon} className="contact-icon" alt="mail-icon" />
                     <p className="paragraph-contact">hola@quiken.mx</p>
                 </div>
             </div>

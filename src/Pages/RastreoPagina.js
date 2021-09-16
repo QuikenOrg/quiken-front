@@ -125,13 +125,14 @@ const RasteroPagina = () => {
                 <p className="rastreo-blue-letters">Ingresa tu número de rastreo:</p>
                 <div className="rastreo-input-div">
                   <input id='input-rastreo' 
+                  required
                   className="tracking-number-input"
                   value={newTrackedGuide.inputValue} 
                   onChange={handleChange} 
                   placeholder="Código de rastreo"></input>
                   {/* <Link to={`/rastreo/${newTrackedGuide}`}> */}
                     <PlaceHolderLookUp onClick={handleClick}>
-                      <img className="icono-rastreo" src={IconoRastreo}></img>
+                      <img className="icono-rastreo" src={IconoRastreo} alt="icono-rastreo" ></img>
                     </PlaceHolderLookUp>
                   {/* </Link>   */}
                 

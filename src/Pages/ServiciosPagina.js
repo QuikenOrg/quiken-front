@@ -11,15 +11,15 @@ import FulFilmentIcon from '../assets/Servicios Quiken /SERVICIOS/Servicios Quik
 import SuministrosIcon from '../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Que Necesitas/Quiken_Suministros-07.svg'
 import Footer from '../components/Footer/Footer'
 import RastreaPedido from '../components/Others/RastreaPedido'
-import BtnRegistro from '../components/Navbar/BtnRegistro'
+// import BtnRegistro from '../components/Navbar/BtnRegistro'
 import NuestrosVehiculos from '../components/Inicio/NuestrosVehiculos'
 import ContactUs from '../components/Others/ContactUs'
 import WhatsAppBtn from '../components/Others/WhatsappBtn'
-import { Helemt, Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet'
  
 //Imagenes
-import imgPaqueteriaLocal from '../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Paqueteria_Local_Quiken.png'
-import ContactForm from '../components/Inicio/ContactForm'
+// import imgPaqueteriaLocal from '../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Paqueteria_Local_Quiken.png'
+// import ContactForm from '../components/Inicio/ContactForm'
 import RepartidorQuiken from '../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Quiken_Ofrecemos.png'
 
 const ServiciosPagina = () => {
@@ -50,27 +50,27 @@ const ServiciosPagina = () => {
             <div className="servicios-wrapper-main">
               <div className="heading-servicios-row-container">
                 <div className="heading-icon-placeholder-esq-izq">
-                  <img className="icon-servicios" src={PaqueteriaLocalIcon}></img>
+                  <img className="icon-servicios" src={PaqueteriaLocalIcon} alt="paqueteria-icon"></img>
                   <h2 className="que-necesitas-servicio-heading">Paqueteria Local</h2>
                 </div>
                 
                 <div className="heading-icon-placeholder">
-                  <img className="icon-servicios" src={EnviosNacionalesIcon}></img>
+                  <img className="icon-servicios" src={EnviosNacionalesIcon} alt="icon-servicios"></img>
                   <h2 className="que-necesitas-servicio-heading">Envios Nacionales</h2>
                 </div>
                 
                 <div className="heading-icon-placeholder">
-                  <img className="icon-servicios" src={EnviosInternacionalesIcon}></img>
+                  <img className="icon-servicios" src={EnviosInternacionalesIcon} alt="heading-icon"></img>
                   <h2 className="que-necesitas-servicio-heading">Envios Internacionales</h2>
                 </div>
                 
                 <div className="heading-icon-placeholder">
-                  <img className="icon-servicios" src={FulFilmentIcon}></img>
+                  <img className="icon-servicios" src={FulFilmentIcon} alt="imagen"></img>
                   <h2 className="que-necesitas-servicio-heading">Fullfilment</h2>
                 </div>
                 
                 <div className="heading-icon-placeholder-esq-der">
-                  <img className="icon-servicios" src={SuministrosIcon}></img>
+                  <img className="icon-servicios" src={SuministrosIcon} alt="imagen-suministros"></img>
                   <h2 className="que-necesitas-servicio-heading">Suministros/Embalaje</h2>
                 </div>
               </div>
@@ -220,7 +220,7 @@ const ServiciosPagina = () => {
                   <div className="div-wrapper-80">
 
                     <div className="que-ofrecemos-section1">
-                      <img className="imagen-repartidor" src={RepartidorQuiken}></img>
+                      <img className="imagen-repartidor" src={RepartidorQuiken} alt="imagen-repartidor"></img>
                     </div>
 
                     <div className="que-ofrecemos-section2">
