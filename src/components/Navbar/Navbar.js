@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BtnRegistro from './BtnRegistro';
 import { Link } from 'react-router-dom';
 import "./Navbar.scss";
@@ -10,8 +10,34 @@ const Navbar = () => {
   const [open, setOpen] = React.useState(false);
   const node = React.useRef();
 
+  useEffect(() => {
+      var Tawk_API = Tawk_API||{},
+      Tawk_LoadStart = new Date();
+      (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/5c631c1c6cb1ff3c14cc3564/default';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1,s0);
+      })();
+      Tawk_API.onLoad = function () {
+        console.log("chat loaded");
+        Tawk_API.setAttributes(
+          {
+            name: "Test Name",
+            email: "email@email.com",
+            hash: "hash value",
+          },
+          function (error) {}
+        );
+      };
+  }, []);
+
   return (
     <>
+      {/* <!--Start of Tawk.to Script--> */}
+      {/* <!--End of Tawk.to Script--> */}
       <div className="navbar-main">
         <div className="navbar-logo-placeholder">
           <Link className="logo-link" to="/">
