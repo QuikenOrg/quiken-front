@@ -5,9 +5,7 @@ import './SignInPagina.scss'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 
-
 const LoginPagina= (props) => {
-  
   let history = useHistory();
   
   const [email, setEmail] = useState("");
@@ -20,6 +18,8 @@ const LoginPagina= (props) => {
     }
   }, [history]);
 
+  console.log(process.env)
+
   const loginHandler = async (e) => {
     e.preventDefault();
 
@@ -31,7 +31,7 @@ const LoginPagina= (props) => {
 
     try {
       const { data } = await axios.post(
-        "/api/auth/login",
+        `${process.env.REACT_APP_API_URL}/api/auth/login`,
         {
           email,
           password,

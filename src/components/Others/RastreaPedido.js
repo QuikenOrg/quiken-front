@@ -42,7 +42,7 @@ const RastreaPedido = (props) => {
                     // `/rastreo` }
                 >
                     <PlaceHolderLookUp>
-                        <img className="icono-rastreo" src={IconoRastreo}></img>
+                        <img className="icono-rastreo" src={IconoRastreo} alt="paloma"></img>
                     </PlaceHolderLookUp>
                 </Link>
             </RowDiv>

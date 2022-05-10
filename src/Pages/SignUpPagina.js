@@ -17,7 +17,7 @@ const SignUpPagina = (props) => {
 
   const registerHandler = async (e) => {
     e.preventDefault();
-
+    console.log("hola")
     const config = {
       header: {
         "Content-Type": "application/json",
@@ -30,9 +30,11 @@ const SignUpPagina = (props) => {
       return setError("Passwords do not match");
     }
 
+    console.log(process.env.REACT_APP_API_URL)
+
     try {
       const { data } = await axios.post(
-        "/api/auth/register",
+        `${process.env.REACT_APP_API_URL}/api/auth/register`,
         {
           username,
           email,
@@ -95,7 +97,7 @@ const SignUpPagina = (props) => {
                   type="password" 
                   placeholder="Confirma tu contraseña"/>
             
-            <button type="submit" className="btn-register">Registrarme</button>
+            <button type="submit" onClick={ () => registerHandler } className="btn-register">Registrarme</button>
             <div className="wrapper-sign-in-link">
               <p className="ya-tienes-cuenta">Ya tienes una cuenta?</p>
               <Link className="da-click-aqui" to="/signin">¡Da click aqui!</Link>

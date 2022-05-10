@@ -14,19 +14,19 @@ const MasBeneficios = () => {
             <h2 className="heading-main-section" >Más Beneficios</h2>
             <div className="row-wrapper">
                 <div className="beneficio-column-wrapper">
-                    <img className="beneficio-img" src={Almacenamiento}></img>
+                    <img className="beneficio-img" src={Almacenamiento} alt="storage"></img>
                     <h3 className="heading-beneficio">Soluciones de almacenamiento</h3>
                     <p className="paragraph-beneficio">No importe el tamaño, tenemos almacenes seguros y protegidos.</p>
                 </div>
 
                 <div className="beneficio-column-wrapper">
-                    <img className="beneficio-img" src={Empaquetado}></img>
+                    <img className="beneficio-img" src={Empaquetado} alt="packging"></img>
                     <h3 className="heading-beneficio">Preparación y empaquetado</h3>
                     <p className="paragraph-beneficio">Procesamos las órdenes que sean necesarias y empacamos cualquier producto, no importa el tamaño y lo delicado.</p>
                 </div>
 
                 <div className="beneficio-column-wrapper">
-                    <img className="beneficio-img" src={Devoluciones}></img>
+                    <img className="beneficio-img" src={Devoluciones} alt="returns"></img>
                     <h3 className="heading-beneficio">Procesos de pedidos y devoluciones</h3>
                     <p className="paragraph-beneficio">Procesamos miles de pedidos diarios sin importar la cantidad y nos hacemos cargo de las devoluciones.</p>
                 </div>
@@ -34,19 +34,19 @@ const MasBeneficios = () => {
 
             <div className="row-wrapper">
                 <div className="beneficio-column-wrapper">
-                    <img className="beneficio-img" src={Precision} ></img>
+                    <img className="beneficio-img" src={Precision} alt="benefits" ></img>
                     <h3 className="heading-beneficio">99.95% de precisión</h3>
                     <p className="paragraph-beneficio">Con nuestros sistemas y procesos disminuimos le  margen de error al máximo.</p>
                 </div>
 
                 <div className="beneficio-column-wrapper">
-                    <img className="beneficio-img" src={Cumplimiento} ></img>
+                    <img className="beneficio-img" src={Cumplimiento} alt="benefits-2" ></img>
                     <h3 className="heading-beneficio">Expertos dedicados al cumplimiento</h3>
                     <p className="paragraph-beneficio">Nuestros ejecutivos lo ayudarán a resolver cualquier problema.</p>
                 </div>
 
                 <div className="beneficio-column-wrapper">
-                    <img className="beneficio-img" src={Tarifas} ></img>
+                    <img className="beneficio-img" src={Tarifas} alt="benefits-3" ></img>
                     <h3 className="heading-beneficio">Mejores tarifas de envío</h3>
                     <p className="paragraph-beneficio">Contamos con las mejores tarifas de envíos en el mercado.</p>
                 </div>

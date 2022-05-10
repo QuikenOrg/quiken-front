@@ -14,7 +14,7 @@ const AyudamosNegocios = () => {
                 <p className="paragraph-section">Ayudamos a los negocios a enfocarse en sus tareas más
                 importantes, <span>disminuyendo costos extra de nómina, rentas y
                     mantenimiento.</span></p>
-                <img></img>
+                
             </div>
             <div>
                 <h2 className="heading-blue">Nuestro sistema de gestión de almacén se integran
@@ -24,7 +24,6 @@ const AyudamosNegocios = () => {
                     <img src={WooComerce} className="image-integraciones" alt="integraciones" ></img>
                     <img src={MercadoLibre} className="image-integraciones" alt="integraciones"></img>
                     <img src={Amazon} className="image-integraciones" alt="integraciones"></img>
-                    <img></img>
                 </div>
             </div>
         </>
