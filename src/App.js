@@ -59,6 +59,9 @@ function App() {
               <PrivateRoute exact path="/userdashboard" component={UserDashboard} >
               </PrivateRoute>
 
+              <PrivateRoute exact path="/cotizar" component={UserDashboard} >
+              </PrivateRoute>
+
               <PrivateRoute exact path="/createguide" component={CreateGuidePagina} >
               </PrivateRoute>
 

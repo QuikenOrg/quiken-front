@@ -12,42 +12,37 @@ const LoginPagina= (props) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    if (localStorage.getItem('authToken')) {
-      history.push("/userdashboard")
-    }
-  }, [history]);
-
-  console.log(process.env)
-
   const loginHandler = async (e) => {
     e.preventDefault();
 
     const config = {
       header: {
-        "Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
       },
     };
+    
+    let formData = new FormData();
+    formData.append('email', email);   //append the values with key, value pair
+    formData.append('password', password);
 
     try {
       const { data } = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/auth/login`,
-        {
-          email,
-          password,
-        },
+        `${process.env.REACT_APP_API_URL}/user/login`,
+        formData,
         config
       );
-      console.log(data)
-
-      localStorage.setItem("authToken", data.token);
-      localStorage.setItem("email", data.user.email);
-      localStorage.setItem("username", data.user.username);
+      
+      localStorage.setItem("access_token", data.data.access_token);
+      console.log(data.data.access_token)
+      localStorage.setItem("api_key", data.data.user.api_key);
+      localStorage.setItem("email", data.data.user.email);
+      localStorage.setItem("username", data.data.user.username);
+      console.log(data.data.user.api_key)
 
       history.push("/userdashboard");
     } catch (error) {
       console.log(error)
-      setError(error.response.data.error);
+
     }
   };
 
