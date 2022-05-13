@@ -22,7 +22,7 @@ const AyudamosNegocios = () => {
                 <div className="row-wrapper-icons">
                     <img src={Shopify} className="image-integraciones" alt="integraciones"></img>
                     <img src={WooComerce} className="image-integraciones" alt="integraciones" ></img>
-                    <img src={MercadoLibre} className="image-integraciones" alt="integraciones"></img>
+                    <img src={MercadoLibre} className="image -integraciones" alt="integraciones"></img>
                     <img src={Amazon} className="image-integraciones" alt="integraciones"></img>
                 </div>
             </div>

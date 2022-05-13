@@ -16,6 +16,11 @@ import RecargarSaldoPagina from './Pages/RecargarSaldoPagina'
 import PrivateRoute from './components/routing/PrivateRoute'
 import ResetPasswordPagina from './Pages/ResetPasswordPagina';
 import UserDashboard from './Pages/UserDashboard';
+import NewDashboard from './Pages/NewDashboard';
+import NewGuias from './Pages/NewGuias';
+import NewRecargar from './Pages/NewRecargar';
+import NewCotizar from './Pages/NewCotizar';
+import NewCreateGuide from './Pages/NewCreateGuide';
 
 function App() {
   return (
@@ -60,6 +65,23 @@ function App() {
               </PrivateRoute>
 
               <PrivateRoute exact path="/cotizar" component={UserDashboard} >
+              </PrivateRoute>
+
+
+              {/* Nuevas Private Routes */}
+              <PrivateRoute exact path="/newdashboard" component={NewDashboard} >
+              </PrivateRoute>
+
+              <PrivateRoute exact path="/newmyguides" component={NewGuias} >
+              </PrivateRoute>
+
+              <PrivateRoute exact path="/newrecargar" component={NewRecargar} >
+              </PrivateRoute>
+
+              <PrivateRoute exact path="/newcreateguide" component={NewCreateGuide} >
+              </PrivateRoute>
+
+              <PrivateRoute exact path="/newcotizar" component={NewCotizar} >
               </PrivateRoute>
 
               <PrivateRoute exact path="/createguide" component={CreateGuidePagina} >

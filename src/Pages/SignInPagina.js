@@ -11,6 +11,34 @@ const LoginPagina= (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [ goToDashboard, setGoToDashboard] = useState(false)
+
+  useEffect(() => {
+    userSignedIn()
+    if (goToDashboard) history.push("/newdashboard") 
+  },[]);
+
+  const userSignedIn = async () => {
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Authorization": `Bearer ${localStorage.getItem("access_token")}`
+      },
+    };
+
+    try {
+      //AQUI VAN LAS RUTAS DE LAS GUIAS
+      const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/user/info`, {} ,config);
+      setError(false)
+      setGoToDashboard(true)
+    } catch (error) {
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("email");
+      localStorage.removeItem("username");
+      setError(true)
+    }
+  }
+
 
   const loginHandler = async (e) => {
     e.preventDefault();
