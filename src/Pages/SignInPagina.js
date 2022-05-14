@@ -67,7 +67,7 @@ const LoginPagina= (props) => {
       localStorage.setItem("username", data.data.user.username);
       console.log(data.data.user.api_key)
 
-      history.push("/userdashboard");
+      history.push("/newdashboard");
     } catch (error) {
       console.log(error)
 

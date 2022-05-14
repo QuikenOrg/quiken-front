@@ -6,6 +6,7 @@ import PageWrapper from '../styled_components/page_wrapper'
 import MidScreenWrapper from '../styled_components/mid_screen_wrapper'
 import axios from 'axios'
 import styled from 'styled-components'
+import GuidesTable from './GuidesTable'
 
 const NewGuias = () => {
   
@@ -17,9 +18,9 @@ const NewGuias = () => {
         <Navbar/>
         <MidScreenWrapper>
 
-            <Sidebar setLoading={loading} setError={setError}/>
+            <Sidebar setLoading={setLoading} setError={setError}/>
             <div>
-                <h1>this is new guias</h1>
+                <GuidesTable/>
             </div>
         </MidScreenWrapper>
         <Footer/>
