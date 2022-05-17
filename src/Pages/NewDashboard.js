@@ -89,5 +89,5 @@ const DashboardWrapper = styled.div`
     justify-content: space-evenly;
     align-items: center;
     height: 100%;
-    width: 90%;
+    width: 100%;
 `

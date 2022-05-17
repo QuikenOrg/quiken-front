@@ -67,11 +67,7 @@ useEffect(() => {
                   </div>
             </Row>
             <GraphBannerWrapper>
-                <BannerWrapper>
-
-                </BannerWrapper>
                 <GraphWrapper>
-                    
                 </GraphWrapper>
             </GraphBannerWrapper> 
         </BigWrapper>
@@ -85,14 +81,12 @@ const BigWrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #DDE5ED;
 `
 
 const Row = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 100px;
 `
 const RowColumn = styled.div`
     display: flex;
@@ -111,7 +105,7 @@ display: flex;
 flex-direction: row;
 width: 100%;
 height: 100%;
-background-color: yellow;
+
 `
 
 const MainHeaderDashboard = styled.h1`
@@ -130,13 +124,9 @@ const WelcomeHeader = styled.h1`
     font-weight: 500;
 `
 
-const BannerWrapper = styled.div`
-    width: 30%;
-    background-color: blanchedalmond;
-`
-
 const GraphWrapper = styled.div`
-    width: 70%;
+    width: 100%;
+    background-color: pruple;
 `
 
 export default DashboardMonitor
