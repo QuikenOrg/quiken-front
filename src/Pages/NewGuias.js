@@ -17,15 +17,27 @@ const NewGuias = () => {
     <PageWrapper>
         <Navbar/>
         <MidScreenWrapper>
-
             <Sidebar setLoading={setLoading} setError={setError}/>
-            <div>
+            <WrapperTableGuias>
+                <h1 className="cotizador-rapido-main-header">Guias Generadas</h1>
                 <GuidesTable/>
-            </div>
+            </WrapperTableGuias>
         </MidScreenWrapper>
         <Footer/>
     </PageWrapper>
   )
 }
+
+
+const WrapperTableGuias = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding-top: 50px;
+    box-sizing: border-box;
+    justify-content: flex-start;
+`
 
 export default NewGuias;

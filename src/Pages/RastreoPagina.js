@@ -41,26 +41,27 @@ const RasteroPagina = () => {
   const getGuideInfo = async () => {
     const body = {
       "clientDetail": {
-        "accountName": "rastreo@quiken.mx",
-        "apiKey": "QNy1tpJFfmYIOlqF1oiwBy7iE46LXuwb"
+        "accountName": localStorage.getItem("email"),
+        "apiKey": localStorage.getItem("api_key")
       },
       "trackingNumbers": [
         guideNumber
       ]
     }
 
-    const url = 'https://api.quiken.mx/track'
+    const url = `${process.env.REACT_APP_API_URL}/track`
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${localStorage.getItem("access_token")}`
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: JSON.stringify(body)
     })
     
     const data = await response.json()
-
+    console.log(data);
     try {
       setGuideInformation(data)
       setShipmentHistory(data.data.shipments[0].shipmentHistory)

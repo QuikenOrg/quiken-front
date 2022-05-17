@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components';
 
-
-
 const DashboardMonitor = ( 
     {
         userPoints,
@@ -36,9 +34,8 @@ useEffect(() => {
     return (
         <BigWrapper>
             <RowColumn>
-
-            <h1>{user.email}</h1>  
-            <h1>{date}</h1>    
+                <MainHeaderDashboard>{user.email}</MainHeaderDashboard>  
+                <SubHeaderDashboard>{date}</SubHeaderDashboard>    
             </RowColumn>
             
             <Row>
@@ -84,9 +81,9 @@ useEffect(() => {
 const BigWrapper = styled.div`
     height: 100%;
     width: 100%;
-    background-color: aquamarine;
     display: flex;
     flex-direction: column;
+    background-color: #DDE5ED;
 `
 
 const Row = styled.div`
@@ -94,15 +91,17 @@ const Row = styled.div`
     flex-direction: row;
     width: 100%;
     height: 100px;
-    background-color: yellow;
 `
 const RowColumn = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 20px;
     width: 100%;
     height: 100px;
-    background-color: yellow;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #245188;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 `
 
 const GraphBannerWrapper = styled.div`
@@ -113,6 +112,17 @@ height: 100%;
 background-color: yellow;
 `
 
+const MainHeaderDashboard = styled.h1`
+    color: #EE1F42;
+    font-size: 40px;
+    font-weight: 700;
+`
+const SubHeaderDashboard = styled.h1`
+    color: #245188;
+    font-size: 25px;
+    font-weight: 700;
+`
+
 const BannerWrapper = styled.div`
     width: 30%;
     background-color: blanchedalmond;
@@ -120,7 +130,6 @@ const BannerWrapper = styled.div`
 
 const GraphWrapper = styled.div`
     width: 70%;
-    background-color: aquamarine;
 `
 
 export default DashboardMonitor

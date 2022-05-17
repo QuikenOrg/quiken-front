@@ -9,15 +9,17 @@ const SignUpPagina = (props) => {
   
   let history = useHistory();
   
-  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [companyName, setCompanyName] = useState("");
   const [error, setError] = useState("");
 
   const registerHandler = async (e) => {
     e.preventDefault();
-    console.log("hola")
     const config = {
       header: {
         "Content-Type": "application/json",
@@ -27,24 +29,30 @@ const SignUpPagina = (props) => {
     if (password !== confirmPassword) {
       setPassword("");
       setConfirmPassword("");
-      return setError("Passwords do not match");
+      return setError("La contraseñas no coinciden.");
     }
 
-    console.log(process.env.REACT_APP_API_URL)
+    let formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('company_name', companyName);
+    formData.append('first_name', firstName);
+    formData.append('last_name', lastName);
+    formData.append('phone', phone);
+      
+
+
 
     try {
       const { data } = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/auth/register`,
-        {
-          username,
-          email,
-          password,
-        },
+        `${process.env.REACT_APP_API_URL}/user/register`,
+        formData
+        ,
         config
       );
 
       localStorage.setItem("authToken", data.token);
-
+      console.log(data)
       history.push("/");
     } catch (error) {
       console.log(error)
@@ -61,14 +69,42 @@ const SignUpPagina = (props) => {
             <h2 className="main-subheading-signup">Crea tu cuenta, y empieza a crecer tu negocio</h2>
           <form className="the-form"onSubmit={registerHandler}>
             {error && <span className="register-screen-title" >{error}</span>}
-            <label className="form-label">Nombre / Compañia <span>*</span></label>
+            <label className="form-label">Nombre <span>*</span></label>
             <input className="form-input" 
                   required 
                   id="name" 
-                  value={username} 
-                  onChange={(e) => setUsername(e.target.value)} 
+                  value={firstName} 
+                  onChange={(e) => setFirstName(e.target.value)} 
                   type="text" 
-                  placeholder="Ingresa tu nombre usuario"/>
+                  placeholder="Ingresa tu nombre "/>
+
+          <label className="form-label">Apellido <span>*</span></label>
+            <input className="form-input" 
+                  required 
+                  id="name" 
+                  value={lastName} 
+                  onChange={(e) => setLastName(e.target.value)} 
+                  type="text" 
+                  placeholder="Ingresa tu apellido"/>
+
+          <label className="form-label">Nombre de la compania <span>*</span></label>
+            <input className="form-input" 
+                  required 
+                  id="name" 
+                  value={companyName} 
+                  onChange={(e) => setCompanyName(e.target.value)} 
+                  type="text" 
+                  placeholder="Ingresa el nombre de tu compañia"/>
+
+            <label className="form-label">Telefono <span>*</span></label>
+            <input className="form-input" 
+                  required 
+                  id="name" 
+                  value={phone} 
+                  onChange={(e) => setPhone(e.target.value)} 
+                  type="text" 
+                  placeholder="Ingresa tu telefono"
+                  />
             
             <label className="form-label">Email<span> *</span></label>
             <input className="form-input" 
