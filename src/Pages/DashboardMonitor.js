@@ -34,6 +34,7 @@ useEffect(() => {
     return (
         <BigWrapper>
             <RowColumn>
+                <WelcomeHeader>Bienvenido a Quiken</WelcomeHeader>  
                 <MainHeaderDashboard>{user.email}</MainHeaderDashboard>  
                 <SubHeaderDashboard>{date}</SubHeaderDashboard>    
             </RowColumn>
@@ -56,12 +57,13 @@ useEffect(() => {
                   <div className="card-dashboard">
                     <label className="label-paquete-info">Costo Promedio</label>
                     <h1 className="featured-number">$ 0.00</h1>
+                    <Link className="recargar-saldo-link" disable style={{color: "white"}} to="/recargarsaldo">Recagar Saldo {">"}</Link>
                 </div>
                 
                   <div className="card-dashboard">
                     <label className="label-paquete-info">Peso Promedio</label>
                     <h1 className="featured-number">0.00 Kg</h1>
-                    <Link className="recargar-saldo-link-trans" >Recagar Saldo {">"}</Link>
+                    <Link className="recargar-saldo-link" disable style={{color: "white"}} to="/recargarsaldo">Recagar Saldo {">"}</Link>
                   </div>
             </Row>
             <GraphBannerWrapper>
@@ -96,11 +98,11 @@ const RowColumn = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100px;
     font-family: 'Montserrat', sans-serif;
     background-color: #245188;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     padding: 20px;
 `
 
@@ -118,9 +120,14 @@ const MainHeaderDashboard = styled.h1`
     font-weight: 700;
 `
 const SubHeaderDashboard = styled.h1`
-    color: #245188;
+    color: white;
     font-size: 25px;
-    font-weight: 700;
+    font-weight: 300;
+`
+const WelcomeHeader = styled.h1`
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
 `
 
 const BannerWrapper = styled.div`

@@ -21,7 +21,6 @@ const NewGuias = () => {
     const [paymentLink, setPaymentLink] = useState("");
 
     const createPayment = async () => {
-        console.log("THIS THAT");
         const url = `${process.env.REACT_APP_API_URL}/user/pay`;
         const response = await fetch(url, {
           method: 'POST',
@@ -34,11 +33,9 @@ const NewGuias = () => {
           })
         });
         const data = await response.json();
-        console.log(data)
         if (data.status === "SUCCESS") {
             setHaveLink(true)
             setPaymentLink(data.pay_link)
-
         } else if (data.status === "ERROR") {
           console.log(data.description)
         } 
@@ -49,24 +46,22 @@ const NewGuias = () => {
     } 
 
     const upperSection = haveLink === false ? (
-        <div className="payment-section">
-                <h1 className="subheading-form-create-guide"> AGREGA SALDO A TU CUENTA:</h1>
-                <h1> Ingresa la cantidad a abonar a tu cuenta. Y paga comodamente con cualquiera de nuestros metodos de pago</h1>
-
-                    <input onChange={(e) => handleChange(e)} placeholder='Cantidad a abonar a saldo'></input>
-                    <button onClick={() => createPayment()}>Aceptar</button>
-                
-                </div>
+        <PaymentSection>
+            <HeaderAgregaSaldo> AGREGA SALDO A TU CUENTA:</HeaderAgregaSaldo>
+            <SubHeadingAgregaSaldo> Ingresa la cantidad a abonar a tu cuenta. <br/> Y paga comodamente con cualquiera de nuestros metodos de pago</SubHeadingAgregaSaldo>
+            <PaymentInput onChange={(e) => handleChange(e)} placeholder='Cantidad a abonar a saldo'></PaymentInput>
+            <ButtonPayment onClick={() => createPayment()}>Aceptar</ButtonPayment>        
+        </PaymentSection>
     ) : (
-     <div>
-         <h1>Hola morro</h1>
-         <a href={paymentLink}>
-            <h1>{paymentLink}</h1>
-         </a>
-     </div>   
+     <PaymentSection>
+         <HeaderAgregaSaldo>Muchas gracias por realizar su pedido.</HeaderAgregaSaldo>
+         <SubHeadingAgregaSaldo> Da click en el siguiente link.<br/> Y completa tu pago</SubHeadingAgregaSaldo>
+            
+         <PaymentLink href={paymentLink}>
+            {paymentLink}
+         </PaymentLink>
+     </PaymentSection>   
     )
-
-
 
     return (
     <PageWrapper>
@@ -76,8 +71,7 @@ const NewGuias = () => {
             <RecargaWrapper>
                 
                 {upperSection}
-                
-                
+                           
                 <LogosWrapper>
                     <img 
                         style={{
@@ -117,22 +111,88 @@ const NewGuias = () => {
   )
 }
 
+const PaymentSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+
 const RecargaWrapper = styled.div`
     width: 100%; 
     display: flex;
     flex-direction: column;
     //align-items: center;
-    justify-content: end;
+    justify-content: center;
+`
+
+const PaymentLink = styled.a`
+    &:hover {
+        color: red;
+        font-weight: 500;
+    }
+    color: #245188;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
 `
 
 const LogosWrapper = styled.div`
-    width: 100%; 
+    width: 90%; 
     display: flex;
     flex-direction: row;
-    height: 200px;
-    background-color: green;
-    justify-self: flex-end;
-    
+    margin-top: 20px;
+    align-self: center;
+    justify-content: space-evenly;
+`
+
+const HeaderAgregaSaldo = styled.h1`
+    color: #EE1F42;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 10px;
+`
+const SubHeadingAgregaSaldo = styled.h1`
+    color: #245188;
+    font-size: 25px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+`
+const WelcomeHeader = styled.h1`
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+`
+
+const PaymentInput = styled.input`
+    color: black;
+    font-size: 15px;
+    box-sizing: border-box;
+    font-weight: 500;
+    width: 250px;
+    margin-top: 10px;
+    padding: 5px;
+    font-family: 'Montserrat', sans-serif;
+`
+
+const ButtonPayment = styled.button`
+    height: 30px;
+    box-sizing: border-box;
+    font-weight: 500;
+    width: 150px;
+    font-size: 20px;
+    background-color: #245188;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 `
 
 export default NewGuias;

@@ -99,10 +99,8 @@ const RecargarSaldoPagina = () => {
     
 
     useEffect(() => {
-        console.log('THSI IS BOOLEAN RECAHRG', isRechargePaid);
         requestGetPoints(username)
         if(isRechargePaid === true) {
-            console.log('UPDATING POINTS')
             requestRecharge(username, cartTotal)
             setIsRechargePaid(false)
         }
@@ -113,7 +111,6 @@ const RecargarSaldoPagina = () => {
     return (
         <div>
             <Navbar/>
-            {/* <SubNavbar/> */}
             
             <div className="main-wrapper-recargar-saldo">
                 <div className="main-wrapper-comprar-saldo">

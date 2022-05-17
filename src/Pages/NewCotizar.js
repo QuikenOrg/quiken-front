@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
 import PageWrapper from '../styled_components/page_wrapper'
-import MidScreenWrapper from '../styled_components/mid_screen_wrapper'
 import Cotizador from './Cotizador'
 import styled from 'styled-components'
 
@@ -13,16 +12,26 @@ const NewCotizar = () => {
     return (
     <PageWrapper>
         <Navbar/>
-        <MidScreenWrapper>
-            <Sidebar setError={setError}/>
+        <MidScreenWrapperCotizador>
+                <Sidebar setError={setError}/>
             <CotizadorWrapper>
                 <Cotizador/>
             </CotizadorWrapper>
-        </MidScreenWrapper>
+        </MidScreenWrapperCotizador>
         <Footer/>
     </PageWrapper>
   )
 }
+
+
+const MidScreenWrapperCotizador = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 60vh;
+    height: 50%;
+    background-color: #DDE5ED;
+`
 
 const CotizadorWrapper = styled.div`
     width: 100%;

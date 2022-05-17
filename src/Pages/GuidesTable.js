@@ -43,6 +43,10 @@ const GuidesTable = () => {
   const columns = React.useMemo(
     () => [
       {
+        Header: '',
+        accessor: 'none'
+      },
+      {
         Header: 'Tracking Number',
         accessor: 'tracking_number'
       },
@@ -106,7 +110,7 @@ function Table({ columns, data, allData, fetchGuides }) {
   return (
 
     <>
-    <table {...getTableProps()}>
+    <StyledTable {...getTableProps()}>
       <thead>
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
@@ -141,7 +145,7 @@ function Table({ columns, data, allData, fetchGuides }) {
           )
         })}
       </tbody>
-    </table>
+    </StyledTable>
     <PaginationWrapper class="pagination">
       
       <PaginationBtn onClick={
@@ -193,6 +197,13 @@ function Table({ columns, data, allData, fetchGuides }) {
   )
 }
 
+const StyledTable = styled.table`
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: white;
+`
+
+
 const PaginationWrapper = styled.nav`
   display: flex;
   flex-direction: row;
@@ -227,12 +238,26 @@ const StatusButton = styled.button`
 const PaginationBtn = styled.button`
   border-radius: 5px;
   box-sizing: border-box;
-  background-color: navy;
   margin-left: 1px;
   margin-right: 1px;
-  width: 80px;
   color: white;
+  padding: 2px 8px;
+  background-color: #245188;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  &:hover {
+    color: #EE1F42;
+    font-weight: 500;
+  }
+  &:disabled {
+    opacity: 50%;
+    &:hover {
+      color: white;
+    }
+  } 
 `
+
 
 const getStatusString = (int) => {
   switch(int) {
@@ -291,7 +316,8 @@ const Styles = styled.div`
 `
 
 const THead = styled.th`
-  background-color: grey;
+  background-color: #245188;
+  font-size: 15px;
 `
 
 const SectionWrapper = styled.div`

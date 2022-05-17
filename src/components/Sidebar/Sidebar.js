@@ -37,6 +37,8 @@ const Sidebar = (
 
 export default Sidebar;
 
+
+
 const LogoutButton = styled.button`
 
 `
@@ -54,6 +56,7 @@ const LinksWrapper = styled.div`
 `
 
 const SidebarWrapper =  styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
   background-color: #245188;

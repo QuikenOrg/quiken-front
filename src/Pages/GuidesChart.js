@@ -5,6 +5,11 @@ import Chart from 'chart.js/auto';
 import styled from "styled-components";
 
 const GuidesChart = () => {
+
+  const yearsSelect = [
+    "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012",
+  ]
+
   Chart.register(CategoryScale);
   const barChartData = {
     labels: ["Ene", "Feb", "Mar", "Mar","Abr","May","Jun","Jul",
@@ -44,21 +49,48 @@ const GuidesChart = () => {
 
   return (
   <ChartWrapper>
-    <select>
-                  <option>
-                    Envios
-                  </option>
-                  <option>
-                    Precio Promedio
-                  </option>
-                </select>
+    <SelectWrapper>
+      <Select>
+          { yearsSelect.map((year) => {
+            return <option>{year}</option>
+          })}
+      </Select>
+      <Select>
+                    <option>
+                      Envios
+                    </option>
+                    <option>
+                      Precio Promedio
+                    </option>
+                    <option>
+                      Recargas
+                    </option>
+      </Select>
+    </SelectWrapper>
     {barChart}
   </ChartWrapper>
   );
 };
 
+const Select = styled.select`
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  align-self: flex-end;
+  margin-right: 30px
+`
+
+const SelectWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: flex-end;
+`
+
 const ChartWrapper = styled.div`
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding: 50px;
 `
