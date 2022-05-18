@@ -43,7 +43,7 @@ useEffect(() => {
                 <div className="card-dashboard">
                     <label className="label-paquete-info">Saldo disponible</label>
                     <h1 className="featured-number">$ {userPoints}</h1>
-                    <Link className="recargar-saldo-link" to="/recargarsaldo">
+                    <Link className="recargar-saldo-link" to="/newrecargarsaldo">
                       Recagar Saldo {">"}
                     </Link>
                   </div>
@@ -51,19 +51,19 @@ useEffect(() => {
                   <div className="card-dashboard">
                     <label className="label-paquete-info">Total Recargas</label>
                     <h1 className="featured-number">$ {totalRecargas}.00</h1>
-                    <Link className="recargar-saldo-link" to="/recargarsaldo">Recagar Saldo {">"}</Link>
+                    <Link className="recargar-saldo-link" to="/newrecargar">Recagar Saldo {">"}</Link>
                   </div>
                 
                   <div className="card-dashboard">
                     <label className="label-paquete-info">Costo Promedio</label>
                     <h1 className="featured-number">$ 0.00</h1>
-                    <Link className="recargar-saldo-link" disable style={{color: "white"}} to="/recargarsaldo">Recagar Saldo {">"}</Link>
+                    <Link className="recargar-saldo-link" disable style={{color: "white"}} to="/newrecargar">Recagar Saldo {">"}</Link>
                 </div>
                 
                   <div className="card-dashboard">
                     <label className="label-paquete-info">Peso Promedio</label>
                     <h1 className="featured-number">0.00 Kg</h1>
-                    <Link className="recargar-saldo-link" disable style={{color: "white"}} to="/recargarsaldo">Recagar Saldo {">"}</Link>
+                    <Link className="recargar-saldo-link" disable style={{color: "white"}} to="/newrecargar">Recagar Saldo {">"}</Link>
                   </div>
             </Row>
             <GraphBannerWrapper>
