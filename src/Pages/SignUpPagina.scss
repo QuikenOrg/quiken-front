@@ -22,7 +22,6 @@
   width: 200px;
   align-self: flex-end;
   margin-top: 10px;
-  color: $quikenWhite;
   background-color: $quikenRed;
   border: none;
   border-radius: 15px;
@@ -30,6 +29,7 @@
   font-family: $quikenFont;
   font-size: 16px;
   font-weight: 600;
+  color: $quikenWhite;
 }
 
 .the-form {

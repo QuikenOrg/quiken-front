@@ -4,7 +4,6 @@ import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
 import PageWrapper from '../styled_components/page_wrapper'
 import MidScreenWrapper from '../styled_components/mid_screen_wrapper'
-import axios from 'axios'
 import styled from 'styled-components'
 import GuidesTable from './GuidesTable'
 

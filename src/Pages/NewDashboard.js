@@ -17,6 +17,7 @@ const NewDashboard = () => {
     const [error, setError] = useState(true);
     const [userPoints, setUserPoints] = useState()
     const [totalRecargas, setTotalRecargas] = useState()
+    const [dashboardData, setDashboardData] = useState()
 
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState()
@@ -24,7 +25,7 @@ const NewDashboard = () => {
 
   useEffect(() => {
     fetchPrivateData()
-    console.log(user)
+    fetchDashboard()
     return () => {
       
     };
@@ -43,8 +44,6 @@ const NewDashboard = () => {
       const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/user/info`, {} ,config);
       setUser(data.user)
       setUserPoints(data.user.balance)
-      setLoading(true)
-      setError(false)
     } catch (error) {
       localStorage.removeItem("authToken");
       localStorage.removeItem("email");
@@ -54,6 +53,32 @@ const NewDashboard = () => {
     }
   };
 
+  const fetchDashboard = async (
+    url = `${process.env.REACT_APP_API_URL}/user/dashboard`
+    ) => {
+    const config = {
+        headers: {
+        "Content-Type": "multipart/form-data",
+        "Authorization": `Bearer ${localStorage.getItem("access_token")}`
+        },
+    };
+
+    try {
+        //AQUI VAN LAS RUTAS DE LAS GUIAS
+        console.log("Trying this")
+        const { data } = await axios.post(url, {} ,config);
+        setDashboardData(data)
+        setLoading(false)
+        setError(false)
+    } catch (error) {
+        localStorage.removeItem("authToken"); 
+        localStorage.removeItem("email");
+        localStorage.removeItem("username");
+        history.push("/signin")
+        setError(true)
+    }
+};
+
     
     return (
     <PageWrapper>
@@ -62,15 +87,20 @@ const NewDashboard = () => {
             <Sidebar setLoading={setLoading} setError={setError}/>
             {
                 error && loading ? 
-                <h1>Error</h1> 
+                <Loading>
+                  <h1>Cargando info...</h1>
+                </Loading> 
                 :
                 <DashboardWrapper>
                 <DashboardMonitor
                     user={user} 
                     userPoints={userPoints}
                     totalRecargas={totalRecargas}
+                    dashboardData={dashboardData}
                 />
-                <GuidesChart/>
+                <GuidesChart 
+                    dashboardData={dashboardData}
+                />
                 </DashboardWrapper>
             }
             
@@ -81,6 +111,16 @@ const NewDashboard = () => {
 }
 
 export default NewDashboard;
+
+const Loading = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+`
+
 
 const DashboardWrapper = styled.div`
     background-color: white;

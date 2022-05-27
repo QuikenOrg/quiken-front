@@ -1,18 +1,18 @@
+import { background } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components';
+import axios from 'axios' 
 
 const DashboardMonitor = ( 
     {
         userPoints,
-        totalRecargas,
-        user
+        user, 
+        dashboardData
     }
     ) => {
-        console.log(user)
-        const history = useHistory();
-        const [date, setDate] = useState("");
-
+    const history = useHistory();
+    const [date, setDate] = useState("");
 
     const logoutHandler = () => {
         localStorage.removeItem('authToken');
@@ -20,6 +20,7 @@ const DashboardMonitor = (
         localStorage.removeItem('username');
         history.push('/signin')
     }
+    console.log(dashboardData)
 
 useEffect(() => {
     let newDate = new Date
@@ -40,31 +41,31 @@ useEffect(() => {
             </RowColumn>
             
             <Row>
-                <div className="card-dashboard">
+                <Card>
                     <label className="label-paquete-info">Saldo disponible</label>
                     <h1 className="featured-number">$ {userPoints}</h1>
                     <Link className="recargar-saldo-link" to="/newrecargarsaldo">
                       Recagar Saldo {">"}
                     </Link>
-                  </div>
+                  </Card>
                   
-                  <div className="card-dashboard">
+                  <Card>
                     <label className="label-paquete-info">Total Recargas</label>
-                    <h1 className="featured-number">$ {totalRecargas}.00</h1>
+                    <h1 className="featured-number">$ {parseInt(dashboardData.total_refils)}.00</h1>
                     <Link className="recargar-saldo-link" to="/newrecargar">Recagar Saldo {">"}</Link>
-                  </div>
+                  </Card>
                 
-                  <div className="card-dashboard">
+                  <Card>
                     <label className="label-paquete-info">Costo Promedio</label>
-                    <h1 className="featured-number">$ 0.00</h1>
+                    <h1 className="featured-number">${parseInt(dashboardData.average_cost)}.00</h1>
                     <Link className="recargar-saldo-link" disable style={{color: "white"}} to="/newrecargar">Recagar Saldo {">"}</Link>
-                </div>
+                </Card>
                 
-                  <div className="card-dashboard">
+                  <Card>
                     <label className="label-paquete-info">Peso Promedio</label>
-                    <h1 className="featured-number">0.00 Kg</h1>
+                    <h1 className="featured-number">{dashboardData.average_weight.toFixed(2)} Kg</h1>
                     <Link className="recargar-saldo-link" disable style={{color: "white"}} to="/newrecargar">Recagar Saldo {">"}</Link>
-                  </div>
+                  </Card>
             </Row>
             <GraphBannerWrapper>
                 <GraphWrapper>
@@ -87,7 +88,19 @@ const Row = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
+    background-color: white;
 `
+const Card = styled.div`
+    height: 100%;
+    background-color: $quikenWhite;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 5px;
+`   
+
+
 const RowColumn = styled.div`
     display: flex;
     flex-direction: column;
@@ -126,7 +139,7 @@ const WelcomeHeader = styled.h1`
 
 const GraphWrapper = styled.div`
     width: 100%;
-    background-color: pruple;
+    background-color: white;
 `
 
 export default DashboardMonitor

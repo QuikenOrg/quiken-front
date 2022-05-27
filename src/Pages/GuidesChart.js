@@ -1,15 +1,25 @@
-import React from "react";
+import React, {useState, useEffect, useRef} from "react";
 import { Bar } from "react-chartjs-2";
 import { CategoryScale } from 'chart.js';
 import Chart from 'chart.js/auto';
 import styled from "styled-components";
 
-const GuidesChart = () => {
+const GuidesChart = (
+  {
+    dashboardData
+  }
+) => {
 
-  const yearsSelect = [
-    "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012",
-  ]
+  const yearTag = useRef(null);
+  const typeTag = useRef(null);
 
+  const yearsShipments = Object.keys(dashboardData.shipments).sort((a, b) => b - a)
+  const yearsRecargas = Object.keys(dashboardData.refils).sort((a, b) => b - a)
+
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(setInitialData());
+  const [yearsToSelect, setYearsToSelect] = useState(yearsShipments);
+  
   Chart.register(CategoryScale);
   const barChartData = {
     labels: ["Ene", "Feb", "Mar", "Mar","Abr","May","Jun","Jul",
@@ -17,13 +27,157 @@ const GuidesChart = () => {
   ],
     datasets: [
       {
-        data: [200, 350, 275],
+        data: data,
         borderColor: "#3333ff",
         backgroundColor: "pink",
         fill: true
       },
     ]
   };
+
+  function setInitialData() {
+    const year = yearsShipments[0]
+    let newData = Array(12).fill(0)
+    dashboardData.shipments[year].forEach((entry) => {
+      switch (entry.Mes) {
+    case "January":
+      newData[0] = entry.total
+      return
+    case 'February':
+      newData[1] = entry.total
+      return 
+    case "March":
+      newData[2] = entry.total
+      return 
+    case "April":
+      newData[3] = entry.total
+        return
+    case "May":
+      newData[4] = entry.total
+      return
+    case "June":
+      newData[5] = entry.total
+        return
+    case "July":
+      newData[6] = entry.total
+      return
+    case "August":
+      newData[7] = entry.total
+        return
+    case "September":
+      newData[8] = entry.total
+      return
+    case "October":
+      newData[9] = entry.total
+        return
+    case "November":
+      newData[10] = entry.total
+      return
+    case "December":
+      newData[11] = entry.total
+      return  
+    }
+    })
+    return newData
+  }
+  
+  function updateChart() {
+    const year = yearTag.current.value
+    const type = typeTag.current.value
+    let newData = Array(12).fill(0)
+    console.log(dashboardData)
+    if (type == "Envios") {
+      dashboardData.shipments[year].forEach((entry) => {
+        switch (entry.Mes) {
+      case "January":
+        newData[0] = entry.total
+        return
+      case 'February':
+        newData[1] = entry.total
+        return 
+      case "March":
+        newData[2] = entry.total
+        return 
+      case "April":
+        newData[3] = entry.total
+          return
+      case "May":
+        newData[4] = entry.total
+        return
+      case "June":
+        newData[5] = entry.total
+          return
+      case "July":
+        newData[6] = entry.total
+        return
+      case "August":
+        newData[7] = entry.total
+          return
+      case "September":
+        newData[8] = entry.total
+        return
+      case "October":
+        newData[9] = entry.total
+          return
+      case "November":
+        newData[10] = entry.total
+        return
+      case "December":
+        newData[11] = entry.total
+        return  
+      }
+      })  
+    }
+
+    if (type == "Recargas") {
+      console.log(dashboardData.refils.length)
+      if (dashboardData.refils.length === 0) {
+        console.log(newData)
+      } else {
+        dashboardData.refils[year].forEach((entry) => {
+        switch (entry.Mes) {
+        case "January":
+          newData[0] = entry.total
+          return
+        case 'February':
+          newData[1] = entry.total
+          return 
+        case "March":
+          newData[2] = entry.total
+          return 
+        case "April":
+          newData[3] = entry.total
+            return
+        case "May":
+          newData[4] = entry.total
+          return
+        case "June":
+          newData[5] = entry.total
+            return
+        case "July":
+          newData[6] = entry.total
+          return
+        case "August":
+          newData[7] = entry.total
+            return
+        case "September":
+          newData[8] = entry.total
+          return
+        case "October":
+          newData[9] = entry.total
+            return
+        case "November":
+          newData[10] = entry.total
+          return
+        case "December":
+          newData[11] = entry.total
+          return  
+        }
+        })  
+      }
+    }
+    setData(newData)
+  }
 
   const barChart = (
     <Bar
@@ -47,27 +201,37 @@ const GuidesChart = () => {
     />
   );
 
+  useEffect(() => {
+    setLoading(false)
+    console.log("runnig this")
+  }, [loading]);
+
+  console.log(yearsToSelect)
+
   return (
   <ChartWrapper>
-    <SelectWrapper>
-      <Select>
-          { yearsSelect.map((year) => {
-            return <option>{year}</option>
-          })}
-      </Select>
-      <Select>
-                    <option>
-                      Envios
-                    </option>
-                    <option>
-                      Precio Promedio
-                    </option>
-                    <option>
-                      Recargas
-                    </option>
-      </Select>
-    </SelectWrapper>
-    {barChart}
+    {
+        loading ? <></> :
+        <>
+        <SelectWrapper>
+          <Select ref={yearTag} onChange={(e) => updateChart(e, {type: "year"})}>
+              { yearsToSelect.map((year) => {
+                return <option >{year}</option>
+              })}
+          </Select>
+          <Select ref={typeTag} onChange={(e) => updateChart(e, { type: "graph"})}>
+                        <option>
+                          Envios
+                        </option>
+                        <option>
+                          Recargas
+                        </option>
+          </Select>
+        </SelectWrapper>
+        {barChart}
+        </>
+    }
+    
   </ChartWrapper>
   );
 };

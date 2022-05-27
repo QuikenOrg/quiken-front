@@ -30,9 +30,8 @@ const NewCreateGuide = () => {
         try {
           //AQUI VAN LAS RUTAS DE LAS GUIAS
           const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/user/info`, {} ,config);
-          
           setUser(data.user)
-
+          setLoading(false)
         } catch (error) {
           localStorage.removeItem("authToken");
           localStorage.removeItem("email");
@@ -40,6 +39,10 @@ const NewCreateGuide = () => {
           setError(true)
         }
       };
+
+      useEffect(() => {
+        getUserInfo()
+      }, []);
 
     return (
     <PageWrapper>
