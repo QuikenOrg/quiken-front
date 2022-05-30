@@ -3,8 +3,10 @@ import styled from "styled-components"
 const MidScreenWrapper = styled.div`
 display: flex;
 flex-direction: row;
-min-height: 60vh;
-height: 80%;
+align-items: center;
+height: 700px;
+box-sizing: border-box;
+align-content: center;
 `
 
 export default MidScreenWrapper

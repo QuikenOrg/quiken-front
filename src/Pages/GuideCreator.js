@@ -1,5 +1,7 @@
+import { Input } from '@chakra-ui/react';
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const GuideCreator = ({
   user
@@ -15,12 +17,10 @@ const GuideCreator = ({
   
   //Guide Data
   const [apiGuide, setApiGuide] = useState()
-  const [hrefFile, setHrefFile] = useState("")
-
+  
   //Payment and Selected Guide
   // const [selectedGuide, setSelectedGuide] = useState(false)
   const [selectedService, setSelectedService] = useState()
-  const [paymentMethod, setPaymentMethod] = useState(null)
 
   //currentUser (HARDCODED)
   // const [currentUser, setcurrentUser] = useState('')
@@ -95,7 +95,6 @@ const GuideCreator = ({
 
   //Step One Guide Creation
 const createGuideApi = async () => {
-    console.log("GUACAOLE")
     const urlApiCreate = 'https://test.quiken.mx/generate';
     const responseApi = await fetch(urlApiCreate, {
       method: 'POST',
@@ -104,8 +103,8 @@ const createGuideApi = async () => {
       },
       body: JSON.stringify({
         "clientDetail": {
-          "accountName": "tester2@test.com",
-          "apiKey": "8oNVxt6MTfmv8aYUfhZyxwcWqQ7ELx2y"
+          "accountName": localStorage.getItem('email'),
+          "apiKey": localStorage.getItem('api_key')
         },
         "origin": {
           "name": fullNameSender,
@@ -141,11 +140,11 @@ const createGuideApi = async () => {
           "content": packageDescription,
           "type": 1,
           "dimensions": {
-            "length": 10,
-            "width": 10,
-            "height": 25
+            "length": packageLenght,
+            "width": packageWidth,
+            "height": packageHeight
           },
-          "weight": 1
+          "weight": packageWeight
         },
         "shipment": {
           "service": selectedService
@@ -155,9 +154,8 @@ const createGuideApi = async () => {
         }
       })
     });
-    console.log(responseApi)
+
     const data = await responseApi.json()
-    console.log('DATA API REQUEST', data)
     setApiGuide(data)
   }
 
@@ -432,12 +430,11 @@ const calculateNewGuidePrice = async () => {
            }
       })
     });
-    console.log(response)
     const data = await response.json();
-    console.log(data)
     if (data.status === "SUCCESS") {
       console.log(data.data.services, 'DATA DATA SERVICES');
       setServices(data.data.services)
+      console.log("QUOTED GUIDE")
       setLoadingQuoteData(false)
       
     } else if (data.status === "ERROR") {
@@ -459,71 +456,71 @@ const calculateNewGuidePrice = async () => {
     setSelectedService(servicio.code)
     console.log(servicio.code)
     setguideCost(servicio.totalPrice)
+    console.log("selected guide")
   }
 
 
     return (
-        <div className="main-wrapper-page">                    
+        <MainDiv>                    
             
-        {/* FIRST TWO SECTIONS */}
-        <div className="row-first-two-sections">              
+        <SectionWrapper>              
           {/* ORIGIN SECTION */}
-          <div className="seccion-desde-donde-envias">
-          <h1 className="subheading-form-create-guide"> 1. ORIGEN:</h1>
-              <div>
-              <div>
+          <SubsectionWrapper>
+          <SubsectionHeading> 1. ORIGEN:</SubsectionHeading>
+              
+              <LabelInputWrapper>
               {/* <label className="form-label" style={{display:'block'}}>Nombre Completo <span style={{color: "red"}}>*</span></label> */}
-                <label className="label-create-guide-form">Nombre Completo</label>
-                <input className="input-create-guide-form" value={fullNameSender}
+                <LabelStyled >Nombre Completo</LabelStyled>
+                <InputStyled value={fullNameSender}
                     onChange= {event => setFullNameSender(event.target.value)}
                     type="text" placeholder="Nombre Completo" />
                 {Object.keys(fullNameSenderError).map((key) => {return <div>{fullNameSenderError[key] }</div>})}
-              </div>
+              </LabelInputWrapper>
                                   
-              <div>
-                  <label className="label-create-guide-form">Correo Electrónico</label>
-                  <input className="input-create-guide-form" value={emailSender} onChange={(event) => setEmailSender(event.target.value)} type="email" placeholder="Correo Electrónico" />
-                  </div>                
+              <LabelInputWrapper>
+                  <LabelStyled>Correo Electrónico</LabelStyled>
+                  <InputStyled value={emailSender} onChange={(event) => setEmailSender(event.target.value)} type="email" placeholder="Correo Electrónico" />
                   {Object.keys(emailSenderError).map((key) => { return <div>{emailSenderError[key]}</div> })}  
+              </LabelInputWrapper>                
                   
-              <div>
-              <label className="label-create-guide-form">Teléfono</label>
-                  <input className="input-create-guide-form" value={phoneNumberSender} onChange={(event) => setPhoneNumberSender(event.target.value)} type="text" placeholder="Teléfono" />
+              <LabelInputWrapper>
+                  <LabelStyled >Teléfono</LabelStyled>
+                  <InputStyled value={phoneNumberSender} onChange={(event) => setPhoneNumberSender(event.target.value)} type="text" placeholder="Teléfono" />
                   {Object.keys(phoneNumberSenderError).map((key) => {return <div>{phoneNumberSenderError[key] }</div>})}
-              </div>
+              </LabelInputWrapper>
               
-              <div>
-                  <label className="label-create-guide-form">Calle y Número</label>
-                  <input className="input-create-guide-form" value={streetAndNumberSender} onChange={(event) => setStreetandNumberSender(event.target.value)} type="text" placeholder="Calle y Número" />
-                  </div>
+              <LabelInputWrapper>
+                  <LabelStyled >Calle y Número</LabelStyled>
+                  <InputStyled value={streetAndNumberSender} onChange={(event) => setStreetandNumberSender(event.target.value)} type="text" placeholder="Calle y Número" />
                   {Object.keys(streetAndNumberSenderError).map((key) => {return <div>{streetAndNumberSenderError[key] }</div>})}
+              </LabelInputWrapper>
               
-              <div>
-                  <label className="label-create-guide-form">Referencia</label>
-                  <input className="input-create-guide-form" value={referenciasSender} onChange={(event) => setReferenciasSender(event.target.value)} type="text" placeholder="Referencias" />
-                  </div>
+              <LabelInputWrapper>
+                  <LabelStyled >Referencia</LabelStyled>
+                  <InputStyled value={referenciasSender} onChange={(event) => setReferenciasSender(event.target.value)} type="text" placeholder="Referencias" />
+              </LabelInputWrapper>
                   
-              <div>
-                  <label className="label-create-guide-form">Colonia</label>
-                  <input className="input-create-guide-form" value={colonySender} onChange={(event) => setColonySender(event.target.value)} type="text" placeholder="Colonia" />
-                  </div>
-              {Object.keys(colonySenderError).map((key) => {return <div>{colonySenderError[key] }</div>})}
+              <LabelInputWrapper>
+                  <LabelStyled >Colonia</LabelStyled>
+                  <InputStyled value={colonySender} onChange={(event) => setColonySender(event.target.value)} type="text" placeholder="Colonia" />
+                  {Object.keys(colonySenderError).map((key) => {return <div>{colonySenderError[key] }</div>})}
+              </LabelInputWrapper>
               
-              <div>
-                  <label className="label-create-guide-form">Código Postal</label>
-                  <input className="input-create-guide-form" value={postalCodeSender} onChange={(event) => setPostalCodeSender(event.target.value)} type="text" placeholder="Codigo Postal" />
-                  </div>
-              {Object.keys(postalCodeSenderError).map((key) => {return <div>{postalCodeSenderError[key] }</div>})}
+              <LabelInputWrapper>
+                  <LabelStyled >Código Postal</LabelStyled>
+                  <InputStyled value={postalCodeSender} onChange={(event) => setPostalCodeSender(event.target.value)} type="text" placeholder="Codigo Postal" />
+                  {Object.keys(postalCodeSenderError).map((key) => {return <div>{postalCodeSenderError[key] }</div>})}
+              </LabelInputWrapper>
 
-              <div>
-                  <label className="label-create-guide-form">Ciudad</label>
-                  <input className="input-create-guide-form" value={citySender} onChange={(event) => setCitySender(event.target.value)} type="text" placeholder="Ciudad" />
-                  </div>
-              {Object.keys(citySenderError).map((key) => {return <div>{citySenderError[key] }</div>})}
+              <LabelInputWrapper>
+                  <LabelStyled >Ciudad</LabelStyled>
+                  <InputStyled value={citySender} onChange={(event) => setCitySender(event.target.value)} type="text" placeholder="Ciudad" />
+                  {Object.keys(citySenderError).map((key) => {return <div>{citySenderError[key] }</div>})}
+              </LabelInputWrapper>
 
-              <div className="field-holder">
-                  <label className="label-create-guide-form">Estado</label>
-                  <select className="input-create-guide-form" name="Estado" placeholder="Estado" onChange ={(event) => setMexicoStateSender(event.target.value)}>
+              <LabelInputWrapper className="field-holder">
+                  <LabelStyled >Estado</LabelStyled>
+                  <select placeholder="Estado" onChange ={(event) => setMexicoStateSender(event.target.value)}>
                     <option value="no">Seleccione Estado.</option>
                     {/* <option value="Aguascalientes">Aguascalientes</option>
                     <option value="Baja California">Baja California</option>
@@ -558,68 +555,65 @@ const calculateNewGuidePrice = async () => {
                     {/* <option value="Yucatán">Yucatán</option>
                     <option value="Zacatecas">Zacatecas</option> */}
                 </select>
-              </div>
-          
-          </div>
-          </div>
+              </LabelInputWrapper>
+          </SubsectionWrapper>
 
           {/* TO SECTION */}
-          <div className="seccion-desde-donde-envias">
-          <h1 className="subheading-form-create-guide">2. DESTINO:</h1>
-              <div>
-              <div>
-                  <label className="label-create-guide-form">Nombre Completo</label>
-                  <input className="input-create-guide-form"
+          <SubsectionWrapper>
+            <SubsectionHeading>2. DESTINO:</SubsectionHeading>
+              <LabelInputWrapper >
+                  <LabelStyled>Nombre Completo</LabelStyled>
+                  <InputStyled
                   value={fullNameReceiver}
                   onChange= {event => setFullNameReceiver(event.target.value)}
                   type="text" placeholder="Nombre Completo" />
-                  </div>
                   {Object.keys(fullNameReceiverError).map((key) => {return <div>{fullNameReceiverError[key] }</div>})}
+              </LabelInputWrapper>
                                   
-              <div>
-                  <label className="label-create-guide-form">Correo Electrónico</label>
-                  <input className="input-create-guide-form" value={emailReceiver} onChange={(event) => setEmailReceiver(event.target.value)} type="email" placeholder="Correo Electrónico" />
+              <LabelInputWrapper>
+                  <LabelStyled>Correo Electrónico</LabelStyled>
+                  <InputStyled value={emailReceiver} onChange={(event) => setEmailReceiver(event.target.value)} type="email" placeholder="Correo Electrónico" />
                   {Object.keys(emailReceiverError).map((key) => { return <div>{emailReceiverError[key]}</div> })}  
-              </div>                
+              </LabelInputWrapper>                
                   
-              <div>
-                  <label className="label-create-guide-form">Teléfono</label>
-                  <input className="input-create-guide-form" value={phoneNumberReceiver} onChange={(event) => setPhoneNumberReceiver(event.target.value)} type="text" placeholder="Teléfono" />
+              <LabelInputWrapper>
+                  <LabelStyled>Teléfono</LabelStyled>
+                  <InputStyled value={phoneNumberReceiver} onChange={(event) => setPhoneNumberReceiver(event.target.value)} type="text" placeholder="Teléfono" />
                   {Object.keys(phoneNumberReceiverError).map((key) => {return <div>{phoneNumberReceiverError[key] }</div>})}
-              </div>
+              </LabelInputWrapper>
               
-              <div>
-                  <label className="label-create-guide-form">Calle y Número</label>
-                  <input  className="input-create-guide-form" value={streetAndNumberReceiver} onChange={(event) => setStreetandNumberReceiver(event.target.value)} type="text" placeholder="Calle y Número" />
+              <LabelInputWrapper>
+                  <LabelStyled>Calle y Número</LabelStyled>
+                  <InputStyled value={streetAndNumberReceiver} onChange={(event) => setStreetandNumberReceiver(event.target.value)} type="text" placeholder="Calle y Número" />
                   {Object.keys(streetAndNumberReceiverError).map((key) => {return <div>{streetAndNumberReceiverError[key] }</div>})}
-              </div>
+              </LabelInputWrapper>
               
-              <div>
-                  <label className="label-create-guide-form">Referencias</label>
-                  <input  className="input-create-guide-form" value={referenciasReceiver} onChange={(event) => setReferenciasReceiver(event.target.value)} type="text" placeholder="Referencias" />
-              </div>
+              <LabelInputWrapper>
+                  <LabelStyled>Referencias</LabelStyled>
+                  <InputStyled value={referenciasReceiver} onChange={(event) => setReferenciasReceiver(event.target.value)} type="text" placeholder="Referencias" />
+              </LabelInputWrapper>
                   
-              <div>
-                  <label className="label-create-guide-form">Colonia</label>
-                  <input className="input-create-guide-form" value={colonyReceiver} onChange={(event) => setColonyReceiver(event.target.value)} type="text" placeholder="Colonia" />
+              <LabelInputWrapper>
+                  <LabelStyled>Colonia</LabelStyled>
+                  <InputStyled value={colonyReceiver} onChange={(event) => setColonyReceiver(event.target.value)} type="text" placeholder="Colonia" />
                   {Object.keys(colonyReceiverError).map((key) => {return <div>{colonyReceiverError[key] }</div>})}
-              </div>
+              </LabelInputWrapper>
               
-              <div>
-                <label className="label-create-guide-form">Código Postal</label>
-                  <input className="input-create-guide-form" value={postalCodeReceiver} onChange={(event) => setPostalCodeReceiver(event.target.value)} type="text" placeholder="Codigo Postal" />
+              <LabelInputWrapper>
+                <LabelStyled>Código Postal</LabelStyled>
+                  <InputStyled value={postalCodeReceiver} onChange={(event) => setPostalCodeReceiver(event.target.value)} type="text" placeholder="Codigo Postal" />
                   {Object.keys(postalCodeReceiverError).map((key) => {return <div>{postalCodeReceiverError[key] }</div>})}
-              </div>
+              </LabelInputWrapper>
 
-              <div>
-                  <label className="label-create-guide-form">Ciudad</label>
-                  <input className="input-create-guide-form" value={cityReceiver} onChange={(event) => setCityReceiver(event.target.value)} type="text" placeholder="Ciudad" />
+              <LabelInputWrapper>
+                  <LabelStyled>Ciudad</LabelStyled>
+                  <InputStyled value={cityReceiver} onChange={(event) => setCityReceiver(event.target.value)} type="text" placeholder="Ciudad" />
                   {Object.keys(cityReceiverError).map((key) => {return <div>{cityReceiverError[key] }</div>})}
-              </div>
+              </LabelInputWrapper>
 
-              <div>
-                  <label className="label-create-guide-form">Estado</label>
-                  <select className="input-create-guide-form" name="Estado" placeholder="Estado" onChange ={(event) => setMexicoStateReceiver(event.target.value)}>
+              <LabelInputWrapper>
+                  <LabelStyled>Estado</LabelStyled>
+                  <select name="Estado" placeholder="Estado" onChange ={(event) => setMexicoStateReceiver(event.target.value)}>
                   <option value="no">Seleccione Estado.</option>
                   {/* <option value="Aguascalientes">Aguascalientes</option>
                   <option value="Baja California">Baja California</option>
@@ -654,88 +648,84 @@ const calculateNewGuidePrice = async () => {
                   {/* <option value="Yucatán">Yucatán</option>
                   <option value="Zacatecas">Zacatecas</option> */}
                   </select>
-              </div>
-              
-              </div>
-          </div>
+              </LabelInputWrapper>
+          </SubsectionWrapper>
           
-        </div>
-
-        
-        {/* THIRD AND FOURTH SECTION */}
-        <div className="third-forth-sections">  
-          {/* PACKAGE SECTION */}
-          <div className="seccion-informacion-paquete">
-          <h2 className="subheading-form-create-guide">3. INFORMACIÓN DEL PAQUETE</h2>
-              <div>
+          {/* TO PACKAGE INFO */}
+          <SubsectionWrapper>
+          <SubsectionHeading>3. INFORMACIÓN DEL PAQUETE</SubsectionHeading>
               
-              <div>
-                  <label className="label-create-guide-form">Largo (cm)</label>
-                  <input className="input-create-guide-form" value={packageLenght} 
+              <LabelInputWrapper>
+                  <LabelStyled >Largo (cm)</LabelStyled>
+                  <InputStyled value={packageLenght} 
                   onChange={(event) => {
                     setPackageLenght(event.target.value)
                   }} 
-                  type="text" placeholder="Largo (cm)" />
+                  type="text" placeholder="Largo (cm)" 
+                  />
                   {Object.keys(packageLenghtError).map((key) => {return <div>{packageLenghtError[key]}</div>})}
-              </div>
+              </LabelInputWrapper>
                                   
-              <div>
-                  <label className="label-create-guide-form">Ancho (cm)</label>
-                  <input className="input-create-guide-form" value={packageWidth} 
+              <LabelInputWrapper>
+                  <LabelStyled >Ancho (cm)</LabelStyled>
+                  <InputStyled value={packageWidth} 
                   onChange={(event) => {
                     setPackageWidth(event.target.value)
                   }} 
                   type="email" placeholder="Ancho (cm)" />
                   {Object.keys(packageWidthError).map((key) => {return <div>{packageWidthError[key]}</div>})}
-              </div>                
+              </LabelInputWrapper>                
                   
-              <div>
-                  <label className="label-create-guide-form">Alto (cm)</label>
-                  <input className="input-create-guide-form" value={packageHeight} 
+              <LabelInputWrapper>
+                  <LabelStyled >Alto (cm)</LabelStyled >
+                  <InputStyled value={packageHeight} 
                   onChange={(event) => {
                     setPackageHeight(event.target.value)
                   }} 
                   type="text" placeholder="Alto (cm)" />
                   {Object.keys(packageHeightError).map((key) => {return <div>{packageHeightError[key]}</div>})}
-              </div>
+              </LabelInputWrapper>
               
                   {/* <h4>Peso del paquete que envías</h4> */}
                   
-              <div>
-                  <label className="label-create-guide-form">Peso del paquete (kg)</label>
-                  <input className="input-create-guide-form" value={packageWeight} 
+              <LabelInputWrapper>
+                  <LabelStyled>Peso del paquete (kg)</LabelStyled>
+                  <InputStyled value={packageWeight} 
                   onChange={(event) => {
                     setPackageWeight(event.target.value)
                   }}
                   type="text" placeholder="Peso del paquete en (kg)" />
                   {Object.keys(packageWeightError).map((key) => {return <div>{packageWeightError[key]}</div>})}
-              </div>
+              </LabelInputWrapper>
               
                   {/* <h4>¿Que envías?</h4> */}
                   
-              <div>
-                  <label className="label-create-guide-form">Contenido del paquete (Descripción corta)</label>
-                  <input className="input-create-guide-form" value={packageDescription} 
+              <LabelInputWrapper>
+                  <LabelStyled>Contenido del paquete (Descripción corta)</LabelStyled>
+                  <InputStyled value={packageDescription} 
                   onChange={(event) => {
                     setPackageDescription(event.target.value)}
                     } 
                     type="text" placeholder="Contenido del paquete (Descripción corta)" />
                     {Object.keys(packageDescriptionError).map((key) => {return <div>{packageDescriptionError[key]}</div>})}
-              </div>
+              </LabelInputWrapper>
             
             <div className="buttons-wrapper-row">
               <Link to="/userdashboard">
-                <button id="blue" className="btn-create-guide-form" >Regresar</button>
+                {/* <button id="blue" className="btn-create-guide-form" >Regresar</button> */}
               </Link>
                   <button className="btn-create-guide-form" onClick={(event) => {handleSubmit(event)}}>Cotizar</button>
             </div>
               
-          </div>
-          </div>
+            
+          </SubsectionWrapper>
           
-          <div className="payment-main-wrapper">
+          {/* PAYMENT */}
+          <SubsectionWrapper>
             <div className="payment-section">
-            <h1 className="subheading-form-create-guide"> 4. SELECCIONA TU TIPO DE ENVIO:</h1>
+            <SubsectionHeading> 
+              4. SELECCIONA TU TIPO DE ENVIO:
+            </SubsectionHeading>
             <div className="table-holder">{ loadingQuoteData ? <div className="cotizar-paragraph">Llena todo los campos y da click en Cotizar!</div>:
               <table>
                 <tr className="table-row-heading">
@@ -778,18 +768,86 @@ const calculateNewGuidePrice = async () => {
                   <label className="price-guide-cost" >{user.balance}</label>
             </div>
             
-            <h1 className="subheading-form-create-guide"> 5. METODO DE PAGO:</h1>
+            { selectedService ? 
+                guideCost < user.balance ? 
+                <button onClick={() => createGuideApi() }>Pagar</button> :
+                <>
+                  <button disabled >Pagar</button>
+                  <h2>Cuentas con saldo insuficiente</h2>
+                </>
+              : 
+              <></>
+            }
+            
               
             </div>
-          </div>
-        </div>
+          </SubsectionWrapper>
+
+        </SectionWrapper>
+
         
-        {/* <div className="buttons-wrapper">
-          <button className="btn-contact-form" onClick={(event) => {handleSubmit(event)}}>Siguiente</button>
-        </div> */}
-        
-      </div>
+      </MainDiv>
     )
 }
+
+const MainDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  //background-color: grey;
+` 
+
+const SectionWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 20px;
+`
+
+const SubsectionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 250px;
+`
+
+const SubsectionHeading = styled.h1`
+  font-size: 22spx;
+  color: #EE1F42;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  
+`
+
+const LabelInputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-top: 5px;
+  font-size: 12px;
+  color: #245188;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+`
+
+const LabelStyled = styled.label`
+  display: flex;
+  flex-direction: column;
+`
+
+const InputStyled = styled.input`
+  display: flex;
+  flex-direction: column;
+  height: 10px;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  height: 14px;
+  color: #1f2430;
+  font-weight: 500;
+`
 
 export default GuideCreator;

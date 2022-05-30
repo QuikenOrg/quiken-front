@@ -13,7 +13,6 @@ const Sidebar = (
   const history = useHistory()
 
   const handleLogout = (e) => {
-    console.log("CLICK CLACK")
     localStorage.removeItem("authToken");
     localStorage.removeItem("email");
     localStorage.removeItem("username");
@@ -43,6 +42,18 @@ const LogoutButton = styled.button`
 
 `
 
+const SidebarWrapper =  styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #245188;
+  width: 10%;
+  min-width: 180px;
+  font-size: 20px;
+  background-color: #245188;
+  height: 100%;
+`
+
+
 const LinksWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,18 +63,8 @@ const LinksWrapper = styled.div`
   justify-content: space-between;
   box-sizing: border-box;
   padding: 20px;
+  padding-top: 40px;
   color: white;
-`
-
-const SidebarWrapper =  styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: #245188;
-  width: 10%;
-  min-width: 180px ;
-  font-size: 20px;
-  justify-content: space-evenly;
 `
 
 

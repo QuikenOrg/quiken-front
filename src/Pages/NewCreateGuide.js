@@ -47,14 +47,13 @@ const NewCreateGuide = () => {
     return (
     <PageWrapper>
         <Navbar/>
-        <CreateGuideScreenWrapper>
+        <MidScreenWrapper>
+          <Sidebar setError={setError}/>
           { loading == false ?
-            <>
-            <Sidebar setError={setError}/>
-            <GuideCreator user={user}/>
-            </> : <></> 
+              <GuideCreator user={user}/>
+             : <></> 
           }
-        </CreateGuideScreenWrapper>
+        </MidScreenWrapper>
         <Footer/>
     </PageWrapper>
   )
@@ -62,8 +61,11 @@ const NewCreateGuide = () => {
 
 const CreateGuideScreenWrapper = styled.div`
     display: flex;
+    flex-direction: row;
     align-items: center;
-    height: 1300px;
+    height: 700px;
+    box-sizing: border-box;
+    align-content: center;
 `
 
 export default NewCreateGuide;
