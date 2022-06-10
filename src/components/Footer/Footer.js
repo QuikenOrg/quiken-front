@@ -7,6 +7,10 @@ import Twitter from '../../assets/Inicio/Iconos de redes sociales/Twitter-46.svg
 import locationIcon from '../../assets/Inicio/Iconos de Contacto/Quiken_ubicacion-48.svg'
 import phoneIcon from '../../assets/Inicio/Iconos de Contacto/Quiken_Telefono-49.svg'
 import mailIcon from '../../assets/Inicio/Iconos de Contacto/Quiken_Correo-50.svg'
+import styled from 'styled-components'
+import Privacidad from '../../pdf/privacidad.pdf'
+import Terminos from '../../pdf/terminos.pdf'
+
 
 const Footer = () => {
     return (
@@ -50,9 +54,29 @@ const Footer = () => {
                     <img src={mailIcon} className="contact-icon" alt="mail-icon" />
                     <p className="paragraph-contact">hola@quiken.mx</p>
                 </div>
+                <div className="icon-text-row-wrapper" style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent:"space-around",
+                    padding: "5px"
+                    }}>
+                    <LinkFooter href={Terminos} target="_blank">
+                        Terminos y condiciones
+                    </LinkFooter>
+                    <LinkFooter href={Privacidad} target="_blank">
+                        Aviso de privacidad
+                    </LinkFooter>
+                </div>
             </div>
         </div>
     )
 }
+
+const LinkFooter = styled.a`
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 15px
+`
 
 export default Footer

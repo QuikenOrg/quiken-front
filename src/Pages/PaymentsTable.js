@@ -11,12 +11,18 @@ const PaymentsTable = () => {
   const history = useHistory()
   const [payments, setPayments] = useState([])
   const [allData, setAllData] = useState([])
+  const [loading, setLoading] = useState();
+  const [needsReload, setNeedsReload] = useState(true);
   
   useEffect(() => {
+    setLoading(true)  
     fetchPayments()
-   
-  }, []);
+    setLoading(false)
+      
+  }, [needsReload]);
 
+  // Use the state and functions returned from useTable to build your UI
+  
   const fetchPayments = async (
     url = `${process.env.REACT_APP_API_URL}/user/payments`
   ) => {
@@ -30,11 +36,11 @@ const PaymentsTable = () => {
     try {
       //AQUI VAN LAS RUTAS DE LAS GUIAS
       const { data } = await axios.post(url, {} ,config);
-      
-      setAllData(data.data)
+      console.log(data.data)
+      setAllData(data.data.data)
       
       console.log("DATA")
-      setPayments(data.data)
+      setPayments(data.data.data)
     } catch (error) {
       localStorage.removeItem("authToken");
       localStorage.removeItem("email");
@@ -52,6 +58,10 @@ const PaymentsTable = () => {
       {
         Header: 'ID de Orden',
         accessor: 'payment_name'
+      },
+      {
+        Header: 'Fecha de creacion',
+        accessor: 'created_at'
       },
       {
         Header: 'Concepto de pago',
@@ -79,16 +89,23 @@ const PaymentsTable = () => {
 
   return (
     <Styles>
-      <Table columns={columns} data={payments} allData={allData} fetchGuides={fetchPayments} />
+        { loading ? 
+        <h1>loadign</h1> 
+        :
+        <Table needsReload={needsReload} 
+        setNeedsReload={setNeedsReload} 
+        columns={columns} 
+        data={payments} 
+        allData={allData} 
+        fetchGuides={fetchPayments} />
+        }
     </Styles>
   )
 }
 
 
-function Table({ columns, data, allData, fetchGuides }) {
-  // Use the state and functions returned from useTable to build your UI
-
-
+function Table({ needsReload, setNeedsReload ,columns, data, allData, fetchGuides }) {
+  
   const confirmSinglePayment = async (order_id) => {
     const url = `${process.env.REACT_APP_API_URL}/user/pay/confirm`;
     const response = await fetch(url, {
@@ -162,7 +179,10 @@ function Table({ columns, data, allData, fetchGuides }) {
                   }
                   }>
                     <button onClick={()=> {
+                    console.log(needsReload)
                     confirmSinglePayment(row.original.order_id)
+                    setNeedsReload(!needsReload)
+                    
                     }}
                     href={`https://s3.us-east-2.amazonaws.com/quikn-staging/labels`} target="_blank" title="document icons">
                       <img  style={{
