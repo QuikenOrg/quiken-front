@@ -28,7 +28,8 @@ const LoginPagina= (props) => {
 
     try {
       //AQUI VAN LAS RUTAS DE LAS GUIAS
-      const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/user/info`, {} ,config);
+      const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/user/info`, {} , config);
+      console.log(data)
       setError(false)
       setGoToDashboard(true)
     } catch (error) {

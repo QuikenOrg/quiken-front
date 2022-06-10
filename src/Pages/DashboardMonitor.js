@@ -44,7 +44,7 @@ useEffect(() => {
                 <Card>
                     <label className="label-paquete-info">Saldo disponible</label>
                     <h1 className="featured-number">$ {userPoints}</h1>
-                    <Link className="recargar-saldo-link" to="/newrecargarsaldo">
+                    <Link className="recargar-saldo-link" to="/newrecargar">
                       Recagar Saldo {">"}
                     </Link>
                   </Card>

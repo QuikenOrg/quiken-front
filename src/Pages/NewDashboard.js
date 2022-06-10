@@ -19,6 +19,8 @@ const NewDashboard = () => {
     const [totalRecargas, setTotalRecargas] = useState()
     const [dashboardData, setDashboardData] = useState()
 
+    const [paymentsToConfirm, setPaymentsToConfirm] = useState()
+
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState()
 
@@ -26,6 +28,9 @@ const NewDashboard = () => {
   useEffect(() => {
     fetchPrivateData()
     fetchDashboard()
+    getUserPayments()
+    .then(confirmPayments())   
+    
     return () => {
       
     };
@@ -52,6 +57,62 @@ const NewDashboard = () => {
       history.push("/signin")
     }
   };
+
+  const confirmPayments = async () => {
+    console.log("CHECK IT OUT")
+    const paymentsNotConfirmed = await paymentsToConfirm.filter((payment) => payment.status == "created")
+    paymentsNotConfirmed.forEach(payment => {
+      confirmSinglePayment(payment.order_id)
+    })
+
+  }
+
+  const confirmSinglePayment = async (order_id) => {
+    const url = `${process.env.REACT_APP_API_URL}/user/pay/confirm`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+        "Authorization": `Bearer ${localStorage.getItem("access_token")}`
+      },
+      body: JSON.stringify({
+          "order_id": order_id
+      })
+    });
+    const data = await response.json();
+    if (data.status === "SUCCESS") {
+      console.log("pagos actualizados")
+    } 
+    else if (data.status === "ERROR") {
+      
+    }
+    
+  }
+
+
+  const getUserPayments = async (
+    url = `${process.env.REACT_APP_API_URL}/user/payments`
+    ) => {
+    const config = {
+        headers: {
+        "Content-Type": "multipart/form-data",
+        "Authorization": `Bearer ${localStorage.getItem("access_token")}`
+        },
+    };
+
+    
+    try {
+        //AQUI VAN LAS RUTAS DE LAS GUIAS
+        console.log("GUACAMOLE")
+        const { data } = await axios.post(url, {} ,config);
+        console.log(data.data)
+        setPaymentsToConfirm(data.data)
+
+      } catch (error) {
+        console.log("did not get payments")
+    }
+};
+
 
   const fetchDashboard = async (
     url = `${process.env.REACT_APP_API_URL}/user/dashboard`

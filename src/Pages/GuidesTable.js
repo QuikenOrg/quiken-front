@@ -4,6 +4,8 @@ import { Link, NavLink, useHistory } from "react-router-dom"
 import styled from 'styled-components'
 import { useTable } from 'react-table'
 import userEvent from '@testing-library/user-event'
+import DocIcon from '../assets/iconos/doc_icon.png'
+
 
 const GuidesTable = () => {
   const history = useHistory()
@@ -43,8 +45,8 @@ const GuidesTable = () => {
   const columns = React.useMemo(
     () => [
       {
-        Header: '',
-        accessor: 'none'
+        Header: 'Imprimir',
+        accessor: 'icon'
       },
       {
         Header: 'Tracking Number',
@@ -122,10 +124,35 @@ function Table({ columns, data, allData, fetchGuides }) {
       </thead>
       <tbody {...getTableBodyProps()}>
         {rows.map((row, i) => {
+          
           prepareRow(row)
           return (
             <tr {...row.getRowProps()}>
               {row.cells.map(cell => {
+                // COLUMN GUIDE
+                if (cell.column.id === "icon" ) {
+                  const trackingNumberCell = row.cells.filter((cell) => cell.column.Header == "Tracking Number")
+                  const tracking_number = trackingNumberCell[0].value
+                  return (
+                  <td style={{
+                    height: "100%",
+                    width: "50px",
+                    backgroundColor: "white",
+                    boxSizing: "border-box",
+                    justifyItems: "center",
+                    alignItems:"center"
+                  }
+                  }>
+                    <a
+                    href={`https://s3.us-east-2.amazonaws.com/quikn-staging/labels/${tracking_number}.pdf`} target="_blank" title="document icons">
+                      <img  style={{
+                            width: `20px`,
+                            height: `20px`}} alt='doc-icon' src={DocIcon}></img>
+                    </a>
+                  </td>
+                  )
+                } 
+                // COLUMN ESTADO
                 if (cell.column.id === "status_id" ) {
                   return (
                   <td>

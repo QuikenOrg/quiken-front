@@ -48,8 +48,8 @@ const NewGuias = () => {
     const upperSection = haveLink === false ? (
         <PaymentSection>
             <HeaderAgregaSaldo> AGREGA SALDO A TU CUENTA:</HeaderAgregaSaldo>
-            <SubHeadingAgregaSaldo> Ingresa la cantidad a abonar a tu cuenta. <br/> Y paga comodamente con cualquiera de nuestros metodos de pago</SubHeadingAgregaSaldo>
-            <PaymentInput onChange={(e) => handleChange(e)} placeholder='Cantidad a abonar a saldo'></PaymentInput>
+            <SubHeadingAgregaSaldo> Ingresa la cantidad a abonar en MXN . <br/> Y paga comodamente con cualquiera de nuestros metodos de pago</SubHeadingAgregaSaldo>
+            <PaymentInput onChange={(e) => handleChange(e)} placeholder='Cantidad a abonar (MXN)'></PaymentInput>
             <ButtonPayment onClick={() => createPayment()}>Aceptar</ButtonPayment>        
         </PaymentSection>
     ) : (

@@ -45,10 +45,12 @@ const LogoutButton = styled.button`
 const SidebarWrapper =  styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 80px;
+  box-sizing: border-box;
   background-color: #245188;
   width: 10%;
   min-width: 180px;
-  font-size: 20px;
+  font-size: 18px;
   background-color: #245188;
   height: 100%;
 `

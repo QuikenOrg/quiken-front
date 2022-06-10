@@ -13,7 +13,7 @@ const NewCotizar = () => {
     <PageWrapper>
         <Navbar/>
         <MidScreenWrapperCotizador>
-                <Sidebar setError={setError}/>
+            <Sidebar setError={setError}/>
             <CotizadorWrapper>
                 <Cotizador/>
             </CotizadorWrapper>
@@ -29,7 +29,7 @@ const MidScreenWrapperCotizador = styled.div`
     flex-direction: row;
     align-items: center;
     min-height: 60vh;
-    height: 50%;
+    height: 700px;
     background-color: #DDE5ED;
 `
 

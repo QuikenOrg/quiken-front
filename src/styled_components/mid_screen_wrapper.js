@@ -4,7 +4,7 @@ const MidScreenWrapper = styled.div`
 display: flex;
 flex-direction: row;
 align-items: center;
-height: 700px;
+height: 670px;
 box-sizing: border-box;
 align-content: center;
 `
