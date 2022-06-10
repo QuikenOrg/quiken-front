@@ -21,6 +21,7 @@ import NewGuias from './Pages/NewGuias';
 import NewRecargar from './Pages/NewRecargar';
 import NewCotizar from './Pages/NewCotizar';
 import NewCreateGuide from './Pages/NewCreateGuide';
+import MyPayments from './Pages/MyPayments';
 
 
 function App() {
@@ -75,6 +76,9 @@ function App() {
               </PrivateRoute>
 
               <PrivateRoute exact path="/newmyguides" component={NewGuias} >
+              </PrivateRoute>
+
+              <PrivateRoute exact path="/mypayments" component={MyPayments} >
               </PrivateRoute>
 
               <PrivateRoute exact path="/newrecargar" component={NewRecargar} >

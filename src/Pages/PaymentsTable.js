@@ -7,18 +7,18 @@ import userEvent from '@testing-library/user-event'
 import DocIcon from '../assets/iconos/doc_icon.png'
 
 
-const GuidesTable = () => {
+const PaymentsTable = () => {
   const history = useHistory()
-  const [guides, setGuides] = useState([])
+  const [payments, setPayments] = useState([])
   const [allData, setAllData] = useState([])
   
   useEffect(() => {
-    fetchGuides()
+    fetchPayments()
    
   }, []);
 
-  const fetchGuides = async (
-    url = `${process.env.REACT_APP_API_URL}/user/guides`
+  const fetchPayments = async (
+    url = `${process.env.REACT_APP_API_URL}/user/payments`
   ) => {
     const config = {
       headers: {
@@ -30,8 +30,11 @@ const GuidesTable = () => {
     try {
       //AQUI VAN LAS RUTAS DE LAS GUIAS
       const { data } = await axios.post(url, {} ,config);
-      setAllData(data)
-      setGuides(data.data)
+      
+      setAllData(data.data)
+      
+      console.log("DATA")
+      setPayments(data.data)
     } catch (error) {
       localStorage.removeItem("authToken");
       localStorage.removeItem("email");
@@ -40,50 +43,43 @@ const GuidesTable = () => {
     }
   };
 
-
   const columns = React.useMemo(
     () => [
       {
-        Header: 'Imprimir',
+        Header: 'Confirmar',
         accessor: 'icon'
       },
       {
+        Header: 'ID de Orden',
+        accessor: 'payment_name'
+      },
+      {
+        Header: 'Concepto de pago',
+        accessor: 'name'
+      },
+      {
+        Header: 'Order Id',
+        accessor: 'order_id'
+      },
+      {
+        Header: 'Estatus de recarga',
+        accessor: 'status'
+      },
+      {
         Header: 'Tracking Number',
-        accessor: 'tracking_number'
+        accessor: 'id'
       },
       {
-        Header: 'Estado',
-        accessor: 'status_id'
-      },
-      {
-        Header: 'Nombre',
-        accessor: 'destination_name'
-      },
-      {
-        Header: 'Ciudad Destino',
-        accessor: 'destination_city'
-      },
-      {
-        Header: 'Pais Destino',
-        accessor: 'destination_country'
-      },
-      {
-        Header: 'Peso',
-        accessor: 'weight'
-      },{
-        Header: 'Costo',
+        Header: 'Precio',
         accessor: 'price'
       },
-      {
-        Header: 'Fecha Creacion',
-        accessor: 'created_at'
-      }
+
     ]
   )
 
   return (
     <Styles>
-      <Table columns={columns} data={guides} allData={allData} fetchGuides={fetchGuides} />
+      <Table columns={columns} data={payments} allData={allData} fetchGuides={fetchPayments} />
     </Styles>
   )
 }
@@ -91,6 +87,29 @@ const GuidesTable = () => {
 
 function Table({ columns, data, allData, fetchGuides }) {
   // Use the state and functions returned from useTable to build your UI
+
+
+  const confirmSinglePayment = async (order_id) => {
+    const url = `${process.env.REACT_APP_API_URL}/user/pay/confirm`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+        "Authorization": `Bearer ${localStorage.getItem("access_token")}`
+      },
+      body: JSON.stringify({
+          "order_id": order_id
+      })
+    });
+    const data = await response.json();
+    if (data.status === "SUCCESS") {
+      console.log("pagos actualizados")
+    } 
+    else if (data.status === "ERROR") {
+      
+    }
+    
+  }
 
   const {
     getTableProps,
@@ -104,7 +123,7 @@ function Table({ columns, data, allData, fetchGuides }) {
   })
   
   useEffect(() => {
-    console.log(allData)  
+    
   }, [allData]);
   
   // Render the UI for your table
@@ -142,12 +161,14 @@ function Table({ columns, data, allData, fetchGuides }) {
                     alignItems:"center"
                   }
                   }>
-                    <a
-                    href={`https://s3.us-east-2.amazonaws.com/quikn-staging/labels/${tracking_number}.pdf`} target="_blank" title="document icons">
+                    <button onClick={()=> {
+                    confirmSinglePayment(row.original.order_id)
+                    }}
+                    href={`https://s3.us-east-2.amazonaws.com/quikn-staging/labels`} target="_blank" title="document icons">
                       <img  style={{
                             width: `20px`,
                             height: `20px`}} alt='doc-icon' src={DocIcon}></img>
-                    </a>
+                    </button>
                   </td>
                   )
                 } 
@@ -351,4 +372,4 @@ const SectionWrapper = styled.div`
   background-color: green;
 `
 
-export default GuidesTable
+export default PaymentsTable

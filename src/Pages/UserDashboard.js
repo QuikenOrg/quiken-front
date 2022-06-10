@@ -9,9 +9,6 @@ import SubNavbar from '../components/Navbar/SubNavbar'
 import AccountInfo from '../components/Others/AccountInfo'
 
 const UserDashboard = () => {   
-  //Dashboard Moving
-  const [selectedScreen, setSelectedScreen] = useState("dashboard")
-
 
   const [companyName, setCompanyName] = useState('')
   const [loggedInUser, setLoggedInUser] = useState('')
