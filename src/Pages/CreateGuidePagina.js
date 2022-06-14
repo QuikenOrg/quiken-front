@@ -992,7 +992,7 @@ const PaymentDiv = (props) => {
               <Link to="/recargarsaldo">
                 <button>Recargar Saldo</button>
               </Link>
-              <button onClick={() => payWithPoints(username,guideCost)}>Pagar</button>
+              <button style={{color: "red"}} onClick={() => payWithPoints(username,guideCost)}>Pagar</button>
             </div>
             
              : 

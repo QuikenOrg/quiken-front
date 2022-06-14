@@ -1,6 +1,6 @@
 import { Input } from '@chakra-ui/react';
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 const GuideCreator = ({
@@ -9,6 +9,8 @@ const GuideCreator = ({
 ) => {
   console.log(user)
   
+  const history = useHistory()
+
     //Username for fetching points
   let username = localStorage.getItem('email')
 
@@ -95,7 +97,7 @@ const GuideCreator = ({
 
   //Step One Guide Creation
 const createGuideApi = async () => {
-    const urlApiCreate = 'https://test.quiken.mx/generate';
+    const urlApiCreate = `${process.env.REACT_APP_API_URL}/generate`;
     const responseApi = await fetch(urlApiCreate, {
       method: 'POST',
       headers: {
@@ -122,7 +124,7 @@ const createGuideApi = async () => {
           "reference": referenciasSender
         },
         "destination": {
-          "name": fullNameSender,
+          "name": fullNameReceiver,
           "company": fullNameReceiver,
           "email": emailReceiver,
           "phone": phoneNumberReceiver,
@@ -140,11 +142,11 @@ const createGuideApi = async () => {
           "content": packageDescription,
           "type": 1,
           "dimensions": {
-            "length": packageLenght,
-            "width": packageWidth,
-            "height": packageHeight
+            "length": parseInt(packageLenght),
+            "width": parseInt(packageWidth),
+            "height": parseInt(packageHeight)
           },
-          "weight": packageWeight
+          "weight": parseInt(packageWeight)
         },
         "shipment": {
           "service": selectedService
@@ -156,6 +158,10 @@ const createGuideApi = async () => {
     });
 
     const data = await responseApi.json()
+    if (data.status === "SUCCESS") {
+      alert("Tu guia fue creata exitosamnte.")
+      history.push("/newdashboard")
+    }
     setApiGuide(data)
   }
 
@@ -770,7 +776,7 @@ const calculateNewGuidePrice = async () => {
             
             { selectedService ? 
                 guideCost < user.balance ? 
-                <button onClick={() => createGuideApi() }>Pagar</button> :
+                <button onClick={() => createGuideApi() }>Pagar Aqui</button> :
                 <>
                   <button disabled >Pagar</button>
                   <h2>Cuentas con saldo insuficiente</h2>
