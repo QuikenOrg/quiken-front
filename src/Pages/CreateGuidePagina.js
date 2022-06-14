@@ -116,8 +116,6 @@ const createGuide = async () => {
 }
 //Step One Guide Creation
 const createGuideApi = async () => {
-  console.log(mexicoStateReceiver, 'Receiver')
-  console.log(mexicoStateSender, 'GUACMOLE')
   const urlApiCreate = 'https://test.quiken.mx/generate';
   const responseApi = await fetch(urlApiCreate, {
     method: 'POST',
@@ -126,8 +124,8 @@ const createGuideApi = async () => {
     },
     body: JSON.stringify({
       "clientDetail": {
-        "accountName": "tester2@test.com",
-        "apiKey": "8oNVxt6MTfmv8aYUfhZyxwcWqQ7ELx2y"
+        "accountName": localStorage.getItem('email'),
+        "apiKey": localStorage.getItem('api_key')
       },
       "origin": {
         "name": fullNameSender,
@@ -255,8 +253,8 @@ const calculateNewGuidePrice = async () => {
     headers: {'Content-type': 'application/json'},
     body: JSON.stringify({
         "clientDetail": {
-           "accountName": "rastreo@quiken.mx",
-           "apiKey": "QNy1tpJFfmYIOlqF1oiwBy7iE46LXuwb"
+          "accountName": localStorage.getItem('email'),
+          "apiKey": localStorage.getItem('api_key')
          },
          "origin": {
            "name": fullNameSender,
@@ -994,7 +992,7 @@ const PaymentDiv = (props) => {
               <Link to="/recargarsaldo">
                 <button>Recargar Saldo</button>
               </Link>
-              <button onClick={() => payWithPoints(username,guideCost)}>Pagar</button>
+              <button style={{color: "red"}} onClick={() => payWithPoints(username,guideCost)}>Pagar</button>
             </div>
             
              : 

@@ -1,4 +1,4 @@
-import React,  { useState, useEffect} from 'react'
+ import React,  { useState, useEffect} from 'react'
 import { useParams ,useHistory} from 'react-router'
 import Navbar from '../components/Navbar/Navbar'
 import './RastreoPagina.scss';
@@ -22,7 +22,6 @@ const RasteroPagina = () => {
   const [error, setError] = useState()
   const params = useParams()
   const guideNumber = params.guide
-  console.log(guideNumber, 'guacamole')
   
   const handleChange = (event) => {
     let value = event.target.value.replace(/\D/g, '');
@@ -41,27 +40,29 @@ const RasteroPagina = () => {
   const getGuideInfo = async () => {
     const body = {
       "clientDetail": {
-        "accountName": "rastreo@quiken.mx",
-        "apiKey": "QNy1tpJFfmYIOlqF1oiwBy7iE46LXuwb"
+        "accountName": localStorage.getItem("email"),
+        "apiKey": localStorage.getItem("api_key")
       },
       "trackingNumbers": [
         guideNumber
       ]
     }
 
-    const url = 'https://api.quiken.mx/track'
+    const url = `${process.env.REACT_APP_API_URL}/track`
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${localStorage.getItem("access_token")}`
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: JSON.stringify(body)
     })
     
     const data = await response.json()
-
+    console.log(data);
     try {
+      console.log(data)
       setGuideInformation(data)
       setShipmentHistory(data.data.shipments[0].shipmentHistory)
     }
@@ -199,7 +200,7 @@ const RasteroPagina = () => {
             </div> : 
             
             <div>
-              <ShippingInformation guideNumber={guideNumber} shipmentHistory={shipmentHistory}/>
+              <ShippingInformation guideInformation={guideInformation} guideNumber={guideNumber} shipmentHistory={shipmentHistory}/>
             </div> }
               
           </div>

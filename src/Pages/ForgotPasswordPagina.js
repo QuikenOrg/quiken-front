@@ -3,30 +3,42 @@ import axios from "axios";
 import "./ForgotPasswordPagina.scss";
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
+import { useHistory } from "react-router-dom";
 
 
 const ForgotPasswordScreen = () => {
+  
+  const history = useHistory()
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
 
   const forgotPasswordHandler = async (e) => {
     e.preventDefault();
 
     const config = {
       header: {
-        "Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
       },
     };
 
+    let formData = new FormData();
+    formData.append('email', email); 
+
     try {
       const { data } = await axios.post(
-        "/api/auth/forgotpassword",
-        { email },
+        `${process.env.REACT_APP_API_URL}/user/password/recovery`,
+        formData,
         config
       );
 
       setSuccess(data.data);
+      console.log(data)
+      if (data.status == "SUCCESS") {
+        alert("Un email de recuperacion ha sido envidado a tu correo.")
+        history.push("/")
+      }
     } catch (error) {
       setError(error.response.data.error);
       setEmail("");

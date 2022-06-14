@@ -5,49 +5,73 @@ import './SignInPagina.scss'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 
-
 const LoginPagina= (props) => {
-  
   let history = useHistory();
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [ goToDashboard, setGoToDashboard] = useState(false)
 
   useEffect(() => {
-    if (localStorage.getItem('authToken')) {
-      history.push("/userdashboard")
+    userSignedIn()
+    if (goToDashboard) history.push("/newdashboard") 
+  },[]);
+
+  const userSignedIn = async () => {
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Authorization": `Bearer ${localStorage.getItem("access_token")}`
+      },
+    };
+
+    try {
+      //AQUI VAN LAS RUTAS DE LAS GUIAS
+      const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/user/info`, {} , config);
+      console.log(data)
+      setError(false)
+      setGoToDashboard(true)
+    } catch (error) {
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("email");
+      localStorage.removeItem("username");
+      setError(true)
     }
-  }, [history]);
+  }
+
 
   const loginHandler = async (e) => {
     e.preventDefault();
 
     const config = {
       header: {
-        "Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
       },
     };
+    
+    let formData = new FormData();
+    formData.append('email', email);   //append the values with key, value pair
+    formData.append('password', password);
 
     try {
       const { data } = await axios.post(
-        "/api/auth/login",
-        {
-          email,
-          password,
-        },
+        `${process.env.REACT_APP_API_URL}/user/login`,
+        formData,
         config
       );
-      console.log(data)
+      
+      localStorage.setItem("access_token", data.data.access_token);
+      console.log(data.data.access_token)
+      localStorage.setItem("api_key", data.data.user.api_key);
+      localStorage.setItem("email", data.data.user.email);
+      localStorage.setItem("username", data.data.user.username);
+      console.log(data.data.user.api_key)
 
-      localStorage.setItem("authToken", data.token);
-      localStorage.setItem("email", data.user.email);
-      localStorage.setItem("username", data.user.username);
-
-      history.push("/userdashboard");
+      history.push("/newdashboard");
     } catch (error) {
       console.log(error)
-      setError(error.response.data.error);
+
     }
   };
 

@@ -10,10 +10,7 @@ import AccountInfo from '../components/Others/AccountInfo'
 
 const UserDashboard = () => {   
 
-
-  //Dashboard Moving
-  const [selectedScreen, setSelectedScreen] = useState("dashboard")
-
+  const [companyName, setCompanyName] = useState('')
   const [loggedInUser, setLoggedInUser] = useState('')
   const [loggedInUserEmail, setLoggedInUserEmail] = useState('')
   const [userGuides, setUserGuides] = useState([])
@@ -28,7 +25,6 @@ const UserDashboard = () => {
   const [pesoPromedioGuias, setPesoPromedioGuias] = useState()
   const [averageCostGuides, setAverageCostGuides] = useState()
   const [averageCost, setAverageCost] = useState()
-
 
   //States for quoate
   const [testPackageLength, setTestPackageLength] = useState()
@@ -46,14 +42,15 @@ const UserDashboard = () => {
 
   //Quoate API Call Function
   const calculateGuide = async () => {
-    const url = 'https://api.quiken.mx/rate';
+    const url = `${process.env.REACT_APP_API_URL}/rate`;
     const response = await fetch(url, {
       method: 'POST',
-      headers: {'Content-type': 'application/json'},
+      headers: {
+        'Content-type': 'application/json'},
       body: JSON.stringify({
           "clientDetail": {
-             "accountName": "rastreo@quiken.mx",
-             "apiKey": "QNy1tpJFfmYIOlqF1oiwBy7iE46LXuwb"
+             "accountName": localStorage.getItem('email'),
+             "apiKey": localStorage.getItem('api_key')
            },
            "origin": {
              "name": "testSender",
@@ -129,7 +126,7 @@ const UserDashboard = () => {
   //Get Fetch Guides Function
   const loadUserGuides = async (currentUser) => {
     console.log('currentUser', currentUser)
-    await fetch(`api/user/guides/${currentUser}`, {
+    await fetch(`${process.env.REACT_APP_API_URL}/user/guides`, {
       headers: {
         'Content-Type': 'application/json',
       }
@@ -147,20 +144,21 @@ const UserDashboard = () => {
   };
 
   //Fetch Private Data
-  const fetchPrivateDate = async () => {
+  const fetchPrivateData = async () => {
+    console.log("GUACAMOLE")
+    console.log(localStorage.getItem("access_token"))
     const config = {
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        "Content-Type": "multipart/form-data",
+        "Authorization": `Bearer ${localStorage.getItem("access_token")}`
       },
     };
+
     try {
       
       //AQUI VAN LAS RUTAS DE LAS GUIAS
-      const { data } = await axios.get("/api/private", config);
-      setPrivateData(data.data);
-
-
+      const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/user/info`, {} ,config);
+      console.log(data)
 
     } catch (error) {
       localStorage.removeItem("authToken");
@@ -171,41 +169,14 @@ const UserDashboard = () => {
 
   };
 
-  //Get Userpoints
-  const requestGetPoints = async (username) => {
-    const url = 'api/user/getPoints/'
-    console.log(username, 'RUNNING THIS')
-    
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-          },
-        body: JSON.stringify ({
-            'username': username
-        })
-    });
-    
-    const data = await response.json()
-    console.log(data)
-    console.log(response.status, 'STATUS')
-    if (response.status === 200) {
-        setUserPoints(data.data[0].points)
-        // setTotalRecargas(data.data[0].recargas)
-    }
-    
-    
-}
-
-
   useEffect(() => {
-    fetchPrivateDate();
-    let currentUser = localStorage.getItem('username')
+    fetchPrivateData();
+    let currentUser = "jaimito"
     let currentUserEmail = localStorage.getItem('email')
-    requestGetPoints(currentUserEmail)
+    //requestGetPoints(currentUserEmail)
     setLoggedInUser(currentUser)
     setLoggedInUserEmail(currentUserEmail)
-    loadUserGuides(currentUserEmail);
+    //loadUserGuides(currentUserEmail);
   }, []);
 
   const logoutHandler = () => {
@@ -213,7 +184,6 @@ const UserDashboard = () => {
       localStorage.removeItem('email');
       localStorage.removeItem('username');
       
-
       history.push('/signin')
   }
 
@@ -241,7 +211,7 @@ const UserDashboard = () => {
             <SubNavbar handleSelectedComponent={handleSelectedComponent} logoutHandler={logoutHandler}/> */}
 
             <div className="main-wrapper-userdashboard">
-                <AccountInfo handleSelectedComponent={handleSelectedComponent} loggedInUser={loggedInUser} loggedInUserEmail={loggedInUserEmail} />
+                <AccountInfo handleSelectedComponent={handleSelectedComponent} companyName={companyName} loggedInUser={loggedInUser} loggedInUserEmail={loggedInUserEmail} />
                 
                 {/* <div className="account-info-wrapper">
                   <h2 className="heading-userdashboards">Dashboard de Enviós</h2>

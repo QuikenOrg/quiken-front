@@ -20,20 +20,20 @@ const NuestrosVehiculos = () => {
             </div>
                 <div className="svgs-wrapper">
                     <div className="icon-column">
-                        <img className="svg-image" src={Motocicleta} />
+                        <img className="svg-image" src={Motocicleta} alt="motocycle-svg"/>
                         <h3 className="heading-vehicle">Motocicleta</h3>
                     </div>
                     <div className="icon-column">
-                        <img className="svg-image" src={Automovil} />
+                        <img className="svg-image" src={Automovil} alt="car-svg" />
                         <h3 className="heading-vehicle">Automóvil</h3>
                     </div>
                     <div className="icon-column">
-                        <img className="svg-image" src={Camioneta} />
+                        <img className="svg-image" src={Camioneta} alt="truck-svg" />
                         <h3 className="heading-vehicle-camioneta" >Camioneta <br/> (500kg)</h3>
                     </div>
 
                     <div className="icon-column">
-                        <img className="svg-image" src={Camion} />
+                        <img className="svg-image" src={Camion} alt="truck-svg"/>
                         <h3 className="heading-vehicle-camion">Camión <br/> (3.5 Toneladas)</h3>
                     </div>
                 

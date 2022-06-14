@@ -14,22 +14,22 @@ const MapInicio = () => {
                 <div className="states-wrapper">
                     <div className="state-column">
                         <div className="state-row">
-                            <img className="paloma-quiken" src={PalomaQuiken}/>
+                            <img className="paloma-quiken" src={PalomaQuiken} alt="paloma-icon"/>
                             <p className="state-name">Nuevo León</p>
                         </div>
 
                         <div className="state-row">
-                            <img className="paloma-quiken" src={PalomaQuiken}/>
+                            <img className="paloma-quiken" src={PalomaQuiken} alt="paloma"/>
                             <p className="state-name">Coahuila</p>
                         </div>
 
                         <div className="state-row">
-                        <img className="paloma-quiken" src={PalomaQuiken}/>
+                        <img className="paloma-quiken" src={PalomaQuiken} alt="paloma"/>
                             <p className="state-name">Durango</p>
                         </div>
 
                         <div className="state-row">
-                        <img className="paloma-quiken" src={PalomaQuiken}/>
+                        <img className="paloma-quiken" src={PalomaQuiken} alt="paloma"/>
                             <p className="state-name">Tamaulipas</p>
                         </div>
 
@@ -37,20 +37,20 @@ const MapInicio = () => {
                     </div>
                     <div className="state-column">
                         <div className="state-row">
-                        <img className="paloma-quiken" src={PalomaQuiken}/>
+                        <img className="paloma-quiken" src={PalomaQuiken} alt="paloma"/>
                             <p className="state-name">San Luis Potosí</p>
                         </div>
                         <div className="state-row">
-                        <img className="paloma-quiken" src={PalomaQuiken}/>
+                        <img className="paloma-quiken" src={PalomaQuiken} alt="paloma"/>
                             <p className="state-name">Norte de Veracruz</p>
                         </div>
                         <div className="state-row">
-                        <img className="paloma-quiken" src={PalomaQuiken}/>
+                        <img className="paloma-quiken" src={PalomaQuiken} alt="paloma"/>
                             <p className="state-name">Ciudad de México</p>
                         </div>
 
                         <div className="state-row">
-                        <img className="paloma-quiken" src={PalomaQuiken}/>
+                        <img className="paloma-quiken" src={PalomaQuiken} alt="paloma"/>
                             <p className="state-name">Querataro</p>
                         </div>
 
@@ -59,22 +59,22 @@ const MapInicio = () => {
                     <div className="state-column">
 
                         <div className="state-row">
-                        <img className="paloma-quiken" src={PalomaQuiken}/>
+                        <img className="paloma-quiken" src={PalomaQuiken} alt="paloma"/>
                             <p className="state-name">Guanjuato</p>
                         </div>
 
                         <div className="state-row">
-                        <img className="paloma-quiken" src={PalomaQuiken}/>
+                        <img className="paloma-quiken" src={PalomaQuiken} alt="paloma"/>
                             <p className="state-name">Chihuahua</p>
                         </div>
 
                         <div className="state-row">
-                        <img className="paloma-quiken" src={PalomaQuiken}/>
+                        <img className="paloma-quiken" src={PalomaQuiken} alt="paloma"/>
                             <p className="state-name">Guadalajara</p>
                         </div>
 
                         <div className="state-row">
-                        <img className="paloma-quiken" src={PalomaQuiken}/>
+                        <img className="paloma-quiken" src={PalomaQuiken} alt="paloma"/>
                             <p className="state-name-dallas">Dallas, Texas</p>
                         </div>
                     </div>
@@ -82,7 +82,7 @@ const MapInicio = () => {
                 </div>
             </div>
             <div className="img-wrapper">
-                <img className="map-image" src={imgMap}></img>
+                <img className="map-image" src={imgMap} alt="map"></img>
             </div>
         </div>
     )

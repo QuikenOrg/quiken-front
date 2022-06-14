@@ -8,7 +8,7 @@ const MilesDeGuias = () => {
     return (
         <div className="main-wrapper-guias">
             <div className="red-container">
-                <img className="delivery-guy-img" src={DeliveryGuy}></img>
+                <img className="delivery-guy-img" src={DeliveryGuy} alt="delivery-guy"></img>
             </div>
             <div className="blue-container">
                 <h1 className="numero-guias">1,552,99</h1>
