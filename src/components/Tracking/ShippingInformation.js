@@ -2,14 +2,17 @@ import React from 'react'
 
 const ShippingInformation = (props) => {
     
-    const { shipmentHistory, guideNumber } = props
+    const { shipmentHistory, guideNumber, guideInformation } = props
     
+    console.log(guideInformation.data.shipments[0].receiverName)
+
     return (
         <>
             <div>
               <h1 className="estado-de-envio-heading">Estado de envío</h1>
               <h1 className="estado-de-pedido">Status: <span>{guideNumber}</span> </h1>
               <h1 className="estado-de-pedido">Código de rastreo:  <span>{guideNumber}</span></h1>
+              <h1 className="estado-de-pedido">Recibido por: <span>{guideInformation.data.shipments[0].receiverName}</span> </h1>
             </div>  
 
             <div>

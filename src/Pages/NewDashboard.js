@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
 import PageWrapper from '../styled_components/page_wrapper'
-import MidScreenWrapper from '../styled_components/mid_screen_wrapper'
 import { useState, useEffect } from 'react'
 import DashboardMonitor from './DashboardMonitor'
 import styled from 'styled-components'
@@ -142,7 +141,7 @@ const NewDashboard = () => {
     return (
     <PageWrapper>
         <Navbar/>
-        <MidScreenWrapper>
+        <WrapperRow>
             <Sidebar setLoading={setLoading} setError={setError}/>
             {
                 error && loading ? 
@@ -162,8 +161,7 @@ const NewDashboard = () => {
                 />
                 </DashboardWrapper>
             }
-            
-        </MidScreenWrapper>
+        </WrapperRow>
         <Footer/>
     </PageWrapper>
   )
@@ -180,6 +178,12 @@ const Loading = styled.div`
     height: 100%;
 `
 
+const WrapperRow = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    min-height: 800px;
+`
 
 const DashboardWrapper = styled.div`
     background-color: white;

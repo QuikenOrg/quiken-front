@@ -792,10 +792,9 @@ const calculateNewGuidePrice = async () => {
 
 const MainDiv = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  //background-color: grey;
+  flex-direction: column;
+  align-self: center;
+  justify-self: center;
 ` 
 
 const SectionWrapper = styled.div`

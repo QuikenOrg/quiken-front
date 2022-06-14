@@ -22,7 +22,6 @@ const RasteroPagina = () => {
   const [error, setError] = useState()
   const params = useParams()
   const guideNumber = params.guide
-  console.log(guideNumber, 'guacamole')
   
   const handleChange = (event) => {
     let value = event.target.value.replace(/\D/g, '');
@@ -63,6 +62,7 @@ const RasteroPagina = () => {
     const data = await response.json()
     console.log(data);
     try {
+      console.log(data)
       setGuideInformation(data)
       setShipmentHistory(data.data.shipments[0].shipmentHistory)
     }
@@ -200,7 +200,7 @@ const RasteroPagina = () => {
             </div> : 
             
             <div>
-              <ShippingInformation guideNumber={guideNumber} shipmentHistory={shipmentHistory}/>
+              <ShippingInformation guideInformation={guideInformation} guideNumber={guideNumber} shipmentHistory={shipmentHistory}/>
             </div> }
               
           </div>

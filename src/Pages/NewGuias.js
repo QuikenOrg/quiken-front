@@ -15,18 +15,22 @@ const NewGuias = () => {
     return (
     <PageWrapper>
         <Navbar/>
-        <MidScreenWrapper>
+        <Row>
             <Sidebar setLoading={setLoading} setError={setError}/>
             <WrapperTableGuias>
                 <h1 className="cotizador-rapido-main-header">Guias Generadas</h1>
                 <GuidesTable/>
             </WrapperTableGuias>
-        </MidScreenWrapper>
+        </Row>
         <Footer/>
     </PageWrapper>
   )
 }
 
+const Row = styled.div`
+    display: flex;
+    flex-direction: row;
+`
 
 const WrapperTableGuias = styled.div`
     display: flex;

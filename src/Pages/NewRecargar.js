@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
 import PageWrapper from '../styled_components/page_wrapper'
 import MidScreenWrapper from '../styled_components/mid_screen_wrapper'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import styled from 'styled-components'
 import MasterCard from '../assets/Recarga/master_card.png'
 import Visa from '../assets/Recarga/Visa_Inc._logo.svg.png'
@@ -16,9 +16,11 @@ import Ecart from '../assets/Recarga/logo-negro.svg'
 const NewGuias = () => {
     const [error, setError] = useState(true);
     const [amount, setAmount ] = useState(0);
-    const [ modal, setModal ] = useState(false);
     const [ haveLink, setHaveLink] = useState(false);
     const [paymentLink, setPaymentLink] = useState("");
+    const [buttonEnabled, SetButtonEnabled] = useState(false);
+
+    const PaymentButton = useRef();
 
     const createPayment = async () => {
         const url = `${process.env.REACT_APP_API_URL}/user/pay`;
@@ -43,14 +45,29 @@ const NewGuias = () => {
 
     const handleChange = (e) => {
         setAmount(e.target.value)
+        if (e.target.value > 99) {
+            SetButtonEnabled(true)
+        } else {
+            SetButtonEnabled(false)
+        }
     } 
 
     const upperSection = haveLink === false ? (
         <PaymentSection>
             <HeaderAgregaSaldo> AGREGA SALDO A TU CUENTA:</HeaderAgregaSaldo>
-            <SubHeadingAgregaSaldo> Ingresa la cantidad a abonar en MXN . <br/> Y paga comodamente con cualquiera de nuestros metodos de pago</SubHeadingAgregaSaldo>
+            <SubHeadingAgregaSaldo> 
+                Ingresa la cantidad a abonar en MXN.
+                <br/> Y paga comodamente con cualquiera de nuestros metodos de pago
+                <p style={{fontSize: "18px"}}>(min. 100MXN)
+                </p>
+                </SubHeadingAgregaSaldo>
             <PaymentInput onChange={(e) => handleChange(e)} placeholder='Cantidad a abonar (MXN)'></PaymentInput>
-            <ButtonPayment onClick={() => createPayment()}>Aceptar</ButtonPayment>        
+            {
+                buttonEnabled ? 
+                <ButtonPayment onClick={() => createPayment()} ref={PaymentButton}>Aceptar</ButtonPayment> :
+                <ButtonPayment style={{opacity: "40%"}} disabled onClick={() => createPayment()} ref={PaymentButton}>Aceptar</ButtonPayment>
+            }
+            <></>        
         </PaymentSection>
     ) : (
      <PaymentSection>
@@ -66,7 +83,7 @@ const NewGuias = () => {
     return (
     <PageWrapper>
         <Navbar/>
-        <MidScreenWrapper>
+        <Row>
             <Sidebar setError={setError}/>
             <RecargaWrapper>
                 
@@ -105,7 +122,7 @@ const NewGuias = () => {
                     />
                 </LogosWrapper>
           </RecargaWrapper>
-        </MidScreenWrapper>
+        </Row>
         <Footer/>
     </PageWrapper>
   )
@@ -118,6 +135,11 @@ const PaymentSection = styled.div`
     align-items: center;
 `
 
+const Row = styled.div`
+    display: flex;
+    flex-direction: row;
+    min-height: 600px;
+`
 
 const RecargaWrapper = styled.div`
     width: 100%; 

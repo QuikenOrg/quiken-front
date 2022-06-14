@@ -12,13 +12,13 @@ const MyPayments = () => {
     return (
     <PageWrapper>
         <Navbar/>
-        <MidScreenWrapper>
+        <Row>
             <Sidebar />
             <WrapperTableGuias>
                 <h1 className="cotizador-rapido-main-header">Mis Pagos</h1>
                 <PaymentsTable/>
             </WrapperTableGuias>
-        </MidScreenWrapper>
+        </Row>
         <Footer/>
     </PageWrapper>
   )
@@ -35,6 +35,11 @@ const WrapperTableGuias = styled.div`
     box-sizing: border-box;
     justify-content: center;
     background-color: white;
+`
+
+const Row = styled.div`
+    display: flex;
+    flex-direction: row;
 `
 
 export default MyPayments;

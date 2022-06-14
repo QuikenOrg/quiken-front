@@ -12,33 +12,32 @@ const NewCotizar = () => {
     return (
     <PageWrapper>
         <Navbar/>
-        <MidScreenWrapperCotizador>
+        <WrapperCotizador>
             <Sidebar setError={setError}/>
             <CotizadorWrapper>
                 <Cotizador/>
             </CotizadorWrapper>
-        </MidScreenWrapperCotizador>
+        </WrapperCotizador>
         <Footer/>
     </PageWrapper>
   )
 }
 
 
-const MidScreenWrapperCotizador = styled.div`
+const WrapperCotizador = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: center;
-    min-height: 60vh;
-    height: 700px;
     background-color: #DDE5ED;
+    min-height: 600px;
 `
 
 const CotizadorWrapper = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    align-self: center;
     justify-content: center;
 `
 
