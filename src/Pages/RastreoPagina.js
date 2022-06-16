@@ -40,8 +40,8 @@ const RasteroPagina = () => {
   const getGuideInfo = async () => {
     const body = {
       "clientDetail": {
-        "accountName": localStorage.getItem("email"),
-        "apiKey": localStorage.getItem("api_key")
+        "accountName": `${process.env.REACT_APP_EMAIL_TRACK}`,
+        "apiKey": `${process.env.REACT_APP_API_KEY_TRACK}`
       },
       "trackingNumbers": [
         guideNumber
