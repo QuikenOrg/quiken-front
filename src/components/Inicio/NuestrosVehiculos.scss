@@ -1,0 +1,194 @@
+@import '../../styles/GeneralStyles.scss';
+
+.main-wrapper-section {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    @include media('<tablet') {
+        // flex-direction: column;
+        // align-items: center;     
+    }
+    @include media('<650px') {
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;       
+    }
+    @include media('<large-phone') {
+        flex-direction: column;
+        height: 250px;     
+    }
+    @include media('<phone') {
+        height: 100%;     
+    }
+}
+
+.main-wrapper-row {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include media('<large-phone') {
+        width: 100%;
+        flex-direction: row;     
+    }
+    @include media('<phone') {
+        width: 100%;
+        flex-direction: column;
+        padding: 20px;
+        box-sizing: border-box;     
+    }
+}
+
+.svgs-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 55%;
+    align-items: center;
+    justify-content: center;
+    padding-right: 100px;
+    @include media('<tablet') {
+        // flex-direction: column;
+        // align-items: center;
+        justify-content: space-between;
+        padding-right: 0px;
+        width: 80%;
+        font-size: 24px;     
+    }
+    @include media('<large-phone') {
+        width: 100%;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        padding-right: 0px;     
+    }
+    @include media('<phone') {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        padding-right: 0px;
+        align-items: center;
+        margin-bottom: 20px;     
+    }
+}
+
+.heading-red {
+    font-family: $quikenFont;
+    font-weight: 900;
+    font-size: 40px;
+    color: $quikenRed;
+    display: block;
+    @include media('<tablet') {
+        flex-direction: column;
+        align-items: center;
+        font-size: 24px;     
+    }
+}
+
+.btn-enviar-ahora {
+  font-family: $quikenFont;
+  background-color: $quikenRed;
+  color: $quikenWhite;
+  font-size: $quikenMediumFontSize;
+  font-family: $quikenFont;
+  font-weight: $quikenFontWeightMedium;
+  border-radius: 15px;
+  border: none;
+  padding: 8px 20px 8px 20px;
+  margin: 15px;
+}
+
+.svg-image {
+    width: 135px;
+    z-index: 1;
+    @include media('<tablet') {
+        width: 100px;     
+    }
+    @include media('<large-phone') {
+        width: 75px;     
+    }
+}
+
+.icon-column {
+    position: relative;
+    width: 170px;
+    @include media('<large-phone') {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+             
+    }
+}
+
+.heading-vehicle {
+    color: $quikenWhite;
+    font-family: $quikenFont;
+    font-weight: 800;
+    font-size: 12px;
+    top: 120px;
+    left: 32px;
+    z-index: 3;
+    position: absolute;
+    text-align: center;
+    @include media('<tablet') {
+        position: static;
+        color: $quikenDarkBlue;
+        font-weight: 800;
+    }
+    @include media('<large-phone') {
+        position: static;
+        color: $quikenDarkBlue;
+        font-weight: 800;
+             
+    }
+}
+
+.heading-vehicle-camioneta {
+    color: $quikenWhite;
+    font-family: $quikenFont;
+    font-weight: 800;
+    font-size: 12px;
+    top: 120px;
+    left: 35px;
+    z-index: 3;
+    position: absolute;
+    text-align: center;
+    @include media('<tablet') {
+        position: static;
+        color: $quikenDarkBlue;
+        font-weight: 800;
+    }
+    @include media('<large-phone') {
+        position: static;
+        color: $quikenDarkBlue;
+             
+    }
+}
+
+.heading-vehicle-camion {
+    color: $quikenWhite;
+    font-family: $quikenFont;
+    font-weight: 800;
+    font-size: 12px;
+    top: 120px;
+    left: 25px;
+    z-index: 3;
+    position: absolute;
+    text-align: center;
+    @include media('<tablet') {
+        position: static;
+        color: $quikenDarkBlue;
+        font-weight: 800;
+    }
+    @include media('<large-phone') {
+        position: static;
+        color: $quikenDarkBlue;
+             
+    }
+}

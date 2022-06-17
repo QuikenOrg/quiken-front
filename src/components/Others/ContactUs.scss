@@ -1,0 +1,72 @@
+@import '../../styles/GeneralStyles.scss';
+
+.wrapper {
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    padding: 40px 0px 40px 0px;
+    @include media('<tablet') {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @include media('<large-phone') {
+      max-width: 250px;
+    }
+}
+
+.margin-left {
+    margin-left: 10px;
+}
+
+.contact-us-input-form { 
+  width: 400px;
+  padding: 11px;
+  font-family: $quikenFont;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid grey;
+  background-color: $quikenKLightGrey;
+  @include media('<tablet') {
+    max-width: 300px;
+  }
+  @include media('<large-phone') {
+    max-width: 250px;
+  }
+}
+
+.contact-us-input-form::placeholder {
+    font-family: $quikenFont;
+    font-size: 16px;
+    font-weight: 500;
+    // padding-left: 12px;
+}
+
+.contact-us-form {
+  @include media('<tablet') {
+    flex-direction: column;
+    display: flex;
+  }
+}
+
+.btn-red-contact-us {
+  font-family: $quikenFont;
+  background-color: $quikenRed;
+  color: $quikenWhite;
+  font-size: $quikenMediumFontSize;
+  font-family: $quikenFont;
+  font-weight: $quikenFontWeightMedium;
+  width: 170px;
+  height: 40px;
+  border-radius: 18px;
+  border: none;
+  padding: 8px 20px 8px 20px;
+  margin-left: 10px;
+  font-weight: 600;
+  @include media('<large-phone') {
+    max-width: 150px;
+    margin-top: 10px;
+    align-self: center;
+  }
+}

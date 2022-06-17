@@ -1,0 +1,20 @@
+@import "../../styles/GeneralStyles.scss";
+
+.white-heading-tracking {
+    color: $quikenWhite;
+    font-family: $quikenFont;
+    font-weight: 700;
+    padding: 6px
+}
+
+.main-wrapper-div-tracking {
+    align-self:center;
+    justify-self: center;
+}
+
+.icono-rastreo {
+    width: 85%;
+    @include media('<large-phone') {
+        width: 50%;
+    }
+}
