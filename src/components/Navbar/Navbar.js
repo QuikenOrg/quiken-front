@@ -52,12 +52,12 @@ const Navbar = () => {
           <Link className="navbar-link" to="/fulfillment">FULFILLMENT</Link>
           <Link className="navbar-link" to="/rastreo">RASTREO</Link>
           <Link className="navbar-link" to="/contacto">CONTACTO</Link>
-          {/* <Link className="navbar-link" to="/signin">
+          <Link className="navbar-link" to="/signin">
             SIGN IN
           </Link>
           <Link to="/signup">
             <BtnRegistro/>
-          </Link> */}
+          </Link>
         </div>
         {/* Mobile Menu */}
         <Burger open={open} setOpen={setOpen}/>
