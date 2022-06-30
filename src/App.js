@@ -12,6 +12,7 @@ import ForgotPasswordPagina from './Pages/ForgotPasswordPagina'
 import CreateGuidePagina from './Pages/CreateGuidePagina'
 import RecargarSaldoPagina from './Pages/RecargarSaldoPagina'
 
+
 //Private Route Component
 import PrivateRoute from './components/routing/PrivateRoute'
 import ResetPasswordPagina from './Pages/ResetPasswordPagina';
@@ -22,12 +23,13 @@ import NewRecargar from './Pages/NewRecargar';
 import NewCotizar from './Pages/NewCotizar';
 import NewCreateGuide from './Pages/NewCreateGuide';
 import MyPayments from './Pages/MyPayments';
+import { UserContextProvider } from './components/Context/UserContext';
 
 
 function App() {
   return (
- 
-    <Router>
+    <UserContextProvider>
+      <Router>
           <div>
             <Switch>
               <Route exact path="/">
@@ -99,6 +101,7 @@ function App() {
             </Switch>
           </div>
       </Router>
+    </UserContextProvider>
   );
 }
 

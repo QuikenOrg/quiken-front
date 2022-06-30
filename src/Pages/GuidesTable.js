@@ -5,12 +5,16 @@ import styled from 'styled-components'
 import { useTable } from 'react-table'
 import userEvent from '@testing-library/user-event'
 import DocIcon from '../assets/iconos/doc_icon.png'
-
+import { Loading } from '../utilities/Loading'
 
 const GuidesTable = () => {
   const history = useHistory()
   const [guides, setGuides] = useState([])
   const [allData, setAllData] = useState([])
+
+  const [error, setError] = useState(true);
+  const [loading, setLoading] = useState(true);
+
   
   useEffect(() => {
     fetchGuides()
@@ -32,6 +36,9 @@ const GuidesTable = () => {
       const { data } = await axios.post(url, {} ,config);
       setAllData(data)
       setGuides(data.data)
+      console.log("runnig this")
+      console.log(loading)
+      setLoading(false)
     } catch (error) {
       localStorage.removeItem("authToken");
       localStorage.removeItem("email");
@@ -86,9 +93,13 @@ const GuidesTable = () => {
   )
 
   return (
-    <Styles>
-      <Table columns={columns} data={guides} allData={allData} fetchGuides={fetchGuides} />
-    </Styles>
+    
+      loading ?
+      <Loading></Loading>
+      :
+      <Styles>
+      <Table columns={columns} data={guides} allData=    {allData} fetchGuides={fetchGuides} />
+      </Styles>
   )
 }
 

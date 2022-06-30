@@ -8,6 +8,8 @@ import Footer from '../components/Footer/Footer'
 import ShippingInformation from '../components/Tracking/ShippingInformation';
 import FloatingWhatsApp from '../components/Others/WhatsappBtn';
 import { Helmet } from 'react-helmet'
+import { ClipLoader } from 'react-spinners';
+import { Loading } from '../utilities/Loading';
 
 const RasteroPagina = () => {
   
@@ -117,7 +119,8 @@ const RasteroPagina = () => {
       <div className="request-body-wrapper">
 
         {loading ? 
-        <div>...Loading</div> :
+          <Loading></Loading>
+          :
         <div>
           <div className="div-wrapper-rastero">
             <h1 className="request-header">Rastreo y Seguimiento</h1>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
@@ -9,6 +9,8 @@ import styled from 'styled-components'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import GuidesChart from './GuidesChart'
+import { Loading } from '../utilities/Loading'
+import { UserContext } from '../components/Context/UserContext'
 
 const NewDashboard = () => {
     
@@ -17,14 +19,15 @@ const NewDashboard = () => {
     const [userPoints, setUserPoints] = useState()
     const [totalRecargas, setTotalRecargas] = useState()
     const [dashboardData, setDashboardData] = useState()
-    const [paymentsToConfirm, setPaymentsToConfirm] = useState()
-    const [loading, setLoading] = useState(true)
-    const [user, setUser] = useState()
+  
+  const { user, setUser, loading, setLoading} = useContext(UserContext)
 
 
   useEffect(() => {
-    fetchPrivateData()
-    fetchDashboard()
+    console.log("RUNNIGN DASHBOARD");
+    fetchPrivateData().then(() => {
+      fetchDashboard()
+    })
     // getUserPayments()
     // .then(confirmPayments())   
     
@@ -46,6 +49,7 @@ const NewDashboard = () => {
       const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/user/info`, {} ,config);
       setUser(data.user)
       setUserPoints(data.user.balance)
+      console.log("this works")
     } catch (error) {
       localStorage.removeItem("authToken");
       localStorage.removeItem("email");
@@ -145,9 +149,7 @@ const NewDashboard = () => {
             <Sidebar setLoading={setLoading} setError={setError}/>
             {
                 error && loading ? 
-                <Loading>
-                  <h1>Cargando info...</h1>
-                </Loading> 
+                <Loading/>
                 :
                 <DashboardWrapper>
                 <DashboardMonitor
@@ -168,15 +170,6 @@ const NewDashboard = () => {
 }
 
 export default NewDashboard;
-
-const Loading = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-`
 
 const WrapperRow = styled.div`
     width: 100%;
