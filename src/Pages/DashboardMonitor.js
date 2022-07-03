@@ -1,42 +1,47 @@
 import { background } from '@chakra-ui/react';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components';
 import axios from 'axios' 
+import { Loading } from '../utilities/Loading';
+import { UserContext } from '../components/Context/UserContext';
 
-const DashboardMonitor = ( 
-    {
-        userPoints,
-        user, 
-        dashboardData
-    }
-    ) => {
+const DashboardMonitor = () => {
     const history = useHistory();
     const [date, setDate] = useState("");
+    const [loadingTwo, setLoadingTwo] = useState(true)
 
-    const logoutHandler = () => {
-        localStorage.removeItem('authToken');
-        localStorage.removeItem('email');
-        localStorage.removeItem('username');
-        history.push('/signin')
-    }
-    console.log(dashboardData)
+    const {
+    user,
+    email,
+    loginHandler,
+    loading, setLoading,
+    userPoints,
+    dashboardData, 
+    fetchPrivateData } = useContext(UserContext)
 
-useEffect(() => {
+
+    
+useEffect( async () => {
+    setLoadingTwo(true)
     let newDate = new Date
     let options = { weekday:'long', day:'numeric', month:'long', year:'numeric' }
     newDate = newDate.toLocaleDateString('es-MX', options);
-    setDate(newDate)
-    return () => {
-      
-    };
+    await setDate(newDate)
+    setLoadingTwo(false)
 }, []);
     
     return (
         <BigWrapper>
-            <RowColumn>
+            {
+                loadingTwo ?
+               
+                <Loading></Loading>
+                    :
+                <>    
+                <RowColumn>
                 <WelcomeHeader>Bienvenido a Quiken</WelcomeHeader>  
-                <MainHeaderDashboard>{user.email}</MainHeaderDashboard>  
+                <MainHeaderDashboard>{email}</MainHeaderDashboard>  
                 <SubHeaderDashboard>{date}</SubHeaderDashboard>    
             </RowColumn>
             
@@ -71,9 +76,13 @@ useEffect(() => {
                 <GraphWrapper>
                 </GraphWrapper>
             </GraphBannerWrapper> 
+            </>
+        }
         </BigWrapper>
-  )
+    )
 }
+    
+   
 
 
 

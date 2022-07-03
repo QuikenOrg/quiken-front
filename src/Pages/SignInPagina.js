@@ -11,8 +11,11 @@ const SignInPagina = (props) => {
 
   const history = useHistory()
 
-  const { userSignedIn,
-    loginHandler,
+  const {
+    isUserSignedIn, 
+    userSignedIn,
+    user, 
+    loginHandler, 
     error, setError,
     errorText, setErrorText,
     email, setEmail,
@@ -20,10 +23,13 @@ const SignInPagina = (props) => {
     password, setPassword
   } = useContext(UserContext)
   
-  useEffect( async () => {
-    if (userSignedIn()) {
-      history.push("/newdashboard")
-    }
+  
+
+  useEffect(() => {
+    setLoading(true)
+    console.log(isUserSignedIn)
+    setLoading(false)
+  
   },[]);
 
 
@@ -37,7 +43,13 @@ const SignInPagina = (props) => {
             <Loading></Loading>
             :
             <div className="signup-main-wrapper">
-          <form className="the-form" onSubmit={(e) =>loginHandler(e)}>
+              <form className="the-form" onSubmit={(e) => {
+                loginHandler(e).then((result) => {
+                  if (result) {
+                    history.push("/newdashboard")
+                  }
+                })
+              }}>
             <h3 className="main-heading-signup">Accesa a tu cuenta</h3>
             <h2 className="main-subheading-signup">Y disfruta de los mejores precios envíos</h2>
             <Link className="forgot-passwordlink" to="/forgotpassword">¿Olvidaste tu contraseña?</Link>
