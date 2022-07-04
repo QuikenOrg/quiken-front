@@ -34,15 +34,15 @@ useEffect( async () => {
     return (
         <BigWrapper>
             {
-                loadingTwo ?
+                loading ?
                
                 <Loading></Loading>
                     :
                 <>    
                 <RowColumn>
                 <WelcomeHeader>Bienvenido a Quiken</WelcomeHeader>  
-                <MainHeaderDashboard>{email}</MainHeaderDashboard>  
-                <SubHeaderDashboard>{date}</SubHeaderDashboard>    
+                <MainHeaderDashboard>{user.email}</MainHeaderDashboard>  
+                <SubHeaderDashboard>{user.date}</SubHeaderDashboard>    
             </RowColumn>
             
             <Row>

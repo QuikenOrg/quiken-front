@@ -38,9 +38,16 @@ const NewGuias = () => {
         if (data.status === "SUCCESS") {
             setHaveLink(true)
             setPaymentLink(data.pay_link)
+            openInNewTab(data.pay_link)
+            
         } else if (data.status === "ERROR") {
           console.log(data.description)
         } 
+    }
+    
+    const openInNewTab = (url) => {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
       }
 
     const handleChange = (e) => {

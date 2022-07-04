@@ -57,7 +57,9 @@ const Navbar = () => {
           <Link className="navbar-link" to="/contacto">CONTACTO</Link>
           {
             user ?
-              <div>Dashboard</div>
+                <Link to="/newdashboard">
+                  <button className="btn-red">Dashboard</button>
+                </Link>
               :  
             <>
                <Link className="navbar-link" to="/signin">

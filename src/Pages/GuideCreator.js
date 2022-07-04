@@ -1,13 +1,13 @@
 import { Input } from '@chakra-ui/react';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { Loading } from '../utilities/Loading';
 
 const GuideCreator = ({
   user
   }
 ) => {
-  console.log(user)
   
   const history = useHistory()
 
@@ -31,6 +31,7 @@ const GuideCreator = ({
   //Types of Services
   const [services, setServices] = useState()
   const [loadingQuoteData, setLoadingQuoteData] = useState(true)
+  const [showSpinner, setShowSpinner] = useState(true)
 
   //User Points State
   const [points, setPoints] = useState(100);
@@ -38,14 +39,14 @@ const GuideCreator = ({
   const [needsReset, setNeedsReset] = useState(false)
 
     //Origin STATES
-  const [fullNameSender, setFullNameSender] = useState('');
-  const [emailSender, setEmailSender] = useState('');
-  const [phoneNumberSender, setPhoneNumberSender] = useState('');
-  const [streetAndNumberSender, setStreetandNumberSender] = useState('');  
-  const [referenciasSender, setReferenciasSender] = useState('');
-  const [colonySender, setColonySender] = useState('');
-  const [postalCodeSender, setPostalCodeSender] = useState('');
-  const [citySender, setCitySender] = useState('');
+  const [fullNameSender, setFullNameSender] = useState('Julian');
+  const [emailSender, setEmailSender] = useState('julian@gmail.com');
+  const [phoneNumberSender, setPhoneNumberSender] = useState('8124486070');
+  const [streetAndNumberSender, setStreetandNumberSender] = useState('2da de Monte Palatino');  
+  const [referenciasSender, setReferenciasSender] = useState('casas amarilla');
+  const [colonySender, setColonySender] = useState('fuentes del valle');
+  const [postalCodeSender, setPostalCodeSender] = useState('11111');
+  const [citySender, setCitySender] = useState('Monterrey');
   const [mexicoStateSender, setMexicoStateSender] = useState('');
     
   // Origin Error
@@ -91,9 +92,14 @@ const GuideCreator = ({
   const [packageWeightError, setPackageWeightError] = useState('');  
   const [packageDescriptionError, setPackageDescriptionError] = useState('');
   
-  const createGuide = async () => {
-    await createGuideApi() 
-  }
+  // const createGuide = async () => {
+  //   await createGuideApi()
+  // }
+  
+  useEffect(() => {
+    setShowSpinner(false)
+  }, [])
+  
 
   //Step One Guide Creation
 const createGuideApi = async () => {
@@ -160,17 +166,20 @@ const createGuideApi = async () => {
     const data = await responseApi.json()
     if (data.status === "SUCCESS") {
       alert("Tu guia fue creata exitosamnte.")
-      history.push("/newdashboard")
+      console.log(data)
+      //history.push("/newdashboard")
     }
     setApiGuide(data)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setShowSpinner(true)
     const isValid = formValidation();
     if (isValid) {
-      await calculateNewGuidePrice()
+      await calculateNewGuidePrice() 
     }
+    setShowSpinner(false)
     }
     
     const formValidation = () => {
@@ -395,9 +404,10 @@ const createGuideApi = async () => {
     }
 
     // Guide Cost Function
-const calculateNewGuidePrice = async () => {
+  const calculateNewGuidePrice = () => {
+    console.log("FETCH QUOTE GUIDE")
     const url = `${process.env.REACT_APP_API_URL}/rate`;
-    const response = await fetch(url, {
+    fetch(url, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -435,19 +445,21 @@ const calculateNewGuidePrice = async () => {
              "weight": parseInt(packageWeight)
            }
       })
-    });
-    const data = await response.json();
-    if (data.status === "SUCCESS") {
-      console.log(data.data.services, 'DATA DATA SERVICES');
-      setServices(data.data.services)
-      console.log("QUOTED GUIDE")
-      setLoadingQuoteData(false)
-      
-    } else if (data.status === "ERROR") {
-      setErrorQuote(data.description)
-      setLoadingQuoteData(false)
-    }
-    
+    }).then((response) => {
+      console.log(response)
+      const data = response.json();
+      if (data.status === "SUCCESS") {
+        console.log(data.data.services, 'DATA DATA SERVICES');
+        setServices(data.data.services)
+        console.log("QUOTED GUIDE")
+        setLoadingQuoteData(false) 
+      }
+    }).catch((error) => {
+      console.log(error)
+      if (error.status === "ERROR") {
+        setErrorQuote(error.description)
+      }
+    })
   }
 
   function hasLetters (phone) {
@@ -465,10 +477,11 @@ const calculateNewGuidePrice = async () => {
     console.log("selected guide")
   }
 
+  if (showSpinner) return (<MainDiv><Loading/></MainDiv>)
 
     return (
         <MainDiv>                    
-            
+        
         <SectionWrapper>              
           {/* ORIGIN SECTION */}
           <SubsectionWrapper>

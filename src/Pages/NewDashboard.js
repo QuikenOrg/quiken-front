@@ -15,6 +15,7 @@ import { UserContext } from '../components/Context/UserContext'
 const NewDashboard = () => {
     
   const history = useHistory()
+  const [loadingTwo, setLoadingTwo] = useState(true)
   
   const { user, setUser,
     loading, setLoading,
@@ -27,18 +28,23 @@ const NewDashboard = () => {
     dashboardData, setDashboardData,
   } = useContext(UserContext)
 
+  
+
   useEffect(() => {
     setLoading(true)
+    console.log(loading)
     const getPrivateData = async () => {
       const result = await fetchPrivateData();
       return result
     };
     const getDashboard = async () => {
       const result = await fetchDashboard();
-        return result
-    };
-    Promise.all([getPrivateData, getDashboard]).then((result) => {
       console.log(result)
+      return result
+    };
+    Promise.all([getPrivateData(), getDashboard()]).then(() => {
+    }).then(() => {
+      setLoading(false)
     })
   }, []);
   
@@ -48,19 +54,20 @@ const NewDashboard = () => {
         <WrapperRow>
             <Sidebar setLoading={setLoading} setError={setError}/>
             {
-                error && loading ? 
+                loading ? 
                 <Loading/>
                 :
                 <DashboardWrapper>
-                {/* <DashboardMonitor
+                <DashboardMonitor
                     user={user} 
                     userPoints={userPoints}
                     totalRecargas={totalRecargas}
                     dashboardData={dashboardData}
-                /> */}
-                  {/* <GuidesChart 
+                />
+                  <GuidesChart 
                   dashboardData={dashboardData}
-                    />                 */}
+                  loading={loading}
+                    />                
                 </DashboardWrapper>
             }
         </WrapperRow>

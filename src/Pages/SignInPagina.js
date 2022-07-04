@@ -27,7 +27,8 @@ const SignInPagina = (props) => {
 
   useEffect(() => {
     setLoading(true)
-    console.log(isUserSignedIn)
+    
+
     setLoading(false)
   
   },[]);

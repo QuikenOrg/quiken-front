@@ -21,7 +21,18 @@ export const UserContextProvider = ({ children }) => {
   }, [])
   
 
+  const handleLogoutBtn = async (e) => {
+    e.preventDefault()
+    console.log("Loging out")
+    await localStorage.removeItem("access_token");
+    await localStorage.removeItem("email");
+    await localStorage.removeItem("username");
+    await localStorage.removeItem("api_key");
+    return true
+  }
+
   const handleLogout = async () => {
+    console.log("Loging out")
     await localStorage.removeItem("access_token");
     await localStorage.removeItem("email");
     await localStorage.removeItem("username");
@@ -44,15 +55,10 @@ export const UserContextProvider = ({ children }) => {
       await setErrorText(null)
       await setIsUserSignedIn(true)
     } catch (error) {  
-      if (error.response.status === 401) {
-        console.log("User is not authorized")
-      }
-      localStorage.removeItem("authToken");
-      localStorage.removeItem("email");
-      localStorage.removeItem("username");
-      localStorage.removeItem("access_token");
+      await handleLogout()
       setUser(null)
       setError(true)
+      setIsUserSignedIn(false)
       return false
     }
   }
@@ -163,7 +169,8 @@ export const UserContextProvider = ({ children }) => {
         dashboardData, setDashboardData,
         // Functions and Handlers
         fetchPrivateData,
-        handleLogout, 
+        handleLogout,
+        handleLogoutBtn,
         userSignedIn,
         loginHandler,
         fetchDashboard

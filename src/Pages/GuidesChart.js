@@ -5,13 +5,10 @@ import Chart from 'chart.js/auto';
 import styled from "styled-components";
 import { UserContext } from "../components/Context/UserContext";
 
-const GuidesChart = () => {
+const GuidesChart = ({ dashboardData, loading }) => {
 
   const yearTag = useRef(null);
   const typeTag = useRef(null);
-
-  const { loading, dashboardData } = useContext(UserContext)
-  console.log(dashboardData)
 
   const yearsShipments = Object.keys(dashboardData.shipments).sort((a, b) => b - a)
   const yearsRecargas = Object.keys(dashboardData.refils).sort((a, b) => b - a)

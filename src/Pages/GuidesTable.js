@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import { Link, NavLink, useHistory } from "react-router-dom"
 import styled from 'styled-components'
@@ -6,6 +6,7 @@ import { useTable } from 'react-table'
 import userEvent from '@testing-library/user-event'
 import DocIcon from '../assets/iconos/doc_icon.png'
 import { Loading } from '../utilities/Loading'
+import { UserContext } from '../components/Context/UserContext'
 
 const GuidesTable = () => {
   const history = useHistory()
@@ -13,10 +14,11 @@ const GuidesTable = () => {
   const [allData, setAllData] = useState([])
 
   const [error, setError] = useState(true);
-  const [loading, setLoading] = useState(true);
 
-  
+  const { loading, setLoading  } = useContext(UserContext)
+
   useEffect(() => {
+    
     fetchGuides()
    
   }, []);
