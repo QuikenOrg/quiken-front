@@ -9,6 +9,13 @@ const Sidebar = () => {
   const history = useHistory()
 
   const { handleLogoutBtn } = useContext(UserContext)
+
+  const handleLogoutSidebar = async (e) => {
+    const result = await handleLogoutBtn(e)
+    if (result) {
+      history.push("/signin")
+    }
+  }
   
   return (
     <SidebarWrapper>
@@ -19,7 +26,7 @@ const Sidebar = () => {
         <Link className='sidebar-link' to="/newmyguides">Mis Guias</Link>
         <Link className='sidebar-link' to="/mypayments">Mis Pagos</Link>
         <Link className='sidebar-link' to="/newrecargar">Recargar</Link>
-        <LogoutButton onClick={(e) => handleLogoutBtn(e)} className="btn-red">Logout</LogoutButton>
+        <LogoutButton onClick={(e) => handleLogoutSidebar(e) } className="btn-red">Logout</LogoutButton>
       </LinksWrapper>
     </SidebarWrapper>
   )

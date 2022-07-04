@@ -1,7 +1,8 @@
 import { Input } from '@chakra-ui/react';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { UserContext } from '../components/Context/UserContext';
 import { Loading } from '../utilities/Loading';
 
 const GuideCreator = ({
@@ -10,6 +11,7 @@ const GuideCreator = ({
 ) => {
   
   const history = useHistory()
+  const { handleLogout } = useContext(UserContext)
 
     //Username for fetching points
   let username = localStorage.getItem('email')
@@ -59,15 +61,15 @@ const GuideCreator = ({
   const [citySenderError, setCitySenderError] = useState('');
   const [errorQuote, setErrorQuote] = useState("")
 
-    // "" STATES
-  const [fullNameReceiver, setFullNameReceiver] = useState('');
-  const [emailReceiver, setEmailReceiver] = useState('');
-  const [phoneNumberReceiver, setPhoneNumberReceiver] = useState('');
-  const [streetAndNumberReceiver, setStreetandNumberReceiver] = useState('');  
-  const [referenciasReceiver, setReferenciasReceiver] = useState('');
-  const [colonyReceiver, setColonyReceiver] = useState('');
+    // STATES
+  const [fullNameReceiver, setFullNameReceiver] = useState('Jaime');
+  const [emailReceiver, setEmailReceiver] = useState('jaime@gmail.com');
+  const [phoneNumberReceiver, setPhoneNumberReceiver] = useState('8124486070');
+  const [streetAndNumberReceiver, setStreetandNumberReceiver] = useState('Monte Loco');  
+  const [referenciasReceiver, setReferenciasReceiver] = useState('casa verde');
+  const [colonyReceiver, setColonyReceiver] = useState('colonia matona');
   const [postalCodeReceiver, setPostalCodeReceiver] = useState('');
-  const [cityReceiver, setCityReceiver] = useState('');
+  const [cityReceiver, setCityReceiver] = useState('Monterrey');
   const [mexicoStateReceiver, setMexicoStateReceiver] = useState('');
   
   // To Errors
@@ -80,11 +82,11 @@ const GuideCreator = ({
   const [cityReceiverError, setCityReceiverError] = useState('');
   
   //PACKAGE VALUES
-  const [packageLenght, setPackageLenght] = useState('');
-  const [packageWidth, setPackageWidth] = useState('');
-  const [packageHeight, setPackageHeight  ] = useState('');
-  const [packageWeight, setPackageWeight] = useState('');  
-  const [packageDescription, setPackageDescription] = useState('');
+  const [packageLenght, setPackageLenght] = useState('10');
+  const [packageWidth, setPackageWidth] = useState('10');
+  const [packageHeight, setPackageHeight  ] = useState('10');
+  const [packageWeight, setPackageWeight] = useState('10');  
+  const [packageDescription, setPackageDescription] = useState('ropa');
     //PACKAGE ERRORS
   const [packageLenghtError, setPackageLenghtError] = useState('');
   const [packageWidthError, setPackageWidthError] = useState('');
@@ -405,6 +407,7 @@ const createGuideApi = async () => {
 
     // Guide Cost Function
   const calculateNewGuidePrice = () => {
+    setShowSpinner(true)
     console.log("FETCH QUOTE GUIDE")
     const url = `${process.env.REACT_APP_API_URL}/rate`;
     fetch(url, {
@@ -445,19 +448,37 @@ const createGuideApi = async () => {
              "weight": parseInt(packageWeight)
            }
       })
-    }).then((response) => {
-      console.log(response)
-      const data = response.json();
+    })
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        
       if (data.status === "SUCCESS") {
         console.log(data.data.services, 'DATA DATA SERVICES');
         setServices(data.data.services)
         console.log("QUOTED GUIDE")
         setLoadingQuoteData(false) 
       }
-    }).catch((error) => {
+        
+      if (data.status === "ERROR") {
+        if (data.description == "Authentication failed") {
+          handleLogout()
+          history.push("/signin")
+        }
+        if (data.description == 'Invalid postal code') {
+          setErrorQuote(data.description)
+          console.log("codigo postal invalido")
+        }
+      }
+      setShowSpinner(false)
+    })
+      .catch((error) => {
       console.log(error)
-      if (error.status === "ERROR") {
+        if (error.status === "ERROR") {
+        console.log("getting Error", error.description)
         setErrorQuote(error.description)
+        setShowSpinner(false)
       }
     })
   }
@@ -481,7 +502,7 @@ const createGuideApi = async () => {
 
     return (
         <MainDiv>                    
-        
+        <h1>{ errorQuote ? errorQuote : ""}</h1>
         <SectionWrapper>              
           {/* ORIGIN SECTION */}
           <SubsectionWrapper>
