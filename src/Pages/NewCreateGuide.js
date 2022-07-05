@@ -19,7 +19,6 @@ const NewCreateGuide = () => {
     const [user, setUser] = useState(true);
 
     const getUserInfo = async () => {
-        console.log("NewGuias, fetching private data")
         const config = {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -39,10 +38,6 @@ const NewCreateGuide = () => {
           setError(true)
         }
       };
-
-      useEffect(() => {
-        getUserInfo()
-      }, []);
 
     return (
     <PageWrapper>
@@ -65,6 +60,7 @@ const Row = styled.div`
     display: flex;
     flex-direction: row;
     min-height: 600px;
+    width: 100%;
 `
 
 const CreateGuideWrapper = styled.div`

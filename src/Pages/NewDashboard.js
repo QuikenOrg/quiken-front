@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
@@ -9,145 +9,53 @@ import styled from 'styled-components'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import GuidesChart from './GuidesChart'
+import { Loading } from '../utilities/Loading'
+import { UserContext } from '../components/Context/UserContext'
 
 const NewDashboard = () => {
     
-    const history = useHistory()
-    const [error, setError] = useState(true);
-    const [userPoints, setUserPoints] = useState()
-    const [totalRecargas, setTotalRecargas] = useState()
-    const [dashboardData, setDashboardData] = useState()
-    const [paymentsToConfirm, setPaymentsToConfirm] = useState()
-    const [loading, setLoading] = useState(true)
-    const [user, setUser] = useState()
+  const history = useHistory()
+  const [loadingTwo, setLoadingTwo] = useState(true)
+  
+  const { user, setUser,
+    loading, setLoading,
+    error, setError,
+    fetchPrivateData,
+    handleLogout,
+    userPoints, setUserPoints,
+    fetchDashboard,
+    totalRecargas, setTotalRecargas,
+    dashboardData, setDashboardData,
+  } = useContext(UserContext)
 
+  
 
   useEffect(() => {
-    fetchPrivateData()
-    fetchDashboard()
-    // getUserPayments()
-    // .then(confirmPayments())   
-    
-    return () => {
-      
+    setLoading(true)
+    console.log(loading)
+    const getPrivateData = async () => {
+      const result = await fetchPrivateData();
+      return result
     };
+    const getDashboard = async () => {
+      const result = await fetchDashboard();
+      console.log(result)
+      return result
+    };
+    Promise.all([getPrivateData(), getDashboard()]).then(() => {
+    }).then(() => {
+      setLoading(false)
+    })
   }, []);
-
-  const fetchPrivateData = async () => {
-    const config = {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        "Authorization": `Bearer ${localStorage.getItem("access_token")}`
-      },
-    };
-
-    try {
-      //AQUI VAN LAS RUTAS DE LAS GUIAS
-      const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/user/info`, {} ,config);
-      setUser(data.user)
-      setUserPoints(data.user.balance)
-    } catch (error) {
-      localStorage.removeItem("authToken");
-      localStorage.removeItem("email");
-      localStorage.removeItem("username");
-      setError(true)
-      history.push("/signin")
-    }
-  };
-
-  // const confirmPayments = async () => {
-  //   console.log("CHECK IT OUT")
-  //   const paymentsNotConfirmed = await paymentsToConfirm.filter((payment) => payment.status == "created")
-  //   paymentsNotConfirmed.forEach(payment => {
-  //     confirmSinglePayment(payment.order_id)
-  //   })
-
-  // }
-
-  // const confirmSinglePayment = async (order_id) => {
-  //   const url = `${process.env.REACT_APP_API_URL}/user/pay/confirm`;
-  //   const response = await fetch(url, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //       "Authorization": `Bearer ${localStorage.getItem("access_token")}`
-  //     },
-  //     body: JSON.stringify({
-  //         "order_id": order_id
-  //     })
-  //   });
-  //   const data = await response.json();
-  //   if (data.status === "SUCCESS") {
-  //     console.log("pagos actualizados")
-  //   } 
-  //   else if (data.status === "ERROR") {
-      
-  //   }
-    
-  // }
-
-
-  // const getUserPayments = async (
-  //   url = `${process.env.REACT_APP_API_URL}/user/payments`
-  //   ) => {
-  //   const config = {
-  //       headers: {
-  //       "Content-Type": "multipart/form-data",
-  //       "Authorization": `Bearer ${localStorage.getItem("access_token")}`
-  //       },
-  //   };
-
-    
-  //   try {
-  //       //AQUI VAN LAS RUTAS DE LAS GUIAS
-  //       console.log("GUACAMOLE")
-  //       const { data } = await axios.post(url, {} ,config);
-  //       console.log(data.data)
-  //       setPaymentsToConfirm(data.data)
-
-  //     } catch (error) {
-  //       console.log("did not get payments")
-  //   }
-  // };
-
-
-  const fetchDashboard = async (
-    url = `${process.env.REACT_APP_API_URL}/user/dashboard`
-    ) => {
-    const config = {
-        headers: {
-        "Content-Type": "multipart/form-data",
-        "Authorization": `Bearer ${localStorage.getItem("access_token")}`
-        },
-    };
-
-    try {
-        //AQUI VAN LAS RUTAS DE LAS GUIAS
-        console.log("Trying this")
-        const { data } = await axios.post(url, {} ,config);
-        setDashboardData(data)
-        setLoading(false)
-        setError(false)
-    } catch (error) {
-        localStorage.removeItem("authToken"); 
-        localStorage.removeItem("email");
-        localStorage.removeItem("username");
-        history.push("/signin")
-        setError(true)
-    }
-};
-
-    
+  
     return (
     <PageWrapper>
         <Navbar/>
         <WrapperRow>
             <Sidebar setLoading={setLoading} setError={setError}/>
             {
-                error && loading ? 
-                <Loading>
-                  <h1>Cargando info...</h1>
-                </Loading> 
+                loading ? 
+                <Loading/>
                 :
                 <DashboardWrapper>
                 <DashboardMonitor
@@ -156,9 +64,10 @@ const NewDashboard = () => {
                     totalRecargas={totalRecargas}
                     dashboardData={dashboardData}
                 />
-                <GuidesChart 
-                    dashboardData={dashboardData}
-                />
+                  <GuidesChart 
+                  dashboardData={dashboardData}
+                  loading={loading}
+                    />                
                 </DashboardWrapper>
             }
         </WrapperRow>
@@ -168,15 +77,6 @@ const NewDashboard = () => {
 }
 
 export default NewDashboard;
-
-const Loading = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-`
 
 const WrapperRow = styled.div`
     width: 100%;

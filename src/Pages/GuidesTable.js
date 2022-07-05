@@ -1,18 +1,24 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import { Link, NavLink, useHistory } from "react-router-dom"
 import styled from 'styled-components'
 import { useTable } from 'react-table'
 import userEvent from '@testing-library/user-event'
 import DocIcon from '../assets/iconos/doc_icon.png'
-
+import { Loading } from '../utilities/Loading'
+import { UserContext } from '../components/Context/UserContext'
 
 const GuidesTable = () => {
   const history = useHistory()
   const [guides, setGuides] = useState([])
   const [allData, setAllData] = useState([])
-  
+
+  const [error, setError] = useState(true);
+
+  const { loading, setLoading  } = useContext(UserContext)
+
   useEffect(() => {
+    
     fetchGuides()
    
   }, []);
@@ -32,6 +38,9 @@ const GuidesTable = () => {
       const { data } = await axios.post(url, {} ,config);
       setAllData(data)
       setGuides(data.data)
+      console.log("runnig this")
+      console.log(loading)
+      setLoading(false)
     } catch (error) {
       localStorage.removeItem("authToken");
       localStorage.removeItem("email");
@@ -86,9 +95,13 @@ const GuidesTable = () => {
   )
 
   return (
-    <Styles>
-      <Table columns={columns} data={guides} allData={allData} fetchGuides={fetchGuides} />
-    </Styles>
+    
+      loading ?
+      <Loading></Loading>
+      :
+      <Styles>
+      <Table columns={columns} data={guides} allData=    {allData} fetchGuides={fetchGuides} />
+      </Styles>
   )
 }
 

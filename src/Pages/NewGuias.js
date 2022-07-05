@@ -6,6 +6,7 @@ import PageWrapper from '../styled_components/page_wrapper'
 import MidScreenWrapper from '../styled_components/mid_screen_wrapper'
 import styled from 'styled-components'
 import GuidesTable from './GuidesTable'
+import { Loading } from '../utilities/Loading'
 
 const NewGuias = () => {
   
@@ -16,11 +17,11 @@ const NewGuias = () => {
     <PageWrapper>
         <Navbar/>
         <Row>
-            <Sidebar setLoading={setLoading} setError={setError}/>
-            <WrapperTableGuias>
-                <h1 className="cotizador-rapido-main-header">Guias Generadas</h1>
-                <GuidesTable/>
-            </WrapperTableGuias>
+                <Sidebar />
+                    <WrapperTableGuias>
+                    <h1 className="cotizador-rapido-main-header">Guias Generadas</h1>
+                    <GuidesTable loading={loading} setLoading={setLoading}/>
+                </WrapperTableGuias>
         </Row>
         <Footer/>
     </PageWrapper>

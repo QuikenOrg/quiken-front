@@ -1,15 +1,17 @@
 import { Input } from '@chakra-ui/react';
-import React, { useState } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { UserContext } from '../components/Context/UserContext';
+import { Loading } from '../utilities/Loading';
 
 const GuideCreator = ({
   user
   }
 ) => {
-  console.log(user)
   
   const history = useHistory()
+  const { handleLogout, openInNewTab } = useContext(UserContext)
 
     //Username for fetching points
   let username = localStorage.getItem('email')
@@ -31,6 +33,7 @@ const GuideCreator = ({
   //Types of Services
   const [services, setServices] = useState()
   const [loadingQuoteData, setLoadingQuoteData] = useState(true)
+  const [showSpinner, setShowSpinner] = useState(true)
 
   //User Points State
   const [points, setPoints] = useState(100);
@@ -38,14 +41,14 @@ const GuideCreator = ({
   const [needsReset, setNeedsReset] = useState(false)
 
     //Origin STATES
-  const [fullNameSender, setFullNameSender] = useState('');
-  const [emailSender, setEmailSender] = useState('');
-  const [phoneNumberSender, setPhoneNumberSender] = useState('');
-  const [streetAndNumberSender, setStreetandNumberSender] = useState('');  
-  const [referenciasSender, setReferenciasSender] = useState('');
-  const [colonySender, setColonySender] = useState('');
-  const [postalCodeSender, setPostalCodeSender] = useState('');
-  const [citySender, setCitySender] = useState('');
+  const [fullNameSender, setFullNameSender] = useState('Julian');
+  const [emailSender, setEmailSender] = useState('julian@gmail.com');
+  const [phoneNumberSender, setPhoneNumberSender] = useState('8124486070');
+  const [streetAndNumberSender, setStreetandNumberSender] = useState('2da de Monte Palatino');  
+  const [referenciasSender, setReferenciasSender] = useState('casas amarilla');
+  const [colonySender, setColonySender] = useState('fuentes del valle');
+  const [postalCodeSender, setPostalCodeSender] = useState('11111');
+  const [citySender, setCitySender] = useState('Monterrey');
   const [mexicoStateSender, setMexicoStateSender] = useState('');
     
   // Origin Error
@@ -58,15 +61,15 @@ const GuideCreator = ({
   const [citySenderError, setCitySenderError] = useState('');
   const [errorQuote, setErrorQuote] = useState("")
 
-    // "" STATES
-  const [fullNameReceiver, setFullNameReceiver] = useState('');
-  const [emailReceiver, setEmailReceiver] = useState('');
-  const [phoneNumberReceiver, setPhoneNumberReceiver] = useState('');
-  const [streetAndNumberReceiver, setStreetandNumberReceiver] = useState('');  
-  const [referenciasReceiver, setReferenciasReceiver] = useState('');
-  const [colonyReceiver, setColonyReceiver] = useState('');
+    // STATES
+  const [fullNameReceiver, setFullNameReceiver] = useState('Jaime');
+  const [emailReceiver, setEmailReceiver] = useState('jaime@gmail.com');
+  const [phoneNumberReceiver, setPhoneNumberReceiver] = useState('8124486070');
+  const [streetAndNumberReceiver, setStreetandNumberReceiver] = useState('Monte Loco');  
+  const [referenciasReceiver, setReferenciasReceiver] = useState('casa verde');
+  const [colonyReceiver, setColonyReceiver] = useState('colonia matona');
   const [postalCodeReceiver, setPostalCodeReceiver] = useState('');
-  const [cityReceiver, setCityReceiver] = useState('');
+  const [cityReceiver, setCityReceiver] = useState('Monterrey');
   const [mexicoStateReceiver, setMexicoStateReceiver] = useState('');
   
   // To Errors
@@ -79,11 +82,11 @@ const GuideCreator = ({
   const [cityReceiverError, setCityReceiverError] = useState('');
   
   //PACKAGE VALUES
-  const [packageLenght, setPackageLenght] = useState('');
-  const [packageWidth, setPackageWidth] = useState('');
-  const [packageHeight, setPackageHeight  ] = useState('');
-  const [packageWeight, setPackageWeight] = useState('');  
-  const [packageDescription, setPackageDescription] = useState('');
+  const [packageLenght, setPackageLenght] = useState('10');
+  const [packageWidth, setPackageWidth] = useState('10');
+  const [packageHeight, setPackageHeight  ] = useState('10');
+  const [packageWeight, setPackageWeight] = useState('10');  
+  const [packageDescription, setPackageDescription] = useState('ropa');
     //PACKAGE ERRORS
   const [packageLenghtError, setPackageLenghtError] = useState('');
   const [packageWidthError, setPackageWidthError] = useState('');
@@ -91,12 +94,14 @@ const GuideCreator = ({
   const [packageWeightError, setPackageWeightError] = useState('');  
   const [packageDescriptionError, setPackageDescriptionError] = useState('');
   
-  const createGuide = async () => {
-    await createGuideApi() 
-  }
-
+  useEffect(() => {
+    setShowSpinner(false)
+  }, [])
+  
   //Step One Guide Creation
-const createGuideApi = async () => {
+  const createGuideApi = async () => {
+    setShowSpinner(true)
+    console.log("hitting btn")
     const urlApiCreate = `${process.env.REACT_APP_API_URL}/generate`;
     const responseApi = await fetch(urlApiCreate, {
       method: 'POST',
@@ -158,8 +163,11 @@ const createGuideApi = async () => {
     });
 
     const data = await responseApi.json()
+    console.log(data)
     if (data.status === "SUCCESS") {
-      alert("Tu guia fue creata exitosamnte.")
+      alert("Tu guia fue creada exitosamnte.")
+      openInNewTab(data.data.fileUrl)
+      setShowSpinner(false)
       history.push("/newdashboard")
     }
     setApiGuide(data)
@@ -167,10 +175,12 @@ const createGuideApi = async () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setShowSpinner(true)
     const isValid = formValidation();
     if (isValid) {
-      await calculateNewGuidePrice()
+      await calculateNewGuidePrice() 
     }
+    setShowSpinner(false)
     }
     
     const formValidation = () => {
@@ -395,9 +405,11 @@ const createGuideApi = async () => {
     }
 
     // Guide Cost Function
-const calculateNewGuidePrice = async () => {
+  const calculateNewGuidePrice = () => {
+    setShowSpinner(true)
+    console.log("FETCH QUOTE GUIDE")
     const url = `${process.env.REACT_APP_API_URL}/rate`;
-    const response = await fetch(url, {
+    fetch(url, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -435,19 +447,39 @@ const calculateNewGuidePrice = async () => {
              "weight": parseInt(packageWeight)
            }
       })
-    });
-    const data = await response.json();
-    if (data.status === "SUCCESS") {
-      console.log(data.data.services, 'DATA DATA SERVICES');
-      setServices(data.data.services)
-      console.log("QUOTED GUIDE")
-      setLoadingQuoteData(false)
-      
-    } else if (data.status === "ERROR") {
-      setErrorQuote(data.description)
-      setLoadingQuoteData(false)
-    }
-    
+    })
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+      console.log(data)
+      if (data.status === "SUCCESS") {
+        console.log(data.data.services, 'DATA DATA SERVICES');
+        setServices(data.data.services)
+        console.log("QUOTED GUIDE")
+        setLoadingQuoteData(false) 
+      }
+        
+      if (data.status === "ERROR") {
+        if (data.description == "Authentication failed") {
+          handleLogout()
+          history.push("/signin")
+        }
+        if (data.description == 'Invalid postal code') {
+          console.log("codigo postal invalido")
+          window.alert("Codigo postal invalido. Revisa que ambos codigos postales sean correctos. Si el error persiste revisa con nuestros accesores que tengamos covertura en el area.")
+        }
+      }
+      setShowSpinner(false)
+    })
+      .catch((error) => {
+        if (error.status === "ERROR") {
+        console.log("getting Error", error.description)
+        console.log("este pdedit")
+        setErrorQuote(error.description)
+        setShowSpinner(false)
+      }
+    })
   }
 
   function hasLetters (phone) {
@@ -465,10 +497,11 @@ const calculateNewGuidePrice = async () => {
     console.log("selected guide")
   }
 
+  if (showSpinner) return (<MainDiv><Loading/></MainDiv>)
 
     return (
         <MainDiv>                    
-            
+        <h1>{ errorQuote ? errorQuote : "" }</h1>
         <SectionWrapper>              
           {/* ORIGIN SECTION */}
           <SubsectionWrapper>
@@ -776,9 +809,9 @@ const calculateNewGuidePrice = async () => {
             
             { selectedService ? 
                 guideCost < user.balance ? 
-                <button onClick={() => createGuideApi() }>Pagar Aqui</button> :
+                <PayBtn onClick={() => createGuideApi() }>Pagar</PayBtn> :
                 <>
-                  <button disabled >Pagar</button>
+                  <PayBtn disabled >Pagar</PayBtn>
                   <h2>Cuentas con saldo insuficiente</h2>
                 </>
               : 
@@ -801,7 +834,23 @@ const MainDiv = styled.div`
   flex-direction: column;
   align-self: center;
   justify-self: center;
+  width: 100%;
 ` 
+
+const PayBtn = styled.button`
+  color: white;
+  background-color: #EE1F42;
+  height: 55px;
+  width: 200px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 10px;
+  border: none;
+  border-radius: 20px;
+  align-self: center ;
+  justify-self: center ;
+`
 
 const SectionWrapper = styled.div`
   display: flex;
@@ -817,7 +866,8 @@ const SubsectionWrapper = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   padding: 10px;
-  width: 250px;
+  min-width: 250px;
+  height: 100% ;
 `
 
 const SubsectionHeading = styled.h1`

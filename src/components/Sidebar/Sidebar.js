@@ -1,19 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
+import { UserContext } from '../Context/UserContext'
 import './Sidebar.scss'
 
 const Sidebar = () => {
   
   const history = useHistory()
 
-  const handleLogout = (e) => {
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("email");
-    localStorage.removeItem("username");
-    history.push("/signin")
+  const { handleLogoutBtn, relaod } = useContext(UserContext)
+
+  const handleLogoutSidebar = async (e) => {
+    const result = await handleLogoutBtn(e)
+    if (result) {
+      history.push("/signin")
+    }
   }
 
+  useEffect(() => {
+    
+  }, [relaod])
+  
   
   return (
     <SidebarWrapper>
@@ -24,7 +31,7 @@ const Sidebar = () => {
         <Link className='sidebar-link' to="/newmyguides">Mis Guias</Link>
         <Link className='sidebar-link' to="/mypayments">Mis Pagos</Link>
         <Link className='sidebar-link' to="/newrecargar">Recargar</Link>
-        <LogoutButton onClick={() => handleLogout()} className="btn-red" to="/newrecargar">Logout</LogoutButton>
+        <LogoutButton onClick={(e) => handleLogoutSidebar(e) } className="btn-red">Logout</LogoutButton>
       </LinksWrapper>
     </SidebarWrapper>
   )

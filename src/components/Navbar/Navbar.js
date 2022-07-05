@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import BtnRegistro from './BtnRegistro';
 import { Link } from 'react-router-dom';
 import "./Navbar.scss";
 import styled from 'styled-components'
 
 import QuikenLogo from '../../assets/Inicio/Quiken_Logo_color-03.svg'
+import { UserContext } from '../Context/UserContext';
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
-  const node = React.useRef();
+
+  const { user } = useContext(UserContext)
 
   useEffect(() => {
       var Tawk_API = Tawk_API||{},
@@ -32,6 +34,7 @@ const Navbar = () => {
           function (error) {}
         );
       };
+    
   }, []);
 
   return (
@@ -52,12 +55,21 @@ const Navbar = () => {
           <Link className="navbar-link" to="/fulfillment">FULFILLMENT</Link>
           <Link className="navbar-link" to="/rastreo">RASTREO</Link>
           <Link className="navbar-link" to="/contacto">CONTACTO</Link>
-          <Link className="navbar-link" to="/signin">
-            SIGN IN
-          </Link>
-          <Link to="/signup">
-            <BtnRegistro/>
-          </Link>
+          {
+            user ?
+                <Link to="/newdashboard">
+                  <button className="btn-red">Dashboard</button>
+                </Link>
+              :  
+            <>
+               <Link className="navbar-link" to="/signin">
+                SIGN IN
+              </Link>
+              <Link to="/signup">
+                <BtnRegistro/>
+              </Link>
+            </>
+          }
         </div>
         {/* Mobile Menu */}
         <Burger open={open} setOpen={setOpen}/>

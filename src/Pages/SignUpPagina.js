@@ -50,8 +50,10 @@ const SignUpPagina = (props) => {
         ,
         config
       );
-
+      console.log("data")
       localStorage.setItem("authToken", data.token);
+      localStorage.setItem("email", data.user.email);
+      localStorage.removeItem("username", data.user.firstName);
       console.log(data)
       history.push("/");
     } catch (error) {

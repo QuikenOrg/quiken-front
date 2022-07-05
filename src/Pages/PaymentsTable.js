@@ -5,20 +5,20 @@ import styled from 'styled-components'
 import { useTable } from 'react-table'
 import userEvent from '@testing-library/user-event'
 import DocIcon from '../assets/iconos/doc_icon.png'
+import { ClipLoader } from 'react-spinners'
+import { Loading } from '../utilities/Loading'
 
 
 const PaymentsTable = () => {
   const history = useHistory()
   const [payments, setPayments] = useState([])
   const [allData, setAllData] = useState([])
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(true);
   const [needsReload, setNeedsReload] = useState(true);
   
   useEffect(() => {
     setLoading(true)  
     fetchPayments()
-    setLoading(false)
-      
   }, [needsReload]);
 
   // Use the state and functions returned from useTable to build your UI
@@ -41,6 +41,7 @@ const PaymentsTable = () => {
       
       console.log("DATA")
       setPayments(data.data.data)
+      setLoading(false)
     } catch (error) {
       localStorage.removeItem("authToken");
       localStorage.removeItem("email");
@@ -88,18 +89,17 @@ const PaymentsTable = () => {
   )
 
   return (
-    <Styles>
-        { loading ? 
-        <h1>loadign</h1> 
-        :
+    loading ?
+      <Loading></Loading>  
+      :
+      <Styles>
         <Table needsReload={needsReload} 
         setNeedsReload={setNeedsReload} 
         columns={columns} 
         data={payments} 
         allData={allData} 
-        fetchGuides={fetchPayments} />
-        }
-    </Styles>
+        fetchGuides={fetchPayments} />   
+      </Styles>
   )
 }
 
