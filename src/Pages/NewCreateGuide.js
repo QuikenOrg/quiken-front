@@ -60,6 +60,7 @@ const Row = styled.div`
     display: flex;
     flex-direction: row;
     min-height: 600px;
+    width: 100%;
 `
 
 const CreateGuideWrapper = styled.div`

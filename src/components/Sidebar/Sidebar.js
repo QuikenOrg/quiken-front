@@ -8,7 +8,7 @@ const Sidebar = () => {
   
   const history = useHistory()
 
-  const { handleLogoutBtn } = useContext(UserContext)
+  const { handleLogoutBtn, relaod } = useContext(UserContext)
 
   const handleLogoutSidebar = async (e) => {
     const result = await handleLogoutBtn(e)
@@ -16,6 +16,11 @@ const Sidebar = () => {
       history.push("/signin")
     }
   }
+
+  useEffect(() => {
+    
+  }, [relaod])
+  
   
   return (
     <SidebarWrapper>

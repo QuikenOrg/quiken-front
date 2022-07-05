@@ -6,6 +6,7 @@ import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { UserContext } from '../components/Context/UserContext'
 import { Loading } from '../utilities/Loading'
+import styled from 'styled-components'
 
 const SignInPagina = (props) => {
 
@@ -54,7 +55,7 @@ const SignInPagina = (props) => {
             <h3 className="main-heading-signup">Accesa a tu cuenta</h3>
             <h2 className="main-subheading-signup">Y disfruta de los mejores precios envíos</h2>
             <Link className="forgot-passwordlink" to="/forgotpassword">¿Olvidaste tu contraseña?</Link>
-            {error && errorText ? <span className="login-screen-title" >{errorText}</span> : <></> }
+            {error && errorText ? <ErrorSpan className="login-screen-title">{errorText}</ErrorSpan> : <></> }
             
             <label className="form-label">Email</label>
             <input className="form-input" 
@@ -93,5 +94,15 @@ const SignInPagina = (props) => {
     </>
   )
 }
+
+const ErrorSpan = styled.span`
+  font-size: 18px;
+  color: #EE1F42;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+`
 
 export default SignInPagina;

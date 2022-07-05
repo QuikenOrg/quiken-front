@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
@@ -10,6 +10,7 @@ import MasterCard from '../assets/Recarga/master_card.png'
 import Visa from '../assets/Recarga/Visa_Inc._logo.svg.png'
 import Oxxo from '../assets/Recarga/oxxo.svg'
 import Ecart from '../assets/Recarga/logo-negro.svg'
+import { UserContext } from '../components/Context/UserContext'
 
 
 
@@ -21,6 +22,8 @@ const NewGuias = () => {
     const [buttonEnabled, SetButtonEnabled] = useState(false);
 
     const PaymentButton = useRef();
+
+    const { openInNewTab } = useContext(UserContext)
 
     const createPayment = async () => {
         const url = `${process.env.REACT_APP_API_URL}/user/pay`;
@@ -45,11 +48,6 @@ const NewGuias = () => {
         } 
     }
     
-    const openInNewTab = (url) => {
-        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-        if (newWindow) newWindow.opener = null
-      }
-
     const handleChange = (e) => {
         setAmount(e.target.value)
         if (e.target.value > 99) {

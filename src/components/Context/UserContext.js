@@ -5,6 +5,7 @@ export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
   const [isUserSignedIn, setIsUserSignedIn] = useState(false)
+  const [reload, setReload] = useState(false)
   const [user, setUser] = useState(null)
   const [error, setError] = useState(false)
   const [errorText, setErrorText] = useState(false)
@@ -28,6 +29,8 @@ export const UserContextProvider = ({ children }) => {
     await localStorage.removeItem("email");
     await localStorage.removeItem("username");
     await localStorage.removeItem("api_key");
+    setIsUserSignedIn(false)
+    setReload(!reload)
     return true
   }
 
@@ -37,6 +40,7 @@ export const UserContextProvider = ({ children }) => {
     await localStorage.removeItem("email");
     await localStorage.removeItem("username");
     await localStorage.removeItem("api_key");
+    setIsUserSignedIn(false)
     return true
   }
 
@@ -150,7 +154,12 @@ export const UserContextProvider = ({ children }) => {
         setError(true)
         return false
     }
-};
+  };
+  
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
+  }
 
   return (
     <UserContext.Provider
@@ -165,6 +174,7 @@ export const UserContextProvider = ({ children }) => {
         password, setPassword,
         loading, setLoading,
         userPoints, setUserPoints,
+        reload, setReload,
         totalRecargas, setTotalRecargas,
         dashboardData, setDashboardData,
         // Functions and Handlers
@@ -173,7 +183,9 @@ export const UserContextProvider = ({ children }) => {
         handleLogoutBtn,
         userSignedIn,
         loginHandler,
-        fetchDashboard
+        fetchDashboard,
+        // Utitlies
+        openInNewTab
       }}
     >
       {children}

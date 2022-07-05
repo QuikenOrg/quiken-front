@@ -11,7 +11,7 @@ const GuideCreator = ({
 ) => {
   
   const history = useHistory()
-  const { handleLogout } = useContext(UserContext)
+  const { handleLogout, openInNewTab } = useContext(UserContext)
 
     //Username for fetching points
   let username = localStorage.getItem('email')
@@ -94,17 +94,14 @@ const GuideCreator = ({
   const [packageWeightError, setPackageWeightError] = useState('');  
   const [packageDescriptionError, setPackageDescriptionError] = useState('');
   
-  // const createGuide = async () => {
-  //   await createGuideApi()
-  // }
-  
   useEffect(() => {
     setShowSpinner(false)
   }, [])
   
-
   //Step One Guide Creation
-const createGuideApi = async () => {
+  const createGuideApi = async () => {
+    setShowSpinner(true)
+    console.log("hitting btn")
     const urlApiCreate = `${process.env.REACT_APP_API_URL}/generate`;
     const responseApi = await fetch(urlApiCreate, {
       method: 'POST',
@@ -166,10 +163,12 @@ const createGuideApi = async () => {
     });
 
     const data = await responseApi.json()
+    console.log(data)
     if (data.status === "SUCCESS") {
-      alert("Tu guia fue creata exitosamnte.")
-      console.log(data)
-      //history.push("/newdashboard")
+      alert("Tu guia fue creada exitosamnte.")
+      openInNewTab(data.data.fileUrl)
+      setShowSpinner(false)
+      history.push("/newdashboard")
     }
     setApiGuide(data)
   }
@@ -453,7 +452,7 @@ const createGuideApi = async () => {
         return response.json()
       })
       .then((data) => {
-        
+      console.log(data)
       if (data.status === "SUCCESS") {
         console.log(data.data.services, 'DATA DATA SERVICES');
         setServices(data.data.services)
@@ -467,16 +466,16 @@ const createGuideApi = async () => {
           history.push("/signin")
         }
         if (data.description == 'Invalid postal code') {
-          setErrorQuote(data.description)
           console.log("codigo postal invalido")
+          window.alert("Codigo postal invalido. Revisa que ambos codigos postales sean correctos. Si el error persiste revisa con nuestros accesores que tengamos covertura en el area.")
         }
       }
       setShowSpinner(false)
     })
       .catch((error) => {
-      console.log(error)
         if (error.status === "ERROR") {
         console.log("getting Error", error.description)
+        console.log("este pdedit")
         setErrorQuote(error.description)
         setShowSpinner(false)
       }
@@ -502,7 +501,7 @@ const createGuideApi = async () => {
 
     return (
         <MainDiv>                    
-        <h1>{ errorQuote ? errorQuote : ""}</h1>
+        <h1>{ errorQuote ? errorQuote : "" }</h1>
         <SectionWrapper>              
           {/* ORIGIN SECTION */}
           <SubsectionWrapper>
@@ -810,9 +809,9 @@ const createGuideApi = async () => {
             
             { selectedService ? 
                 guideCost < user.balance ? 
-                <button onClick={() => createGuideApi() }>Pagar Aqui</button> :
+                <PayBtn onClick={() => createGuideApi() }>Pagar</PayBtn> :
                 <>
-                  <button disabled >Pagar</button>
+                  <PayBtn disabled >Pagar</PayBtn>
                   <h2>Cuentas con saldo insuficiente</h2>
                 </>
               : 
@@ -835,7 +834,23 @@ const MainDiv = styled.div`
   flex-direction: column;
   align-self: center;
   justify-self: center;
+  width: 100%;
 ` 
+
+const PayBtn = styled.button`
+  color: white;
+  background-color: #EE1F42;
+  height: 55px;
+  width: 200px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 10px;
+  border: none;
+  border-radius: 20px;
+  align-self: center ;
+  justify-self: center ;
+`
 
 const SectionWrapper = styled.div`
   display: flex;
@@ -851,7 +866,8 @@ const SubsectionWrapper = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   padding: 10px;
-  width: 250px;
+  min-width: 250px;
+  height: 100% ;
 `
 
 const SubsectionHeading = styled.h1`
