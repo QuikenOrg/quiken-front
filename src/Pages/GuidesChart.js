@@ -81,7 +81,6 @@ const GuidesChart = ({ dashboardData, loading }) => {
     const year = yearTag.current.value
     const type = typeTag.current.value
     let newData = Array(12).fill(0)
-    console.log(dashboardData)
     if (type == "Envios") {
       dashboardData.shipments[year].forEach((entry) => {
         switch (entry.Mes) {
@@ -126,7 +125,6 @@ const GuidesChart = ({ dashboardData, loading }) => {
     }
 
     if (type == "Recargas") {
-      console.log(dashboardData.refils.length)
       if (dashboardData.refils.length === 0) {
         console.log(newData)
       } else {

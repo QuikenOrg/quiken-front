@@ -41,14 +41,14 @@ const GuideCreator = ({
   const [needsReset, setNeedsReset] = useState(false)
 
     //Origin STATES
-  const [fullNameSender, setFullNameSender] = useState('Julian');
-  const [emailSender, setEmailSender] = useState('julian@gmail.com');
-  const [phoneNumberSender, setPhoneNumberSender] = useState('8124486070');
-  const [streetAndNumberSender, setStreetandNumberSender] = useState('2da de Monte Palatino');  
-  const [referenciasSender, setReferenciasSender] = useState('casas amarilla');
-  const [colonySender, setColonySender] = useState('fuentes del valle');
-  const [postalCodeSender, setPostalCodeSender] = useState('11111');
-  const [citySender, setCitySender] = useState('Monterrey');
+  const [fullNameSender, setFullNameSender] = useState('');
+  const [emailSender, setEmailSender] = useState('');
+  const [phoneNumberSender, setPhoneNumberSender] = useState('');
+  const [streetAndNumberSender, setStreetandNumberSender] = useState('');  
+  const [referenciasSender, setReferenciasSender] = useState('');
+  const [colonySender, setColonySender] = useState('');
+  const [postalCodeSender, setPostalCodeSender] = useState('');
+  const [citySender, setCitySender] = useState('');
   const [mexicoStateSender, setMexicoStateSender] = useState('');
     
   // Origin Error
@@ -62,14 +62,14 @@ const GuideCreator = ({
   const [errorQuote, setErrorQuote] = useState("")
 
     // STATES
-  const [fullNameReceiver, setFullNameReceiver] = useState('Jaime');
-  const [emailReceiver, setEmailReceiver] = useState('jaime@gmail.com');
-  const [phoneNumberReceiver, setPhoneNumberReceiver] = useState('8124486070');
-  const [streetAndNumberReceiver, setStreetandNumberReceiver] = useState('Monte Loco');  
-  const [referenciasReceiver, setReferenciasReceiver] = useState('casa verde');
-  const [colonyReceiver, setColonyReceiver] = useState('colonia matona');
+  const [fullNameReceiver, setFullNameReceiver] = useState('');
+  const [emailReceiver, setEmailReceiver] = useState('');
+  const [phoneNumberReceiver, setPhoneNumberReceiver] = useState('');
+  const [streetAndNumberReceiver, setStreetandNumberReceiver] = useState('');  
+  const [referenciasReceiver, setReferenciasReceiver] = useState('');
+  const [colonyReceiver, setColonyReceiver] = useState('');
   const [postalCodeReceiver, setPostalCodeReceiver] = useState('');
-  const [cityReceiver, setCityReceiver] = useState('Monterrey');
+  const [cityReceiver, setCityReceiver] = useState('');
   const [mexicoStateReceiver, setMexicoStateReceiver] = useState('');
   
   // To Errors
@@ -82,11 +82,11 @@ const GuideCreator = ({
   const [cityReceiverError, setCityReceiverError] = useState('');
   
   //PACKAGE VALUES
-  const [packageLenght, setPackageLenght] = useState('10');
-  const [packageWidth, setPackageWidth] = useState('10');
-  const [packageHeight, setPackageHeight  ] = useState('10');
-  const [packageWeight, setPackageWeight] = useState('10');  
-  const [packageDescription, setPackageDescription] = useState('ropa');
+  const [packageLenght, setPackageLenght] = useState('');
+  const [packageWidth, setPackageWidth] = useState('');
+  const [packageHeight, setPackageHeight  ] = useState('');
+  const [packageWeight, setPackageWeight] = useState('');  
+  const [packageDescription, setPackageDescription] = useState('');
     //PACKAGE ERRORS
   const [packageLenghtError, setPackageLenghtError] = useState('');
   const [packageWidthError, setPackageWidthError] = useState('');
