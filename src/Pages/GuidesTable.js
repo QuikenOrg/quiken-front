@@ -15,13 +15,15 @@ const GuidesTable = () => {
 
   const [error, setError] = useState(true);
 
+  const [reload, setReload] = useState(false)
+
   const { loading, setLoading  } = useContext(UserContext)
 
   useEffect(() => {
     
     fetchGuides()
    
-  }, []);
+  }, [reload]);
 
   const fetchGuides = async (
     url = `${process.env.REACT_APP_API_URL}/user/guides`
@@ -48,7 +50,6 @@ const GuidesTable = () => {
       history.push("/signin")
     }
   };
-
 
   const columns = React.useMemo(
     () => [
@@ -90,6 +91,10 @@ const GuidesTable = () => {
       {
         Header: 'Fecha Creacion',
         accessor: 'created_at'
+      },
+      {
+        Header: 'Cancelar',
+        accessor: 'icon-cancelar'
       }
     ]
   )
@@ -100,13 +105,13 @@ const GuidesTable = () => {
       <Loading></Loading>
       :
       <Styles>
-      <Table columns={columns} data={guides} allData=    {allData} fetchGuides={fetchGuides} />
+        <Table columns={columns} data={guides} allData={allData} fetchGuides={fetchGuides} setReload={setReload} reload={reload} />
       </Styles>
   )
 }
 
 
-function Table({ columns, data, allData, fetchGuides }) {
+function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
   // Use the state and functions returned from useTable to build your UI
 
   const {
@@ -122,9 +127,42 @@ function Table({ columns, data, allData, fetchGuides }) {
   
   useEffect(() => {
     console.log(allData)  
-  }, [allData]);
+  }, [allData, reload]);
   
   // Render the UI for your table
+
+
+  const cancelGuide = async (guideId) => {
+    console.log(guideId)
+    const url = 'https://test.quiken.mx/cancel';
+    console.log(`Bearer ${localStorage.getItem("access_token")}`)
+    console.log(localStorage.getItem("email"))
+    console.log(localStorage.getItem("api_key"))
+    const responseApi = await fetch(url, {
+      method: 'POST',
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("access_token")}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "clientDetail": {
+          "accountName": localStorage.getItem("email"),
+          "apiKey": localStorage.getItem("api_key")
+        },
+        "shipment": {
+          "trackingNumber": guideId
+        }
+      })
+    });
+    console.log(responseApi)
+    const data = await responseApi.json()
+    if (data.stautus = "SUCCESS") {
+      alert("Tu guia fue cancelada exitosamente.")
+      setReload(!reload)
+    }
+    
+  }
+
   return (
 
     <>
@@ -167,7 +205,27 @@ function Table({ columns, data, allData, fetchGuides }) {
                     </a>
                   </td>
                   )
-                } 
+                }
+                
+                // Cancel icon
+                if (cell.column.id === "icon-cancelar" ) {
+                  const trackingNumberCell = row.cells.filter((cell) => cell.column.Header == "Tracking Number")
+                  const tracking_number = trackingNumberCell[0].value
+                  return (
+                  <td style={{
+                    height: "100%",
+                    width: "auto",
+                    backgroundColor: "white",
+                    boxSizing: "border-box",
+                    justifyItems: "center",
+                    alignItems:"center"
+                  }
+                  }>
+                      <BtnCancelar onClick={() => cancelGuide(tracking_number)}>Cancelar</BtnCancelar>
+                  </td>
+                  )
+                }
+
                 // COLUMN ESTADO
                 if (cell.column.id === "status_id" ) {
                   return (
@@ -246,6 +304,16 @@ const StyledTable = styled.table`
   color: white;
 `
 
+const BtnCancelar = styled.button`
+  background-color: #EE1F42;
+  font-size: 14px;
+  height: 28px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 5px;
+  width: 80px;
+  color: white;
+`
 
 const PaginationWrapper = styled.nav`
   display: flex;
@@ -307,7 +375,7 @@ const getStatusString = (int) => {
     case 1:
       return "Generada"
     default:
-      return "Sin Status"
+      return "Cancelada"
   }
 }
 

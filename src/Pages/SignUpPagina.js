@@ -51,11 +51,11 @@ const SignUpPagina = (props) => {
         config
       );
       console.log("data")
-      localStorage.setItem("authToken", data.token);
-      localStorage.setItem("email", data.user.email);
-      localStorage.removeItem("username", data.user.firstName);
       console.log(data)
-      history.push("/");
+      if (data.data.status === "SUCCESS") {
+        alert("Tu cuenta fue creada con exito.")
+        history.push("/signin");
+      }
     } catch (error) {
       console.log(error)
       setError(error.response.data.error);

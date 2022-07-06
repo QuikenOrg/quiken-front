@@ -24,7 +24,6 @@ export const UserContextProvider = ({ children }) => {
 
   const handleLogoutBtn = async (e) => {
     e.preventDefault()
-    console.log("Loging out")
     await localStorage.removeItem("access_token");
     await localStorage.removeItem("email");
     await localStorage.removeItem("username");
@@ -35,7 +34,6 @@ export const UserContextProvider = ({ children }) => {
   }
 
   const handleLogout = async () => {
-    console.log("Loging out")
     await localStorage.removeItem("access_token");
     await localStorage.removeItem("email");
     await localStorage.removeItem("username");
