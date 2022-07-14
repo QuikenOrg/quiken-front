@@ -52,12 +52,14 @@ const SignUpPagina = (props) => {
       );
       console.log("data")
       console.log(data)
-      if (data.data.status === "SUCCESS") {
+      if (data.status === "SUCCESS") {
         alert("Tu cuenta fue creada con exito.")
         history.push("/signin");
-      }
+      } 
+      if (data.status === "ERROR") {
+        setError(data.description.email[0])
+      }  
     } catch (error) {
-      console.log(error)
       setError(error.response.data.error);
     }
   };

@@ -18,6 +18,14 @@
 
 }
 
+.register-screen-title {
+  font-family: $quikenFont;
+  font-size: 16px;
+  font-weight: 600;
+  color: $quikenRed;
+  align-self: center;
+}
+
 .btn-register {
   width: 200px;
   align-self: flex-end;
