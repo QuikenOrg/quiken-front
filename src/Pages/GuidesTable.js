@@ -160,7 +160,6 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
       alert("Tu guia fue cancelada exitosamente.")
       setReload(!reload)
     }
-    
   }
 
   return (
