@@ -186,8 +186,7 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
               style={{
                 boxSizing: "border-box",
                 height: "100%",
-                padding: "0px",
-                backgroundColor: "yellow"
+                padding: "0px"
               }}
             {...row.getRowProps()}>
               {row.cells.map(cell => {
@@ -196,6 +195,12 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
                   console.log(row)
                   const trackingNumberCell = row.cells.filter((cell) => cell.column.Header == "Tracking Number")
                   const tracking_number = trackingNumberCell[0].value
+                  const statusCell = row.cells.filter((cell) => cell.column.Header == "Estado")
+                  const { value } = statusCell[0].column
+                  
+                  // To DO
+                  if (!value)
+                  
                   return (
                   <td 
                   >
@@ -214,20 +219,16 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
                 // Cancel icon
                 if (cell.column.id === "icon-cancelar" ) {
                   const trackingNumberCell = row.cells.filter((cell) => cell.column.Header == "Tracking Number")
+                  const statusCell = row.cells.filter((cell) => cell.column.Header == "Estado")
+                  const { value } = statusCell[0]
                   const tracking_number = trackingNumberCell[0].value
-                  return (
-                  <td style={{
-                    height: "100%",
-                    width: "auto",
-                    display: "flex",
-                    backgroundColor: "white",
-                    boxSizing: "border-box",
-                    justifyItems: "center",
-                    flexDirection: "column",
-                    alignContent: "center",
-                    justifyItems: "center"
+                  
+                  if (value !== 1) {
+                    return <></>
                   }
-                  }>
+                  return (
+                  <td
+                  >
                       <BtnCancelar onClick={() => cancelGuide(tracking_number)}>Cancelar</BtnCancelar>
                   </td>
                   )
@@ -320,6 +321,8 @@ const BtnCancelar = styled.button`
   padding: 5px;
   width: 80px;
   color: white;
+  align-self: center;
+  justify-self: center;
 `
 
 const PaginationWrapper = styled.nav`
