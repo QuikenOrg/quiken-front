@@ -466,8 +466,10 @@ const GuideCreator = ({
           history.push("/signin")
         }
         if (data.description == 'Invalid postal code') {
-          console.log("codigo postal invalido")
           window.alert("Codigo postal invalido. Revisa que ambos codigos postales sean correctos. Si el error persiste revisa con nuestros accesores que tengamos covertura en el area.")
+        }
+        if (data.status === "ERROR") {
+          alert(`Tu guia no pudo ser creada debido a el siguiente error. ${data.description}`)
         }
       }
       setShowSpinner(false)
@@ -475,7 +477,6 @@ const GuideCreator = ({
       .catch((error) => {
         if (error.status === "ERROR") {
         console.log("getting Error", error.description)
-        console.log("este pdedit")
         setErrorQuote(error.description)
         setShowSpinner(false)
       }
