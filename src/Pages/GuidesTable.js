@@ -224,7 +224,16 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
                   const tracking_number = trackingNumberCell[0].value
                   
                   if (value !== 1) {
-                    return <></>
+                    return (
+                    <td>
+                      <div 
+                        style={{
+                        height: "100%",
+                        padding: "0px"
+                        }}>
+                      </div>
+                    </td>
+                    )
                   }
                   return (
                   <td

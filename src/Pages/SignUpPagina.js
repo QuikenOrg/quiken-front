@@ -40,9 +40,6 @@ const SignUpPagina = (props) => {
     formData.append('last_name', lastName);
     formData.append('phone', phone);
       
-
-
-
     try {
       const { data } = await axios.post(
         `${process.env.REACT_APP_API_URL}/user/register`,
