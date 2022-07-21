@@ -7,6 +7,7 @@ import userEvent from '@testing-library/user-event'
 import DocIcon from '../assets/iconos/doc_icon.png'
 import { Loading } from '../utilities/Loading'
 import { UserContext } from '../components/Context/UserContext'
+import PalomaQuiken from '../assets/Inicio/paloma-quiken.svg'
 
 const GuidesTable = () => {
   const history = useHistory()
@@ -134,7 +135,8 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
 
   const cancelGuide = async (guideId) => {
     console.log(guideId)
-    const url = 'https://test.quiken.mx/cancel';
+    const url = `${process.env.REACT_APP_API_URL}/cancel`;
+    
     console.log(`Bearer ${localStorage.getItem("access_token")}`)
     console.log(localStorage.getItem("email"))
     console.log(localStorage.getItem("api_key"))
@@ -180,28 +182,36 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
           
           prepareRow(row)
           return (
-            <tr {...row.getRowProps()}>
+            <tr 
+              style={{
+                boxSizing: "border-box",
+                height: "100%",
+                padding: "0px"
+              }}
+            {...row.getRowProps()}>
               {row.cells.map(cell => {
                 // COLUMN GUIDE
                 if (cell.column.id === "icon" ) {
+                  console.log(row)
                   const trackingNumberCell = row.cells.filter((cell) => cell.column.Header == "Tracking Number")
                   const tracking_number = trackingNumberCell[0].value
+                  const statusCell = row.cells.filter((cell) => cell.column.Header == "Estado")
+                  const { value } = statusCell[0].column
+                  
+                  // To DO
+                  if (!value)
+                  
                   return (
-                  <td style={{
-                    height: "100%",
-                    width: "50px",
-                    backgroundColor: "white",
-                    boxSizing: "border-box",
-                    justifyItems: "center",
-                    alignItems:"center"
-                  }
-                  }>
+                  <td 
+                  >
                     <a
                     href={`https://s3.us-east-2.amazonaws.com/quikn-staging/labels/${tracking_number}.pdf`} target="_blank" title="document icons">
                       <img  style={{
-                            width: `20px`,
-                            height: `20px`}} alt='doc-icon' src={DocIcon}></img>
-                    </a>
+                            height: "50px",
+                            width: "80px",
+                            }} alt='doc-icon' src={PalomaQuiken}></img>
+                    </a
+                    >
                   </td>
                   )
                 }
@@ -209,17 +219,25 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
                 // Cancel icon
                 if (cell.column.id === "icon-cancelar" ) {
                   const trackingNumberCell = row.cells.filter((cell) => cell.column.Header == "Tracking Number")
+                  const statusCell = row.cells.filter((cell) => cell.column.Header == "Estado")
+                  const { value } = statusCell[0]
                   const tracking_number = trackingNumberCell[0].value
-                  return (
-                  <td style={{
-                    height: "100%",
-                    width: "auto",
-                    backgroundColor: "white",
-                    boxSizing: "border-box",
-                    justifyItems: "center",
-                    alignItems:"center"
+                  
+                  if (value !== 1) {
+                    return (
+                    <td>
+                      <div 
+                        style={{
+                        height: "100%",
+                        padding: "0px"
+                        }}>
+                      </div>
+                    </td>
+                    )
                   }
-                  }>
+                  return (
+                  <td
+                  >
                       <BtnCancelar onClick={() => cancelGuide(tracking_number)}>Cancelar</BtnCancelar>
                   </td>
                   )
@@ -312,6 +330,8 @@ const BtnCancelar = styled.button`
   padding: 5px;
   width: 80px;
   color: white;
+  align-self: center;
+  justify-self: center;
 `
 
 const PaginationWrapper = styled.nav`

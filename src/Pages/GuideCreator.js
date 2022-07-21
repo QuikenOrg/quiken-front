@@ -60,6 +60,9 @@ const GuideCreator = ({
   const [postalCodeSenderError, setPostalCodeSenderError] = useState('');
   const [citySenderError, setCitySenderError] = useState('');
   const [errorQuote, setErrorQuote] = useState("")
+  const [exteriorNumberSender, setExteriorNumberSender] = useState("")
+  const [interiorNumberSender, setInteriorNumberSender] = useState("")
+  const [districtSender, setDistrictNumberSender] = useState("")
 
     // STATES
   const [fullNameReceiver, setFullNameReceiver] = useState('');
@@ -71,6 +74,9 @@ const GuideCreator = ({
   const [postalCodeReceiver, setPostalCodeReceiver] = useState('');
   const [cityReceiver, setCityReceiver] = useState('');
   const [mexicoStateReceiver, setMexicoStateReceiver] = useState('');
+  const [exteriorNumberReceiver, setExteriorNumberReceiver] = useState("")
+  const [interiorNumberReceiver, setInteriorNumberReceiver] = useState("")
+  const [districtReceiver, setDistrictNumberReceiver] = useState("")
   
   // To Errors
   const [fullNameReceiverError, setFullNameReceiverError] = useState('');
@@ -119,9 +125,9 @@ const GuideCreator = ({
           "email": emailSender,
           "phone": phoneNumberSender,
           "street": streetAndNumberSender,
-          "ext_number": "col",
-          "int_number": "",
-          "district": "",
+          "ext_number": exteriorNumberSender,
+          "int_number": interiorNumberSender,
+          "district": colonySender,
           "city": citySender,
           "state": mexicoStateSender,
           "country": "MX",
@@ -134,9 +140,9 @@ const GuideCreator = ({
           "email": emailReceiver,
           "phone": phoneNumberReceiver,
           "street": streetAndNumberReceiver,
-          "ext_number": "col",
-          "int_number": "",
-          "district": "",
+          "ext_number": exteriorNumberReceiver,
+          "int_number": interiorNumberReceiver,
+          "district": colonyReceiver,
           "city": cityReceiver,
           "state": mexicoStateReceiver,
           "country": "MX",
@@ -271,7 +277,7 @@ const GuideCreator = ({
         
         setPostalCodeSenderError(postalCodeSenderError)
     
-        if (citySender.trim().length < 5) {
+        if (citySender.trim().length < 5) { 
           citySenderError.FieldTooShort = "El campo debe tener min 5 caracteres";
           isValid = false;
         }
@@ -466,8 +472,10 @@ const GuideCreator = ({
           history.push("/signin")
         }
         if (data.description == 'Invalid postal code') {
-          console.log("codigo postal invalido")
           window.alert("Codigo postal invalido. Revisa que ambos codigos postales sean correctos. Si el error persiste revisa con nuestros accesores que tengamos covertura en el area.")
+        }
+        if (data.status === "ERROR") {
+          alert(`Tu guia no pudo ser creada debido a el siguiente error. ${data.description}`)
         }
       }
       setShowSpinner(false)
@@ -475,7 +483,6 @@ const GuideCreator = ({
       .catch((error) => {
         if (error.status === "ERROR") {
         console.log("getting Error", error.description)
-        console.log("este pdedit")
         setErrorQuote(error.description)
         setShowSpinner(false)
       }
@@ -529,9 +536,19 @@ const GuideCreator = ({
               </LabelInputWrapper>
               
               <LabelInputWrapper>
-                  <LabelStyled >Calle y Número</LabelStyled>
-                  <InputStyled value={streetAndNumberSender} onChange={(event) => setStreetandNumberSender(event.target.value)} type="text" placeholder="Calle y Número" />
+                  <LabelStyled >Calle</LabelStyled>
+                  <InputStyled value={streetAndNumberSender} onChange={(event) => setStreetandNumberSender(event.target.value)} type="text" placeholder="Calle" />
                   {Object.keys(streetAndNumberSenderError).map((key) => {return <div>{streetAndNumberSenderError[key] }</div>})}
+              </LabelInputWrapper>
+
+              <LabelInputWrapper>
+                  <LabelStyled >Número Exterior</LabelStyled>
+                  <InputStyled value={exteriorNumberSender} onChange={(event) => setExteriorNumberSender(event.target.value)} type="text" placeholder="Número Exterior" />
+              </LabelInputWrapper>
+
+              <LabelInputWrapper>
+                  <LabelStyled >Número Interior</LabelStyled>
+                  <InputStyled value={interiorNumberSender} onChange={(event) => setInteriorNumberSender(event.target.value)} type="text" placeholder="Número Interior" />
               </LabelInputWrapper>
               
               <LabelInputWrapper>
@@ -622,9 +639,19 @@ const GuideCreator = ({
               </LabelInputWrapper>
               
               <LabelInputWrapper>
-                  <LabelStyled>Calle y Número</LabelStyled>
+                  <LabelStyled>Calle</LabelStyled>
                   <InputStyled value={streetAndNumberReceiver} onChange={(event) => setStreetandNumberReceiver(event.target.value)} type="text" placeholder="Calle y Número" />
                   {Object.keys(streetAndNumberReceiverError).map((key) => {return <div>{streetAndNumberReceiverError[key] }</div>})}
+              </LabelInputWrapper>
+
+              <LabelInputWrapper>
+                  <LabelStyled>Número Exterior</LabelStyled>
+                  <InputStyled value={exteriorNumberReceiver} onChange={(event) => setExteriorNumberReceiver(event.target.value)} type="text" placeholder="Número Exterior" />
+              </LabelInputWrapper>
+
+              <LabelInputWrapper>
+                  <LabelStyled>Número Interior</LabelStyled>
+                  <InputStyled value={interiorNumberReceiver} onChange={(event) => setInteriorNumberReceiver(event.target.value)} type="text" placeholder="Número Interior" />
               </LabelInputWrapper>
               
               <LabelInputWrapper>
