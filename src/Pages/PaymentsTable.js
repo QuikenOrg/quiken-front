@@ -7,6 +7,7 @@ import userEvent from '@testing-library/user-event'
 import DocIcon from '../assets/iconos/doc_icon.png'
 import { ClipLoader } from 'react-spinners'
 import { Loading } from '../utilities/Loading'
+import PalomaQuiken from '../assets/Inicio/paloma-quiken.svg'
 
 
 const PaymentsTable = () => {
@@ -69,10 +70,6 @@ const PaymentsTable = () => {
         accessor: 'name'
       },
       {
-        Header: 'Order Id',
-        accessor: 'order_id'
-      },
-      {
         Header: 'Estatus de recarga',
         accessor: 'status'
       },
@@ -119,6 +116,7 @@ function Table({ needsReload, setNeedsReload ,columns, data, allData, fetchGuide
       })
     });
     const data = await response.json();
+    console.log(data)
     if (data.status === "SUCCESS") {
       console.log("pagos actualizados")
     } 
@@ -168,6 +166,20 @@ function Table({ needsReload, setNeedsReload ,columns, data, allData, fetchGuide
                 if (cell.column.id === "icon" ) {
                   const trackingNumberCell = row.cells.filter((cell) => cell.column.Header == "Tracking Number")
                   const tracking_number = trackingNumberCell[0].value
+                  const checkIfConfirmed = row.allCells[4].value
+                  
+
+                  // Checar si dejarlo o no
+                  if (checkIfConfirmed === "paid") return (<td style={{
+                    height: "100%",
+                    width: "50px",
+                    backgroundColor: "white",
+                    boxSizing: "border-box",
+                    justifyItems: "center",
+                    alignItems:"center"
+                  }
+                  }></td>) 
+
                   return (
                   <td style={{
                     height: "100%",
@@ -178,16 +190,25 @@ function Table({ needsReload, setNeedsReload ,columns, data, allData, fetchGuide
                     alignItems:"center"
                   }
                   }>
-                    <button onClick={()=> {
-                    console.log(needsReload)
-                    confirmSinglePayment(row.original.order_id)
-                    setNeedsReload(!needsReload)
-                    
-                    }}
-                    href={`https://s3.us-east-2.amazonaws.com/quikn-staging/labels`} target="_blank" title="document icons">
-                      <img  style={{
-                            width: `20px`,
-                            height: `20px`}} alt='doc-icon' src={DocIcon}></img>
+                    <button 
+                      style={{
+                        padding: "0px",
+                        backgroundColor: "white",
+                        border: "none",
+                        height: "100%",
+                        width: "100%",
+                        cursor: "pointer"
+                      }}
+                      onClick={()=> {
+                      console.log(needsReload)
+                      confirmSinglePayment(row.original.order_id)
+                      setNeedsReload(!needsReload)
+                      }}
+                      //href={`https://s3.us-east-2.amazonaws.com/quikn-staging/labels`} target="_blank" title="document icons"
+                      >
+                        <img  style={{
+                              width: `80%`,
+                              height: `80%`}} alt='doc-icon' src={PalomaQuiken}></img>
                     </button>
                   </td>
                   )

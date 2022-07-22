@@ -116,7 +116,8 @@ const createGuide = async () => {
 }
 //Step One Guide Creation
 const createGuideApi = async () => {
-  const urlApiCreate = 'https://test.quiken.mx/generate';
+  const urlApiCreate = `${process.env.REACT_APP_API_URL}/generate`;
+
   const responseApi = await fetch(urlApiCreate, {
     method: 'POST',
     headers: {
