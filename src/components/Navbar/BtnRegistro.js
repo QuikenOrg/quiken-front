@@ -1,12 +1,9 @@
-import React from 'react';
+import React from "react";
 // import '../../styles/GeneralStyles.scss';
-import "./BtnRegistro.scss"
+import "./BtnRegistro.scss";
 
 const BtnRegistro = () => {
-
-  return (
-    <button className="btn-red">REGISTRO</button>
-  )
-}
+  return <button className="btn-red">REGISTRO</button>;
+};
 
 export default BtnRegistro;

@@ -8,45 +8,43 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import axios from "axios";
-const stripePromise = loadStripe("pk_test_51J5EPQFOiWwOoK1YSaHbByG1mDZJJtKtGiutqeKKTrAs6Vr4hN8r6fprQXNA1x7BoxU5dvXL9jNdwtqTxwGHbiXk00TTjPMNxL");
+const stripePromise = loadStripe(
+  "pk_test_51J5EPQFOiWwOoK1YSaHbByG1mDZJJtKtGiutqeKKTrAs6Vr4hN8r6fprQXNA1x7BoxU5dvXL9jNdwtqTxwGHbiXk00TTjPMNxL"
+);
 
-console.log(stripePromise)
+console.log(stripePromise);
 
-const CheckoutForm = ( {guideCost, createGuide} ) => {
-  console.log(guideCost)
+const CheckoutForm = ({ guideCost, createGuide }) => {
+  console.log(guideCost);
   const stripe = useStripe();
   const elements = useElements();
 
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-    console.log('FROM SUBMITTED')
+    console.log("FROM SUBMITTED");
     e.preventDefault();
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
     });
-    console.log(paymentMethod, 'PAYMENT METHOD')
-    console.log(error, 'ERROR')
+    console.log(paymentMethod, "PAYMENT METHOD");
+    console.log(error, "ERROR");
     setLoading(true);
 
     if (!error) {
-      console.log(paymentMethod)
+      console.log(paymentMethod);
       const { id } = paymentMethod;
       try {
-        const { data } = await axios.post(
-          "/api/checkout/payment",
-          {
-            id,
-            amount: guideCost * 100, //cents
-          }
+        const { data } = await axios.post("/api/checkout/payment", {
+          id,
+          amount: guideCost * 100, //cents
+        });
 
-        );
-        
         console.log(data);
         elements.getElement(CardElement).clear();
-        createGuide()
+        createGuide();
       } catch (error) {
         console.log(error);
       }
@@ -69,10 +67,14 @@ const CheckoutForm = ( {guideCost, createGuide} ) => {
 
       {/* User Card Input */}
       <div className="form-group">
-        <CardElement className="cardelement" options={CARD_OPTIONS}/>
+        <CardElement className="cardelement" options={CARD_OPTIONS} />
       </div>
-      
-      <button disabled={!stripe} id="blue" className="btn btn-success btn-stripe-buy btn-create-guide-form">
+
+      <button
+        disabled={!stripe}
+        id="blue"
+        className="btn btn-success btn-stripe-buy btn-create-guide-form"
+      >
         {loading ? (
           <div className="spinner-border text-light" role="status">
             <span className="sr-only">Loading...</span>
@@ -85,27 +87,25 @@ const CheckoutForm = ( {guideCost, createGuide} ) => {
   );
 };
 
-const CheckoutStripe =({ guideCost, createGuide }) => {
-  
+const CheckoutStripe = ({ guideCost, createGuide }) => {
   return (
     <Elements stripe={stripePromise}>
       <div className="container p-4">
         <div className="row h-100">
           <div className="col-md-4 offset-md-4 h-100">
-            <CheckoutForm guideCost={guideCost} createGuide={createGuide}/>
+            <CheckoutForm guideCost={guideCost} createGuide={createGuide} />
           </div>
         </div>
       </div>
     </Elements>
   );
-}
+};
 
 export default CheckoutStripe;
 
-
 const CARD_OPTIONS = {
   iconStyle: "solid",
-  
+
   style: {
     base: {
       iconColor: "#2B91AE",
@@ -115,15 +115,15 @@ const CARD_OPTIONS = {
       fontSize: "24px",
       fontSmoothing: "antialiased",
       ":-webkit-autofill": {
-        color: "#fce883"
+        color: "#fce883",
       },
       "::placeholder": {
-        color: "#EE1F42"
-      }
+        color: "#EE1F42",
+      },
     },
     invalid: {
       iconColor: "#ffc7ee",
-      color: "#ffc7ee"
-    }
-  }
+      color: "#ffc7ee",
+    },
+  },
 };

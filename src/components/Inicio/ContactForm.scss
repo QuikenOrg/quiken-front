@@ -1,116 +1,113 @@
-@import '../../styles/GeneralStyles.scss';
+@import "../../styles/GeneralStyles.scss";
 
 .contact-form-label {
-    display: block;
+  display: block;
 }
 
 .main-wrapper-contact-form {
-    padding: 0px 100px 0px 100px;
-    margin-left: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 530px;
-    margin-top: 50px;
-    @include media('<tablet') {
-        padding: 0px;
-        max-width: 100%;
-        width: 300px;
-    }
+  padding: 0px 100px 0px 100px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 530px;
+  margin-top: 50px;
+  @include media("<tablet") {
+    padding: 0px;
+    max-width: 100%;
+    width: 300px;
+  }
 
-    @include media('<large-phone') {
-        width: 85vw;
-        padding: 0px;
-        margin-top: 0px;
-        
-    }
+  @include media("<large-phone") {
+    width: 85vw;
+    padding: 0px;
+    margin-top: 0px;
+  }
 
-    @include media('<phone') {
-        width: 100vw;
-        padding: 0px;
-        // padding-left: 30px;
-    }
+  @include media("<phone") {
+    width: 100vw;
+    padding: 0px;
+    // padding-left: 30px;
+  }
 }
 
 .contact-form-field-wrapper {
-    @include media('<tablet') {
-        width: 90%;
-        padding: 0px;
-        margin-top: 0px;
-        padding: 0px 10px 0px 10px;
-        // margin-left: 10px;
-    }
+  @include media("<tablet") {
+    width: 90%;
+    padding: 0px;
+    margin-top: 0px;
+    padding: 0px 10px 0px 10px;
+    // margin-left: 10px;
+  }
 
-    @include media('<large-phone') {
-        width: 90%;
-        padding: 0px;
-        margin-top: 0px;
-        padding: 0px 10px 0px 10px;
-        // margin-left: 10px;
-    }
+  @include media("<large-phone") {
+    width: 90%;
+    padding: 0px;
+    margin-top: 0px;
+    padding: 0px 10px 0px 10px;
+    // margin-left: 10px;
+  }
 
-    @include media('<phone') {
-        width: 90%;
-        padding: 0px;
-        width: 80%;
-    }
-    
+  @include media("<phone") {
+    width: 90%;
+    padding: 0px;
+    width: 80%;
+  }
 }
 
 .row-div-contact-form {
-    display: flex;
-    flex-direction: row;
-    // width: 100%;
-    max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  // width: 100%;
+  max-width: 100%;
+  justify-content: space-between;
+  @include media("<large-phone") {
+    width: 100%;
+    flex-direction: column;
+    // padding: 0px 10px 0px 10px;
     justify-content: space-between;
-    @include media('<large-phone') {
-        width: 100%;
-        flex-direction: column;
-        // padding: 0px 10px 0px 10px;
-        justify-content: space-between;
-        max-width: 90%;
-        // margin-left: 10px;
-    }
+    max-width: 90%;
+    // margin-left: 10px;
+  }
 
-    @include media('<phone') {
-        width: 100%;
-        padding: 0px;
-    }
+  @include media("<phone") {
+    width: 100%;
+    padding: 0px;
+  }
 }
 
 .row-div-small-input-placeholder {
-    width: 50%;
-    @include media('<large-phone') {
-        width: 100%;
-        flex-direction: column;
-        padding: 0px 10px 0px 10px;
-        justify-content: space-between;
-        // margin-left: 10px;
-    }
+  width: 50%;
+  @include media("<large-phone") {
+    width: 100%;
+    flex-direction: column;
+    padding: 0px 10px 0px 10px;
+    justify-content: space-between;
+    // margin-left: 10px;
+  }
 
-    @include media('<phone') {
-        width: 350px;
-        padding: 0px;
-        width: 80%;
-    }
+  @include media("<phone") {
+    width: 350px;
+    padding: 0px;
+    width: 80%;
+  }
 }
 
 .sub-paragraph-form {
-    font-family: $quikenFont;
-    color: $quikenDarkBlue;
-    padding-top: 5px;
-    font-size: 15px;
-    font-weight: 600;
-    align-self: flex-start;
-    @include media('<large-phone') {
-        margin-left: 10px;
-    }
-
+  font-family: $quikenFont;
+  color: $quikenDarkBlue;
+  padding-top: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  align-self: flex-start;
+  @include media("<large-phone") {
+    margin-left: 10px;
+  }
 }
 
 .sub-paragraph-form span {
-    color: $quikenRed;
-    align-self: flex-start;
+  color: $quikenRed;
+  align-self: flex-start;
 }
 
 .contact-form-input-message {
@@ -120,22 +117,20 @@
   border: 1px solid grey;
   background-color: $quikenKLightGrey;
   height: 70px;
-  @include media('<tablet') {
+  @include media("<tablet") {
     width: 100%;
-    
-    }
+  }
 
-    @include media('<large-phone') {
-        padding: 15px 0px 15px 0px;
-        width: 100%;
-        
-    }
+  @include media("<large-phone") {
+    padding: 15px 0px 15px 0px;
+    width: 100%;
+  }
 
-    @include media('<phone') {
-        // padding: 0px;
-        width: 250px;
-        width: 100%;
-    }
+  @include media("<phone") {
+    // padding: 0px;
+    width: 250px;
+    width: 100%;
+  }
 }
 
 .btn-contact-form {
@@ -150,43 +145,41 @@
   border-radius: 20px;
   align-self: flex-end;
   margin-bottom: 70px;
-  @include media('<large-phone') {
+  @include media("<large-phone") {
     // padding: 0px;
     margin-top: 8px;
-        
-    }
+  }
 
-    @include media('<phone') {
-    
-    }
+  @include media("<phone") {
+  }
 }
 
 .forgotpassword-screen__subtext {
-    color: $quikenDarkBlue;
-    font-size: 15px;
-    font-family: $quikenFont;
-    font-weight: 900;
-    display: block;
-    text-align: center;
+  color: $quikenDarkBlue;
+  font-size: 15px;
+  font-family: $quikenFont;
+  font-weight: 900;
+  display: block;
+  text-align: center;
 }
 
 .forgotpassword-screen__title {
-    color: $quikenRed;
-    font-size: 35px;
-    font-family: $quikenFont;
-    font-weight: 900;
-    display: block;
-    padding: 40px;
-    text-align: center;
+  color: $quikenRed;
+  font-size: 35px;
+  font-family: $quikenFont;
+  font-weight: 900;
+  display: block;
+  padding: 40px;
+  text-align: center;
 }
 
 #btn {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .error-message {
-    font-family: $quikenFont;
-    color: $quikenRed;
-    font-size: 12px;
-    font-weight: 600;
+  font-family: $quikenFont;
+  color: $quikenRed;
+  font-size: 12px;
+  font-weight: 600;
 }

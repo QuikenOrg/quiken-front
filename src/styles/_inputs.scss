@@ -1,5 +1,5 @@
-@import './_variables';
-@import './breakpoints';
+@import "./_variables";
+@import "./breakpoints";
 
 .form-input {
   border: none;
@@ -15,23 +15,21 @@
   border-radius: 9px;
   border: 1px solid grey;
   background-color: $quikenKLightGrey;
-  @include media('<tablet') {
-      max-width: 600px;
-      width: 100%;
-    }
+  @include media("<tablet") {
+    max-width: 600px;
+    width: 100%;
+  }
 
-    @include media('<large-phone') {
-      width: 100%;
-      max-width: none;
-      padding: 15px 0px 15px 0px;
-      
-    }
+  @include media("<large-phone") {
+    width: 100%;
+    max-width: none;
+    padding: 15px 0px 15px 0px;
+  }
 
-    @include media('<phone') {
-      width: 100%;
-      max-width: none;
-      
-    }
+  @include media("<phone") {
+    width: 100%;
+    max-width: none;
+  }
 }
 
 .contact-form-input-small {
@@ -40,18 +38,17 @@
   border-radius: 9px;
   border: 1px solid grey;
   background-color: $quikenKLightGrey;
-  @include media('<tablet') {
+  @include media("<tablet") {
     max-width: 90%;
     // padding: 15px 0px 15px 0px;
   }
 
-  @include media('<large-phone') {
+  @include media("<large-phone") {
     width: 90%;
     // padding: 15px 0px 15px 0px;
-    
   }
 
-  @include media('<phone') {
+  @include media("<phone") {
     width: 100%;
     max-width: 100%;
   }
@@ -61,4 +58,4 @@
   font-family: $quikenFont;
   font-size: 14px;
   font-weight: 500;
-} 
+}

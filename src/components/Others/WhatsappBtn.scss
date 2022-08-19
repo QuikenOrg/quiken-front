@@ -6,7 +6,7 @@
   bottom: 40px;
   right: 40px;
   background-color: #25d366;
-  color: #FFF;
+  color: #fff;
   border-radius: 50px;
   text-align: center;
   font-size: 30px;
@@ -21,18 +21,17 @@
 /* for mobile */
 @media screen and (max-width: 767px) {
   .whatsapp-icon {
-      margin-top: 10px;
+    margin-top: 10px;
   }
 
   .whatsapp_float {
-      width: 40px;
-      height: 40px;
-      bottom: 20px;
-      right: 10px;
-      font-size: 22px;
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 10px;
+    font-size: 22px;
   }
 }
-
 
 // *,
 // *::before,
