@@ -1,4 +1,5 @@
 @import "../../styles/GeneralStyles.scss";
+$assetPath :"/assets/Inicio";
 
 .heading-blue {
   font-size: 23px;
@@ -15,7 +16,7 @@
 .main-wrapper-negocios {
   width: 100%;
   background-color: $quikenKLightGrey;
-  background-image: url("../../assets//Inicio/Quiken_Ecommerce.png");
+  background-image: url(#{$assetPath}/Quiken_Ecommerce.png);
   background-repeat: no-repeat;
   height: 450px;
   display: flex;
