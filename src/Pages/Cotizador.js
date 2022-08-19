@@ -26,6 +26,8 @@ const Cotizador = () => {
   const calculateGuide = async () => {
     setLoading(true);
 
+    let email = localStorage.getItem('email') != null ? localStorage.getItem('email') : `${process.env.email}`;
+    let api_key =   localStorage.getItem('api_key') != null ? localStorage.getItem('api_key') : `${process.env.api_key}`;
     
     const url = `${process.env.REACT_APP_API_URL}/rate`;
     const response = await fetch(url, {
@@ -35,8 +37,8 @@ const Cotizador = () => {
       },
       body: JSON.stringify({
         clientDetail: {
-          accountName: localStorage.getItem("email"),
-          apiKey: localStorage.getItem("api_key"),
+          "accountName": email,
+          "apiKey": api_key
         },
         origin: {
           name: "testSender",
