@@ -39,13 +39,20 @@ const RasteroPagina = () => {
   };
 
   const getGuideInfo = async () => {
+    console.log(`${process.env.REACT_APP_API_URL}`)
+    console.log(`${process.env.REACT_APP_EMAIL_TRACK}`)
+    console.log(`${process.env.REACT_APP_API_KEY_TRACK}`)
+    console.log(localStorage.getItem("access_token"))
+    console.log(`${process.env.api_key}`)
     const body = {
       clientDetail: {
-        accountName: `${process.env.email}`,
-        apiKey: `${process.env.api_key}`,
+        accountName: `${process.env.REACT_APP_EMAIL_TRACK}`,
+        apiKey: `${process.env.REACT_APP_API_KEY_TRACK}`,
       },
       trackingNumbers: [guideNumber],
     };
+
+    console.log(body);
 
     const url = `${process.env.REACT_APP_API_URL}/track`;
     const response = await fetch(url, {
