@@ -27,22 +27,28 @@ const ResetPasswordPagina = (props) => {
     if (password !== confirmPassword) {
       setPassword("");
       setConfirmPassword("");
-      return setError("Passwords do not match");
+      return setError("Las contraseñas deben ser iguales");
     }
 
     try {
-      const { data } = await axios.put(
-        `/api/auth/resetpassword/${match.resetToken}`,
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API_URL}/user/password/reset`,
         {
-          password,
+          'token': match.resetToken,
+          'password': password,
+          'password_confirmation': confirmPassword
         },
         config
       );
 
       console.log(data);
-      setSuccess(data.data);
+      let response = false
+      if(data.data.status == 'success'){
+          response = true
+      }
+      setSuccess(response);
     } catch (error) {
-      setError(error.data);
+      setError(error);
     }
   };
 
@@ -51,23 +57,23 @@ const ResetPasswordPagina = (props) => {
       <Navbar />
       <div className="form-wrapper-div">
         <form className="forgot-password-form" onSubmit={resetPasswordHandler}>
-          <h3 className="resetpassword-screen__title">Forgot Password</h3>
+          <h3 className="resetpassword-screen__title">Recuperar contraseña</h3>
           {error && <span className="error-message">{error} </span>}
           {success && (
             <span className="success-message">
-              {success} <Link to="/signin">Login</Link>
+              {success} <Link to="/signin">Sign In</Link>
             </span>
           )}
           <div className="form-group">
             <label className="form-label" htmlFor="password">
-              New Password:
+              Nueva Contraseña:
             </label>
             <input
               className="contact-form-input"
               type="password"
               required
               id="password"
-              placeholder="Enter new password"
+              placeholder="Ingresar Contraseña"
               autoComplete="true"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -75,21 +81,21 @@ const ResetPasswordPagina = (props) => {
           </div>
           <div className="form-group">
             <label className="form-label" htmlFor="confirmpassword">
-              Confirm New Password:
+              Confirmar Contraseña:
             </label>
             <input
               className="contact-form-input"
               type="password"
               required
               id="confirmpassword"
-              placeholder="Confirm new password"
+              placeholder="Confirmar Contraseña"
               autoComplete="true"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
           <button className="btn-contact" type="submit">
-            Reset Password
+            Reestablecer Contraseña
           </button>
         </form>
       </div>

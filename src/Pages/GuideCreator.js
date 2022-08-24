@@ -577,6 +577,19 @@ const GuideCreator = ({ user }) => {
           </LabelInputWrapper>
 
           <LabelInputWrapper>
+            <LabelStyled>Colonia</LabelStyled>
+            <InputStyled
+              value={colonySender}
+              onChange={(event) => setColonySender(event.target.value)}
+              type="text"
+              placeholder="Colonia"
+            />
+            {Object.keys(colonySenderError).map((key) => {
+              return <div>{colonySenderError[key]}</div>;
+            })}
+          </LabelInputWrapper>
+
+          <LabelInputWrapper>
             <LabelStyled>Calle</LabelStyled>
             <InputStyled
               value={streetAndNumberSender}
@@ -617,20 +630,7 @@ const GuideCreator = ({ user }) => {
               type="text"
               placeholder="Referencias"
             />
-          </LabelInputWrapper>
-
-          <LabelInputWrapper>
-            <LabelStyled>Colonia</LabelStyled>
-            <InputStyled
-              value={colonySender}
-              onChange={(event) => setColonySender(event.target.value)}
-              type="text"
-              placeholder="Colonia"
-            />
-            {Object.keys(colonySenderError).map((key) => {
-              return <div>{colonySenderError[key]}</div>;
-            })}
-          </LabelInputWrapper>
+          </LabelInputWrapper>  
 
           <LabelInputWrapper>
             <LabelStyled>Código Postal</LabelStyled>
@@ -744,6 +744,19 @@ const GuideCreator = ({ user }) => {
           </LabelInputWrapper>
 
           <LabelInputWrapper>
+            <LabelStyled>Colonia</LabelStyled>
+            <InputStyled
+              value={colonyReceiver}
+              onChange={(event) => setColonyReceiver(event.target.value)}
+              type="text"
+              placeholder="Colonia"
+            />
+            {Object.keys(colonyReceiverError).map((key) => {
+              return <div>{colonyReceiverError[key]}</div>;
+            })}
+          </LabelInputWrapper>
+
+          <LabelInputWrapper>
             <LabelStyled>Calle</LabelStyled>
             <InputStyled
               value={streetAndNumberReceiver}
@@ -751,7 +764,7 @@ const GuideCreator = ({ user }) => {
                 setStreetandNumberReceiver(event.target.value)
               }
               type="text"
-              placeholder="Calle y Número"
+              placeholder="Calle"
             />
             {Object.keys(streetAndNumberReceiverError).map((key) => {
               return <div>{streetAndNumberReceiverError[key]}</div>;
@@ -790,19 +803,6 @@ const GuideCreator = ({ user }) => {
               type="text"
               placeholder="Referencias"
             />
-          </LabelInputWrapper>
-
-          <LabelInputWrapper>
-            <LabelStyled>Colonia</LabelStyled>
-            <InputStyled
-              value={colonyReceiver}
-              onChange={(event) => setColonyReceiver(event.target.value)}
-              type="text"
-              placeholder="Colonia"
-            />
-            {Object.keys(colonyReceiverError).map((key) => {
-              return <div>{colonyReceiverError[key]}</div>;
-            })}
           </LabelInputWrapper>
 
           <LabelInputWrapper>
@@ -1001,7 +1001,7 @@ const GuideCreator = ({ user }) => {
                         <td>{i + 1}</td>
                         <td>{servicio.type.toUpperCase()}</td>
                         <td>{servicio.estimateDelivery}</td>
-                        <td>${servicio.totalPrice}.99</td>
+                        <td>${servicio.totalPrice}.00</td>
                       </tr>
                     );
                   })}
