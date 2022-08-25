@@ -56,13 +56,14 @@ const PaymentsTable = () => {
       accessor: "icon",
     },
     {
+      Header: "ID de Pago",
+      accessor: "id",
+    },
+    {
       Header: "ID de Orden",
       accessor: "payment_name",
     },
-    {
-      Header: "Fecha de creacion",
-      accessor: "created_at",
-    },
+
     {
       Header: "Concepto de pago",
       accessor: "name",
@@ -72,12 +73,12 @@ const PaymentsTable = () => {
       accessor: "status",
     },
     {
-      Header: "Tracking Number",
-      accessor: "id",
-    },
-    {
       Header: "Precio",
       accessor: "price",
+    },
+    {
+      Header: "Fecha de creacion",
+      accessor: "created_at",
     },
   ]);
 
@@ -156,10 +157,6 @@ function Table({
                 {row.cells.map((cell) => {
                   // COLUMN GUIDE
                   if (cell.column.id === "icon") {
-                    const trackingNumberCell = row.cells.filter(
-                      (cell) => cell.column.Header == "Tracking Number"
-                    );
-                    const tracking_number = trackingNumberCell[0].value;
                     const checkIfConfirmed = row.allCells[4].value;
 
                     // Checar si dejarlo o no
@@ -217,7 +214,7 @@ function Table({
                     );
                   }
                   // COLUMN ESTADO
-                  if (cell.column.id === "status_id") {
+                  if (cell.column.id === "status") {
                     return (
                       <td>
                         <StatusButton status={cell.value}>
@@ -327,22 +324,22 @@ const PaginationBtn = styled.button`
   }
 `;
 
-const getStatusString = (int) => {
-  switch (int) {
-    case 1:
-      return "Generada";
+const getStatusString = (status) => {
+  switch (status) {
+    case 'paid':
+      return "Pagado";
     default:
-      return "Sin Status";
+      return "Generado";
   }
 };
 
 const styleButton = (status) => {
   switch (status) {
-    case 1:
+    case 'paid':
       return `
       background-color: green;
     `;
-    case 2:
+    case 'cancel':
       return `
       background-color: lightblue;
     `;

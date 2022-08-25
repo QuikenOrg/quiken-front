@@ -197,13 +197,13 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
                       (cell) => cell.column.Header == "Estado"
                     );
                     const { value } = statusCell[0].column;
-
+                    console.log(`${process.env.REACT_APP_S3_AWS_LABEL}`)
                     // To DO
                     if (!value)
                       return (
                         <td>
                           <a
-                            href={`https://s3.us-east-2.amazonaws.com/quikn-staging/labels/${tracking_number}.pdf`}
+                            href={`${process.env.REACT_APP_S3_AWS_LABEL}/labels/${tracking_number}.pdf`}
                             target="_blank"
                             title="document icons"
                           >
