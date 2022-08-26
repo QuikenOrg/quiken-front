@@ -189,7 +189,6 @@ function Table({
                           style={{
                             padding: "0px",
                             backgroundColor: "white",
-                            border: "none",
                             height: "100%",
                             width: "100%",
                             cursor: "pointer",
@@ -199,7 +198,6 @@ function Table({
                             confirmSinglePayment(row.original.order_id);
                             setNeedsReload(!needsReload);
                           }}
-                          //href={`https://s3.us-east-2.amazonaws.com/quikn-staging/labels`} target="_blank" title="document icons"
                         >
                           <img
                             style={{

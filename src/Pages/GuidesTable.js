@@ -64,20 +64,20 @@ const GuidesTable = () => {
       accessor: "status_id",
     },
     {
-      Header: "Nombre Destino",
-      accessor: "destination_name",
-    },
-    {
       Header: "Nombre Origen",
       accessor: "origin_name",
     },
     {
-      Header: "Ciudad Destino",
-      accessor: "destination_city",
+      Header: "Nombre Destino",
+      accessor: "destination_name",
     },
     {
-      Header: "Pais Destino",
-      accessor: "destination_country",
+      Header: "Ciudad Origen",
+      accessor: "origin_city",
+    },
+    {
+      Header: "Ciudad Destino",
+      accessor: "destination_city",
     },
     {
       Header: "Peso",
