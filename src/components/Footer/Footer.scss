@@ -1,134 +1,128 @@
-@import '../../styles/GeneralStyles.scss';
+@import "../../styles/GeneralStyles.scss";
 
 .footer-main-wrapper {
-    height: 200px;
-    color: $quikenWhite;
-    background-color: $quikenDarkGrey;
-    display: flex;
-    width: 100%;
-    @include media('<tablet') {
-        flex-direction: column-reverse;
-        height: auto;
-    }
-    @include media('<phone') {
-        flex-direction: column-reverse;
-        height: auto;
-        overflow: hidden
-    }
+  height: 200px;
+  color: $quikenWhite;
+  background-color: $quikenDarkGrey;
+  display: flex;
+  width: 100%;
+  @include media("<tablet") {
+    flex-direction: column-reverse;
+    height: auto;
+  }
+  @include media("<phone") {
+    flex-direction: column-reverse;
+    height: auto;
+    overflow: hidden;
+  }
 }
 
 .logo-links-wrapper {
-    height: 100%;
-    width: 65%;
-    background: $quikenDarkGrey;
-    display: flex;
-    flex-direction: column;
-    padding: 50px 50px 50px 50px;
-    justify-content: space-between;
-    // width: 100%;
+  height: 100%;
+  width: 65%;
+  background: $quikenDarkGrey;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 50px 50px 50px;
+  justify-content: space-between;
+  // width: 100%;
 }
 
 .info-wrapper {
-    height: 100%;
-    width: 50%;
-    background: $quikenDarkGrey;
-    display: flex;
-    flex-direction: column;
-    padding: 50px 50px 50px 50px;
-    @include media('<large-phone') {
-        margin: auto;
-        // width: 100%;
-        padding: 50px 50px 10px 50px;
-        // width: 100%;
-    }
+  height: 100%;
+  width: 50%;
+  background: $quikenDarkGrey;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 50px 50px 50px;
+  @include media("<large-phone") {
+    margin: auto;
+    // width: 100%;
+    padding: 50px 50px 10px 50px;
+    // width: 100%;
+  }
 }
 
 .logo-quienes-somos-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    @include media('<tablet') {
-        // display: none;
-        
-    }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  @include media("<tablet") {
+    // display: none;
+  }
 }
 
 .img-logo-footer {
-    height: 150px;
-    @include media('<large-phone') {
-        height: 100px;
-        padding-bottom: 50px ;
-    }
+  height: 150px;
+  @include media("<large-phone") {
+    height: 100px;
+    padding-bottom: 50px;
+  }
 }
 
 .quienes-somos {
-    padding-top: 15px;
-    font-size: 18px;
-    font-family: $quikenFont;
-    color: $quikenWhite;
-    font-weight: 900;
-    justify-self: flex-end;
-    @include media('<tablet') {
-        display: none;
-    }
-    
+  padding-top: 15px;
+  font-size: 18px;
+  font-family: $quikenFont;
+  color: $quikenWhite;
+  font-weight: 900;
+  justify-self: flex-end;
+  @include media("<tablet") {
+    display: none;
+  }
 }
 
 .copy-icons-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    @include media('<tablet') {
-        
-    }
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  @include media("<tablet") {
+  }
 }
 
 .icon {
-    height: 23px;
-    @include media('<tablet') {
-        padding: 0px 5px 0px 5px;   
-       }
+  height: 23px;
+  @include media("<tablet") {
+    padding: 0px 5px 0px 5px;
+  }
 }
 
 .copy-quiken {
-    color: $quikenWhite;
-    font-family: $quikenFont;
-    font-size: 13px;
-    font-weight: 500;
-    @include media('<tablet') {
-     display: block;   
-    }
+  color: $quikenWhite;
+  font-family: $quikenFont;
+  font-size: 13px;
+  font-weight: 500;
+  @include media("<tablet") {
+    display: block;
+  }
 }
 
 .icon-text-row-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 12px;
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 12px;
 }
 
 .contact-icon {
-    height: 25px;
-    width: 25px;
-    align-self: flex-start;
-
+  height: 25px;
+  width: 25px;
+  align-self: flex-start;
 }
 
 .contactanos-heading {
-    padding-top: 15px;
-    font-size: 18px;
-    font-family: $quikenFont;
-    color: $quikenWhite;
-    font-weight: 900;
-    justify-self: flex-end;
+  padding-top: 15px;
+  font-size: 18px;
+  font-family: $quikenFont;
+  color: $quikenWhite;
+  font-weight: 900;
+  justify-self: flex-end;
 }
 
 .paragraph-contact {
-    font-family: $quikenFont;
-    font-weight: 600;
-    color: $quikenWhite;
-    margin-left: 5px;
+  font-family: $quikenFont;
+  font-weight: 600;
+  color: $quikenWhite;
+  margin-left: 5px;
 }

@@ -1,23 +1,22 @@
-@import '../styles/GeneralStyles.scss';
-
+@import "../styles/GeneralStyles.scss";
 
 .ya-tienes-cuenta {
-    font-family: $quikenFont;
-    color: $quikenDarkBlue;
-    font-weight: 800;
-    font-size: 14px;
-    margin-top: 3px;
+  font-family: $quikenFont;
+  color: $quikenDarkBlue;
+  font-weight: 800;
+  font-size: 14px;
+  margin-top: 3px;
 }
 
 .da-click-aqui {
-    text-decoration: none;
-    color: $quikenDarkBlue;
-    font-family: $quikenFont;
-    font-weight: 800;
-    font-size: 14px;
-    margin-top: 3px;
-    &:hover {
-        color: $quikenRed;
-        text-decoration: underline;
-    }
+  text-decoration: none;
+  color: $quikenDarkBlue;
+  font-family: $quikenFont;
+  font-weight: 800;
+  font-size: 14px;
+  margin-top: 3px;
+  &:hover {
+    color: $quikenRed;
+    text-decoration: underline;
+  }
 }

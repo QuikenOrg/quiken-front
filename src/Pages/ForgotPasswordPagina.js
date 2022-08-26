@@ -1,18 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
 import "./ForgotPasswordPagina.scss";
-import Navbar from '../components/Navbar/Navbar'
-import Footer from '../components/Footer/Footer'
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 import { useHistory } from "react-router-dom";
 
-
 const ForgotPasswordScreen = () => {
-  
-  const history = useHistory()
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
 
   const forgotPasswordHandler = async (e) => {
     e.preventDefault();
@@ -24,7 +21,7 @@ const ForgotPasswordScreen = () => {
     };
 
     let formData = new FormData();
-    formData.append('email', email); 
+    formData.append("email", email);
 
     try {
       const { data } = await axios.post(
@@ -34,10 +31,10 @@ const ForgotPasswordScreen = () => {
       );
 
       setSuccess(data.data);
-      console.log(data)
+      console.log(data);
       if (data.status == "SUCCESS") {
-        alert("Un email de recuperacion ha sido envidado a tu correo.")
-        history.push("/")
+        alert("Un email de recuperacion ha sido envidado a tu correo.");
+        history.push("/");
       }
     } catch (error) {
       setError(error.response.data.error);
@@ -47,7 +44,7 @@ const ForgotPasswordScreen = () => {
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <div className="forgotpassword-screen">
         <form
           onSubmit={forgotPasswordHandler}
@@ -58,10 +55,12 @@ const ForgotPasswordScreen = () => {
           {success && <span className="success-message">{success}</span>}
           <div className="form-group">
             <p className="forgotpassword-screen__subtext">
-              Please enter the email address you register your account with.<br/> We
-              will send you reset password confirmation to this email
+              Please enter the email address you register your account with.
+              <br /> We will send you reset password confirmation to this email
             </p>
-            <label className="form-label" htmlFor="email">Email:</label>
+            <label className="form-label" htmlFor="email">
+              Email:
+            </label>
             <input
               className="form-input"
               type="email"
@@ -77,7 +76,7 @@ const ForgotPasswordScreen = () => {
           </button>
         </form>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };

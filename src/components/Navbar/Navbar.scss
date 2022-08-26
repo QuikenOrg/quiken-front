@@ -6,13 +6,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
-  @include media('<tablet') {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  @include media("<tablet") {
     height: 70px;
     // background-color: greenyellow;
     z-index: 20;
     justify-content: space-between;
-    
   }
 }
 
@@ -24,7 +23,6 @@
   justify-content: center;
 }
 
-
 .navbar-logo-placeholder {
   display: flex;
   flex-direction: column;
@@ -32,10 +30,9 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-  @include media('<tablet') {
+  @include media("<tablet") {
     width: 25%;
     // background-color: greenyellow;
-
   }
 }
 
@@ -46,7 +43,7 @@
   height: 100%;
   width: 100%;
   justify-content: space-evenly;
-  @include media('<tablet') {
+  @include media("<tablet") {
     display: none;
   }
 }
@@ -56,20 +53,18 @@
   color: $quikenDarkBlue;
   font-family: $quikenFont;
   font-weight: $quikenFontWeightMedium;
-  @include media('<tablet') {
+  @include media("<tablet") {
     color: $quikenDarkBlue;
     font-size: 30px;
   }
   &:hover {
     color: $quikenRed;
   }
-
 }
 
 .quiken-logo {
   height: 90%;
-  @include media('<tablet') {
+  @include media("<tablet") {
     height: 80%;
   }
-  
 }

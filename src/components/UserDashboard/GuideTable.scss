@@ -1,33 +1,33 @@
-@import '../../styles/GeneralStyles.scss';
+@import "../../styles/GeneralStyles.scss";
 
 .table-element {
-    font-size: 14px;
-    font-family: &quikenFont;
-    border: 1px solid;
+  font-size: 14px;
+  font-family: &quikenFont;
+  border: 1px solid;
 }
 
 .thead-element {
-    font-size: 20px;
-    font-family: $quikenFont;
-    color: $quikenDarkBlue;
-    margin: 30px;
-    font-weight: 800;
+  font-size: 20px;
+  font-family: $quikenFont;
+  color: $quikenDarkBlue;
+  margin: 30px;
+  font-weight: 800;
 }
 
 .tr-element {
-    background-color: $quikenKLightGrey;
-    font-family: &quikenFont;
+  background-color: $quikenKLightGrey;
+  font-family: &quikenFont;
 }
 
 td {
-    text-align: center;
-    padding: 15px 30px 15px 30px;
-    font-family: &quikenFont;
-    color: $quikenDarkBlue;
-    font-weight: 900;
+  text-align: center;
+  padding: 15px 30px 15px 30px;
+  font-family: &quikenFont;
+  color: $quikenDarkBlue;
+  font-weight: 900;
 }
 
 #red {
-    background-color: $quikenRed;
-    border: $quikenRed;
+  background-color: $quikenRed;
+  border: $quikenRed;
 }

@@ -1,15 +1,14 @@
-import { useState} from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "./ResetPasswordPagina.scss";
-import Navbar from '../components/Navbar/Navbar'
-import Footer from '../components/Footer/Footer'
-import './ResetPasswordPagina.scss'
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
+import "./ResetPasswordPagina.scss";
 
 const ResetPasswordPagina = (props) => {
-
-  const match = useParams()
-  console.log(match.resetToken)
+  const match = useParams();
+  console.log(match.resetToken);
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -28,71 +27,79 @@ const ResetPasswordPagina = (props) => {
     if (password !== confirmPassword) {
       setPassword("");
       setConfirmPassword("");
-      return setError("Passwords do not match");
+      return setError("Las contraseñas deben ser iguales");
     }
 
     try {
-      const { data } = await axios.put(
-        `/api/auth/resetpassword/${match.resetToken}`,
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API_URL}/user/password/reset`,
         {
-          password,
+          'token': match.resetToken,
+          'password': password,
+          'password_confirmation': confirmPassword
         },
         config
       );
 
       console.log(data);
-      setSuccess(data.data);
+      let response = false
+      if(data.data.status == 'success'){
+          response = true
+      }
+      setSuccess(response);
     } catch (error) {
-      setError(error.data);
+      setError(error);
     }
   };
 
   return (
     <div className="resetpassword-screen">
-      <Navbar/>
+      <Navbar />
       <div className="form-wrapper-div">
-        <form className="forgot-password-form"
-        onSubmit={resetPasswordHandler}
-      >
-        <h3 className="resetpassword-screen__title">Forgot Password</h3>
-        {error && <span className="error-message">{error} </span>}
-        {success && (
-          <span className="success-message">
-            {success} <Link to="/signin">Login</Link>
-          </span>
-        )}
-        <div className="form-group">
-          <label className="form-label" htmlFor="password">New Password:</label>
-          <input
-            className="contact-form-input"
-            type="password"
-            required
-            id="password"
-            placeholder="Enter new password"
-            autoComplete="true"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label className="form-label" htmlFor="confirmpassword">Confirm New Password:</label>
-          <input
-            className="contact-form-input"
-            type="password"
-            required
-            id="confirmpassword"
-            placeholder="Confirm new password"
-            autoComplete="true"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </div>
-        <button className="btn-contact" type="submit">
-          Reset Password
-        </button>
-      </form>
+        <form className="forgot-password-form" onSubmit={resetPasswordHandler}>
+          <h3 className="resetpassword-screen__title">Recuperar contraseña</h3>
+          {error && <span className="error-message">{error} </span>}
+          {success && (
+            <span className="success-message">
+              {success} <Link to="/signin">Sign In</Link>
+            </span>
+          )}
+          <div className="form-group">
+            <label className="form-label" htmlFor="password">
+              Nueva Contraseña:
+            </label>
+            <input
+              className="contact-form-input"
+              type="password"
+              required
+              id="password"
+              placeholder="Ingresar Contraseña"
+              autoComplete="true"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label className="form-label" htmlFor="confirmpassword">
+              Confirmar Contraseña:
+            </label>
+            <input
+              className="contact-form-input"
+              type="password"
+              required
+              id="confirmpassword"
+              placeholder="Confirmar Contraseña"
+              autoComplete="true"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
+          <button className="btn-contact" type="submit">
+            Reestablecer Contraseña
+          </button>
+        </form>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

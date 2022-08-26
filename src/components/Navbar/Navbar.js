@@ -1,37 +1,40 @@
-import React, { useEffect } from 'react';
-import BtnRegistro from './BtnRegistro';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect } from "react";
+import BtnRegistro from "./BtnRegistro";
+import { Link } from "react-router-dom";
 import "./Navbar.scss";
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import QuikenLogo from '../../assets/Inicio/Quiken_Logo_color-03.svg'
+import QuikenLogo from "../../assets/Inicio/Quiken_Logo_color-03.svg";
+import { UserContext } from "../Context/UserContext";
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
-  const node = React.useRef();
+
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
-      var Tawk_API = Tawk_API||{},
+    var Tawk_API = Tawk_API || {},
       Tawk_LoadStart = new Date();
-      (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/5c631c1c6cb1ff3c14cc3564/default';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1,s0);
-      })();
-      Tawk_API.onLoad = function () {
-        console.log("chat loaded");
-        Tawk_API.setAttributes(
-          {
-            name: "Test Name",
-            email: "email@email.com",
-            hash: "hash value",
-          },
-          function (error) {}
-        );
-      };
+    (function () {
+      var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = "https://embed.tawk.to/5c631c1c6cb1ff3c14cc3564/default";
+      s1.charset = "UTF-8";
+      s1.setAttribute("crossorigin", "*");
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+    Tawk_API.onLoad = function () {
+      console.log("chat loaded");
+      Tawk_API.setAttributes(
+        {
+          name: "Test Name",
+          email: "email@email.com",
+          hash: "hash value",
+        },
+        function (error) {}
+      );
+    };
   }, []);
 
   return (
@@ -44,27 +47,42 @@ const Navbar = () => {
             <img src={QuikenLogo} className="quiken-logo" />
           </Link>
         </div>
-        
+
         {/* //Desktop Menu */}
         <div className="navbar-links-wrapper">
-          <Link className="navbar-link" to="/">INICIO</Link>
-          <Link className="navbar-link" to="/servicios">SERVICIOS</Link>
-          <Link className="navbar-link" to="/fulfillment">FULFILLMENT</Link>
-          <Link className="navbar-link" to="/rastreo">RASTREO</Link>
-          <Link className="navbar-link" to="/contacto">CONTACTO</Link>
-          {/* <Link className="navbar-link" to="/signin">
-            SIGN IN
+          <Link className="navbar-link" to="/">
+            INICIO
           </Link>
-          <Link to="/signup">
-            <BtnRegistro/>
-          </Link> */}
+          <Link className="navbar-link" to="/servicios">
+            SERVICIOS
+          </Link>
+          <Link className="navbar-link" to="/fulfillment">
+            FULFILLMENT
+          </Link>
+          <Link className="navbar-link" to="/rastreo">
+            RASTREO
+          </Link>
+          <Link className="navbar-link" to="/contacto">
+            CONTACTO
+          </Link>
+          {user ? (
+            <Link to="/newdashboard">
+              <button className="btn-red">Dashboard</button>
+            </Link>
+          ) : (
+            <>
+              <Link className="navbar-link" to="/signin">
+                SIGN IN
+              </Link>
+              <Link to="/signup">
+                <BtnRegistro />
+              </Link>
+            </>
+          )}
         </div>
         {/* Mobile Menu */}
-        <Burger open={open} setOpen={setOpen}/>
-        <Menu open={open} setOpen={setOpen}/>
-        
-        
-
+        <Burger open={open} setOpen={setOpen} />
+        <Menu open={open} setOpen={setOpen} />
       </div>
     </>
   );
@@ -73,27 +91,37 @@ const Navbar = () => {
 const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
-          <Link className="navbar-link"to="/">INICIO</Link>
-          <Link className="navbar-link" to="/servicios">SERVICIOS</Link>
-          <Link className="navbar-link" to="/fulfillment">FULFILLMENT</Link>
-          <Link className="navbar-link" to="/rastreo">RASTREO</Link>
-          <Link className="navbar-link" to="/contacto">CONTACTO</Link>
-          {/* <Link className="navbar-link" to="/signin">
+      <Link className="navbar-link" to="/">
+        INICIO
+      </Link>
+      <Link className="navbar-link" to="/servicios">
+        SERVICIOS
+      </Link>
+      <Link className="navbar-link" to="/fulfillment">
+        FULFILLMENT
+      </Link>
+      <Link className="navbar-link" to="/rastreo">
+        RASTREO
+      </Link>
+      <Link className="navbar-link" to="/contacto">
+        CONTACTO
+      </Link>
+      {/* <Link className="navbar-link" to="/signin">
             SIGN IN
           </Link>
           <Link to="/signup">
             <BtnRegistro/>
           </Link> */}
     </StyledMenu>
-  )
-}
+  );
+};
 
 const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: #245188;
-  transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
+  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
   height: 100vh;
   text-align: left;
   /* padding: 2rem; */
@@ -104,8 +132,8 @@ const StyledMenu = styled.nav`
   z-index: 30;
 
   @media (max-width: 576px) {
-      width: 100%;
-    }
+    width: 100%;
+  }
 
   a {
     font-size: 18px;
@@ -126,7 +154,7 @@ const StyledMenu = styled.nav`
       color: red;
     }
   }
-`
+`;
 
 const StyledBurger = styled.button`
   /* position: absolute;
@@ -145,8 +173,8 @@ const StyledBurger = styled.button`
   z-index: 31;
 
   @media (min-width: 800px) {
-      display: none;
-    }
+    display: none;
+  }
 
   &:focus {
     outline: none;
@@ -154,27 +182,27 @@ const StyledBurger = styled.button`
 
   div {
     width: 2rem;
-    height: 0.20rem;
-    background: ${({ open }) => open ? 'white' : '#245188'};
+    height: 0.2rem;
+    background: ${({ open }) => (open ? "white" : "#245188")};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
 
     :first-child {
-      transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
     }
 
     :nth-child(2) {
-      opacity: ${({ open }) => open ? '0' : '1'};
-      transform: ${({ open }) => open ? 'translateX(20px)' : 'translateX(0)'};
+      opacity: ${({ open }) => (open ? "0" : "1")};
+      transform: ${({ open }) => (open ? "translateX(20px)" : "translateX(0)")};
     }
 
     :nth-child(3) {
-      transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+      transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
     }
   }
-`
+`;
 
 const Burger = ({ open, setOpen }) => {
   return (
@@ -183,7 +211,7 @@ const Burger = ({ open, setOpen }) => {
       <div />
       <div />
     </StyledBurger>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
