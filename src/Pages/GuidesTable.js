@@ -41,6 +41,7 @@ const GuidesTable = () => {
       setGuides(data.data);
       setLoading(false);
     } catch (error) {
+      console.log(error);
       localStorage.removeItem("authToken");
       localStorage.removeItem("email");
       localStorage.removeItem("username");
