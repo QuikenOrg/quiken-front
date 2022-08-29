@@ -17,13 +17,8 @@ const ContactForm = () => {
         "user_gecQCH4IIGePzUzhzJ47E"
       )
       .then(
-        (result) => {
-          console.log(result.text);
-          console.log("all good sr.");
-        },
-        (error) => {
-          console.log(error.text);
-        }
+        (result) => {},
+        (error) => {}
       );
     alert(
       "Gracias por contactarnos uno nuestros asesores se pondre en contaco contigo."
@@ -75,7 +70,6 @@ const ContactForm = () => {
       fullNameError.FullNameSenderShort =
         "El nombre complete tiene que tener más de 5 caracteres";
       isValid = false;
-      console.log("name too short");
     }
 
     if (fullName.trim().match(/[0-9]/)) {
@@ -88,7 +82,6 @@ const ContactForm = () => {
     if (emailIsValid(email) === false) {
       emailError.EmailError = "El email no es valido";
       isValid = false;
-      console.log("The email is not valid");
     }
 
     setEmailError(emailError);
@@ -102,7 +95,6 @@ const ContactForm = () => {
     if (phoneNumber.trim().length < 10) {
       phoneNumberError.PhoneTooShort =
         "El télefono tiene que tener minimo 10 digitos";
-      console.log("el telefono es muy corto");
       isValid = false;
     }
 
@@ -125,32 +117,10 @@ const ContactForm = () => {
 
   const handleContactForm = (e) => {
     e.preventDefault();
-    console.log(isValid, "bean burrito");
 
     contactFormValdiation();
 
-    console.log(isValid, "guacamole9!");
-
     if (isValid) {
-      console.log("evrything is valid");
-      console.log(
-        "fullName: ",
-        fullName,
-        <br />,
-        "PhoneNumber: ",
-        phoneNumber,
-        <br />,
-        "email: ",
-        email,
-        <br />,
-        "subject: ",
-        subject,
-        <br />,
-        "message: ",
-        message,
-        <br />
-      );
-      console.log("Trying email");
       sendContactForm(e);
     }
   };

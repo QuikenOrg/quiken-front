@@ -8,7 +8,6 @@ import "./ResetPasswordPagina.scss";
 
 const ResetPasswordPagina = (props) => {
   const match = useParams();
-  console.log(match.resetToken);
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -34,17 +33,16 @@ const ResetPasswordPagina = (props) => {
       const { data } = await axios.post(
         `${process.env.REACT_APP_API_URL}/user/password/reset`,
         {
-          'token': match.resetToken,
-          'password': password,
-          'password_confirmation': confirmPassword
+          token: match.resetToken,
+          password: password,
+          password_confirmation: confirmPassword,
         },
         config
       );
 
-      console.log(data);
-      let response = false
-      if(data.data.status == 'success'){
-          response = true
+      let response = false;
+      if (data.data.status == "success") {
+        response = true;
       }
       setSuccess(response);
     } catch (error) {

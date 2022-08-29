@@ -45,8 +45,6 @@ const SignUpPagina = (props) => {
         formData,
         config
       );
-      console.log("data");
-      console.log(data);
       if (data.status === "SUCCESS") {
         alert("Tu cuenta fue creada con exito.");
         history.push("/signin");

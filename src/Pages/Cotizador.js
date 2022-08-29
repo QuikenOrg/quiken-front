@@ -3,11 +3,8 @@ import { UserContext } from "../components/Context/UserContext";
 import { Loading } from "../utilities/Loading";
 
 const Cotizador = () => {
-  const {
-    loading,
-    setLoading,
-  } = useContext(UserContext);
-  
+  const { loading, setLoading } = useContext(UserContext);
+
   //States for quoate
   const [testPackageLength, setTestPackageLength] = useState();
   const [testPackageWidth, setTestPackageWidth] = useState();
@@ -26,9 +23,15 @@ const Cotizador = () => {
   const calculateGuide = async () => {
     setLoading(true);
 
-    let email = localStorage.getItem('email') != null ? localStorage.getItem('email') : `${process.env.email}`;
-    let api_key =   localStorage.getItem('api_key') != null ? localStorage.getItem('api_key') : `${process.env.api_key}`;
-    
+    let email =
+      localStorage.getItem("email") != null
+        ? localStorage.getItem("email")
+        : `${process.env.email}`;
+    let api_key =
+      localStorage.getItem("api_key") != null
+        ? localStorage.getItem("api_key")
+        : `${process.env.api_key}`;
+
     const url = `${process.env.REACT_APP_API_URL}/rate`;
     const response = await fetch(url, {
       method: "POST",
@@ -37,8 +40,8 @@ const Cotizador = () => {
       },
       body: JSON.stringify({
         clientDetail: {
-          "accountName": email,
-          "apiKey": api_key
+          accountName: email,
+          apiKey: api_key,
         },
         origin: {
           name: "testSender",
@@ -69,14 +72,13 @@ const Cotizador = () => {
       }),
     });
     const data = await response.json();
-    console.log(data);
+
     if (data.status === "SUCCESS") {
       setTestServices(data.data.services);
       setLoadingServicios(false);
       setHasQuoteError(false);
       setLoading(false);
     } else if (data.status === "ERROR") {
-      console.log(data.description);
       setTestQuoteError(data.description);
       setHasQuoteError(true);
       setLoadingServicios(false);
@@ -87,10 +89,8 @@ const Cotizador = () => {
   const handleQuote = async (event) => {
     event.preventDefault();
     await calculateGuide();
-    console.log(testServices);
   };
   return (
-    
     <div className="main-cotizador-servicios div">
       {/* Cotizador */}
       <div className="column-cotizador">
@@ -161,7 +161,9 @@ const Cotizador = () => {
           </h1>
         ) : hasQuoteError ? (
           <div>{testQuoteError}</div>
-        ) : loading ? <Loading></Loading> : (
+        ) : loading ? (
+          <Loading></Loading>
+        ) : (
           testServices.map((servicio) => {
             return (
               <div className="row-servicio-quota">
@@ -183,7 +185,6 @@ const Cotizador = () => {
             );
           })
         )}
-      
       </div>
       {/* Termina Aqui */}
     </div>

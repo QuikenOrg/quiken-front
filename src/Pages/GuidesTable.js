@@ -39,8 +39,6 @@ const GuidesTable = () => {
       const { data } = await axios.post(url, {}, config);
       setAllData(data);
       setGuides(data.data);
-      console.log("runnig this");
-      console.log(loading);
       setLoading(false);
     } catch (error) {
       localStorage.removeItem("authToken");
@@ -129,12 +127,7 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
   // Render the UI for your table
 
   const cancelGuide = async (guideId) => {
-    console.log(guideId);
     const url = `${process.env.REACT_APP_API_URL}/cancel`;
-
-    console.log(`Bearer ${localStorage.getItem("access_token")}`);
-    console.log(localStorage.getItem("email"));
-    console.log(localStorage.getItem("api_key"));
     const responseApi = await fetch(url, {
       method: "POST",
       headers: {
@@ -151,7 +144,6 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
         },
       }),
     });
-    console.log(responseApi);
     const data = await responseApi.json();
     if ((data.stautus = "SUCCESS")) {
       alert("Tu guia fue cancelada exitosamente.");
@@ -188,7 +180,6 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
                 {row.cells.map((cell) => {
                   // COLUMN GUIDE
                   if (cell.column.id === "icon") {
-                    console.log(row);
                     const trackingNumberCell = row.cells.filter(
                       (cell) => cell.column.Header == "Tracking Number"
                     );
@@ -197,7 +188,6 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
                       (cell) => cell.column.Header == "Estado"
                     );
                     const { value } = statusCell[0].column;
-                    console.log(`${process.env.REACT_APP_S3_AWS_LABEL}`)
                     // To DO
                     if (!value)
                       return (
@@ -408,8 +398,8 @@ const getStatusString = (int) => {
       return "Cancelado";
     case 14:
       return "Entregado";
-    case 15 :
-      return "Creado"
+    case 15:
+      return "Creado";
     case 16:
       return "Devolución";
     case 17:
@@ -421,7 +411,7 @@ const getStatusString = (int) => {
     case 20:
       return "En ciudad destino";
     case 21:
-      return "Entre Almacenes";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+      return "Entre Almacenes";
     default:
       return "Cancelada";
   }

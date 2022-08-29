@@ -25,7 +25,6 @@ const Navbar = () => {
       s0.parentNode.insertBefore(s1, s0);
     })();
     Tawk_API.onLoad = function () {
-      console.log("chat loaded");
       Tawk_API.setAttributes(
         {
           name: "Test Name",

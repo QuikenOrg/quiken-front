@@ -105,7 +105,6 @@ const GuideCreator = ({ user }) => {
   //Step One Guide Creation
   const createGuideApi = async () => {
     setShowSpinner(true);
-    console.log("hitting btn");
     const urlApiCreate = `${process.env.REACT_APP_API_URL}/generate`;
     const responseApi = await fetch(urlApiCreate, {
       method: "POST",
@@ -167,7 +166,6 @@ const GuideCreator = ({ user }) => {
     });
 
     const data = await responseApi.json();
-    console.log(data);
     if (data.status === "SUCCESS") {
       alert("Tu guia fue creada exitosamnte.");
       openInNewTab(data.data.fileUrl);
@@ -215,7 +213,6 @@ const GuideCreator = ({ user }) => {
       fullNameSenderError.FullNameSenderShort =
         "El nombre complete tiene que tener más de 5 caracteres";
       isValid = false;
-      console.log("name too short");
     }
 
     if (fullNameSender.trim().match(/[0-9]/)) {
@@ -230,7 +227,6 @@ const GuideCreator = ({ user }) => {
     if (emailIsValid(emailSender) === false) {
       emailSenderError.EmailError = "El email no es valido";
       isValid = false;
-      console.log("The email is not valid");
     }
 
     setEmailSenderError(emailSenderError);
@@ -238,7 +234,6 @@ const GuideCreator = ({ user }) => {
     if (phoneNumberSender.trim().length < 10) {
       phoneNumberSenderError.PhoneTooShort =
         "El télefono tiene que tener minimo 10 digitos";
-      console.log("el telefono es muy corto");
       isValid = false;
     }
 
@@ -292,7 +287,6 @@ const GuideCreator = ({ user }) => {
       fullNameReceiverError.FullNameReceiverShort =
         "El nombre complete tiene que tener más de 5 caracteres";
       isValid = false;
-      console.log("name too short");
     }
 
     if (fullNameReceiver.trim().match(/[0-9]/)) {
@@ -305,7 +299,6 @@ const GuideCreator = ({ user }) => {
     if (emailIsValid(emailReceiver) === false) {
       emailReceiverError.EmailError = "El email no es valido";
       isValid = false;
-      console.log("The email is not valid");
     }
 
     setEmailReceiverError(emailReceiverError);
@@ -313,7 +306,6 @@ const GuideCreator = ({ user }) => {
     if (phoneNumberReceiver.trim().length < 10) {
       phoneNumberReceiverError.PhoneTooShort =
         "El télefono tiene que tener minimo 10 digitos";
-      console.log("el telefono es muy corto");
       isValid = false;
     }
 
@@ -367,7 +359,6 @@ const GuideCreator = ({ user }) => {
     }
 
     if (hasLetters(packageLenght) === false) {
-      console.log("solo numeros");
       packageLenghtError.PackageLenghtLetters =
         "Favor de introducir solo numeros";
       isValid = false;
@@ -380,7 +371,6 @@ const GuideCreator = ({ user }) => {
     }
 
     if (hasLetters(packageWidth) === false) {
-      console.log("solo numeros");
       packageWidthError.PackageWidthLetters =
         "Favor de introducir solo numeros";
       isValid = false;
@@ -393,7 +383,6 @@ const GuideCreator = ({ user }) => {
     }
 
     if (hasLetters(packageHeight) === false) {
-      console.log("solo numeros");
       packageHeightError.PackageHeightLetters =
         "Favor de introducir solo numeros";
       isValid = false;
@@ -406,7 +395,6 @@ const GuideCreator = ({ user }) => {
     }
 
     if (hasLetters(packageWeight) === false) {
-      console.log("solo numeros");
       packageWeightError.PackageWeightLetters =
         "Favor de introducir solo numeros";
       isValid = false;
@@ -426,7 +414,6 @@ const GuideCreator = ({ user }) => {
   // Guide Cost Function
   const calculateNewGuidePrice = () => {
     setShowSpinner(true);
-    console.log("FETCH QUOTE GUIDE");
     const url = `${process.env.REACT_APP_API_URL}/rate`;
     fetch(url, {
       method: "POST",
@@ -471,11 +458,8 @@ const GuideCreator = ({ user }) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         if (data.status === "SUCCESS") {
-          console.log(data.data.services, "DATA DATA SERVICES");
           setServices(data.data.services);
-          console.log("QUOTED GUIDE");
           setLoadingQuoteData(false);
         }
 
@@ -499,7 +483,6 @@ const GuideCreator = ({ user }) => {
       })
       .catch((error) => {
         if (error.status === "ERROR") {
-          console.log("getting Error", error.description);
           setErrorQuote(error.description);
           setShowSpinner(false);
         }
@@ -516,9 +499,7 @@ const GuideCreator = ({ user }) => {
 
   const handleSelectGuide = (servicio) => {
     setSelectedService(servicio.code);
-    console.log(servicio.code);
     setguideCost(servicio.totalPrice);
-    console.log("selected guide");
   };
 
   if (showSpinner)
@@ -630,7 +611,7 @@ const GuideCreator = ({ user }) => {
               type="text"
               placeholder="Referencias"
             />
-          </LabelInputWrapper>  
+          </LabelInputWrapper>
 
           <LabelInputWrapper>
             <LabelStyled>Código Postal</LabelStyled>

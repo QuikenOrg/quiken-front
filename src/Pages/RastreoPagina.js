@@ -47,8 +47,6 @@ const RasteroPagina = () => {
       trackingNumbers: [guideNumber],
     };
 
-    console.log(body);
-
     const url = `${process.env.REACT_APP_API_URL}/track`;
     const response = await fetch(url, {
       method: "POST",
@@ -61,25 +59,19 @@ const RasteroPagina = () => {
     });
 
     const data = await response.json();
-    console.log(data);
     try {
-      console.log(data);
       setGuideInformation(data);
       setShipmentHistory(data.data.shipments[0].shipmentHistory);
     } catch {
-      console.log(data.description === "No shipments found");
-
       if (!guideNumber === true) {
         setError("Por favor ingresa tu codigo de rastreo.");
         setHasError(true);
       } else if (data.description === "No shipments found") {
-        console.log("this applies 1");
         setError(
           "Tu numéro de rastreo no fue encontrado. Favor de ingresarlo nuevamente."
         );
         setHasError(true);
       } else {
-        console.log("this applies 2");
         // setError('Tu numéro de rastreo no fue encontrado. Favor de ingresarlo nuevamente.')
         setHasError(true);
       }

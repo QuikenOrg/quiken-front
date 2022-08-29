@@ -20,7 +20,6 @@ const RecargarSaldoPagina = () => {
   let username = localStorage.getItem("email");
 
   const handleProductClick = async (cart, id) => {
-    console.log(cart);
     if (cart.length < 5) {
       const selectedProduct = await items.find((product) => product.id === id);
       cart.push(selectedProduct);
@@ -36,7 +35,6 @@ const RecargarSaldoPagina = () => {
 
   const requestGetPoints = async (username) => {
     const url = "api/user/getPoints/";
-    console.log(username, "RUNNING THIS");
 
     const response = await fetch(url, {
       method: "POST",
@@ -49,8 +47,6 @@ const RecargarSaldoPagina = () => {
     });
 
     const data = await response.json();
-    console.log(data);
-    console.log(response.status, "STATUS");
     if (response.status === 200) {
       setUserPoints(data.data[0].points);
     }
@@ -58,8 +54,6 @@ const RecargarSaldoPagina = () => {
 
   const requestRecharge = async (username, amount) => {
     const url = "api/user/updatePoints";
-    console.log(username, "RUNNING THIS");
-    console.log("AMOUNT", amount);
 
     const response = await fetch(url, {
       method: "PUT",
@@ -73,10 +67,7 @@ const RecargarSaldoPagina = () => {
     });
 
     const data = await response.json();
-    console.log(data);
-    console.log(response.status, "STATUS");
     if (response.status === 200) {
-      console.log(data);
       alert("Tu recarga fue exitosa. Agradecemos tu compra");
       resetState();
     }

@@ -177,9 +177,7 @@ const CreateGuidePagina = () => {
         },
       }),
     });
-    console.log(responseApi);
     const data = await responseApi.json();
-    console.log("DATA API REQUEST", data);
     setApiGuide(data);
     createGuideQuiken(data);
   };
@@ -187,9 +185,7 @@ const CreateGuidePagina = () => {
   //Step Two Guide Creation
   const createGuideQuiken = async (apiGuide) => {
     let guideStatus = "Activa";
-    console.log(apiGuide);
     let trackingNumber = apiGuide.data.trackingNumber;
-    console.log(trackingNumber, "THIS IS TRACKIGN NUMBER");
     let fileUrl = apiGuide.data.fileUrl;
     setHrefFile(fileUrl);
 
@@ -202,7 +198,6 @@ const CreateGuidePagina = () => {
 
     try {
       let currentUser = localStorage.getItem("email");
-      console.log(currentUser);
       const { data } = await axios.post(
         "/api/user/createguide",
         {
@@ -237,7 +232,6 @@ const CreateGuidePagina = () => {
         },
         config
       );
-      console.log(data, "THIS IS DATA");
       setSuccess(true);
       alert("Tu guida fue creada exitosamente.");
       // history.push("/userdashboard");
@@ -286,9 +280,7 @@ const CreateGuidePagina = () => {
       }),
     });
     const data = await response.json();
-    console.log(data);
     if (data.status === "SUCCESS") {
-      console.log(data.data.services, "DATA DATA SERVICES");
       setServices(data.data.services);
       setLoadingQuoteData(false);
     } else if (data.status === "ERROR") {
@@ -299,7 +291,6 @@ const CreateGuidePagina = () => {
 
   const handleSelectGuide = (servicio) => {
     setSelectedService(servicio.code);
-    console.log(servicio.code);
     setguideCost(servicio.totalPrice);
   };
 
@@ -340,7 +331,6 @@ const CreateGuidePagina = () => {
       fullNameSenderError.FullNameSenderShort =
         "El nombre complete tiene que tener más de 5 caracteres";
       isValid = false;
-      console.log("name too short");
     }
 
     if (fullNameSender.trim().match(/[0-9]/)) {
@@ -355,7 +345,6 @@ const CreateGuidePagina = () => {
     if (emailIsValid(emailSender) === false) {
       emailSenderError.EmailError = "El email no es valido";
       isValid = false;
-      console.log("The email is not valid");
     }
 
     setEmailSenderError(emailSenderError);
@@ -363,7 +352,6 @@ const CreateGuidePagina = () => {
     if (phoneNumberSender.trim().length < 10) {
       phoneNumberSenderError.PhoneTooShort =
         "El télefono tiene que tener minimo 10 digitos";
-      console.log("el telefono es muy corto");
       isValid = false;
     }
 
@@ -417,7 +405,6 @@ const CreateGuidePagina = () => {
       fullNameReceiverError.FullNameReceiverShort =
         "El nombre complete tiene que tener más de 5 caracteres";
       isValid = false;
-      console.log("name too short");
     }
 
     if (fullNameReceiver.trim().match(/[0-9]/)) {
@@ -430,7 +417,6 @@ const CreateGuidePagina = () => {
     if (emailIsValid(emailReceiver) === false) {
       emailReceiverError.EmailError = "El email no es valido";
       isValid = false;
-      console.log("The email is not valid");
     }
 
     setEmailReceiverError(emailReceiverError);
@@ -438,7 +424,6 @@ const CreateGuidePagina = () => {
     if (phoneNumberReceiver.trim().length < 10) {
       phoneNumberReceiverError.PhoneTooShort =
         "El télefono tiene que tener minimo 10 digitos";
-      console.log("el telefono es muy corto");
       isValid = false;
     }
 
@@ -492,7 +477,6 @@ const CreateGuidePagina = () => {
     }
 
     if (hasLetters(packageLenght) === false) {
-      console.log("solo numeros");
       packageLenghtError.PackageLenghtLetters =
         "Favor de introducir solo numeros";
       isValid = false;
@@ -505,7 +489,6 @@ const CreateGuidePagina = () => {
     }
 
     if (hasLetters(packageWidth) === false) {
-      console.log("solo numeros");
       packageWidthError.PackageWidthLetters =
         "Favor de introducir solo numeros";
       isValid = false;
@@ -518,7 +501,6 @@ const CreateGuidePagina = () => {
     }
 
     if (hasLetters(packageHeight) === false) {
-      console.log("solo numeros");
       packageHeightError.PackageHeightLetters =
         "Favor de introducir solo numeros";
       isValid = false;
@@ -531,7 +513,6 @@ const CreateGuidePagina = () => {
     }
 
     if (hasLetters(packageWeight) === false) {
-      console.log("solo numeros");
       packageWeightError.PackageWeightLetters =
         "Favor de introducir solo numeros";
       isValid = false;
@@ -562,8 +543,6 @@ const CreateGuidePagina = () => {
 
   const payWithPoints = async (username, guideCost) => {
     const url = "api/user/payWithPoints";
-    console.log(username, "RUNNING THIS");
-    console.log("GUIDE COST", guideCost);
 
     const response = await fetch(url, {
       method: "PUT",
@@ -577,8 +556,6 @@ const CreateGuidePagina = () => {
     });
 
     const data = await response.json();
-    console.log(data);
-    console.log(response.status, "STATUS");
     if (response.status === 200) {
       alert("Tu pago con puntos fue exitoso. Agradecemos tu compra");
       setNeedsReset(true);
@@ -1243,7 +1220,6 @@ const MetodoDePagoSelectorDiv = (props) => {
           className="payment-method-selector"
           onChange={(event) => {
             setPaymentMethod(event.target.value);
-            console.log(event.target.value);
           }}
         >
           <option value={null}>Escoje Uno</option>

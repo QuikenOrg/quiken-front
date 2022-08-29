@@ -36,14 +36,12 @@ const NewDashboard = () => {
 
   useEffect(() => {
     setLoading(true);
-    console.log(loading);
     const getPrivateData = async () => {
       const result = await fetchPrivateData();
       return result;
     };
     const getDashboard = async () => {
       const result = await fetchDashboard();
-      console.log(result);
       return result;
     };
     Promise.all([getPrivateData(), getDashboard()])

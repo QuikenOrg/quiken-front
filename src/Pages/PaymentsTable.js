@@ -36,10 +36,7 @@ const PaymentsTable = () => {
     try {
       //AQUI VAN LAS RUTAS DE LAS GUIAS
       const { data } = await axios.post(url, {}, config);
-      console.log(data.data);
       setAllData(data.data.data);
-
-      console.log("DATA");
       setPayments(data.data.data);
       setLoading(false);
     } catch (error) {
@@ -119,9 +116,7 @@ function Table({
       }),
     });
     const data = await response.json();
-    console.log(data);
     if (data.status === "SUCCESS") {
-      console.log("pagos actualizados");
     } else if (data.status === "ERROR") {
     }
   };
@@ -324,7 +319,7 @@ const PaginationBtn = styled.button`
 
 const getStatusString = (status) => {
   switch (status) {
-    case 'paid':
+    case "paid":
       return "Pagado";
     default:
       return "Generado";
@@ -333,11 +328,11 @@ const getStatusString = (status) => {
 
 const styleButton = (status) => {
   switch (status) {
-    case 'paid':
+    case "paid":
       return `
       background-color: green;
     `;
-    case 'cancel':
+    case "cancel":
       return `
       background-color: lightblue;
     `;

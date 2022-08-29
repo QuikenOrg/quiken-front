@@ -70,7 +70,6 @@ export const UserContextProvider = ({ children }) => {
   const loginHandler = async (e) => {
     e.preventDefault();
 
-    console.log("loginHandler");
     setLoading(true);
     const config = {
       header: {
@@ -87,7 +86,6 @@ export const UserContextProvider = ({ children }) => {
         formData,
         config
       );
-      console.log(data);
       await localStorage.setItem("access_token", data.data.access_token);
       await localStorage.setItem("api_key", data.data.user.api_key);
       await localStorage.setItem("email", data.data.user.email);
@@ -118,10 +116,8 @@ export const UserContextProvider = ({ children }) => {
         {},
         config
       );
-      console.log("hasta aqui bien");
       await setUser(data.user);
       await setUserPoints(data.user.balance);
-      console.log("this works");
       return true;
     } catch (error) {
       await localStorage.removeItem("authToken");
@@ -145,12 +141,10 @@ export const UserContextProvider = ({ children }) => {
     try {
       //AQUI VAN LAS RUTAS DE LAS GUIAS
       const { data } = await axios.post(url, {}, config);
-      console.log("Fetch Dashboar Sucess");
       await setDashboardData(data);
       await setError(false);
       return true;
     } catch (error) {
-      console.log("Fetch Dashboar Error");
       await localStorage.removeItem("authToken");
       await localStorage.removeItem("email");
       await localStorage.removeItem("username");
