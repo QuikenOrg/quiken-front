@@ -398,8 +398,8 @@ const getStatusString = (int) => {
       return "Cancelado";
     case 14:
       return "Entregado";
-    case 15:
-      return "Creado";
+    case 15 :
+      return "Creado"
     case 16:
       return "Devolución";
     case 17:
@@ -411,7 +411,7 @@ const getStatusString = (int) => {
     case 20:
       return "En ciudad destino";
     case 21:
-      return "Entre Almacenes";
+      return "Entre Almacenes";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
     default:
       return "Cancelada";
   }
