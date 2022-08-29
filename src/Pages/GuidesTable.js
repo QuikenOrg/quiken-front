@@ -35,6 +35,7 @@ const GuidesTable = () => {
     };
 
     try {
+      console.log(url);
       //AQUI VAN LAS RUTAS DE LAS GUIAS
       const { data } = await axios.post(url, {}, config);
       setAllData(data);
