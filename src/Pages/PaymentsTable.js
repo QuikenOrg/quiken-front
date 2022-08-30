@@ -189,7 +189,6 @@ function Table({
                             cursor: "pointer",
                           }}
                           onClick={() => {
-                            console.log(needsReload);
                             confirmSinglePayment(row.original.order_id);
                             setNeedsReload(!needsReload);
                           }}

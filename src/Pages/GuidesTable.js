@@ -35,14 +35,12 @@ const GuidesTable = () => {
     };
 
     try {
-      console.log(url);
       //AQUI VAN LAS RUTAS DE LAS GUIAS
       const { data } = await axios.post(url, {}, config);
       setAllData(data);
       setGuides(data.data);
       setLoading(false);
     } catch (error) {
-      console.log(error);
       localStorage.removeItem("authToken");
       localStorage.removeItem("email");
       localStorage.removeItem("username");
@@ -123,7 +121,6 @@ function Table({ columns, data, allData, fetchGuides, setReload, reload }) {
     });
 
   useEffect(() => {
-    console.log(allData);
   }, [allData, reload]);
 
   // Render the UI for your table
