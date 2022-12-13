@@ -10,7 +10,6 @@ const DashboardMonitor = () => {
   const history = useHistory();
   const [date, setDate] = useState("");
   const [loadingTwo, setLoadingTwo] = useState(true);
-
   const {
     user,
     email,
@@ -21,6 +20,7 @@ const DashboardMonitor = () => {
     dashboardData,
     fetchPrivateData,
   } = useContext(UserContext);
+  
 
   useEffect(async () => {
     setLoadingTwo(true);
@@ -70,7 +70,7 @@ const DashboardMonitor = () => {
             <Card>
               <label className="label-paquete-info">Costo Promedio</label>
               <h1 className="featured-number">
-                ${parseInt(dashboardData.average_cost)}.00
+                ${isNaN(dashboardData.averange_cost) ? 0 : parseInt(dashboardData.average_cost)}.00
               </h1>
               <Link
                 className="recargar-saldo-link"
@@ -85,7 +85,7 @@ const DashboardMonitor = () => {
             <Card>
               <label className="label-paquete-info">Peso Promedio</label>
               <h1 className="featured-number">
-                {dashboardData.average_weight.toFixed(2)} Kg
+                {isNaN(dashboardData.average_weight) ? 0 : dashboardData.average_weight} Kg
               </h1>
               <Link
                 className="recargar-saldo-link"

@@ -44,10 +44,24 @@ const GuidesChart = ({ dashboardData, loading }) => {
     ],
   };
 
+
   function setInitialData() {
+    const emptyShipments = [
+      {Mes: "December", total: 0},
+      {Mes: "February", total:0},
+      {Mes: "January", total:0},
+      {Mes: "June", total: 0},
+      {Mes: "March", total:0},
+      {Mes: "May", total: 0},
+      {Mes: "November", total: 0},
+      {Mes: "October", total: 0},
+      {Mes: "September", total:0},
+    ];
     const year = yearsShipments[1];
     let newData = Array(12).fill(0);
-    dashboardData.shipments[year].forEach((entry) => {
+    let dashboadShipmets = dashboardData.shipments[year].length == 0 ?
+      emptyShipments : dashboardData.shipments[year];
+    dashboadShipmets.forEach((entry) => {
       switch (entry.Mes) {
         case "January":
           newData[0] = entry.total;
@@ -86,7 +100,8 @@ const GuidesChart = ({ dashboardData, loading }) => {
           newData[11] = entry.total;
           return;
       }
-    });
+    }
+    );
     return newData;
   }
 
@@ -139,7 +154,6 @@ const GuidesChart = ({ dashboardData, loading }) => {
 
     if (type == "Recargas") {
       if (dashboardData.refils.length === 0) {
-        console.log(newData);
       } else {
         dashboardData.refils[year].forEach((entry) => {
           switch (entry.Mes) {
@@ -206,11 +220,6 @@ const GuidesChart = ({ dashboardData, loading }) => {
       data={barChartData}
     />
   );
-
-  // useEffect(() => {
-  //   setLoading(false)
-  //   console.log("runnig this")
-  // }, [loading]);
 
   return (
     <ChartWrapper>

@@ -10,8 +10,13 @@ import FloatingWhatsApp from "../components/Others/WhatsappBtn";
 import { Helmet } from "react-helmet";
 import { ClipLoader } from "react-spinners";
 import { Loading } from "../utilities/Loading";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const RasteroPagina = () => {
+  const notify = () => toast.error(
+    "Estimado cliente,  Debido a la alta demanda de esta temporada nuestros tiempos de entrega pudieran verse afectados, lamentamos la situación y los inconvenientes que esto pueda causarte");
   const history = useHistory();
 
   const [needsRerender, setNeedsRerender] = useState(true);
@@ -84,6 +89,7 @@ const RasteroPagina = () => {
     setHasError(false);
     setError("");
     getGuideInfo();
+    notify();
   }, [needsRerender]);
 
   return (
@@ -107,6 +113,22 @@ const RasteroPagina = () => {
         ) : (
           <div>
             <div className="div-wrapper-rastero">
+              <div>
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+                />
+                {/* Same as */}
+                <ToastContainer />
+              </div>
               <h1 className="request-header">Rastreo y Seguimiento</h1>
               <div>
                 <div className="div-tracking">

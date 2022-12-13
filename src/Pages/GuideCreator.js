@@ -558,19 +558,6 @@ const GuideCreator = ({ user }) => {
           </LabelInputWrapper>
 
           <LabelInputWrapper>
-            <LabelStyled>Colonia</LabelStyled>
-            <InputStyled
-              value={colonySender}
-              onChange={(event) => setColonySender(event.target.value)}
-              type="text"
-              placeholder="Colonia"
-            />
-            {Object.keys(colonySenderError).map((key) => {
-              return <div>{colonySenderError[key]}</div>;
-            })}
-          </LabelInputWrapper>
-
-          <LabelInputWrapper>
             <LabelStyled>Calle</LabelStyled>
             <InputStyled
               value={streetAndNumberSender}
@@ -601,6 +588,19 @@ const GuideCreator = ({ user }) => {
               type="text"
               placeholder="Número Interior"
             />
+          </LabelInputWrapper>
+
+          <LabelInputWrapper>
+            <LabelStyled>Colonia</LabelStyled>
+            <InputStyled
+              value={colonySender}
+              onChange={(event) => setColonySender(event.target.value)}
+              type="text"
+              placeholder="Colonia"
+            />
+            {Object.keys(colonySenderError).map((key) => {
+              return <div>{colonySenderError[key]}</div>;
+            })}
           </LabelInputWrapper>
 
           <LabelInputWrapper>
@@ -725,19 +725,6 @@ const GuideCreator = ({ user }) => {
           </LabelInputWrapper>
 
           <LabelInputWrapper>
-            <LabelStyled>Colonia</LabelStyled>
-            <InputStyled
-              value={colonyReceiver}
-              onChange={(event) => setColonyReceiver(event.target.value)}
-              type="text"
-              placeholder="Colonia"
-            />
-            {Object.keys(colonyReceiverError).map((key) => {
-              return <div>{colonyReceiverError[key]}</div>;
-            })}
-          </LabelInputWrapper>
-
-          <LabelInputWrapper>
             <LabelStyled>Calle</LabelStyled>
             <InputStyled
               value={streetAndNumberReceiver}
@@ -774,6 +761,19 @@ const GuideCreator = ({ user }) => {
               type="text"
               placeholder="Número Interior"
             />
+          </LabelInputWrapper>
+
+          <LabelInputWrapper>
+            <LabelStyled>Colonia</LabelStyled>
+            <InputStyled
+              value={colonyReceiver}
+              onChange={(event) => setColonyReceiver(event.target.value)}
+              type="text"
+              placeholder="Colonia"
+            />
+            {Object.keys(colonyReceiverError).map((key) => {
+              return <div>{colonyReceiverError[key]}</div>;
+            })}
           </LabelInputWrapper>
 
           <LabelInputWrapper>

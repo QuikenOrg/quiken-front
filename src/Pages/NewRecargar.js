@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar/Sidebar";
@@ -10,7 +10,8 @@ import MasterCard from "../assets/Recarga/master_card.png";
 import Visa from "../assets/Recarga/Visa_Inc._logo.svg.png";
 import Oxxo from "../assets/Recarga/oxxo.svg";
 import Ecart from "../assets/Recarga/logo-negro.svg";
-import { UserContext } from "../components/Context/UserContext";
+import { UserContext } from "../components/Context/UserContext"
+import { Loading } from "../utilities/Loading";;
 
 const NewGuias = () => {
   const [error, setError] = useState(true);
@@ -18,12 +19,18 @@ const NewGuias = () => {
   const [haveLink, setHaveLink] = useState(false);
   const [paymentLink, setPaymentLink] = useState("");
   const [buttonEnabled, SetButtonEnabled] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(true);
 
   const PaymentButton = useRef();
 
   const { openInNewTab } = useContext(UserContext);
 
+  useEffect(() => {
+    setShowSpinner(false);
+  }, []);
+
   const createPayment = async () => {
+    setShowSpinner(true);
     const url = `${process.env.REACT_APP_API_URL}/user/pay`;
     const response = await fetch(url, {
       method: "POST",
@@ -37,10 +44,12 @@ const NewGuias = () => {
     });
     const data = await response.json();
     if (data.status === "SUCCESS") {
+      setShowSpinner(false);
       setHaveLink(true);
       setPaymentLink(data.pay_link);
       openInNewTab(data.pay_link);
     } else if (data.status === "ERROR") {
+      setShowSpinner(false);
       console.log(data.description);
     }
   };
@@ -97,6 +106,15 @@ const NewGuias = () => {
         <PaymentLink href={paymentLink}>{paymentLink}</PaymentLink>
       </PaymentSection>
     );
+
+    console.log(showSpinner);
+
+    if (showSpinner) {
+      return (
+          <Loading />
+      );
+    }
+    
 
   return (
     <PageWrapper>
