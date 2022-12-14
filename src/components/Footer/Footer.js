@@ -9,7 +9,7 @@ import phoneIcon from "../../assets/Inicio/Iconos de Contacto/Quiken_Telefono-49
 import mailIcon from "../../assets/Inicio/Iconos de Contacto/Quiken_Correo-50.svg";
 import styled from "styled-components";
 import Privacidad from "../../pdf/privacidad.pdf";
-import Terminos from "../../pdf/terminos.pdf";
+import Terminos from "../../pdf/terminos_quiken.pdf";
 
 const Footer = () => {
   return (
