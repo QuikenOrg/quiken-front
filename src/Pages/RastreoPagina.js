@@ -113,14 +113,7 @@ const RasteroPagina = () => {
         ) : (
           <div>
             <div className="div-wrapper-rastero">
-              
-              <h1 className="request-header">Rastreo y Seguimiento</h1>
               <div>
-                <div className="div-tracking">
-                  <p className="rastreo-blue-letters">
-                    Ingresa tu número de rastreo:
-                  </p>
-                  <div>
               <ToastContainer
                 position="top-right"
                 autoClose={5000}
@@ -133,8 +126,15 @@ const RasteroPagina = () => {
                 pauseOnHover
                 theme="light"
                 />
+                {/* Same as */}
                 <ToastContainer />
               </div>
+              <h1 className="request-header">Rastreo y Seguimiento</h1>
+              <div>
+                <div className="div-tracking">
+                  <p className="rastreo-blue-letters">
+                    Ingresa tu número de rastreo:
+                  </p>
                   <div className="rastreo-input-div">
                     <input
                       id="input-rastreo"
