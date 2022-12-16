@@ -16,7 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const RasteroPagina = () => {
   const notify = () => toast.error(
-    "Estimado cliente,  Debido a la alta demanda de esta temporada nuestros tiempos de entrega pudieran verse afectados, lamentamos la situación y los inconvenientes que esto pueda causarte");
+    "Estimado cliente, debido a la alta demanda de esta temporada, se incremento de manera importante la cantidad de envíos, nuestros tiempos de entrega pudieran verse afectados, lamentamos la situación y los inconvenientes que esto pueda causar.");
   const history = useHistory();
 
   const [needsRerender, setNeedsRerender] = useState(true);
