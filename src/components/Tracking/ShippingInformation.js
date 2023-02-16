@@ -30,6 +30,7 @@ const ShippingInformation = (props) => {
               <th className="table-header-tracking">Estatus</th>
               <th className="table-header-tracking">Descripción</th>
               <th className="table-header-tracking">Fecha</th>
+              <th className="table-header-tracking">Evidencias</th>
             </tr>
           </thead>
           <tbody className="tbody-tracking-table">
@@ -39,6 +40,9 @@ const ShippingInformation = (props) => {
                   <td className="table-data-tracking">{step.status}</td>
                   <td className="table-data-tracking">{step.description}</td>
                   <td className="table-data-tracking">{step.date}</td>
+                  <td className="table-data-tracking">{step.files.map((file) => {
+                    return (<img src={file} alt="Evidence" width="75" height="125"></img>)
+                  })}</td>
                 </tr>
               );
             })}

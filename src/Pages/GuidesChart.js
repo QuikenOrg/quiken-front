@@ -57,7 +57,7 @@ const GuidesChart = ({ dashboardData, loading }) => {
       {Mes: "October", total: 0},
       {Mes: "September", total:0},
     ];
-    const year = yearsShipments[1];
+    const year = yearsShipments[0];
     let newData = Array(12).fill(0);
     let dashboadShipmets = dashboardData.shipments[year].length == 0 ?
       emptyShipments : dashboardData.shipments[year];

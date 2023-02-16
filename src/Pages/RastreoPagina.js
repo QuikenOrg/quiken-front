@@ -182,14 +182,26 @@ const RasteroPagina = () => {
                       <table className="tracking-table">
                         <thead>
                           <tr>
-                            <th className="table-header-tracking">Estatus</th>
+                            <th className="table-header-tracking">
+                              Estatus
+                            </th>
                             <th className="table-header-tracking">
                               Descripción
                             </th>
-                            <th className="table-header-tracking">Fecha</th>
+                            <th className="table-header-tracking">
+                              Fecha
+                            </th>
+                            <th className="table-header-tracking">
+                              Evidencia
+                            </th>
                           </tr>
                         </thead>
                         <tbody className="tbody-tracking-table">
+                          <tr>
+                            <td className="table-data-tracking">-</td>
+                            <td className="table-data-tracking">-</td>
+                            <td className="table-data-tracking">-</td>
+                          </tr>
                           <tr>
                             <td className="table-data-tracking">-</td>
                             <td className="table-data-tracking">-</td>
