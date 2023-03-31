@@ -41,7 +41,7 @@ const ShippingInformation = (props) => {
                   <td className="table-data-tracking">{step.description}</td>
                   <td className="table-data-tracking">{step.date}</td>
                   <td className="table-data-tracking">{step.files.map((file) => {
-                    return (<img src={file} alt="Evidence" width="75" height="125"></img>)
+                    return (<a href={file}><img src={file} alt="Evidence" width="75" height="125"></img></a>)
                   })}</td>
                 </tr>
               );
