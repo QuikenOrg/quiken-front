@@ -37,7 +37,7 @@ const ShippingInformation = (props) => {
             {shipmentHistory.map((step) => {
               return (
                 <tr>
-                  <td className="table-data-tracking">{step.status}</td>
+                  <td className="table-data-tracking-status">{step.status}</td>
                   <td className="table-data-tracking">{step.description}</td>
                   <td className="table-data-tracking">{step.date}</td>
                   <td className="table-data-tracking">{step.files.map((file) => {
