@@ -88,6 +88,14 @@
   color: $quikenBlack;
   font-weight: 500;
 }
+.table-data-tracking-status {
+  text-align: left;
+  font-family: $quikenFont;
+  font-size: 12px;
+  color: $quikenBlack;
+  //font-weight: 500;
+  font-weight: bold;
+}
 
 .tracking-table {
   margin-top: 10px;
