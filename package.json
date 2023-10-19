@@ -43,6 +43,9 @@
   "engines": {
     "node": "16.17.0"
   },
+  "optionalDependencies": {
+    "babel-loader": "8.1.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
