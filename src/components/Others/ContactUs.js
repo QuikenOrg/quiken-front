@@ -8,10 +8,10 @@ const ContactUs = () => {
 
     emailjs
       .sendForm(
-        "service_e3d4d9r",
-        "template_hriolwe",
+        "service_pe3avrb",
+        "template_ge5z9tm",
         e.target,
-        "user_gecQCH4IIGePzUzhzJ47E"
+        "Aug5WajTRTBJCOOM4"
       )
       .then(
         (result) => {
