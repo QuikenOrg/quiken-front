@@ -23,12 +23,11 @@ import NewCotizar from "./Pages/NewCotizar";
 import NewCreateGuide from "./Pages/NewCreateGuide";
 import MyPayments from "./Pages/MyPayments";
 import { UserContextProvider } from "./components/Context/UserContext";
-import { HelmetProvider } from "react-helmet-async";
+import { Helmet } from 'react-helmet';
 
 
 function App() {
   return (
-    <HelmetProvider>
     <UserContextProvider>
       <Router>
         <div>
@@ -131,7 +130,6 @@ function App() {
         </div>
       </Router>
     </UserContextProvider>
-    </HelmetProvider>
   );
 }
 
