@@ -52,7 +52,7 @@ const DashboardMonitor = () => {
             <Card>
               <label className="label-paquete-info">Saldo disponible</label>
               <h1 className="featured-number">$ {userPoints}</h1>
-              <Link className="recargar-saldo-link" to="/newrecargar">
+              <Link className="recargar-saldo-link" to="/recargaContact">
                 Recagar Saldo {">"}
               </Link>
             </Card>
@@ -62,7 +62,7 @@ const DashboardMonitor = () => {
               <h1 className="featured-number">
                 {parseInt(dashboardData.total_refils)}
               </h1>
-              <Link className="recargar-saldo-link" to="/newrecargar">
+              <Link className="recargar-saldo-link" to="/recargaContact">
                 Recagar Saldo {">"}
               </Link>
             </Card>
@@ -76,7 +76,7 @@ const DashboardMonitor = () => {
                 className="recargar-saldo-link"
                 disable
                 style={{ color: "white" }}
-                to="/newrecargar"
+                to="/recargaContact"
               >
                 Recagar Saldo {">"}
               </Link>
@@ -91,7 +91,7 @@ const DashboardMonitor = () => {
                 className="recargar-saldo-link"
                 disable
                 style={{ color: "white" }}
-                to="/newrecargar"
+                to="/recargaContact"
               >
                 Recagar Saldo {">"}
               </Link>
