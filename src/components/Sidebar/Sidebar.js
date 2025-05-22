@@ -36,7 +36,7 @@ const Sidebar = () => {
         <Link className="sidebar-link" to="/mypayments">
           Mis Pagos
         </Link>
-        <Link className="sidebar-link" to="/newrecargar">
+        <Link className="sidebar-link" to="/recargaContact">
           Recargar
         </Link>
         <LogoutButton

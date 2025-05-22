@@ -1180,7 +1180,7 @@ const PaymentDiv = (props) => {
         <div className="buttons-holder">
           {isPointsEnough ? (
             <div>
-              <Link to="/recargarsaldo">
+              <Link to="/recargaContact">
                 <button>Recargar Saldo</button>
               </Link>
               <button
@@ -1196,7 +1196,7 @@ const PaymentDiv = (props) => {
                 No cuentas con suficientes puntos. Favor de seleccionar otro
                 metodo de pago o recargar puntos.
               </div>
-              <Link to="/recargarsaldo">
+              <Link to="/recargaContact">
                 <button>Recargar Saldo</button>
               </Link>
             </div>
