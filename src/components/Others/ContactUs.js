@@ -8,10 +8,10 @@ const ContactUs = () => {
 
     emailjs
       .sendForm(
-        "service_pe3avrb",
-        "template_ge5z9tm",
-        e.target,
-        "Aug5WajTRTBJCOOM4"
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      process.env.REACT_APP_EMAILJS_TEMPLATE_CONTACT,
+      e.target,
+      process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       )
       .then(
         (result) => {
