@@ -27,16 +27,16 @@ const Sidebar = () => {
         <Link className="sidebar-link" to="/newcotizar">
           Cotizar
         </Link>
-        <Link className="sidebar-link" to="/newcreateguide">
+        {/* <Link className="sidebar-link" to="/newcreateguide">
           Generar Guia
-        </Link>
+        </Link> */}
         <Link className="sidebar-link" to="/newmyguides">
           Mis Guias
         </Link>
         <Link className="sidebar-link" to="/mypayments">
           Mis Pagos
         </Link>
-        <Link className="sidebar-link" to="/newrecargar">
+        <Link className="sidebar-link" to="/recargaContact">
           Recargar
         </Link>
         <LogoutButton
