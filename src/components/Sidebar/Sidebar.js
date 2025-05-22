@@ -27,9 +27,9 @@ const Sidebar = () => {
         <Link className="sidebar-link" to="/newcotizar">
           Cotizar
         </Link>
-        <Link className="sidebar-link" to="/newcreateguide">
+        {/* <Link className="sidebar-link" to="/newcreateguide">
           Generar Guia
-        </Link>
+        </Link> */}
         <Link className="sidebar-link" to="/newmyguides">
           Mis Guias
         </Link>

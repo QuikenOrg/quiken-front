@@ -18,9 +18,9 @@ const RecargaContact = () => {
             Si deseas agregar saldo a tu cuenta, por favor comunícate con nuestro equipo de soporte:
             <ul>
               <br />
-              <li>💬 WhatsApp: 8119770639</li>
+              <li>💬 WhatsApp: +52 811 661 8597</li>
               <br />
-              <li>✉️ Correo: ventas@quiken.mx</li>
+              <li>✉️ Correo: hola@quiken.mx </li>
             </ul>
           </div>
         </div>
