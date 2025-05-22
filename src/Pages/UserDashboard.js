@@ -342,7 +342,7 @@ const UserDashboard = () => {
             <div className="card-dashboard">
               <label className="label-paquete-info">Saldo disponible</label>
               <h1 className="featured-number">$ {userPoints}.00</h1>
-              <Link className="recargar-saldo-link" to="/recargaContact">
+              <Link className="recargar-saldo-link" to="/recargarsaldo">
                 Recagar Saldo {">"}
               </Link>
             </div>
@@ -359,7 +359,7 @@ const UserDashboard = () => {
             <div className="card-dashboard">
               <label className="label-paquete-info">Total Recargas</label>
               <h1 className="featured-number">$ {totalRecargas}.00</h1>
-              <Link className="recargar-saldo-link" to="/recargaContact">
+              <Link className="recargar-saldo-link" to="/recargarsaldo">
                 Recagar Saldo {">"}
               </Link>
             </div>
