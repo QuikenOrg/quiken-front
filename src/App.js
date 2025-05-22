@@ -23,6 +23,7 @@ import NewCotizar from "./Pages/NewCotizar";
 import NewCreateGuide from "./Pages/NewCreateGuide";
 import MyPayments from "./Pages/MyPayments";
 import { UserContextProvider } from "./components/Context/UserContext";
+import RecargaContact from "./Pages/RecargaContact";
 
 function App() {
   return (
@@ -123,6 +124,12 @@ function App() {
               exact
               path="/recargarsaldo"
               component={RecargarSaldoPagina}
+            ></PrivateRoute>
+
+            <PrivateRoute
+              exact
+              path="/recargaContact"
+              component={RecargaContact}
             ></PrivateRoute>
           </Switch>
         </div>
