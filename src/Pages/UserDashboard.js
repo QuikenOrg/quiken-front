@@ -373,7 +373,7 @@ const UserDashboard = () => {
           </div>
 
           <div className="card-row-wrapper">
-            <Link to="/recargarsaldo">
+            <Link to="/recargaContact">
               <button className="btn-contact-form ">Recargar Saldo</button>
             </Link>
             <Link to="/createguide">

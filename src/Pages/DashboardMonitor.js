@@ -76,7 +76,7 @@ const DashboardMonitor = () => {
                 className="recargar-saldo-link"
                 disable
                 style={{ color: "white" }}
-                to="/newrecargar"
+                to="/recargaContact"
               >
                 Recagar Saldo {">"}
               </Link>
@@ -91,7 +91,7 @@ const DashboardMonitor = () => {
                 className="recargar-saldo-link"
                 disable
                 style={{ color: "white" }}
-                to="/newrecargar"
+                to="/recargaContact"
               >
                 Recagar Saldo {">"}
               </Link>
