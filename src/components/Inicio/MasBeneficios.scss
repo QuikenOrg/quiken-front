@@ -17,7 +17,8 @@
 .row-wrapper {
   display: flex;
   flex-direction: row;
-  padding: 20px 70px 20px 70px;
+  padding: 20px 70px;
+  gap: 40px;
   @include media("<tablet") {
     flex-direction: column;
   }
