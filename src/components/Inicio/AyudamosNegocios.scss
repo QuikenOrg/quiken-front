@@ -61,7 +61,7 @@ $assetPath: "/assets/Inicio";
   height: 60px;
   width: auto;
   object-fit: contain;
-  margin: 0 20px; // 👈 espaciado entre imágenes
+  margin: 0 20px;
   @include media("<tablet") {
     margin: 10px 0;
   }

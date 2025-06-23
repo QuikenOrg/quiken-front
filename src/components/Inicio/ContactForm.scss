@@ -27,7 +27,6 @@
   @include media("<phone") {
     width: 100vw;
     padding: 0px;
-    // padding-left: 30px;
   }
 }
 
@@ -35,11 +34,7 @@
   margin-bottom: 25px;
   width: 100%;
   @include media("<tablet") {
-    // width: 90%;
     padding: 0px 10px;
-    // margin-top: 0px;
-    // padding: 0px 10px 0px 10px;
-    // margin-left: 10px;
   }
 
   @include media("<large-phone") {
@@ -47,7 +42,6 @@
     padding: 0px 10px;
     margin-top: 0px;
     padding: 0px 10px 0px 10px;
-    // margin-left: 10px;
   }
 
   @include media("<phone") {
@@ -125,7 +119,6 @@
   }
 
   @include media("<phone") {
-    // padding: 0px;
     width: 250px;
     width: 100%;
   }
@@ -144,7 +137,6 @@
   align-self: flex-end;
   margin-bottom: 70px;
   @include media("<large-phone") {
-    // padding: 0px;
     margin-top: 8px;
   }
 
