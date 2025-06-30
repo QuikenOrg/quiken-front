@@ -22,7 +22,7 @@ const RastreaPedido = (props) => {
 
   return (
     <div className="main-wrapper-div-tracking">
-      <RowDiv>
+      <RowDiv className="row-tracking">
         <TrackingNumberInput
           required
           className="contact-us-input-form"

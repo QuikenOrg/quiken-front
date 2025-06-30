@@ -8,8 +8,16 @@
 }
 
 .main-wrapper-div-tracking {
+  display: flex;
   align-self: center;
   justify-self: center;
+  gap: 80px;
+}
+
+.row-tracking {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .icono-rastreo {
