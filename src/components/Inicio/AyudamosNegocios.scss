@@ -20,6 +20,8 @@ $assetPath: "/assets/Inicio";
   background-repeat: no-repeat;
   height: 450px;
   display: flex;
+  background-size: cover;
+  background-position: center;
   flex-direction: row;
   align-items: center;
   @include media("<large-phone") {
@@ -45,8 +47,9 @@ $assetPath: "/assets/Inicio";
   padding: 50px 100px 50px 100px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 40px;
   @include media("<tablet") {
     flex-direction: column;
   }
@@ -57,14 +60,12 @@ $assetPath: "/assets/Inicio";
 }
 
 .image-integraciones {
-  height: 50px;
-  @include media("<large-phone") {
-    height: 60px;
-    padding: 10px;
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  margin: 0 20px;
+  @include media("<tablet") {
+    margin: 10px 0;
   }
-  @include media("<phone") {
-    max-width: 240px;
-    height: 60px;
-    padding: 10px;
-  }
+
 }

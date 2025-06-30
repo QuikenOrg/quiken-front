@@ -35,7 +35,7 @@ const AyudamosNegocios = () => {
           ></img>
           <img
             src={MercadoLibre}
-            className="image -integraciones"
+            className="image-integraciones"
             alt="integraciones"
           ></img>
           <img
