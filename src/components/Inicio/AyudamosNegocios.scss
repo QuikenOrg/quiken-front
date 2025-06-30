@@ -20,6 +20,8 @@ $assetPath: "/assets/Inicio";
   background-repeat: no-repeat;
   height: 450px;
   display: flex;
+  background-size: cover;
+  background-position: center;
   flex-direction: row;
   align-items: center;
   @include media("<large-phone") {
