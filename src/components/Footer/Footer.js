@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.scss";
-import QuikenLogoFooter from "../../assets/Inicio/Quiken_Logo_Bco-44.svg";
+import ManuableLogoFooter from "../../assets/Inicio/logo-manuable2.png";
 import Facebook from "../../assets/Inicio/Iconos de redes sociales/Facebook-45.svg";
 import Instagram from "../../assets/Inicio/Iconos de redes sociales/Instagram-47.svg";
 import Twitter from "../../assets/Inicio/Iconos de redes sociales/Twitter-46.svg";
@@ -19,17 +19,17 @@ const Footer = () => {
           <img
             className="img-logo-footer"
             alt="quiken-logo"
-            src={QuikenLogoFooter}
+            src={ManuableLogoFooter}
           ></img>
           <h3 className="quienes-somos">¿QUIENES SOMOS?</h3>
         </div>
         <div className="copy-icons-wrapper">
           <p className="copy-quiken">
-            © 2021 Quiken Mx, Todos los derechos reservados.
+            © 2021 Manuable, Todos los derechos reservados.
           </p>
           <a
             target="_blank"
-            href="https://www.facebook.com/quikenmx"
+            href="https://www.facebook.com/Manuable"
             rel="noreferrer"
           >
             <img src={Facebook} className="icon" alt="facebook-icon" />
@@ -37,7 +37,7 @@ const Footer = () => {
 
           <a
             target="_blank"
-            href="https://www.facebook.com/quikenmx"
+            href="https://www.facebook.com/Manuable"
             rel="noreferrer"
           >
             <img src={Twitter} className="icon" alt="twitter-icon" />
@@ -45,7 +45,7 @@ const Footer = () => {
 
           <a
             target="_blank"
-            href="https://www.instagram.com/quikenmx/?hl=en"
+            href="https://www.instagram.com/manuable"
             rel="noreferrer"
           >
             <img src={Instagram} className="icon" alt="instagram-icon" />
@@ -57,17 +57,16 @@ const Footer = () => {
         <div className="icon-text-row-wrapper">
           <img src={locationIcon} className="contact-icon" />
           <p className="paragraph-contact">
-            Monte Alto No. 157, Fraccionamiento Parque 200, C.P 66368 Santa
-            Catarina, Nuevo León, México.
+            Av. Ruiz Cortines No. 3123-A, 3123-B, Mitras Centro, C.P. 64320 Monterrey, Nuevo Nuevo León, México.
           </p>
         </div>
         <div className="icon-text-row-wrapper">
           <img src={phoneIcon} className="contact-icon" alt="phone-icon" />
-          <p className="paragraph-contact">(81) 1661 8597</p>
+          <p className="paragraph-contact">(+52) 81 2196 5087</p>
         </div>
         <div className="icon-text-row-wrapper">
           <img src={mailIcon} className="contact-icon" alt="mail-icon" />
-          <p className="paragraph-contact">hola@quiken.mx</p>
+          <p className="paragraph-contact">hola@manuable.com</p>
         </div>
         <div
           className="icon-text-row-wrapper"
@@ -78,10 +77,10 @@ const Footer = () => {
             padding: "5px",
           }}
         >
-          <LinkFooter href={Terminos} target="_blank">
+          <LinkFooter target="_blank">
             Terminos y condiciones
           </LinkFooter>
-          <LinkFooter href={Privacidad} target="_blank">
+          <LinkFooter target="_blank">
             Aviso de privacidad
           </LinkFooter>
         </div>

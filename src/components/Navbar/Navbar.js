@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import styled from "styled-components";
 
-import QuikenLogo from "../../assets/Inicio/Quiken_Logo_color-03.svg";
+import QuikenLogo from "../../assets/Inicio/logo-manuable-label.jpeg";
 import { UserContext } from "../Context/UserContext";
 
 const Navbar = () => {
