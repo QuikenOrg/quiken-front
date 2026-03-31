@@ -21,7 +21,7 @@ const FulfillmentPagina = () => {
   return (
     <>
       <Helmet>
-        <title>Quiken Fulfilment</title>
+        <title>Manuable Fulfilment</title>
         <meta
           name="description"
           content="Servicios de paqueteria y fulfilment en México"
@@ -35,7 +35,7 @@ const FulfillmentPagina = () => {
       <Navbar />
       <div className="hero-image">
         <div className="hero-text">
-          <h1 className="main-heading">Quiken Fulfillment</h1>
+          <h1 className="main-heading">Manuable Fulfillment</h1>
           <p className="sub-heading">(Almacenaje y Pick&Pack)</p>
           <p className="sub-heading2">
             Servicio líder en Fulfillment en México, somos tu aliado ideal en
@@ -225,8 +225,8 @@ const FulfillmentPagina = () => {
             <p className="paragraph-mas-info-ubicaciones">
               ¿Quieres más información?
             </p>
-            <a href="mailto:hola@quiken.mx" className="mail-to-hola-quiken">
-              hola@quiken.mx
+            <a href="mailto:hola@manuable.com" className="mail-to-hola-quiken">
+              hola@manuable.com
             </a>
           </div>
 

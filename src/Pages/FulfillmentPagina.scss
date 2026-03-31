@@ -42,7 +42,8 @@
 }
 
 .main-heading {
-  font-size: 55px;
+  padding-top: 75px;
+  font-size: 45px;
   @include media("<phone") {
     font-size: 40px;
   }

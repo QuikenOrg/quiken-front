@@ -97,9 +97,6 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  &:hover {
-    background-color: $quikenRed;
-  }
   @include media("<large-phone") {
     height: 70px;
     border-radius: 20px 20px 0px 0px;
@@ -387,6 +384,19 @@
   font-family: $quikenFont;
   color: $quikenWhite;
   background-color: $quikenRed;
+  border: none;
+  padding: 7px 40px;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 20px;
+  align-self: center;
+  justify-self: flex-end;
+}
+
+.btn-register-purple {
+  font-family: $quikenFont;
+  color: $quikenWhite;
+  background-color: $manuablePurple;
   border: none;
   padding: 7px 40px;
   font-size: 16px;

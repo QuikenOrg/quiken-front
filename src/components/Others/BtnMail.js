@@ -4,7 +4,7 @@ import "./BtnMail.scss";
 const BtnMail = () => {
   return (
     <a href="mailto:hola@quiken.mx">
-      <button className="btn-white">Hola@quiken.mx</button>
+      <button className="btn-white">Hola@manuable.com</button>
     </a>
   );
 };

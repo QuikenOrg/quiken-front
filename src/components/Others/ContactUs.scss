@@ -70,3 +70,25 @@
     align-self: center;
   }
 }
+
+.btn-red-contact-us {
+  font-family: $quikenFont;
+  background-color: $manuablePurple;
+  color: $quikenWhite;
+  font-size: $quikenMediumFontSize;
+  font-family: $quikenFont;
+  font-weight: $quikenFontWeightMedium;
+  width: 170px;
+  height: 40px;
+  border-radius: 18px;
+  border: none;
+  padding: 8px 20px 8px 20px;
+  margin-left: 10px;
+  font-weight: 600;
+  @include media("<large-phone") {
+    max-width: 150px;
+    margin-top: 10px;
+    align-self: center;
+  }
+}
+

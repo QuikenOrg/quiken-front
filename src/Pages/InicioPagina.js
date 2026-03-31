@@ -25,7 +25,7 @@ const InicioPagina = () => {
   return (
     <>
       <Helmet>
-        <title>Quiken Paqueteria y Envíos</title>
+        <title>Manuable Paqueteria y Envíos</title>
         <meta
           name="description"
           content="Servicios de paqueteria y fulfilment en México"
@@ -158,7 +158,7 @@ const InicioPagina = () => {
       <div className="alignment-div">
         <h2 className="heading-contact">¡Empieza ahora!</h2>
         <h3 className="subheading-contact-form">
-          Ponte en contacto con un representate de <span>Qüiken</span>
+          Ponte en contacto con un representate de <span>Manuable</span>
         </h3>
       </div>
 
