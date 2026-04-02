@@ -1,9 +1,9 @@
 import React from "react";
 import "./MapInicio.scss";
-import PalomaQuiken from "../../assets/Inicio/paloma-quiken.svg";
+import LogoManuable from "../../assets/Inicio/IsologoManuable.png";
 
 //images
-import imgMap from "../../assets/Inicio/Quiken_Presencia_Nacional_Internacional.png";
+import imgMap from "../../assets/fulfilment/Imagenes/Mapa_manuable.png";
 
 const MapInicio = () => {
   return (
@@ -18,65 +18,65 @@ const MapInicio = () => {
             <div className="state-row">
               <img
                 className="paloma-quiken"
-                src={PalomaQuiken}
+                src={LogoManuable}
                 alt="paloma-icon"
               />
               <p className="state-name">Nuevo León</p>
             </div>
 
             <div className="state-row">
-              <img className="paloma-quiken" src={PalomaQuiken} alt="paloma" />
+              <img className="paloma-quiken" src={LogoManuable} alt="paloma" />
               <p className="state-name">Coahuila</p>
             </div>
 
             <div className="state-row">
-              <img className="paloma-quiken" src={PalomaQuiken} alt="paloma" />
+              <img className="paloma-quiken" src={LogoManuable} alt="paloma" />
               <p className="state-name">Durango</p>
             </div>
 
             <div className="state-row">
-              <img className="paloma-quiken" src={PalomaQuiken} alt="paloma" />
+              <img className="paloma-quiken" src={LogoManuable} alt="paloma" />
               <p className="state-name">Tamaulipas</p>
             </div>
           </div>
           <div className="state-column">
             <div className="state-row">
-              <img className="paloma-quiken" src={PalomaQuiken} alt="paloma" />
+              <img className="paloma-quiken" src={LogoManuable} alt="paloma" />
               <p className="state-name">San Luis Potosí</p>
             </div>
             <div className="state-row">
-              <img className="paloma-quiken" src={PalomaQuiken} alt="paloma" />
+              <img className="paloma-quiken" src={LogoManuable} alt="paloma" />
               <p className="state-name">Norte de Veracruz</p>
             </div>
             <div className="state-row">
-              <img className="paloma-quiken" src={PalomaQuiken} alt="paloma" />
+              <img className="paloma-quiken" src={LogoManuable} alt="paloma" />
               <p className="state-name">Ciudad de México</p>
             </div>
 
             <div className="state-row">
-              <img className="paloma-quiken" src={PalomaQuiken} alt="paloma" />
+              <img className="paloma-quiken" src={LogoManuable} alt="paloma" />
               <p className="state-name">Querataro</p>
             </div>
           </div>
 
           <div className="state-column">
             <div className="state-row">
-              <img className="paloma-quiken" src={PalomaQuiken} alt="paloma" />
+              <img className="paloma-quiken" src={LogoManuable} alt="paloma" />
               <p className="state-name">Guanjuato</p>
             </div>
 
             <div className="state-row">
-              <img className="paloma-quiken" src={PalomaQuiken} alt="paloma" />
+              <img className="paloma-quiken" src={LogoManuable} alt="paloma" />
               <p className="state-name">Chihuahua</p>
             </div>
 
             <div className="state-row">
-              <img className="paloma-quiken" src={PalomaQuiken} alt="paloma" />
+              <img className="paloma-quiken" src={LogoManuable} alt="paloma" />
               <p className="state-name">Guadalajara</p>
             </div>
 
             <div className="state-row">
-              <img className="paloma-quiken" src={PalomaQuiken} alt="paloma" />
+              <img className="paloma-quiken" src={LogoManuable} alt="paloma" />
               <p className="state-name-dallas">Laredo, Texas</p>
             </div>
           </div>

@@ -20,7 +20,7 @@ import { Helmet } from "react-helmet";
 //Imagenes
 // import imgPaqueteriaLocal from '../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Paqueteria_Local_Quiken.png'
 // import ContactForm from '../components/Inicio/ContactForm'
-import RepartidorQuiken from "../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Quiken_Ofrecemos.png";
+import RepartidorQuiken from "../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Manuable_Ofrecemos.png";
 
 const ServiciosPagina = () => {
   return (

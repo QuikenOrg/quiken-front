@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import styled from "styled-components";
 
-import QuikenLogo from "../../assets/Inicio/logo-manuable-label.jpeg";
+import ManuableLogo from "../../assets/Inicio/Manuable-Imagotipo-Horizontal-Tagline.png";
 import { UserContext } from "../Context/UserContext";
 
 const Navbar = () => {
@@ -43,7 +43,7 @@ const Navbar = () => {
       <div className="navbar-main">
         <div className="navbar-logo-placeholder">
           <Link className="logo-link" to="/">
-            <img src={QuikenLogo} className="quiken-logo" />
+            <img src={ManuableLogo} className="manuable-logo" />
           </Link>
         </div>
 

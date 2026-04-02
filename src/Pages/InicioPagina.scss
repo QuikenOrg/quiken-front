@@ -2,30 +2,31 @@
 
 .hero-image-wrapper {
   background-color: $quikenLightBlue;
-  background-image: url("../assets/Inicio/Quiken_Webp.webp");
-  background-position: center;
+  background-image: url("../assets/Inicio/Manuable_inicio.png");
+  background-position: right center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   position: relative;
   height: 550px;
   @include media("<tablet") {
-    background-position: center;
+    background-position: right center;
   }
 
   @include media("<large-phone") {
     height: 400px;
-    background-position: -280px 0px;
+    background-position: right center;
   }
 
   @include media("<phone") {
     width: 100%;
     font-size: 30px;
+    background-position: center center;
   }
 }
 
 .main-title-heading {
-  color: $quikenRed;
+  color: $quikenWhite;
   font-size: 60px;
   font-family: $quikenFont;
   font-weight: 900;
@@ -119,23 +120,20 @@
 .servicio-wrapper {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   width: 400px;
   height: 200px;
-  position: relative;
+  overflow: hidden;
   margin: 20px 20px 20px 20px;
-  @include media("<tablet") {
-  }
 
   @include media("<large-phone") {
-    overflow: hidden;
     width: 90%;
     height: 230px;
   }
 
   @include media("<phone") {
     width: 250px;
-    overflow: hidden;
   }
 }
 
@@ -167,35 +165,18 @@
 }
 
 .wrapper-50 {
-  padding: 25px 0px 0px 25px;
-  width: 60%;
+  padding: 15px 10px 15px 20px;
+  flex: 1;
   height: 100%;
-  @include media("<large-phone") {
-    width: 50%;
-  }
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .imagen-servicio {
-  height: 117%;
-  justify-self: end;
-  position: absolute;
-  top: -27px;
-  left: 60%;
-  @include media("<large-phone") {
-    left: 50%;
-  }
-}
-
-.imagen-servicio1 {
-  height: 117%;
-  justify-self: end;
-  position: absolute;
-  top: -27px;
-  left: 55%;
-  @include media("<large-phone") {
-    left: 44%;
-    top: -18px;
-  }
+  height: 100%;
+  width: 40%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .heading-contact {

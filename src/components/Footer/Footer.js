@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.scss";
-import ManuableLogoFooter from "../../assets/Inicio/logo-manuable2.png";
+import ManuableLogoFooter from "../../assets/Inicio/IsologoManuable.png";
 import Facebook from "../../assets/Inicio/Iconos de redes sociales/Facebook-45.svg";
 import Instagram from "../../assets/Inicio/Iconos de redes sociales/Instagram-47.svg";
 import Twitter from "../../assets/Inicio/Iconos de redes sociales/Twitter-46.svg";
@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="logo-quienes-somos-wrapper">
           <img
             className="img-logo-footer"
-            alt="quiken-logo"
+            alt="manuable-logo"
             src={ManuableLogoFooter}
           ></img>
           <h3 className="quienes-somos">¿QUIENES SOMOS?</h3>
