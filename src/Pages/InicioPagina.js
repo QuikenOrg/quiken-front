@@ -13,7 +13,7 @@ import Footer from "../components/Footer/Footer";
 import { Helmet } from "react-helmet";
 
 //Images
-import imgServicioOne from "../assets/Inicio/Servicios/Manuable_paquetería_local.png";
+import imgServicioOne from "../assets/Inicio/Servicios/Manuable_paqueteria_local.png";
 import imgServicioTwo from "../assets/Inicio/Servicios/Manuable_nacionalInternacional.png";
 import imgServicioThree from "../assets/Inicio/Servicios/manuable_fulfillment.png";
 import imgServicioFour from "../assets/Inicio/Servicios/manuable_suministros.png";
