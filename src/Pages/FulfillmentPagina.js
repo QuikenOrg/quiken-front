@@ -14,14 +14,14 @@ import Almacenamos from "../assets/fulfilment/Imagenes/Almacenamos-09.svg";
 import Recibimos from "../assets/fulfilment/Imagenes/Fulfillment_Recibimos_compras_clientes-10.svg";
 import Empacamos from "../assets/fulfilment/Imagenes/Fulfillment_Empacamos-11.svg";
 import Entregamos from "../assets/fulfilment/Imagenes/Fulfillment_Quiken_Entregamos-12.svg";
-import AbriendoPaquete from "../assets/fulfilment/Imagenes/Solo-sin-fondo.png";
+import AbriendoPaquete from "../assets/fulfilment/Imagenes/Persona_con_caja.png";
 import WhatsAppBtn from "../components/Others/WhatsappBtn";
 
 const FulfillmentPagina = () => {
   return (
     <>
       <Helmet>
-        <title>Quiken Fulfilment</title>
+        <title>Manuable Fulfilment</title>
         <meta
           name="description"
           content="Servicios de paqueteria y fulfilment en México"
@@ -35,7 +35,7 @@ const FulfillmentPagina = () => {
       <Navbar />
       <div className="hero-image">
         <div className="hero-text">
-          <h1 className="main-heading">Quiken Fulfillment</h1>
+          <h1 className="main-heading">Manuable Fulfillment</h1>
           <p className="sub-heading">(Almacenaje y Pick&Pack)</p>
           <p className="sub-heading2">
             Servicio líder en Fulfillment en México, somos tu aliado ideal en
@@ -43,7 +43,7 @@ const FulfillmentPagina = () => {
           </p>
           <a
             className="navbar-link"
-            href="https://7hnysypbzf6.typeform.com/to/A4iImt7p"
+            href="#"
           >
             <button className="btn-contact-form" type="submit">
               Comienza Ahora
@@ -54,15 +54,15 @@ const FulfillmentPagina = () => {
 
       <div className="info-placeholder">
         <div className="text-placeholder">
-          <h3 className="sub-heading">
+          <h3 className="sub-heading3">
             Almacenamiento con más de 10,000 mts de
           </h3>
-          <h3 className="sub-heading">
+          <h3 className="sub-heading3">
             Almacenamiento en México y Estados Unidos
           </h3>
         </div>
         <div className="btn-mail-wrapper">
-          <p className="sub-heading2">Para más información contactanos:</p>
+          <p className="sub-heading3">Para más información contactanos:</p>
           <BtnMail />
         </div>
       </div>
@@ -225,8 +225,8 @@ const FulfillmentPagina = () => {
             <p className="paragraph-mas-info-ubicaciones">
               ¿Quieres más información?
             </p>
-            <a href="mailto:hola@quiken.mx" className="mail-to-hola-quiken">
-              hola@quiken.mx
+            <a href="mailto:hola@manuable.com" className="mail-to-hola-quiken">
+              hola@manuable.com
             </a>
           </div>
 

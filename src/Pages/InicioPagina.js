@@ -13,10 +13,10 @@ import Footer from "../components/Footer/Footer";
 import { Helmet } from "react-helmet";
 
 //Images
-import imgServicioOne from "../assets/Inicio/Servicios/Quiken_Paqueteria_Local.png";
-import imgServicioTwo from "../assets/Inicio/Servicios/Quiken_Envios_Nacionales_Internacionales.png";
-import imgServicioThree from "../assets/Inicio/Servicios/Quiken_Fulfillment.png";
-import imgServicioFour from "../assets/Inicio/Servicios/Quiken_Suministros.png";
+import imgServicioOne from "../assets/Inicio/Servicios/Manuable_paquetería_local.png";
+import imgServicioTwo from "../assets/Inicio/Servicios/Manuable_nacionalInternacional.png";
+import imgServicioThree from "../assets/Inicio/Servicios/manuable_fulfillment.png";
+import imgServicioFour from "../assets/Inicio/Servicios/manuable_suministros.png";
 import QuikenContacto from "../assets/Inicio/Quiken_Contacto.png";
 import RastreaPedido from "../components/Others/RastreaPedido";
 import WhatsAppBtn from "../components/Others/WhatsappBtn";
@@ -25,7 +25,7 @@ const InicioPagina = () => {
   return (
     <>
       <Helmet>
-        <title>Quiken Paqueteria y Envíos</title>
+        <title>Manuable Paqueteria y Envíos</title>
         <meta
           name="description"
           content="Servicios de paqueteria y fulfilment en México"
@@ -67,12 +67,12 @@ const InicioPagina = () => {
                 Conoce más
               </Link>
             </div>
-            <img
-              className="imagen-servicio1"
-              alt="imagen-servicio"
-              src={imgServicioOne}
-            />
           </div>
+          <img
+            className="imagen-servicio"
+            alt="imagen-servicio"
+            src={imgServicioOne}
+          />
         </div>
 
         <div className="servicio-wrapper">
@@ -90,12 +90,12 @@ const InicioPagina = () => {
                 Conoce más
               </Link>
             </div>
-            <img
-              className="imagen-servicio"
-              alt="imagen-servicio"
-              src={imgServicioTwo}
-            />
           </div>
+          <img
+            className="imagen-servicio"
+            alt="imagen-servicio"
+            src={imgServicioTwo}
+          />
         </div>
       </div>
 
@@ -113,12 +113,12 @@ const InicioPagina = () => {
                 Conoce más
               </Link>
             </div>
-            <img
-              className="imagen-servicio"
-              alt="imagen-servicio"
-              src={imgServicioThree}
-            />
           </div>
+          <img
+            className="imagen-servicio"
+            alt="imagen-servicio"
+            src={imgServicioThree}
+          />
         </div>
 
         <div className="servicio-wrapper">
@@ -133,12 +133,12 @@ const InicioPagina = () => {
                 Conoce más
               </Link>
             </div>
-            <img
-              className="imagen-servicio"
-              alt="imagen-servicio"
-              src={imgServicioFour}
-            />
           </div>
+          <img
+            className="imagen-servicio"
+            alt="imagen-servicio"
+            src={imgServicioFour}
+          />
         </div>
       </div>
 
@@ -158,7 +158,7 @@ const InicioPagina = () => {
       <div className="alignment-div">
         <h2 className="heading-contact">¡Empieza ahora!</h2>
         <h3 className="subheading-contact-form">
-          Ponte en contacto con un representate de <span>Qüiken</span>
+          Ponte en contacto con un representate de <span>Manuable</span>
         </h3>
       </div>
 

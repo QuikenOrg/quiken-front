@@ -20,7 +20,7 @@ const RecargaContact = () => {
               <br />
               <li>💬 WhatsApp: +52 811 661 8597</li>
               <br />
-              <li>✉️ Correo: hola@quiken.mx </li>
+              <li>✉️ Correo: hola@manuable.com </li>
             </ul>
           </div>
         </div>

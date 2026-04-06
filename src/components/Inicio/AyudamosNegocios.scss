@@ -16,20 +16,28 @@ $assetPath: "/assets/Inicio";
 .main-wrapper-negocios {
   width: 100%;
   background-color: $quikenKLightGrey;
-  background-image: url(#{$assetPath}/Quiken_Ecommerce.png);
-  background-repeat: no-repeat;
-  height: 450px;
-  display: flex;
-  background-size: cover;
-  background-position: center;
-  flex-direction: row;
-  align-items: center;
+  display: block;
+  position: relative;
+  height: 600px;
+  overflow: hidden;
   @include media("<large-phone") {
     display: none;
   }
 }
 
+.negocios-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
 .paragraph-section {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
   color: $quikenWhite;
   font-family: $quikenFont;
   font-size: 22px;

@@ -2,7 +2,7 @@ import React from "react";
 import "./MilesDeGuias.scss";
 
 //Images
-import DeliveryGuy from "../../assets/Inicio/Quiken_Miles_Guias_generadas.png";
+import DeliveryGuy from "../../assets/Inicio/manuable_miles_guias_generadas.png";
 
 const MilesDeGuias = () => {
   return (

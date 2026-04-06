@@ -2,7 +2,7 @@
 
 .hero-image {
   background-color: $quikenDarkBlue;
-  background-image: url("../assets/Fulfillment/imagenes/Fulfillment_Quiken.png");
+  background-image: url("../assets/Fulfillment/imagenes/Manuable_fulfillment.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,7 +26,8 @@
   top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: $manuablePurple;
+  margin-top: 50px;
   @include media("<desktop") {
     top: 20%;
   }
@@ -42,7 +43,8 @@
 }
 
 .main-heading {
-  font-size: 55px;
+  padding-top: 75px;
+  font-size: 45px;
   @include media("<phone") {
     font-size: 40px;
   }
@@ -53,7 +55,7 @@
   font-weight: $quikenFontWeightMedium;
   font-size: 25px;
   margin-top: 10px;
-  color: $quikenWhite;
+  color: $manuablePurple;
 }
 
 .sub-heading2 {
@@ -61,8 +63,16 @@
   font-weight: 500;
   margin-top: 15px;
   margin-bottom: 15px;
-  color: $quikenWhite;
+  color: $manuablePurple;
   font-family: $quikenFont;
+}
+
+.sub-heading3 {
+  font-family: $quikenFont;
+  font-weight: $quikenFontWeightMedium;
+  font-size: 25px;
+  margin-top: 10px;
+  color: white;
 }
 
 .info-placeholder {
@@ -102,6 +112,7 @@
   width: 40%;
   align-items: center;
   justify-content: center;
+  gap: 20px;
 }
 
 .section-fulfillment {
@@ -435,7 +446,7 @@ image-palceholder-icons-wms {
 }
 
 .ubicaciones-section-2 {
-  background-image: url("../assets/fulfilment/Imagenes/Fulfillment_Mapa.png");
+  background-image: url("../assets/fulfilment/Imagenes/Mapa_manuable.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -499,7 +510,7 @@ image-palceholder-icons-wms {
 
 .imagen-abriendo-paquete {
   width: 600px;
-  padding-bottom: 50px;
+  padding-bottom: 80px;
   @include media("<680px") {
     width: 500px;
   }

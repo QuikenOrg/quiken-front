@@ -4,11 +4,13 @@ import Shopify from "../../assets/Inicio/Integraciones/Quiken_Shopify-22.svg";
 import WooComerce from "../../assets/Inicio/Integraciones/Woocommerce-23.svg";
 import MercadoLibre from "../../assets/Inicio/Integraciones/Mercado_Libre-24.svg";
 import Amazon from "../../assets/Inicio/Integraciones/Amazon-25.svg";
+import EcommerceImg from "../../assets/Inicio/Manuable_ecommerce.png";
 
 const AyudamosNegocios = () => {
   return (
     <>
       <div className="main-wrapper-negocios">
+        <img className="negocios-bg-image" src={EcommerceImg} alt="" />
         <p className="paragraph-section">
           Ayudamos a los negocios a enfocarse en sus tareas más importantes,{" "}
           <span>

@@ -43,7 +43,7 @@ const DashboardMonitor = () => {
       ) : (
         <>
           <RowColumn>
-            <WelcomeHeader>Bienvenido a Quiken</WelcomeHeader>
+            <WelcomeHeader>Bienvenido a Manuable</WelcomeHeader>
             <MainHeaderDashboard>{user.email}</MainHeaderDashboard>
             <SubHeaderDashboard>{user.date}</SubHeaderDashboard>
           </RowColumn>

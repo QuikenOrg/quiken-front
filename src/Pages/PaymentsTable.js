@@ -7,7 +7,7 @@ import userEvent from "@testing-library/user-event";
 import DocIcon from "../assets/iconos/doc_icon.png";
 import { ClipLoader } from "react-spinners";
 import { Loading } from "../utilities/Loading";
-import PalomaQuiken from "../assets/Inicio/paloma-quiken.svg";
+//import PalomaQuiken from "../assets/Inicio/paloma-quiken.svg";
 
 const PaymentsTable = () => {
   const history = useHistory();
@@ -199,7 +199,7 @@ function Table({
                               height: `80%`,
                             }}
                             alt="doc-icon"
-                            src={PalomaQuiken}
+                            
                           ></img>
                         </button>
                       </td>
