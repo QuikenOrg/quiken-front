@@ -12,7 +12,7 @@ const ContactoPagina = () => {
   return (
     <>
       <Helmet>
-        <title>Quiken Contacto</title>
+        <title>Manuable Contacto</title>
         <meta
           name="description"
           content="Servicios de paqueteria y fulfilment en México"

@@ -2,7 +2,7 @@
 
 .ya-tienes-cuenta {
   font-family: $quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-weight: 800;
   font-size: 14px;
   margin-top: 3px;
@@ -10,13 +10,13 @@
 
 .da-click-aqui {
   text-decoration: none;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-family: $quikenFont;
   font-weight: 800;
   font-size: 14px;
   margin-top: 3px;
   &:hover {
-    color: $quikenRed;
+    color: $manuableRed;
     text-decoration: underline;
   }
 }

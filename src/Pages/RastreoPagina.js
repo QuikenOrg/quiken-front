@@ -95,7 +95,7 @@ const RasteroPagina = () => {
   return (
     <>
       <Helmet>
-        <title>Quiken Rastreo</title>
+        <title>Manuable Rastreo</title>
         <meta
           name="description"
           content="Servicios de paqueteria y fulfilment en México, rastreo de guias"
