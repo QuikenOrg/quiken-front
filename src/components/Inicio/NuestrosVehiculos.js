@@ -18,7 +18,7 @@ const NuestrosVehiculos = () => {
         </h3>
 
         <Link>
-          <button className="btn-enviar-ahora">¡Enviar ahora!</button>
+          <button className="btn-red-contact-us">¡Enviar ahora!</button>
         </Link>
       </div>
       <div className="svgs-wrapper">

@@ -27,7 +27,7 @@
   font-size: 16px;
   border-radius: 6px;
   border: 1px solid grey;
-  background-color: $quikenKLightGrey;
+  background-color: $manuableKLightGrey;
   @include media("<tablet") {
     max-width: 300px;
   }
@@ -52,8 +52,8 @@
 
 .btn-red-contact-us {
   font-family: $quikenFont;
-  background-color: $quikenRed;
-  color: $quikenWhite;
+  background-color: $manuablelightYellow;
+  color: $manuableTextButton;
   font-size: $quikenMediumFontSize;
   font-family: $quikenFont;
   font-weight: $quikenFontWeightMedium;
@@ -73,8 +73,8 @@
 
 .btn-red-contact-us {
   font-family: $quikenFont;
-  background-color: $manuablePurple;
-  color: $quikenWhite;
+  background-color: $manuablelightYellow;
+  color: $manuableTextButton;
   font-size: $quikenMediumFontSize;
   font-family: $quikenFont;
   font-weight: $quikenFontWeightMedium;

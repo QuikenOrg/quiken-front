@@ -26,7 +26,7 @@ const ServiciosPagina = () => {
   return (
     <>
       <Helmet>
-        <title>Quiken Servicios</title>
+        <title>Manuable Servicios</title>
         <meta
           name="description"
           content="Servicios de paqueteria y fulfilment en México"

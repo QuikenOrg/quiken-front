@@ -1,7 +1,7 @@
 @import "../styles/GeneralStyles.scss";
 
 .hero-image-wrapper {
-  background-color: $quikenLightBlue;
+  background-color: $manuableLightPurple;
   background-image: url("../assets/Inicio/Manuable_inicio.png");
   background-position: right center;
   background-repeat: no-repeat;
@@ -26,7 +26,7 @@
 }
 
 .main-title-heading {
-  color: $quikenWhite;
+  color: $manuableWhite;
   font-size: 60px;
   font-family: $quikenFont;
   font-weight: 900;
@@ -48,7 +48,7 @@
 }
 
 .background-rastrea {
-  background-color: $quikenLightBlue;
+  background-color: $manuableLightPurple;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,7 +58,7 @@
 }
 
 .main-title-subheading {
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-size: 20px;
   font-family: $quikenFont;
   font-weight: 600;
@@ -98,7 +98,7 @@
 }
 
 .section-heading {
-  color: $quikenRed;
+  color: $manuableRed;
   font-size: 35px;
   font-family: $quikenFont;
   font-weight: 900;
@@ -138,7 +138,7 @@
 }
 
 .heading-servicio {
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-size: 22px;
   font-family: $quikenFont;
   font-weight: 900;
@@ -148,7 +148,7 @@
 }
 
 .paragraph-servicio {
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-family: $quikenFont;
   font-size: 14px;
   font-weight: 500;
@@ -156,7 +156,7 @@
 }
 
 .link-servicio {
-  color: $quikenRed;
+  color: $manuableRed;
   font-family: $quikenFont;
   font-size: 14px;
   font-weight: 800;
@@ -180,7 +180,7 @@
 }
 
 .heading-contact {
-  color: $quikenRed;
+  color: $manuableRed;
   font-family: $quikenFont;
   font-size: 40px;
   font-weight: 900;
@@ -188,7 +188,7 @@
 }
 
 .subheading-contact-form {
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-family: $quikenFont;
   font-size: 25px;
   font-weight: 600;
@@ -199,7 +199,7 @@
 }
 
 .subheading-contact-form span {
-  color: $quikenRed;
+  color: $manuableRed;
 }
 
 .alignment-div {
@@ -229,7 +229,7 @@
 
 .subheading-servicio {
   font-family: $quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-weight: 600;
   font-size: 16px;
 }

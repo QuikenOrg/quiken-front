@@ -2,8 +2,8 @@
 
 .footer-main-wrapper {
   height: 200px;
-  color: $quikenWhite;
-  background-color: $quikenDarkGrey;
+  color: $manuableWhite;
+  background-color: $manuableDarkGreyFooter;
   display: flex;
   width: 100%;
   @include media("<tablet") {
@@ -20,7 +20,7 @@
 .logo-links-wrapper {
   height: 100%;
   width: 65%;
-  background: $quikenDarkGrey;
+  background: $manuableDarkGreyFooter;
   display: flex;
   flex-direction: column;
   padding: 50px 50px 50px 50px;
@@ -31,7 +31,7 @@
 .info-wrapper {
   height: 100%;
   width: 50%;
-  background: $quikenDarkGrey;
+  background: $manuableDarkGreyFooter;
   display: flex;
   flex-direction: column;
   padding: 50px 50px 50px 50px;
@@ -64,7 +64,7 @@
   padding-top: 15px;
   font-size: 18px;
   font-family: $quikenFont;
-  color: $quikenWhite;
+  color: $manuableWhite;
   font-weight: 900;
   justify-self: flex-end;
   @include media("<tablet") {
@@ -89,7 +89,7 @@
 }
 
 .copy-quiken {
-  color: $quikenWhite;
+  color: $manuableWhite;
   font-family: $quikenFont;
   font-size: 13px;
   font-weight: 500;
@@ -115,7 +115,7 @@
   padding-top: 15px;
   font-size: 18px;
   font-family: $quikenFont;
-  color: $quikenWhite;
+  color: $manuableWhite;
   font-weight: 900;
   justify-self: flex-end;
 }
@@ -123,6 +123,6 @@
 .paragraph-contact {
   font-family: $quikenFont;
   font-weight: 600;
-  color: $quikenWhite;
+  color: $manuableWhite;
   margin-left: 5px;
 }

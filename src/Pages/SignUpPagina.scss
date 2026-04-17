@@ -21,7 +21,7 @@
   font-family: $quikenFont;
   font-size: 16px;
   font-weight: 600;
-  color: $quikenRed;
+  color: $manuableRed;
   align-self: center;
 }
 
@@ -29,14 +29,14 @@
   width: 200px;
   align-self: flex-end;
   margin-top: 10px;
-  background-color: $quikenRed;
+  background-color: $manuablelightYellow;
   border: none;
   border-radius: 15px;
   padding: 10px;
   font-family: $quikenFont;
   font-size: 16px;
   font-weight: 600;
-  color: $quikenWhite;
+  color: $manuableLightPurple;
 }
 
 .the-form {
@@ -50,7 +50,7 @@
 
 .main-heading-signup {
   margin: auto;
-  color: $quikenRed;
+  color: $manuableRed;
   font-size: 30px;
   font-family: $quikenFont;
   margin-top: 20px;
@@ -62,18 +62,18 @@
 .forgot-passwordlink {
   font-family: $quikenFont;
   font-size: 15px;
-  color: &quikenDarkBlue;
+  color: &manuableLightPurple;
   text-decoration: none;
   align-self: center;
   font-weight: 600;
   &:hover {
-    color: $quikenRed;
+    color: $manuableRed;
     text-decoration: underline;
   }
 }
 
 .main-subheading-signup {
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-family: $quikenFont;
   font-size: 20px;
   font-weight: 900;
@@ -87,7 +87,7 @@
   display: block;
   font-size: 18px;
   font-family: $quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   height: 20px;
   width: 450px;
 }
@@ -95,14 +95,14 @@
 .form-label {
   font-size: 14px;
   font-family: $quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   display: block;
   margin-top: 20px;
   font-weight: 800;
 }
 
 .form-label span {
-  color: $quikenRed;
+  color: $manuableRed;
 }
 
 .wrapper-sign-in-link {

@@ -4,7 +4,7 @@ $assetPath: "/assets/Inicio";
 .heading-blue {
   font-size: 23px;
   font-weight: 800;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-family: $quikenFont;
   text-align: center;
   margin-top: 30px;
@@ -15,7 +15,7 @@ $assetPath: "/assets/Inicio";
 
 .main-wrapper-negocios {
   width: 100%;
-  background-color: $quikenKLightGrey;
+  background-color: $manuableKLightGrey;
   display: block;
   position: relative;
   height: 600px;
@@ -38,7 +38,7 @@ $assetPath: "/assets/Inicio";
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
-  color: $quikenWhite;
+  color: $manuableWhite;
   font-family: $quikenFont;
   font-size: 22px;
   font-weight: 400;
