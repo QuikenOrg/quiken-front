@@ -9,13 +9,13 @@
 .thead-element {
   font-size: 20px;
   font-family: $quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   margin: 30px;
   font-weight: 800;
 }
 
 .tr-element {
-  background-color: $quikenKLightGrey;
+  background-color: $manuableKLightGrey;
   font-family: &quikenFont;
 }
 
@@ -23,11 +23,11 @@ td {
   text-align: center;
   padding: 15px 30px 15px 30px;
   font-family: &quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-weight: 900;
 }
 
 #red {
-  background-color: $quikenRed;
-  border: $quikenRed;
+  background-color: $manuableRed;
+  border: $manuableRed;
 }

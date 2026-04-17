@@ -11,11 +11,11 @@
   padding: 15px;
   border-radius: 9px;
   border: 1px solid grey;
-  background-color: $quikenKLightGrey;
+  background-color: $manuableKLightGrey;
 }
 
 .subheading-form-create-guide {
-  color: $quikenRed;
+  color: $manuableRed;
   font-family: $quikenFont;
   margin-top: 20px;
   font-weight: 900;
@@ -24,8 +24,8 @@
 }
 
 .wrapper-guide-cost {
-  background-color: $quikenKLightGrey;
-  border: 1px solid $quikenBlack;
+  background-color: $manuableKLightGrey;
+  border: 1px solid $manuableBlack;
   width: 200px;
   height: 70px;
   display: flex;
@@ -40,14 +40,14 @@
 .heading-guide-cost {
   font-family: &quikenFont;
   font-weight: 900;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-size: 18px;
 }
 
 .price-guide-cost {
   font-family: &quikenFont;
   font-weight: 900;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-size: 18px;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .payment-method-subheading {
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   text-align: center;
   display: block;
   margin-top: 15px;
@@ -89,14 +89,14 @@
 }
 
 .payment-method-selector {
-  background-color: $quikenKLightGrey;
+  background-color: $manuableKLightGrey;
   height: 30px;
   width: 150px;
 }
 
 .btn-create-guide-form {
-  color: $quikenWhite;
-  background-color: $quikenRed;
+  color: $manuableWhite;
+  background-color: $manuableRed;
   height: 45px;
   width: 150px;
   font: $quikenFont;
@@ -115,33 +115,33 @@
 }
 
 .form-stripe {
-  background-color: $quikenKLightGrey;
+  background-color: $manuableKLightGrey;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100px;
   padding: 20px;
-  border: solid 1px $quikenDarkBlue;
+  border: solid 1px $manuableLightPurple;
 }
 
 .cardelement {
-  background-color: $quikenWhite;
+  background-color: $manuableWhite;
   margin-bottom: 10px;
   &:hover {
-    border: 1px solid $quikenBlack;
+    border: 1px solid $manuableBlack;
   }
 }
 
 .ingresa-tarjeta-datos-subheading {
   font-family: $quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   margin-top: 15px;
   font-weight: 600;
 }
 
 .ingresa-tarjeta-descripcion {
   font-family: $quikenFont;
-  color: $quikenBlack;
+  color: $manuableBlack;
   font-weight: 600;
   font-size: 10px;
   margin-top: 5px;
@@ -150,7 +150,7 @@
 
 .label-create-guide-form {
   font-family: $quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-weight: 800;
   margin-top: 5px;
   font-size: 13px;

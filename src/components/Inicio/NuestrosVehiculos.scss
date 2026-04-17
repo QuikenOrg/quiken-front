@@ -81,7 +81,7 @@
   font-family: $quikenFont;
   font-weight: 900;
   font-size: 40px;
-  color: $quikenRed;
+  color: $manuableRed;
   display: block;
   @include media("<tablet") {
     flex-direction: column;
@@ -92,8 +92,8 @@
 
 .btn-enviar-ahora {
   font-family: $quikenFont;
-  background-color: $manuablePurple;
-  color: $quikenWhite;
+  background-color: $manuablelightYellow;
+  color: $manuableTextButton;
   font-size: $quikenMediumFontSize;
   font-family: $quikenFont;
   font-weight: $quikenFontWeightMedium;
@@ -101,6 +101,8 @@
   border: none;
   padding: 8px 20px 8px 20px;
   margin: 15px;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .svg-image {
@@ -126,7 +128,7 @@
 }
 
 .heading-vehicle {
-  color: $quikenWhite;
+  color: $manuableWhite;
   font-family: $quikenFont;
   font-weight: 800;
   font-size: 12px;
@@ -137,18 +139,18 @@
   text-align: center;
   @include media("<tablet") {
     position: static;
-    color: $quikenDarkBlue;
+    color: $manuableLightPurple;
     font-weight: 800;
   }
   @include media("<large-phone") {
     position: static;
-    color: $quikenDarkBlue;
+    color: $manuableLightPurple;
     font-weight: 800;
   }
 }
 
 .heading-vehicle-camioneta {
-  color: $quikenWhite;
+  color: $manuableWhite;
   font-family: $quikenFont;
   font-weight: 800;
   font-size: 12px;
@@ -159,17 +161,17 @@
   text-align: center;
   @include media("<tablet") {
     position: static;
-    color: $quikenDarkBlue;
+    color: $manuableLightPurple;
     font-weight: 800;
   }
   @include media("<large-phone") {
     position: static;
-    color: $quikenDarkBlue;
+    color: $manuableLightPurple;
   }
 }
 
 .heading-vehicle-camion {
-  color: $quikenWhite;
+  color: $manuableWhite;
   font-family: $quikenFont;
   font-weight: 800;
   font-size: 12px;
@@ -180,11 +182,11 @@
   text-align: center;
   @include media("<tablet") {
     position: static;
-    color: $quikenDarkBlue;
+    color: $manuableLightPurple;
     font-weight: 800;
   }
   @include media("<large-phone") {
     position: static;
-    color: $quikenDarkBlue;
+    color: $manuableLightPurple;
   }
 }

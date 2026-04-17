@@ -54,7 +54,7 @@
   font-family: $quikenFont;
   font-weight: $quikenFontWeightMedium;
   @include media("<tablet") {
-    color: $quikenDarkBlue;
+    color: $manuableDarkGreyFooter;
     font-size: 30px;
   }
   &:hover {
