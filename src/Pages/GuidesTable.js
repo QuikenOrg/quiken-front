@@ -7,7 +7,6 @@ import userEvent from "@testing-library/user-event";
 import DocIcon from "../assets/iconos/doc_icon.png";
 import { Loading } from "../utilities/Loading";
 import { UserContext } from "../components/Context/UserContext";
-//import PalomaQuiken from "../assets/Inicio/paloma-quiken.svg";
 
 const GuidesTable = () => {
   const history = useHistory();
