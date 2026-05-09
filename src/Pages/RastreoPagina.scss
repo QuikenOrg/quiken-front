@@ -9,7 +9,7 @@
 
 .request-header {
   font-family: $quikenFont;
-  color: $quikenRed;
+  color: $manuablePurple;
   font-size: 35px;
   align-self: center;
   font-weight: 900;
@@ -21,14 +21,14 @@
 }
 
 .estado-de-pedido {
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-size: 16px;
   font-family: $quikenFont;
   font-weight: 600;
 }
 
 .estado-de-pedido span {
-  color: $quikenRed;
+  color: $manuableRed;
   font-weight: 400;
   font-weight: 14px;
 }
@@ -37,7 +37,7 @@
   display: flex;
   height: 80px;
   width: 600px;
-  background: $quikenKLightGrey;
+  background: $manuableKLightGrey;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -61,7 +61,7 @@
 }
 
 .rastreo-blue-letters {
-  color: $quikenDarkBlue;
+  color: $manuableBlack;
   font-family: $quikenFont;
   font-weight: 600;
   padding: 0px 20px 0px 20px;
@@ -73,9 +73,9 @@
 }
 
 .table-header-tracking {
-  font-family: $quikenDarkBlue;
+  font-family: $manuableLightPurple;
   font-weight: 800;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   text-align: left;
   padding-left: 30px;
   font-family: $quikenFont;
@@ -85,14 +85,14 @@
   text-align: left;
   font-family: $quikenFont;
   font-size: 12px;
-  color: $quikenBlack;
+  color: $manuableBlack;
   font-weight: 500;
 }
 .table-data-tracking-status {
   text-align: left;
   font-family: $quikenFont;
   font-size: 12px;
-  color: $quikenBlack;
+  color: $manuableBlack;
   //font-weight: 500;
   font-weight: bold;
 }
@@ -115,21 +115,21 @@
 }
 
 .tbody-tracking-table tr:nth-child(odd) {
-  background: $quikenKLightGrey;
+  background: $manuableKLightGrey;
 }
 
 .historial-pedido-heading {
-  color: $quikenRed;
+  color: $manuableRed;
   font-family: $quikenFont;
   font-weight: 600;
-  border-bottom: 2px $quikenDarkBlue solid;
+  border-bottom: 2px $manuableLightPurple solid;
   width: 160px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .estado-de-envio-heading {
-  color: $quikenRed;
+  color: $manuableRed;
   font-family: $quikenFont;
   font-weight: 600;
   font-size: 20px;
@@ -138,7 +138,7 @@
 }
 
 .estado-de-envio-heading-ingresa-guia {
-  color: $quikenRed;
+  color: $manuableRed;
   font-family: $quikenFont;
   font-weight: 600;
   font-size: 24px;
