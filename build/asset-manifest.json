@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.69cbe7b5.chunk.css",
-    "main.js": "/static/js/main.35fd8e8e.chunk.js",
-    "main.js.map": "/static/js/main.35fd8e8e.chunk.js.map",
+    "main.css": "/static/css/main.8cb4d769.chunk.css",
+    "main.js": "/static/js/main.2fd83e74.chunk.js",
+    "main.js.map": "/static/js/main.2fd83e74.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.cadbc60a.js",
     "runtime-main.js.map": "/static/js/runtime-main.cadbc60a.js.map",
     "static/css/2.489993af.chunk.css": "/static/css/2.489993af.chunk.css",
-    "static/js/2.79991cf5.chunk.js": "/static/js/2.79991cf5.chunk.js",
-    "static/js/2.79991cf5.chunk.js.map": "/static/js/2.79991cf5.chunk.js.map",
+    "static/js/2.13669403.chunk.js": "/static/js/2.13669403.chunk.js",
+    "static/js/2.13669403.chunk.js.map": "/static/js/2.13669403.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.489993af.chunk.css.map": "/static/css/2.489993af.chunk.css.map",
-    "static/css/main.69cbe7b5.chunk.css.map": "/static/css/main.69cbe7b5.chunk.css.map",
-    "static/js/2.79991cf5.chunk.js.LICENSE.txt": "/static/js/2.79991cf5.chunk.js.LICENSE.txt",
+    "static/css/main.8cb4d769.chunk.css.map": "/static/css/main.8cb4d769.chunk.css.map",
+    "static/js/2.13669403.chunk.js.LICENSE.txt": "/static/js/2.13669403.chunk.js.LICENSE.txt",
     "static/media/Almacenamos-09.055d8020.svg": "/static/media/Almacenamos-09.055d8020.svg",
     "static/media/Amazon-25.9c2f7646.svg": "/static/media/Amazon-25.9c2f7646.svg",
     "static/media/Contacto.3cf87ce7.png": "/static/media/Contacto.3cf87ce7.png",
@@ -26,6 +26,8 @@
     "static/media/Icono_rastreo-43.bcee9c7d.svg": "/static/media/Icono_rastreo-43.bcee9c7d.svg",
     "static/media/Instagram-47.cbacf7af.svg": "/static/media/Instagram-47.cbacf7af.svg",
     "static/media/Integraciones.bf2f44c9.png": "/static/media/Integraciones.bf2f44c9.png",
+    "static/media/IsologoManuable.6934d330.png": "/static/media/IsologoManuable.6934d330.png",
+    "static/media/Manuable-Imagotipo-Horizontal-Tagline.7646c1f5.png": "/static/media/Manuable-Imagotipo-Horizontal-Tagline.7646c1f5.png",
     "static/media/Mercado_Libre-24.3e252bc5.svg": "/static/media/Mercado_Libre-24.3e252bc5.svg",
     "static/media/ServiciosPagina.scss": "/static/media/Quiken_Suministros.acc918c0.png",
     "static/media/Quiken_Automovil-17.01eb1ee9.svg": "/static/media/Quiken_Automovil-17.01eb1ee9.svg",
@@ -68,13 +70,13 @@
     "static/media/oxxo.02a90f93.svg": "/static/media/oxxo.02a90f93.svg",
     "static/media/paloma-quiken.42e5d219.svg": "/static/media/paloma-quiken.42e5d219.svg",
     "static/media/privacidad.1621350a.pdf": "/static/media/privacidad.1621350a.pdf",
-    "static/media/terminos.7d56c00e.pdf": "/static/media/terminos.7d56c00e.pdf"
+    "static/media/terminos_quiken.e460e243.pdf": "/static/media/terminos_quiken.e460e243.pdf"
   },
   "entrypoints": [
     "static/js/runtime-main.cadbc60a.js",
     "static/css/2.489993af.chunk.css",
-    "static/js/2.79991cf5.chunk.js",
-    "static/css/main.69cbe7b5.chunk.css",
-    "static/js/main.35fd8e8e.chunk.js"
+    "static/js/2.13669403.chunk.js",
+    "static/css/main.8cb4d769.chunk.css",
+    "static/js/main.2fd83e74.chunk.js"
   ]
 }
