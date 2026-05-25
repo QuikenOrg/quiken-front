@@ -1,8 +1,8 @@
 @import "../styles/GeneralStyles.scss";
 
 .hero-image {
-  background-color: $quikenDarkBlue;
-  background-image: url("../assets/Fulfillment/imagenes/Fulfillment_Quiken.png");
+  background-color: $manuableLightPurple;
+  background-image: url("../assets/Fulfillment/imagenes/Manuable_fulfillment.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,7 +26,8 @@
   top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: $manuablePurple;
+  margin-top: 50px;
   @include media("<desktop") {
     top: 20%;
   }
@@ -42,7 +43,8 @@
 }
 
 .main-heading {
-  font-size: 55px;
+  padding-top: 75px;
+  font-size: 45px;
   @include media("<phone") {
     font-size: 40px;
   }
@@ -53,7 +55,7 @@
   font-weight: $quikenFontWeightMedium;
   font-size: 25px;
   margin-top: 10px;
-  color: $quikenWhite;
+  color: $manuablePurple;
 }
 
 .sub-heading2 {
@@ -61,12 +63,20 @@
   font-weight: 500;
   margin-top: 15px;
   margin-bottom: 15px;
-  color: $quikenWhite;
+  color: $manuablePurple;
   font-family: $quikenFont;
 }
 
+.sub-heading3 {
+  font-family: $quikenFont;
+  font-weight: $quikenFontWeightMedium;
+  font-size: 25px;
+  margin-top: 10px;
+  color: white;
+}
+
 .info-placeholder {
-  background-color: $quikenDarkBlue;
+  background-color: $manuableLightPurple;
   height: 200px;
   display: flex;
   flex-direction: row;
@@ -102,6 +112,7 @@
   width: 40%;
   align-items: center;
   justify-content: center;
+  gap: 20px;
 }
 
 .section-fulfillment {
@@ -109,7 +120,7 @@
   flex-direction: row;
   justify-content: center;
   height: 380px;
-  background: $quikenKLightGrey;
+  background: $manuableKLightGrey;
   padding: 25px 20px 10px 50px;
   margin-bottom: 50px;
   // background-color: hotpink;
@@ -140,7 +151,7 @@
 }
 
 .fulfilment-heading {
-  color: $quikenRed;
+  color: $manuableRed;
   font-size: 32px;
   font-family: $quikenFont;
   font-weight: 900;
@@ -153,7 +164,7 @@
   font-family: $quikenFont;
   font-size: 18px;
   font-weight: 600;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   margin-top: 25px;
   width: 350px;
   max-width: 100%;
@@ -163,7 +174,7 @@
   font-family: $quikenFont;
   font-size: 18px;
   font-weight: 900;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   margin-top: 25px;
   width: 310px;
   max-width: 100%;
@@ -173,7 +184,7 @@
   font-family: $quikenFont;
   font-size: 16px;
   font-weight: 500;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   margin-top: 25px;
   width: 350px;
   max-width: 100%;
@@ -190,7 +201,7 @@
 }
 
 .wms-heading {
-  color: $quikenRed;
+  color: $manuableRed;
   font-size: 34px;
   font-family: $quikenFont;
   font-weight: 900;
@@ -208,7 +219,7 @@
   font-family: $quikenFont;
   font-size: 20px;
   font-weight: 600;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   width: 350px;
   max-width: 100%;
 }
@@ -220,7 +231,7 @@
   height: 35px;
   border-radius: 20px;
   font-size: 17.5px;
-  color: $quikenRed;
+  color: $manuableRed;
   margin-top: 25px;
 }
 
@@ -288,7 +299,7 @@ image-palceholder-icons-wms {
 
 .heading-service {
   font-family: $quikenFont;
-  color: $quikenRed;
+  color: $manuableRed;
   font-weight: 900;
   font-size: 26px;
   padding: 0px 20px 0px 20px;
@@ -298,7 +309,7 @@ image-palceholder-icons-wms {
 
 .paragraph-service {
   font-family: $quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-weight: 500;
   font-size: 14px;
   margin-top: 18px;
@@ -335,7 +346,7 @@ image-palceholder-icons-wms {
 }
 
 .dotted-line {
-  border-top: dotted $quikenDarkBlue 3px;
+  border-top: dotted $manuableLightPurple 3px;
   width: 800px;
   position: absolute;
   top: 50px;
@@ -354,7 +365,7 @@ image-palceholder-icons-wms {
 
 .nuestro-proceso-section {
   font-size: 20px;
-  color: $quikenRed;
+  color: $manuableRed;
   font-family: $quikenFont;
   font-weight: 900;
   display: flex;
@@ -373,7 +384,7 @@ image-palceholder-icons-wms {
 
 .heading-graph-pasos {
   font-size: 14px;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   display: inline-block;
   @include media("<large-phone") {
     align-items: center;
@@ -383,7 +394,7 @@ image-palceholder-icons-wms {
 
 .paragraph-garafica-pasos {
   font-size: 14px;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   display: inline;
   font-weight: 400;
   @include media("<phone") {
@@ -393,7 +404,7 @@ image-palceholder-icons-wms {
 
 .nuestro-proceso-heading {
   font-family: $quikenFont;
-  color: $quikenRed;
+  color: $manuableRed;
   font-size: 32px;
   padding: 50px 0px 60px 0px;
   font-weight: 800;
@@ -435,7 +446,7 @@ image-palceholder-icons-wms {
 }
 
 .ubicaciones-section-2 {
-  background-image: url("../assets/fulfilment/Imagenes/Fulfillment_Mapa.png");
+  background-image: url("../assets/fulfilment/Imagenes/Mapa_manuable.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -459,7 +470,7 @@ image-palceholder-icons-wms {
 }
 
 .heading-ubicaciones {
-  color: $quikenRed;
+  color: $manuableRed;
   font-family: $quikenFont;
   font-weight: 800;
   font-size: 30px;
@@ -468,7 +479,7 @@ image-palceholder-icons-wms {
 
 .lista-ubicaciones {
   font-family: $quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-weight: 600;
   font-size: 16px;
   padding: 5px 0px 3px 0px;
@@ -476,7 +487,7 @@ image-palceholder-icons-wms {
 
 .paragraph-mas-info-ubicaciones {
   font-family: $quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-weight: 600;
   font-size: 16px;
   margin-top: 50px;
@@ -484,10 +495,10 @@ image-palceholder-icons-wms {
 }
 
 .mail-to-hola-quiken {
-  color: $quikenRed;
+  color: $manuableRed;
   text-decoration: none;
   border-radius: 10px;
-  border: solid 1px $quikenRed;
+  border: solid 1px $manuableRed;
   display: inline;
   width: fit-content;
   margin-top: 15px;
@@ -499,7 +510,7 @@ image-palceholder-icons-wms {
 
 .imagen-abriendo-paquete {
   width: 600px;
-  padding-bottom: 50px;
+  padding-bottom: 80px;
   @include media("<680px") {
     width: 500px;
   }

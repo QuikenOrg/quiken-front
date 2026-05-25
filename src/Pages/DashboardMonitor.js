@@ -43,7 +43,7 @@ const DashboardMonitor = () => {
       ) : (
         <>
           <RowColumn>
-            <WelcomeHeader>Bienvenido a Quiken</WelcomeHeader>
+            <WelcomeHeader>Bienvenido a Manuable</WelcomeHeader>
             <MainHeaderDashboard>{user.email}</MainHeaderDashboard>
             <SubHeaderDashboard>{user.date}</SubHeaderDashboard>
           </RowColumn>
@@ -121,7 +121,7 @@ const Row = styled.div`
 `;
 const Card = styled.div`
   height: 100%;
-  background-color: $quikenWhite;
+  background-color: $manuableWhite;
   width: 45%;
   display: flex;
   flex-direction: column;

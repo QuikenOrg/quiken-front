@@ -1,31 +1,32 @@
 @import "../styles/GeneralStyles.scss";
 
 .hero-image-wrapper {
-  background-color: $quikenLightBlue;
-  background-image: url("../assets/Inicio/Quiken_Webp.webp");
-  background-position: center;
+  background-color: $manuableLightPurple;
+  background-image: url("../assets/Inicio/Manuable_inicio.png");
+  background-position: right center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   position: relative;
   height: 550px;
   @include media("<tablet") {
-    background-position: center;
+    background-position: right center;
   }
 
   @include media("<large-phone") {
     height: 400px;
-    background-position: -280px 0px;
+    background-position: right center;
   }
 
   @include media("<phone") {
     width: 100%;
     font-size: 30px;
+    background-position: center center;
   }
 }
 
 .main-title-heading {
-  color: $quikenRed;
+  color: $manuableWhite;
   font-size: 60px;
   font-family: $quikenFont;
   font-weight: 900;
@@ -47,7 +48,7 @@
 }
 
 .background-rastrea {
-  background-color: $quikenLightBlue;
+  background-color: $manuableLightPurple;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +58,7 @@
 }
 
 .main-title-subheading {
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-size: 20px;
   font-family: $quikenFont;
   font-weight: 600;
@@ -97,7 +98,7 @@
 }
 
 .section-heading {
-  color: $quikenRed;
+  color: $manuableRed;
   font-size: 35px;
   font-family: $quikenFont;
   font-weight: 900;
@@ -119,28 +120,25 @@
 .servicio-wrapper {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   width: 400px;
   height: 200px;
-  position: relative;
+  overflow: hidden;
   margin: 20px 20px 20px 20px;
-  @include media("<tablet") {
-  }
 
   @include media("<large-phone") {
-    overflow: hidden;
     width: 90%;
     height: 230px;
   }
 
   @include media("<phone") {
     width: 250px;
-    overflow: hidden;
   }
 }
 
 .heading-servicio {
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-size: 22px;
   font-family: $quikenFont;
   font-weight: 900;
@@ -150,7 +148,7 @@
 }
 
 .paragraph-servicio {
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-family: $quikenFont;
   font-size: 14px;
   font-weight: 500;
@@ -158,7 +156,7 @@
 }
 
 .link-servicio {
-  color: $quikenRed;
+  color: $manuableRed;
   font-family: $quikenFont;
   font-size: 14px;
   font-weight: 800;
@@ -167,39 +165,22 @@
 }
 
 .wrapper-50 {
-  padding: 25px 0px 0px 25px;
-  width: 60%;
+  padding: 15px 10px 15px 20px;
+  flex: 1;
   height: 100%;
-  @include media("<large-phone") {
-    width: 50%;
-  }
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .imagen-servicio {
-  height: 117%;
-  justify-self: end;
-  position: absolute;
-  top: -27px;
-  left: 60%;
-  @include media("<large-phone") {
-    left: 50%;
-  }
-}
-
-.imagen-servicio1 {
-  height: 117%;
-  justify-self: end;
-  position: absolute;
-  top: -27px;
-  left: 55%;
-  @include media("<large-phone") {
-    left: 44%;
-    top: -18px;
-  }
+  height: 100%;
+  width: 40%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .heading-contact {
-  color: $quikenRed;
+  color: $manuableRed;
   font-family: $quikenFont;
   font-size: 40px;
   font-weight: 900;
@@ -207,7 +188,7 @@
 }
 
 .subheading-contact-form {
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-family: $quikenFont;
   font-size: 25px;
   font-weight: 600;
@@ -218,7 +199,7 @@
 }
 
 .subheading-contact-form span {
-  color: $quikenRed;
+  color: $manuableRed;
 }
 
 .alignment-div {
@@ -248,7 +229,7 @@
 
 .subheading-servicio {
   font-family: $quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-weight: 600;
   font-size: 16px;
 }

@@ -14,7 +14,7 @@
   padding: 15px;
   border-radius: 9px;
   border: 1px solid grey;
-  background-color: $quikenKLightGrey;
+  background-color: $manuableKLightGrey;
   @include media("<tablet") {
     max-width: 600px;
     width: 100%;
@@ -37,7 +37,7 @@
   padding: 15px;
   border-radius: 9px;
   border: 1px solid grey;
-  background-color: $quikenKLightGrey;
+  background-color: $manuableKLightGrey;
   @include media("<tablet") {
     max-width: 90%;
     // padding: 15px 0px 15px 0px;

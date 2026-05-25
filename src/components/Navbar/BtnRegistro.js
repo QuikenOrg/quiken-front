@@ -3,7 +3,7 @@ import React from "react";
 import "./BtnRegistro.scss";
 
 const BtnRegistro = () => {
-  return <button className="btn-red">REGISTRO</button>;
+  return <button className="btn-yellow">REGISTRO</button>;
 };
 
 export default BtnRegistro;

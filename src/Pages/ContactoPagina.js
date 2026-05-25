@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import ContactForm from "../components/Inicio/ContactForm";
 import Footer from "../components/Footer/Footer";
-import ContactoSra from "../assets/Contacto/Contacto.png";
+import ContactoSra from "../assets/Contacto/Contacto-manuable.png";
 import "./ContactoPagina.scss";
 import QuikenContacto from "../assets/Inicio/Quiken_Contacto.png";
 import FloatingWhatsApp from "../components/Others/WhatsappBtn";
@@ -12,7 +12,7 @@ const ContactoPagina = () => {
   return (
     <>
       <Helmet>
-        <title>Quiken Contacto</title>
+        <title>Manuable Contacto</title>
         <meta
           name="description"
           content="Servicios de paqueteria y fulfilment en México"

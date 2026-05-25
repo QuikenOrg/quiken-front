@@ -4,7 +4,7 @@ $assetPath: "/assets/Inicio";
 .heading-blue {
   font-size: 23px;
   font-weight: 800;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-family: $quikenFont;
   text-align: center;
   margin-top: 30px;
@@ -15,22 +15,30 @@ $assetPath: "/assets/Inicio";
 
 .main-wrapper-negocios {
   width: 100%;
-  background-color: $quikenKLightGrey;
-  background-image: url(#{$assetPath}/Quiken_Ecommerce.png);
-  background-repeat: no-repeat;
-  height: 450px;
-  display: flex;
-  background-size: cover;
-  background-position: center;
-  flex-direction: row;
-  align-items: center;
+  background-color: $manuableKLightGrey;
+  display: block;
+  position: relative;
+  height: 600px;
+  overflow: hidden;
   @include media("<large-phone") {
     display: none;
   }
 }
 
+.negocios-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
 .paragraph-section {
-  color: $quikenWhite;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  color: $manuableWhite;
   font-family: $quikenFont;
   font-size: 22px;
   font-weight: 400;

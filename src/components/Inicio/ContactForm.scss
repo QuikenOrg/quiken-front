@@ -87,7 +87,7 @@
 
 .sub-paragraph-form {
   font-family: $quikenFont;
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   padding-top: 5px;
   font-size: 15px;
   font-weight: 600;
@@ -98,7 +98,7 @@
 }
 
 .sub-paragraph-form span {
-  color: $quikenRed;
+  color: $manuableRed;
   align-self: flex-start;
 }
 
@@ -107,7 +107,7 @@
   padding: 15px;
   border-radius: 9px;
   border: 1px solid grey;
-  background-color: $quikenKLightGrey;
+  background-color: $manuableKLightGrey;
   height: 70px;
   @include media("<tablet") {
     width: 100%;
@@ -125,8 +125,8 @@
 }
 
 .btn-contact-form {
-  color: $quikenWhite;
-  background-color: $quikenRed;
+  color: $manuableLightPurple;
+  background-color: $manuablelightYellow;
   height: 45px;
   width: 150px;
   font: $quikenFont;
@@ -145,7 +145,7 @@
 }
 
 .forgotpassword-screen__subtext {
-  color: $quikenDarkBlue;
+  color: $manuableLightPurple;
   font-size: 15px;
   font-family: $quikenFont;
   font-weight: 900;
@@ -154,7 +154,7 @@
 }
 
 .forgotpassword-screen__title {
-  color: $quikenRed;
+  color: $manuableRed;
   font-size: 35px;
   font-family: $quikenFont;
   font-weight: 900;
@@ -169,7 +169,7 @@
 
 .error-message {
   font-family: $quikenFont;
-  color: $quikenRed;
+  color: $manuableRed;
   font-size: 12px;
   font-weight: 600;
 }

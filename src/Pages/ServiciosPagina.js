@@ -20,13 +20,13 @@ import { Helmet } from "react-helmet";
 //Imagenes
 // import imgPaqueteriaLocal from '../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Paqueteria_Local_Quiken.png'
 // import ContactForm from '../components/Inicio/ContactForm'
-import RepartidorQuiken from "../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Quiken_Ofrecemos.png";
+import RepartidorQuiken from "../assets/Servicios Quiken /SERVICIOS/Servicios Quiken imagenes/Manuable_Ofrecemos.png";
 
 const ServiciosPagina = () => {
   return (
     <>
       <Helmet>
-        <title>Quiken Servicios</title>
+        <title>Manuable Servicios</title>
         <meta
           name="description"
           content="Servicios de paqueteria y fulfilment en México"
@@ -115,7 +115,7 @@ const ServiciosPagina = () => {
               <div className="rastrea-tu-pedido-placeholder">
                 <div className="row-div-btn">
                   <Link to="/">
-                    <button className="btn-register-red">REGISTRO</button>
+                    <button className="btn-register-purple">REGISTRO</button>
                   </Link>
                   <Link className="navbar-link" to="/contacto">
                     <button className="btn-contactanos">CONTÁCTANOS</button>
@@ -132,7 +132,7 @@ const ServiciosPagina = () => {
               <div className="paqueteria-local-section1">
                 <h2 className="heading-paqueteria-local">Paquetería Local</h2>
                 <p className="paragraph-paqueteria-local">
-                  Quiken es la empresa pionera y líder en paqueteria enfocada en
+                  Manuable es la empresa pionera y líder en paqueteria enfocada en
                   ecommerce en Nuevo León.
                 </p>
 
@@ -163,7 +163,7 @@ const ServiciosPagina = () => {
                   Guanajuato y Chihuahua.
                 </p>
                 <Link to="/servicios" className="link-registrate-btn">
-                  <button className="btn-register-red">REGISTRATE</button>
+                  <button className="btn-register-purple">REGISTRATE</button>
                 </Link>
               </div>
               <div className="envios-nacionales-section2"></div>
@@ -179,7 +179,7 @@ const ServiciosPagina = () => {
                   cualquier parte del mundo.
                 </p>
                 <Link to="/servicios" className="link-registrate-btn">
-                  <button className="btn-register-red">REGISTRATE</button>
+                  <button className="btn-register-purple">REGISTRATE</button>
                 </Link>
               </div>
               <div className="envios-internacioanles-section2"></div>
@@ -189,7 +189,7 @@ const ServiciosPagina = () => {
 
             <div className="servicio-fulfillment">
               <div className="fulfillment-section1">
-                <h2 className="heading-fulfillment">Quiken Fulfillment</h2>
+                <h2 className="heading-fulfillment">Manuable Fulfillment</h2>
                 <h2 className="subheading-fulfillment">
                   (Almacenaje y Pick&Pack)
                 </h2>
@@ -248,9 +248,9 @@ const ServiciosPagina = () => {
                   <h2 className="text-mas-info-suministros">
                     Para más información, contáctanos:
                   </h2>
-                  <a href="mailto:suministros@quiken.ms">
+                  <a href="mailto:suministros@manuable.com">
                     <button className="btn-register-white">
-                      suministros@quiken.mx
+                      suministros@manuable.com
                     </button>
                   </a>
                 </div>
@@ -278,9 +278,9 @@ const ServiciosPagina = () => {
                   </p>
                   <br />
                   <p className="paragraph-que-ofrecemos">
-                    Con Quiken logramos combinar los beneficios de tener
+                    Con Manuable logramos combinar los beneficios de tener
                     personal apto y calificado, sin los riesgos y costos extras
-                    que esto implica. En Quiken queremos brindar la mejor
+                    que esto implica. En Manuable queremos brindar la mejor
                     calidad en servicios de logística tanto para empresas como
                     comercios y personas físicas, para ello buscamos ofrecer un
                     servicio que exceda las expectativas de nuestros clientes y

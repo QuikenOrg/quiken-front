@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router";
-import Navbar from "../components/Navbar/NavbarManuable";
+import Navbar from "../components/Navbar/Navbar";
 import "./RastreoPagina.scss";
 import styled from "styled-components";
 import IconoRastreo from "../assets/Inicio/Icono_rastreo-43.svg";
-import Footer from "../components/Footer/FooterManuable";
+import Footer from "../components/Footer/Footer";
 import ShippingInformation from "../components/Tracking/ShippingInformation";
 import FloatingWhatsApp from "../components/Others/WhatsappBtn";
 import { Helmet } from "react-helmet";

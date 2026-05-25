@@ -50,20 +50,22 @@
 
 .navbar-link {
   text-decoration: none;
-  color: $quikenDarkBlue;
+  color: $manuableDarkGrey;
   font-family: $quikenFont;
   font-weight: $quikenFontWeightMedium;
   @include media("<tablet") {
-    color: $quikenDarkBlue;
+    color: $manuableDarkGreyFooter;
     font-size: 30px;
   }
   &:hover {
-    color: $quikenRed;
+    color: $manuablePurple;
   }
 }
 
-.quiken-logo {
-  height: 90%;
+.manuable-logo {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
   @include media("<tablet") {
     height: 80%;
   }
