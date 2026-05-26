@@ -97,7 +97,9 @@ const FulfillmentPagina = () => {
             Integra tu tienda en línea con nuestro WMS
           </h3>
           <p className="paragraph-1-warehouse">(Warehouse Management System)</p>
-          <button className="registrate-wms-btn">REGÍSTRATE</button>
+          <a href="https://manuable.com" target="_blank" rel="noreferrer">
+            <button className="registrate-wms-btn">REGÍSTRATE</button>
+          </a>
         </div>
         <div className="image-palceholder-icons-wms">
           <img
