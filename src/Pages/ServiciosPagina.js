@@ -141,7 +141,7 @@ const ServiciosPagina = () => {
                   día y día siguiente (24-36 hrs.) en el área metropolitana de
                   Nuevo León, Ciudad de México, León y Querétaro.
                 </p>
-                <Link to="/servicios" className="link-registrate-btn">
+                <Link to="/signup" className="link-registrate-btn">
                   <button className="btn-register-white">REGISTRATE</button>
                 </Link>
               </div>
@@ -162,9 +162,9 @@ const ServiciosPagina = () => {
                   San Luis Potosí, Veracruz, Ciudad de México, Queretaro,
                   Guanajuato y Chihuahua.
                 </p>
-                <Link to="/servicios" className="link-registrate-btn">
+                <a href="https://manuable.com/" className="link-registrate-btn" target="_blank">
                   <button className="btn-register-purple">REGISTRATE</button>
-                </Link>
+                </a>
               </div>
               <div className="envios-nacionales-section2"></div>
             </div>
@@ -178,9 +178,9 @@ const ServiciosPagina = () => {
                   Tus envíos internacionales con nuestros aliados para llegar a
                   cualquier parte del mundo.
                 </p>
-                <Link to="/servicios" className="link-registrate-btn">
+                <a href="https://manuable.com/" className="link-registrate-btn" target="_blank">
                   <button className="btn-register-purple">REGISTRATE</button>
-                </Link>
+                </a>
               </div>
               <div className="envios-internacioanles-section2"></div>
             </div>
