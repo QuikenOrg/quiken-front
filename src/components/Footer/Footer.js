@@ -57,12 +57,13 @@ const Footer = () => {
         <div className="icon-text-row-wrapper">
           <img src={locationIcon} className="contact-icon" />
           <p className="paragraph-contact">
-            Av. Ruiz Cortines No. 3123-A, 3123-B, Mitras Centro, C.P. 64320 Monterrey, Nuevo Nuevo León, México.
+            Av. Ruiz Cortines No. 3123-A, 3123-B, Mitras Centro, C.P. 64320
+            Monterrey, Nuevo Nuevo León, México.
           </p>
         </div>
         <div className="icon-text-row-wrapper">
           <img src={phoneIcon} className="contact-icon" alt="phone-icon" />
-          <p className="paragraph-contact">(+52) 81 2196 5087</p>
+          <p className="paragraph-contact">(+52) 81 2622 1478</p>
         </div>
         <div className="icon-text-row-wrapper">
           <img src={mailIcon} className="contact-icon" alt="mail-icon" />
@@ -77,12 +78,8 @@ const Footer = () => {
             padding: "5px",
           }}
         >
-          <LinkFooter target="_blank">
-            Terminos y condiciones
-          </LinkFooter>
-          <LinkFooter target="_blank">
-            Aviso de privacidad
-          </LinkFooter>
+          <LinkFooter target="_blank">Terminos y condiciones</LinkFooter>
+          <LinkFooter target="_blank">Aviso de privacidad</LinkFooter>
         </div>
       </div>
     </div>
