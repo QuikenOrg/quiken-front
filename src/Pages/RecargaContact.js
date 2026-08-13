@@ -15,12 +15,13 @@ const RecargaContact = () => {
           <div className="message">
             <br />
             <br />
-            Si deseas agregar saldo a tu cuenta, por favor comunícate con nuestro equipo de soporte:
+            Si deseas agregar saldo a tu cuenta, por favor comunícate con
+            nuestro equipo de soporte:
             <ul>
               <br />
               <li>💬 WhatsApp: +52 811 661 8597</li>
               <br />
-              <li>✉️ Correo: hola@manuable.com </li>
+              <li>✉️ Correo: contacto@manuable.com </li>
             </ul>
           </div>
         </div>

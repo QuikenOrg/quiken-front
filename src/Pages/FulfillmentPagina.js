@@ -228,8 +228,8 @@ const FulfillmentPagina = () => {
             <p className="paragraph-mas-info-ubicaciones">
               ¿Quieres más información?
             </p>
-            <a href="mailto:hola@manuable.com" className="mail-to-hola-quiken">
-              hola@manuable.com
+            <a href="mailto:contacto@manuable.com" className="mail-to-hola-quiken">
+              contacto@manuable.com
             </a>
           </div>
 

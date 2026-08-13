@@ -3,8 +3,8 @@ import "./BtnMail.scss";
 
 const BtnMail = () => {
   return (
-    <a href="mailto:hola@quiken.mx">
-      <button className="btn-white">Hola@manuable.com</button>
+    <a href="mailto:contacto@manuable.com">
+      <button className="btn-white">contacto@manuable.com</button>
     </a>
   );
 };
