@@ -63,11 +63,11 @@ const Footer = () => {
         </div>
         <div className="icon-text-row-wrapper">
           <img src={phoneIcon} className="contact-icon" alt="phone-icon" />
-          <p className="paragraph-contact">(+52) 81 2622 1478</p>
+          <p className="paragraph-contact">(+52) 81 318 491 21</p>
         </div>
         <div className="icon-text-row-wrapper">
           <img src={mailIcon} className="contact-icon" alt="mail-icon" />
-          <p className="paragraph-contact">hola@manuable.com</p>
+          <p className="paragraph-contact">contacto@manuable.com</p>
         </div>
         <div
           className="icon-text-row-wrapper"
